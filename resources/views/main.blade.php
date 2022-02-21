@@ -1,5 +1,8 @@
 @extends('layouts.master')
 
 <h1 class="text-3xl font-bold underline">
-testing commits
+  <div>
+    testing commits
+
+  </div>
 </h1>
