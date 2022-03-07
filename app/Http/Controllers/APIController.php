@@ -62,8 +62,5 @@ class APIController extends BaseController
           
         }
       }
-      $data = DB::table('players')->get();
-
-      return view('/main')->with(['data' => $data]);
     }
 }

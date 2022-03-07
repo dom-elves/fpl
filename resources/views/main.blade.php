@@ -10,7 +10,7 @@
    <example-component></example-component>
 
    <player></player>
-   
+
   </div>
 
   <div>
@@ -23,6 +23,7 @@
         <th>add more</th>
       </tr>
 
+        <!-- consider changing this to loop into <player> components, or create a separate view entirely -->
         @foreach ($data as $player)
           <tr>
             <td>{{ $player->first_name }} {{ $player->last_name }}</td>
@@ -32,6 +33,7 @@
             <td> add more </td>
           </tr>
         @endforeach  
+
     </table>
   </div>
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\APIController;
+use App\Http\Controllers\DataController;
 use App\Http\Controllers\LiveTableController;
 
 /*
@@ -19,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/main', [APIController::class, 'request']);
+Route::get('/main', [DataController::class, 'index']);
 
 
 // Route::get('/test', function () {
