@@ -9,15 +9,30 @@
 
    <example-component></example-component>
 
+   <player></player>
+   
   </div>
 
   <div>
-    <!-- {{ $data }} -->
-    @foreach ($data as $player)
+    <table>
 
-      <p class="m-0">{{ $player->first_name }} {{ $player->last_name}}</p>
+      <tr>
+        <!-- add search feature for players after player component is built -->
+        <th>Player</th>
+        <th>Points</th>
+        <th>add more</th>
+      </tr>
 
-    @endforeach
+        @foreach ($data as $player)
+          <tr>
+            <td>{{ $player->first_name }} {{ $player->last_name }}</td>
+
+            <td>{{ $player->total_points_season }}</td>
+
+            <td> add more </td>
+          </tr>
+        @endforeach  
+    </table>
   </div>
 
 
