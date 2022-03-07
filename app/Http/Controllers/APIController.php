@@ -24,11 +24,11 @@ class APIController extends BaseController
       
       $players = $decoded->elements;
 
-      $data = DB::table('players')->get()->first();
+      $query = DB::table('players')->get()->first();
 
       // dd($players);
 
-      if ($data) {
+      if ($query) {
         DB::table('players')->truncate();
 
         foreach ($players as $player) {
@@ -62,7 +62,8 @@ class APIController extends BaseController
           
         }
       }
+      $data = DB::table('players')->get();
 
-      return view('/main');
+      return view('/main')->with(['data' => $data]);
     }
 }
