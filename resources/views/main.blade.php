@@ -7,7 +7,7 @@
   </div>
 
   <div id="app">
-   <!-- <example-component></example-component> -->
+   <example-component></example-component>
   </div>
 
 </h1>
