@@ -15,6 +15,7 @@ class DataController extends Controller
         return view('/main')->with(['data' => $data]);
     }
 
+    //acts as updating api data from 'update' button on /main
     public function update()
     {
         APIController::request();

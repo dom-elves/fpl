@@ -13,10 +13,15 @@
 
   </div>
 
-  <div>
-      <a href="update" class="text-3xl font-bold text-white bg-green-400 p-10">Update</a>
-  </div>
+  <div class="flex flex-row">
+    <div>
+        <a href="update-players" class="text-3xl font-bold text-white bg-green-400 p-10">Update Players</a>
+    </div>
 
+    <div>
+        <a href="update-table" class="text-3xl font-bold text-white bg-red-400 p-10">Ignore</a>
+    </div>
+  </div>
   <div>
     <table>
 

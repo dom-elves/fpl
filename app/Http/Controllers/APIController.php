@@ -17,8 +17,10 @@ class APIController extends BaseController
 
     public function request()
     {
+      // $response = Http::get('https://livescore-api.com/api-client/leagues/table.json?competition_id=2&key=zSUkiv35BXJFK7hE&secret=n6uE0qUtBMfqdlINeD7x9bCK8mpTtHxQ');
       $response = Http::get('https://fantasy.premierleague.com/api/bootstrap-static/');
-
+      // $response = Http::get('https://rapidapi.com/heisenbug/api/premier-league-live-scores');
+      
       $decoded = json_decode($response->body());
       
       $players = $decoded->elements;
