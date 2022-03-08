@@ -24,12 +24,7 @@ Route::get('/', function () {
 Route::get('/main', [DataController::class, 'index']);
 
 //generates views based on player selected
-Route::get('/player/{id}', function ($id) {
-
-    $data = DB::table('players')->where('id', '=', $id)->get();
-    
-    return view('player')->with(['data' => $data]);
-});
+Route::get('/player/{id}', [DataController::class, 'returnSelectedPlayer']);
 
 // Route::get('/test', function () {
 //   return view('test');
