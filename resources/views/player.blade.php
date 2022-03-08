@@ -3,7 +3,9 @@
 <player></player>
 
 <table> <!--sort out stuff that's applicable to positions, after player position is done, may need total restructure -->
-    <th>Player</th>
+    <tr>
+        <th class="text-center" colspan="3">Player</th>
+    </tr>
     <tr>
         <td>First Name</td>
         <td>Last Name</td>
@@ -15,7 +17,9 @@
         <td>{{ $player->team }}</td>
     </tr>
 
-    <th>Points</th>
+    <tr>
+        <th class="text-center" colspan="3">Points</th>
+    </tr>
     <tr>
         <td>Total Points</td>
         <td>Points this week</td>
@@ -27,7 +31,9 @@
         <td>{{ $player->points_per_game }}<td>
     </tr>
 
-    <th>Bonus Points</th>
+    <tr>
+        <th class="text-center" colspan="3">Bonus Points</th>
+    </tr>
     <tr>
         <td>Bonus Total Season</td>
         <td>Bonus This Week</td>
@@ -39,7 +45,9 @@
         <td>TDB</td>
     </tr>
 
-    <th>Cost</th>
+    <tr>
+        <th class="text-center" colspan="3">Cost</th>
+    </tr>
     <tr>
         <td>Start Cost</td>
         <td>Current Cost</td>
@@ -51,7 +59,9 @@
         <td>TBD</td><!-- find something to put here-->
     </tr>
 
-    <th>Goals</th>
+    <tr>
+        <th class="text-center" colspan="3">Goals</th>
+    </tr>
     <tr>
         <td>Goals Scored</td>
         <td>Goals Assisted</td>
@@ -63,7 +73,9 @@
         <td>{{ $player->own_goals }}</td>
     </tr>
 
-    <th>Defence</th>
+    <tr>
+        <th class="text-center" colspan="3">Defence</th>
+    </tr>
     <tr>
         <td>Goals Conceded</td>
         <td>Clean Sheets</td>
@@ -75,7 +87,9 @@
         <td>TBD</td>
     </tr>
 
-    <th>Keeper Stats</th>
+    <tr>
+        <th class="text-center" colspan="3">Keeper Stats</th>
+    </tr>
     <tr>
         <td>Saves</td>
         <td>Penalties Saved</td>
@@ -86,7 +100,9 @@
         <td>{{ $player->clean_sheets }}</td>
     </tr>
 
-    <th>Misc.</th>
+    <tr>
+        <th class="text-center" colspan="3">Misc.</th>
+    </tr>
     <tr>
         <td>Yellow Cards</td>
         <td>Red Cards</td>
@@ -97,7 +113,9 @@
         <td>{{ $player->penalties_missed }}</td>            
     </tr>
 
-    <th>Popularity</th>
+    <tr>
+        <th class="text-center" colspan="3">Popularity</th>
+    </tr>
     <tr>
         <td>Transfers in</td>
         <td>Transfers out</td>
