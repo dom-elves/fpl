@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1>player component</h1>
+        <p>player component</p>
     </div>
 </template>
 

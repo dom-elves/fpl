@@ -28149,7 +28149,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
-      _c("h1", [_vm._v("player component")]),
+      _c("p", [_vm._v("player component")]),
     ])
   },
 ]

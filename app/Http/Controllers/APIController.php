@@ -32,7 +32,7 @@ class APIController extends BaseController
         DB::table('players')->truncate();
 
         foreach ($players as $player) {
-          //figure out how to add individual rank and historical costs and total games 
+          //figure out how to add individual rank, team, historical costs and total games 
           DB::table('players')->insert([
             'first_name' => $player->first_name,
             'last_name' => $player->second_name,

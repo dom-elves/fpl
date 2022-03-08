@@ -26,11 +26,10 @@
         <!-- consider changing this to loop into <player> components, or create a separate view entirely -->
         @foreach ($data as $player)
           <tr>
-            <td>{{ $player->first_name }} {{ $player->last_name }}</td>
+            <td><a href="/player/{{ $player->id }}">{{ $player->first_name }} {{ $player->last_name }}</a></td>
 
             <td>{{ $player->total_points_season }}</td>
 
-            <td> add more </td>
           </tr>
         @endforeach  
 
