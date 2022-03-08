@@ -26,6 +26,12 @@ Route::get('/main', [DataController::class, 'index']);
 //generates views based on player selected
 Route::get('/player/{id}', [DataController::class, 'returnSelectedPlayer']);
 
+//runs API call - used by 'update' button on main page
+Route::get('/update', [APIController::class, 'request']);
+
+
+
+
 // Route::get('/test', function () {
 //   return view('test');
 // });

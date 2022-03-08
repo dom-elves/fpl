@@ -33,7 +33,6 @@ return new class extends Migration
             $table->integer('yellow_cards')->nullable();
             $table->integer('red_cards')->nullable();
             $table->integer('saves')->nullable();
-            $table->integer('bonus_points_week')->nullable();
             $table->integer('bonus_points_season')->nullable();
             $table->integer('form')->nullable();
             $table->integer('minutes_season')->nullable();

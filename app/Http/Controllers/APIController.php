@@ -17,7 +17,6 @@ class APIController extends BaseController
 
     public function request()
     {
-
       $response = Http::get('https://fantasy.premierleague.com/api/bootstrap-static/');
 
       $decoded = json_decode($response->body());
@@ -26,7 +25,7 @@ class APIController extends BaseController
 
       $query = DB::table('players')->get()->first();
 
-      // dd($players);
+      // dd($players[373]);
 
       if ($query) {
         DB::table('players')->truncate();
@@ -52,14 +51,12 @@ class APIController extends BaseController
             'yellow_cards' => $player->yellow_cards,
             'red_cards' => $player->red_cards,
             'saves' => $player->saves,
-            'bonus_points_week' => $player->bonus,
-            'bonus_points_season' => $player->bps,
+            'bonus_points_season' => $player->bonus,
             'form' => $player->form,
             'minutes_season' => $player->minutes,
             'transfers_in_week' => $player->transfers_in_event,
             'transfers_out_week' => $player->transfers_out_event,
           ]);
-          
         }
       }
     }

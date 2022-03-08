@@ -1,16 +1,20 @@
 @extends('layouts.master')
 
-<h1 class="text-3xl font-bold underline"></h1>
+<h1 class="text-3xl font-bold underline">fpl</h1>
   <div>
 
   </div>
 
   <div id="app">
 
-   <example-component></example-component>
+    <example-component></example-component>
 
-   <player></player>
+    <player></player>
 
+  </div>
+
+  <div>
+      <a href="update" class="text-3xl font-bold text-white bg-green-400 p-10">Update</a>
   </div>
 
   <div>
@@ -29,7 +33,7 @@
             <td><a href="/player/{{ $player->id }}">{{ $player->first_name }} {{ $player->last_name }}</a></td>
 
             <td>{{ $player->total_points_season }}</td>
-
+            <td>{{ $player->id }}</td>
           </tr>
         @endforeach  
 

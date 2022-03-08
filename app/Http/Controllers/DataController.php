@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\APIController;
 
 class DataController extends Controller
 {
@@ -12,6 +13,11 @@ class DataController extends Controller
         $data = DB::table('players')->get();
 
         return view('/main')->with(['data' => $data]);
+    }
+
+    public function update()
+    {
+        APIController::request();
     }
 
     public function returnSelectedPlayer($id)
