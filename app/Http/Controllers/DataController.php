@@ -27,10 +27,10 @@ class DataController extends Controller
     public function returnSelectedPlayer($id)
     {
         $collection = DB::table('players')->where('id', '=', $id)->get();
-    
-        $player = (object)collect($collection);
-
-        return view('player')->with(['player' => $player[0]]); 
+        
+        $player = $collection[0]; //figure out how to take the object out of the array, casting to object doesn't work somehow?
+        
+        return view('player')->with(['player' => $player]); 
     }
 
     public function returnPlayerAverages()
