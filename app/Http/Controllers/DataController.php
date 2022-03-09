@@ -33,10 +33,11 @@ class DataController extends Controller
         return view('player')->with(['player' => $player]); 
     }
 
-    public function returnPlayerAverages()
-    {
-        $averageCost = DB::table('players')->avg('current_cost');
+    // public function returnPlayerAverages()
+    // {
+    //     $averageCost = DB::table('players')->avg('current_cost');
 
-        dd($averageCost);
-    }
+    //     dd($averageCost);
+    // }
+
 }

@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
+@section('content')
 <h1 class="text-3xl font-bold underline">fpl</h1>
-
-
-<div id="app">
 
   <example-component></example-component>
 
-  <div class="flex flex-row">
+  <game-weeks></game-weeks>
+
+  <div class="flex flex-row m-20">
     <div>
         <a href="update-players" class="text-3xl font-bold text-white bg-green-400 p-10">Update Players</a>
     </div>
@@ -16,6 +16,7 @@
         <a href="update-table" class="text-3xl font-bold text-white bg-red-400 p-10">Ignore</a>
     </div>
   </div>
+
   <div>
     <table>
 
@@ -41,5 +42,5 @@
 
     </table>
   </div>
-</div>
 
+@endsection

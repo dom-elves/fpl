@@ -63,4 +63,15 @@ class APIController extends BaseController
         }
       }
     }
+
+    public function requestGameweeks() 
+    {
+      $response = Http::get('https://fantasy.premierleague.com/api/bootstrap-static/');
+
+      $decoded = json_decode($response->body());
+
+      $gameweeks = $decoded->events;
+      
+      return view('/gameweeks')->with(['gameweeks' => $gameweeks]);
+    }
 }

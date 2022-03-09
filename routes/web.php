@@ -30,6 +30,8 @@ Route::get('/player/{id}', [DataController::class, 'returnSelectedPlayer']);
 //runs API call for player data- used by 'update' button on main page
 Route::get('/update-players', [APIController::class, 'request']);
 
+Route::get('/gameweeks', [APIController::class, 'requestGameweeks']);
+
 //runs API call for table data - same as above
 // Route::get('/update-table', [TableAPIController::class, 'request']);
 

@@ -1,14 +1,13 @@
 @extends('layouts.master')
 
-<div id="app">
+@section('content')
+
 
     <!-- <example-component></example-component> -->
     
     <!-- can accept $player from main.blade as $data resides in the foreach loop -->
+
     <player v-bind:player="{{ json_encode($player) }}"></player>
-
-  </div>
-
 
 
 <!-- <div class="w-4/5 flex flex-column align-center">
@@ -156,7 +155,7 @@
 </div> -->
     <!-- {{ $player->form }} -->
     <!-- {{ $player->minutes_season }} -->
-
+@endsection
 <style>
 
     td {
