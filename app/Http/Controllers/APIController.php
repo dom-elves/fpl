@@ -24,7 +24,7 @@ class APIController extends BaseController
       $decoded = json_decode($response->body());
       
       $players = $decoded->elements;
-
+      // dd($players);
       $query = DB::table('players')->get()->first();
 
       // dd($players[373]);

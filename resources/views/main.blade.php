@@ -33,9 +33,7 @@
 
             <td>{{ $player->total_points_season }}</td>
             <td>{{ $player->id }}</td>
-            
-            <!-- <td><player v-bind:player="{{ $player->team }}"></player></td> -->
-            <!-- <player v-bind:player="{{ $player->team }}"></player> -->
+            <td>{{ $player->minutes_season }}
           </tr>
           
 

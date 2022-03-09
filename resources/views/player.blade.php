@@ -11,8 +11,8 @@
 
 
 
-<div class="w-4/5 flex flex-column align-center">
-    <table> <!--sort out stuff that's applicable to positions, after player position is done, may need total restructure -->
+<!-- <div class="w-4/5 flex flex-column align-center">
+    <table> 
         <tr>
             <th class="text-center" colspan="3">Player</th>
         </tr>
@@ -67,12 +67,12 @@
         <tr>
             <td>Start Cost</td>
             <td>Current Cost</td>
-            <td>TBD</td><!-- find something to put here-->
+            <td>TBD</td>
         </tr>
         <tr>
             <td>{{ $player->start_cost }}</td>
             <td>{{ $player->current_cost }}</td>
-            <td>TBD</td><!-- find something to put here-->
+            <td>TBD</td>
         </tr>
     </table>  
 
@@ -150,10 +150,10 @@
         <tr>
             <td>{{ $player->transfers_in_week }}</td>
             <td>{{ $player->transfers_out_week }}</td>
-            <td>TBD</td><!-- figure out how to calc dif, maybe with js? -->
+            <td>TBD</td>
         </tr>
     </table>
-</div>
+</div> -->
     <!-- {{ $player->form }} -->
     <!-- {{ $player->minutes_season }} -->
 
@@ -161,14 +161,14 @@
 
     td {
         text-align: center;
-        width: 200px;
+        /* width: 200px; */ 
         padding: 3px;
     }
 
     table {
         margin: 10px;
         border: 2px solid black;
-        width: 600px;
+        /* width: 600px; */
     }
 
     th {

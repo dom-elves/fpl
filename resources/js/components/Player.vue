@@ -1,7 +1,22 @@
 <template>
-    <div class="container">
-        <p>player component</p>
+    <div>
         <p>{{ this.player }}</p>
+        <p>Minutes</p>
+        <p>{{ this.player.minutes_season }}</p>
+
+        <div class="container">
+            <table>
+                <tr>
+                    <th>Cost</th>
+                    <th>Average Cost</th>
+                </tr>
+
+                <tr>
+                    <td>{{ this.player.current_cost }}</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
     </div>
 </template>
 

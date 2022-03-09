@@ -31,7 +31,7 @@ Route::get('/player/{id}', [DataController::class, 'returnSelectedPlayer']);
 Route::get('/update-players', [APIController::class, 'request']);
 
 //runs API call for table data - same as above
-Route::get('/update-table', [TableAPIController::class, 'request']);
+// Route::get('/update-table', [TableAPIController::class, 'request']);
 
 
 
