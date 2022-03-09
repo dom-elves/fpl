@@ -23,7 +23,7 @@
         <!-- add search feature for players after player component is built -->
         <th>Player</th>
         <th>Points</th>
-        <th>add more</th>
+        <th>Player ID</th>
       </tr>
 
         <!-- consider changing this to loop into <player> components, or create a separate view entirely -->
@@ -33,7 +33,7 @@
 
             <td>{{ $player->total_points_season }}</td>
             <td>{{ $player->id }}</td>
-            <td>{{ $player->minutes_season }}
+            <td>{{ $player->player_id }}
           </tr>
           
 

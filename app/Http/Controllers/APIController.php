@@ -22,12 +22,12 @@ class APIController extends BaseController
       // $response = Http::get('https://rapidapi.com/heisenbug/api/premier-league-live-scores');
       
       $decoded = json_decode($response->body());
-      
+      // dd($decoded);
       $players = $decoded->elements;
       // dd($players);
       $query = DB::table('players')->get()->first();
 
-      // dd($players[373]);
+      // dd($players[430]);
 
       if ($query) {
         DB::table('players')->truncate();
@@ -35,6 +35,7 @@ class APIController extends BaseController
         foreach ($players as $player) {
           //figure out how to add individual rank, team, historical costs and total games 
           DB::table('players')->insert([
+            'player_id' => $player->id,
             'first_name' => $player->first_name,
             'last_name' => $player->second_name,
             'team' => $player->team,
