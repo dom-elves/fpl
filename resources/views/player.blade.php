@@ -1,5 +1,16 @@
 @extends('layouts.master')
 
+<div id="app">
+
+    <!-- <example-component></example-component> -->
+    
+    <!-- can accept $player from main.blade as $data resides in the foreach loop -->
+    <player v-bind:player="{{ json_encode($player) }}"></player>
+
+  </div>
+
+
+
 <div class="w-4/5 flex flex-column align-center">
     <table> <!--sort out stuff that's applicable to positions, after player position is done, may need total restructure -->
         <tr>

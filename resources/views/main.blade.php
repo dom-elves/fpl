@@ -1,17 +1,11 @@
 @extends('layouts.master')
 
 <h1 class="text-3xl font-bold underline">fpl</h1>
-  <div>
 
-  </div>
 
-  <div id="app">
+<div id="app">
 
-    <example-component></example-component>
-
-    <player></player>
-
-  </div>
+  <example-component></example-component>
 
   <div class="flex flex-row">
     <div>
@@ -39,10 +33,15 @@
 
             <td>{{ $player->total_points_season }}</td>
             <td>{{ $player->id }}</td>
+            
+            <!-- <td><player v-bind:player="{{ $player->team }}"></player></td> -->
+            <!-- <player v-bind:player="{{ $player->team }}"></player> -->
           </tr>
+          
+
         @endforeach  
 
     </table>
   </div>
-
+</div>
 
