@@ -6,6 +6,7 @@
 
     <body id="master-body">
 
+    <h1 class="text-3xl font-bold underline">fpl thing</h1>
         <div id="app">
 
             @yield('content') <!-- refers to all -->

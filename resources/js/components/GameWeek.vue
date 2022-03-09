@@ -7,9 +7,11 @@
 <script>
     export default {
 
+        props: ['gameweek'],
+
         mounted() {
             
-            console.log('gameweek mounted');
+            console.log(this.gameweek)
 
         }
     }

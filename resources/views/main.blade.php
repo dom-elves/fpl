@@ -1,11 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
-<h1 class="text-3xl font-bold underline">fpl</h1>
 
   <example-component></example-component>
 
-  <game-weeks></game-weeks>
+  <!-- <game-weeks></game-weeks> -->
 
   <div class="flex flex-row m-20">
     <div>
@@ -16,7 +15,7 @@
         <a href="update-table" class="text-3xl font-bold text-white bg-red-400 p-10">Ignore</a>
     </div>
   </div>
-
+  
   <div>
     <table>
 
@@ -27,7 +26,7 @@
         <th>Player ID</th>
       </tr>
 
-        <!-- consider changing this to loop into <player> components, or create a separate view entirely -->
+        
         @foreach ($data as $player)
           <tr>
             <td><a href="/player/{{ $player->id }}">{{ $player->first_name }} {{ $player->last_name }}</a></td>

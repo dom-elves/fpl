@@ -23,7 +23,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 Vue.component('player', require('./components/Player.vue').default);
 
-Vue.component('game-weeks', require('./components/GameWeeks.vue').default);
+Vue.component('game-week', require('./components/GameWeek.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

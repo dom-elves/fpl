@@ -71,7 +71,7 @@ class APIController extends BaseController
       $decoded = json_decode($response->body());
 
       $gameweeks = $decoded->events;
-      
+      // dd($gameweeks[0]);
       return view('/gameweeks')->with(['gameweeks' => $gameweeks]);
     }
 }
