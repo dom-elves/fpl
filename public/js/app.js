@@ -5405,10 +5405,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['gameweek'],
   mounted: function mounted() {
     console.log(this.gameweek);
+    console.log(this.gameweek.top_element_info.points);
   }
 });
 
@@ -28270,18 +28291,46 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "w-[200px] m-10" }, [
+    _c("p", [_vm._v(_vm._s(this.gameweek.name))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Highest Scoring squad")]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(this.gameweek.highest_score))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Average Squad Score")]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(this.gameweek.average_entry_score))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Most Selected Player")]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(this.gameweek.most_selected))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Highest Scoring Player (score)")]),
+    _vm._v(" "),
+    _c("p", [
+      _vm._v(
+        _vm._s(this.gameweek.top_element) +
+          " ( " +
+          _vm._s(this.gameweek.top_element_info.points) +
+          " )"
+      ),
+    ]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Most Captained Player")]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(this.gameweek.most_captained))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Most Vice-Captained Player")]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(this.gameweek.most_vice_captained))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Most Transferred-In Player")]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(this.gameweek.most_transferred_in))]),
+  ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("p", [_vm._v("this is the gameweeks component (working)")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

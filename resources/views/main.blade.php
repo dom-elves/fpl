@@ -33,7 +33,7 @@
             <td><a href="/player/{{ $player->id }}">{{ $player->first_name }} {{ $player->last_name }}</a></td>
 
             <td>{{ $player->total_points_season }}</td>
-            <td>{{ $player->id }}</td>
+            <!-- <td>{{ $player->id }}</td> -->
             <td>{{ $player->player_id }}
           </tr>
           
