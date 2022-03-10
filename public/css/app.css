@@ -11833,18 +11833,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-auto {
   width: auto;
 }
-.w-1\/3 {
-  width: 33.333333%;
-}
-.w-full {
-  width: 100%;
-}
-.w-\[100px\] {
-  width: 100px;
-}
-.w-\[150px\] {
-  width: 150px;
-}
 .w-\[200px\] {
   width: 200px;
 }
@@ -11856,6 +11844,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .flex-row {
   flex-direction: row;
+}
+.flex-wrap {
+  flex-wrap: wrap;
 }
 .items-center {
   align-items: center;

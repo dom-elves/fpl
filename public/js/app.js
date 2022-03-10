@@ -5425,11 +5425,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['gameweek'],
-  mounted: function mounted() {
-    console.log(this.gameweek);
-    console.log(this.gameweek.top_element_info.points);
+  created: function created() {
+    // console.log(this.gameweek);
+    // console.log(this.gameweek.top_element_info.points);
+    this.getPlayerInfo();
+  },
+  methods: {
+    getPlayerInfo: function getPlayerInfo() {
+      var playerInfo = this.gameweek.top_element_info;
+      console.log(playerInfo, this.gameweek.name);
+    }
   }
 });
 
