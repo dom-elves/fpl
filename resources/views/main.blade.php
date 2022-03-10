@@ -12,8 +12,9 @@
     </div>
 
     <div>
-        <a href="update-table" class="text-3xl font-bold text-white bg-red-400 p-10">Ignore</a>
+        <a href="gameweeks" class="text-3xl font-bold text-white bg-blue-400 p-10">Gameweeks</a>
     </div>
+
   </div>
   
   <div>

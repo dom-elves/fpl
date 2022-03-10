@@ -18,11 +18,11 @@ class DataController extends Controller
         return view('/main')->with(['data' => $data]);
     }
 
-    //acts as updating api data from 'update' button on /main
-    public function update()
-    {
-        APIController::request();
-    }
+    // //acts as updating api data from 'update' button on /main
+    // public function update()
+    // {
+    //     APIController::request();
+    // }
 
     //for some reason, object returns in an array - making it always pos 0 takes it out of array 
     public function returnSelectedPlayer($id)
