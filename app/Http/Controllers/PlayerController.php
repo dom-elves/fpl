@@ -15,7 +15,27 @@ class APIController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function request()
+    //returns player data
+    public function index()
+    {
+        $data = DB::table('players')->get();
+
+        return view('/main')->with(['data' => $data]);
+    }
+
+    
+    //for some reason, object returns in an array - making it always pos 0 takes it out of array 
+    public function returnSelectedPlayer($id)
+    {
+        $collection = Player::where('id', '=', $id)->get();
+        
+        $player = $collection[0]; //figure out how to take the object out of the array, casting to object doesn't work somehow?
+        
+        return view('player')->with(['player' => $player]); 
+    }
+
+    
+    public function requestPlayers()
     {
       
       $response = Http::get('https://fantasy.premierleague.com/api/bootstrap-static/');
@@ -62,16 +82,5 @@ class APIController extends BaseController
         }
         return redirect('/main');
       }
-    }
-
-    public function requestGameweeks() 
-    {
-      $response = Http::get('https://fantasy.premierleague.com/api/bootstrap-static/');
-
-      $decoded = json_decode($response->body());
-
-      $gameweeks = $decoded->events;
-      // dd($gameweeks[0]);
-      return view('/gameweeks')->with(['gameweeks' => $gameweeks]);
     }
 }

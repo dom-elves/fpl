@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\APIController;
+use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\TableAPIController;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\GameweekController;
 use App\Http\Controllers\LiveTableController;
 
 /*
@@ -22,15 +23,20 @@ Route::get('/', function () {
 });
 
 //initial main view
-Route::get('/main', [DataController::class, 'index']);
+Route::get('/main', [PlayerController::class, 'index']);
 
 //generates views based on player selected
-Route::get('/player/{id}', [DataController::class, 'returnSelectedPlayer']);
+Route::get('/player/{id}', [PlayerController::class, 'returnSelectedPlayer']);
 
 //runs API call for player data- used by 'update' button on main page
-Route::get('/update-players', [APIController::class, 'request']);
+Route::get('/update-players', [PlayerController::class, 'requestPlayers']);
 
-Route::get('/gameweeks', [APIController::class, 'requestGameweeks']);
+//gameweeks page view
+Route::get('/gameweeks', [GameweekController::class, 'index']);
+
+//runs api call for gameweek data
+Route::get('/update-gameweeks', [GameweekController::class, 'requestGameweeks']);
+
 
 //runs API call for table data - same as above
 // Route::get('/update-table', [TableAPIController::class, 'request']);
