@@ -29,7 +29,7 @@ class GameweekController extends Controller
       $decoded = json_decode($response->body());
       
       $gameweeks = $decoded->events;
-
+      
       $query = DB::table('gameweeks')->get()->first();
       
       if ($query) {
@@ -37,12 +37,22 @@ class GameweekController extends Controller
         DB::table('gameweeks')->truncate();
 
         foreach ($gameweeks as $gameweek) {
+
+        if ($gameweek->average_entry_score !== 0) {
+
+            $highestScoringPlayer = $gameweek->top_element_info->points;
+            
+        } else {
+            break;
+        }
           DB::table('gameweeks')->insert([
+            
             'id' => $gameweek->id,
             'average_team_points' => $gameweek->average_entry_score,
             'highest_team_points' => $gameweek->highest_score,
             'most_selected_player' => $gameweek->most_selected,
-            'highest_scoring_player' => $gameweek->top_element,
+            'highest_scoring_player' => $highestScoringPlayer,
+            'highest_player_score' => $gameweek->top_element_info->points,
             'most_transferred_in_player' => $gameweek->most_transferred_in,
             'most_captained_player' => $gameweek->most_captained,
             'most_vice_captained_player' => $gameweek->most_vice_captained,

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('highest_team_points')->nullable();
             $table->integer('most_selected_player')->nullable();
             $table->integer('highest_scoring_player')->nullable();
+            $table->integer('highest_player_score')->nullable();
             $table->integer('most_transferred_in_player')->nullable();
             $table->integer('most_captained_player')->nullable();
             $table->integer('most_vice_captained_player')->nullable();
