@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\TableAPIController;
-use App\Http\Controllers\DataController;
+use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\GameweekController;
 use App\Http\Controllers\LiveTableController;
 
@@ -25,6 +25,9 @@ Route::get('/', function () {
 
 //initial main view
 Route::get('/main', [PlayerController::class, 'index']);
+
+//updates teams data - doesn't really need to be used but cba to manually enter data
+Route::get('update-teams', [TeamsController::class, 'updateTeams']);
 
 //generates views based on player selected
 Route::get('/player/{id}', [PlayerController::class, 'returnSelectedPlayer']);

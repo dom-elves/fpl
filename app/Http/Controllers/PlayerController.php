@@ -44,7 +44,7 @@ class PlayerController extends BaseController
       $decoded = json_decode($response->body());
       // dd($decoded);
       $players = $decoded->elements;
-      // dd($players);
+      
       $query = DB::table('players')->get()->first();
 
       // dd($players[430]);
