@@ -10,6 +10,8 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
+use App\Models\Gameweek;
+use App\Models\Player;
 
 class GameweekController extends Controller
 {
@@ -18,6 +20,69 @@ class GameweekController extends Controller
     public function index()
     {
         $data = DB::table('gameweeks')->get();
+
+        //most selected player
+        foreach ( $data as $gameweek ) {
+
+          $first_name = Gameweek::find($gameweek->id)->mostSelectedPlayer->first_name;
+
+          $last_name = Gameweek::find($gameweek->id)->mostSelectedPlayer->last_name;
+
+          $player_name = $first_name . " " . $last_name;
+
+          $gameweek->most_selected_player = $player_name;
+
+        }
+
+        //highest scoring player
+        foreach ( $data as $gameweek ) {
+          
+          $first_name = Gameweek::find($gameweek->id)->highestScoringPlayer->first_name;
+
+          $last_name = Gameweek::find($gameweek->id)->highestScoringPlayer->last_name;
+
+          $player_name = $first_name . " " . $last_name;
+
+          $gameweek->highest_scoring_player = $player_name;
+        }
+
+        //most captained player
+        foreach ( $data as $gameweek ) {
+          
+          $first_name = Gameweek::find($gameweek->id)->mostCaptainedPlayer->first_name;
+
+          $last_name = Gameweek::find($gameweek->id)->mostCaptainedPlayer->last_name;
+
+          $player_name = $first_name . " " . $last_name;
+
+          $gameweek->most_captained_player = $player_name;
+        }
+
+        //most vice captained player
+        foreach ( $data as $gameweek ) {
+          
+          $first_name = Gameweek::find($gameweek->id)->mostViceCaptainedPlayer->first_name;
+
+          $last_name = Gameweek::find($gameweek->id)->mostViceCaptainedPlayer->last_name;
+
+          $player_name = $first_name . " " . $last_name;
+
+          $gameweek->most_vice_captained_player = $player_name;
+        }
+
+        //most transferred in player
+        foreach ( $data as $gameweek ) {
+          
+          $first_name = Gameweek::find($gameweek->id)->mostTransferredInPlayer->first_name;
+
+          $last_name = Gameweek::find($gameweek->id)->mostTransferredInPlayer->last_name;
+
+          $player_name = $first_name . " " . $last_name;
+
+          $gameweek->most_transferred_in_player = $player_name;
+        }
+
+
         
         return view('/gameweeks')->with(['data' => $data]);
     }
