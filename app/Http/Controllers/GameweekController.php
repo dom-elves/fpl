@@ -40,14 +40,11 @@ class GameweekController extends Controller
 
         if ($gameweek->average_entry_score !== 0) {
 
-            $highestScoringPlayer = $gameweek->top_element_info->points;
-
-            $highestScoringPlayerName = DB::table('players')->where('player_id', $highestScoringPlayer)->value('first_name', 'last_name');
+            $highestScoringPlayer = $gameweek->top_element_info->id; 
+            $highestPlayerScore = $gameweek->top_element_info->points;
             
         } else {
-
             break;
-
         }
           DB::table('gameweeks')->insert([
             
@@ -56,7 +53,7 @@ class GameweekController extends Controller
             'highest_team_points' => $gameweek->highest_score,
             'most_selected_player' => $gameweek->most_selected,
             'highest_scoring_player' => $highestScoringPlayer,
-            'highest_player_score' => $gameweek->top_element_info->points,
+            'highest_player_score' => $highestPlayerScore,
             'most_transferred_in_player' => $gameweek->most_transferred_in,
             'most_captained_player' => $gameweek->most_captained,
             'most_vice_captained_player' => $gameweek->most_vice_captained,

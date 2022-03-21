@@ -3,7 +3,7 @@
 <p>gameweeks blade, outside of section (maybe review this at some point)</p>
 
 <div>
-    <a href="update-gameweeks" class="text-3xl font-bold text-white bg-green-400 p-10">Update Gameweeks</a>
+    <a href="update-gameweeks" class="text-3xl font-bold text-white bg-green-400 p-10">Update Gameweek</a>
 </div>
 
 @section('content')
@@ -26,7 +26,7 @@
             <p>{{ $gameweek->most_selected_player }}</p>
 
             <p>Highest Scoring Player (score)</p>
-            <p>{{ $gameweek->highest_scoring_player }} ( 0 )</p>
+            <p>{{ $gameweek->highest_scoring_player }} ( {{ $gameweek->highest_player_score }} )</p>
 
             <p>Most Captained Player</p>
             <p>{{ $gameweek->most_captained_player }}</p>
