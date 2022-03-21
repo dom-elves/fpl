@@ -23,8 +23,8 @@ class Player extends Model
 
     public function getPlayerTeam()
     {
-        $data =  $this->hasOne(Team::class, 'team_id', 'player_id');
-
+        $data =  $this->hasOne(Team::class, 'team_id', 'team');
+        
         return $data;
     }
 }

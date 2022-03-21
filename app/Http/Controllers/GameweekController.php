@@ -81,11 +81,17 @@ class GameweekController extends Controller
           $player_name = $first_name . " " . $last_name;
 
           $gameweek->most_transferred_in_player = $player_name;
-          
-          $player_team = Player::find($gameweek->id)->getPlayerTeam;
-        
         }
-        dd($gameweek);
+
+        // $player_team = Player::find($gameweek->id)->getPlayerTeam;
+          
+        //   $player_object = [$player_name => $player_team];
+
+        //   dd($player_object);
+
+        //   $player_name = $player_object;
+          // dd($gameweek);
+        
 
         $teams = DB::table('teams')->get();
 
