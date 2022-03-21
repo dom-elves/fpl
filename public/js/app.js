@@ -5428,21 +5428,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['gameweek'],
   created: function created() {
-    // console.log(this.gameweek);
-    // console.log(this.gameweek.top_element_info.points);
-    this.getPlayerInfo();
+    console.log(this.gameweek);
   },
-  methods: {
-    getPlayerInfo: function getPlayerInfo() {
-      var playerInfo = this.gameweek.top_element_info;
-      console.log(playerInfo, this.gameweek.name);
-    }
-  }
+  methods: {}
 });
 
 /***/ }),
@@ -28304,42 +28295,42 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "w-[200px] m-10" }, [
-    _c("p", [_vm._v(_vm._s(this.gameweek.name))]),
+    _c("p", [_vm._v("Gameweek " + _vm._s(this.gameweek.id))]),
     _vm._v(" "),
     _c("p", [_vm._v("Highest Scoring squad")]),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(this.gameweek.highest_score))]),
+    _c("p", [_vm._v(_vm._s(this.gameweek.highest_team_points))]),
     _vm._v(" "),
     _c("p", [_vm._v("Average Squad Score")]),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(this.gameweek.average_entry_score))]),
+    _c("p", [_vm._v(_vm._s(this.gameweek.average_team_points))]),
     _vm._v(" "),
     _c("p", [_vm._v("Most Selected Player")]),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(this.gameweek.most_selected))]),
+    _c("p", [_vm._v(_vm._s(this.gameweek.most_selected_player))]),
     _vm._v(" "),
     _c("p", [_vm._v("Highest Scoring Player (score)")]),
     _vm._v(" "),
     _c("p", [
       _vm._v(
-        _vm._s(this.gameweek.top_element) +
+        _vm._s(this.gameweek.highest_scoring_player) +
           " ( " +
-          _vm._s(this.gameweek.top_element_info.points) +
+          _vm._s(this.gameweek.highest_player_score) +
           " )"
       ),
     ]),
     _vm._v(" "),
     _c("p", [_vm._v("Most Captained Player")]),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(this.gameweek.most_captained))]),
+    _c("p", [_vm._v(_vm._s(this.gameweek.most_captained_player))]),
     _vm._v(" "),
     _c("p", [_vm._v("Most Vice-Captained Player")]),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(this.gameweek.most_vice_captained))]),
+    _c("p", [_vm._v(_vm._s(this.gameweek.most_vice_captained_player))]),
     _vm._v(" "),
     _c("p", [_vm._v("Most Transferred-In Player")]),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(this.gameweek.most_transferred_in))]),
+    _c("p", [_vm._v(_vm._s(this.gameweek.most_transferred_in_player))]),
   ])
 }
 var staticRenderFns = []

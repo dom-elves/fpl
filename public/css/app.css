@@ -11757,11 +11757,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .right-0 {
   right: 0px;
 }
-.m-10 {
-  margin: 2.5rem;
-}
 .m-20 {
   margin: 5rem;
+}
+.m-10 {
+  margin: 2.5rem;
 }
 .mx-auto {
   margin-left: auto;
@@ -11821,9 +11821,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .min-h-screen {
   min-height: 100vh;
 }
-.w-\[200px\] {
-  width: 200px;
-}
 .w-4\/5 {
   width: 80%;
 }
@@ -11835,6 +11832,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-auto {
   width: auto;
+}
+.w-\[200px\] {
+  width: 200px;
 }
 .max-w-6xl {
   max-width: 72rem;
