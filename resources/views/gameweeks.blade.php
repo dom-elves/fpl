@@ -2,10 +2,16 @@
 
 <p>gameweeks blade, outside of section (maybe review this at some point)</p>
 
+<div>
+    <a href="update-gameweeks" class="text-3xl font-bold text-white bg-green-400 p-10">Update Gameweeks</a>
+</div>
+
 @section('content')
 
     <p>gameweeks blade inside of section</p>
+
     <div class="flex flex-wrap">
+
     @foreach ($data as $gameweek)
         <div class="w-[200px] m-10">
             <p>Gameweek {{ $gameweek->id}}</p>
@@ -32,7 +38,7 @@
             <p>{{ $gameweek->most_transferred_in_player }}</p>
         </div>
     @endforeach
-</div>
+    </div>
 @endsection
 
 
