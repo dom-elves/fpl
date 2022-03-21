@@ -10,8 +10,9 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
+use App\Models\Player;
 
-class APIController extends BaseController
+class PlayerController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\DataController;
 use App\Http\Controllers\GameweekController;
 use App\Http\Controllers\LiveTableController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
