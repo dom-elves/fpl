@@ -10,7 +10,7 @@
 
     <p>gameweeks blade inside of section</p>
 
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap bg-[#38003c]">
 
         @foreach ($data as $gameweek)
             
