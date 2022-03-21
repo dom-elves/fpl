@@ -20,4 +20,11 @@ class Player extends Model
      * @var string
      */
     protected $primaryKey = 'id';
+
+    public function getPlayerTeam()
+    {
+        $data =  $this->hasOne(Team::class, 'team_id', 'player_id');
+
+        return $data;
+    }
 }

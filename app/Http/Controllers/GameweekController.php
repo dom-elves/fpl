@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
 use App\Models\Gameweek;
 use App\Models\Player;
+use App\Models\Team;
 
 class GameweekController extends Controller
 {
@@ -19,10 +20,10 @@ class GameweekController extends Controller
     //returns gameweek data
     public function index()
     {
-        $data = DB::table('gameweeks')->get();
+        $gameweeks = DB::table('gameweeks')->get();
 
         //most selected player
-        foreach ( $data as $gameweek ) {
+        foreach ( $gameweeks as $gameweek ) {
 
           $first_name = Gameweek::find($gameweek->id)->mostSelectedPlayer->first_name;
 
@@ -35,7 +36,7 @@ class GameweekController extends Controller
         }
 
         //highest scoring player
-        foreach ( $data as $gameweek ) {
+        foreach ( $gameweeks as $gameweek ) {
           
           $first_name = Gameweek::find($gameweek->id)->highestScoringPlayer->first_name;
 
@@ -47,7 +48,7 @@ class GameweekController extends Controller
         }
 
         //most captained player
-        foreach ( $data as $gameweek ) {
+        foreach ( $gameweeks as $gameweek ) {
           
           $first_name = Gameweek::find($gameweek->id)->mostCaptainedPlayer->first_name;
 
@@ -59,7 +60,7 @@ class GameweekController extends Controller
         }
 
         //most vice captained player
-        foreach ( $data as $gameweek ) {
+        foreach ( $gameweeks as $gameweek ) {
           
           $first_name = Gameweek::find($gameweek->id)->mostViceCaptainedPlayer->first_name;
 
@@ -71,7 +72,7 @@ class GameweekController extends Controller
         }
 
         //most transferred in player
-        foreach ( $data as $gameweek ) {
+        foreach ( $gameweeks as $gameweek ) {
           
           $first_name = Gameweek::find($gameweek->id)->mostTransferredInPlayer->first_name;
 
@@ -80,11 +81,17 @@ class GameweekController extends Controller
           $player_name = $first_name . " " . $last_name;
 
           $gameweek->most_transferred_in_player = $player_name;
+          
+          $player_team = Player::find($gameweek->id)->getPlayerTeam;
+        
         }
+        dd($gameweek);
 
+        $teams = DB::table('teams')->get();
 
         
-        return view('/gameweeks')->with(['data' => $data]);
+        
+        return view('/gameweeks', ['gameweeks' => $gameweeks, 'teams' => $teams]);
     }
 
     public function requestGameweeks() 

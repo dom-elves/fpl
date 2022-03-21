@@ -9,12 +9,12 @@
 @section('content')
 
     <p>gameweeks blade inside of section</p>
-
+    
     <div class="flex flex-wrap bg-[#38003c]">
 
-        @foreach ($data as $gameweek)
+        @foreach ($gameweeks as $gameweek)
             
-            <game-week v-bind:gameweek="{{ json_encode($gameweek) }}"></game-week>
+            <game-week v-bind:gameweek="{{ json_encode($gameweek) }}" :teams="{{ json_encode($teams) }}"></game-week>
 
         @endforeach
 

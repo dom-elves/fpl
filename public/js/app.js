@@ -5443,9 +5443,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['gameweek'],
+  props: ['gameweek', 'teams'],
   created: function created() {
     console.log(this.gameweek);
+    console.log(this.teams);
   },
   methods: {}
 });
@@ -10613,7 +10614,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.arsenal[data-v-03538d1e] {\n}\n.aston-villa[data-v-03538d1e] {\n}\n.brentford[data-v-03538d1e] {\n}\n.brighton[data-v-03538d1e] {\n}\n.burnley[data-v-03538d1e] {\n}\n.chelsea[data-v-03538d1e] {\n}\n.crystal-palace[data-v-03538d1e] {\n}\n.everton[data-v-03538d1e] {\n}\n.leicester[data-v-03538d1e] {\n}\n.leeds[data-v-03538d1e] {\n}\n.liverpool[data-v-03538d1e] {\n    background-color: red;\n    color: yellow;\n}\n.man-city[data-v-03538d1e] {\n}\n.man-united[data-v-03538d1e] {\n}\n.newcastle[data-v-03538d1e] {\n}\n.norwich[data-v-03538d1e] {\n}\n.southampton[data-v-03538d1e] {\n}\n.spurs[data-v-03538d1e] {\n}\n.watford[data-v-03538d1e] {\n}\n.wolves[data-v-03538d1e] {\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.ARS[data-v-03538d1e] {\n}\n.AVL[data-v-03538d1e] {\n}\n.BRE[data-v-03538d1e] {\n}\n.BHA[data-v-03538d1e]{\n}\n.BUR[data-v-03538d1e] {\n}\n.CHE[data-v-03538d1e] {\n}\n.CRY[data-v-03538d1e] {\n}\n.EVE[data-v-03538d1e]{\n}\n.LEI[data-v-03538d1e] {\n}\n.LEE[data-v-03538d1e] {\n}\n.LIV[data-v-03538d1e] {\n    background-color: red;\n    color: yellow;\n}\n.MCI[data-v-03538d1e] {\n}\n.MUN[data-v-03538d1e] {\n}\n.NEW[data-v-03538d1e] {\n}\n.NOR[data-v-03538d1e] {\n}\n.SOU[data-v-03538d1e] {\n}\n.TOT[data-v-03538d1e] {\n}\n.WAT[data-v-03538d1e] {\n}\n.WHU[data-v-03538d1e] {\n}\n.WOL[data-v-03538d1e] {\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28762,7 +28763,7 @@ var render = function () {
       _vm._v(" "),
       _c("div", { staticClass: "border-b-2 border-[#00ff85] p-1" }, [
         _c("p", { staticClass: "font-bold" }, [
-          _vm._v("Highest Scoring Player (score)"),
+          _vm._v("Highest Scoring Player "),
         ]),
         _vm._v(" "),
         _c("p", [

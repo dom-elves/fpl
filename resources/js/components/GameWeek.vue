@@ -19,7 +19,7 @@
         </div>
 
         <div class="border-b-2 border-[#00ff85] p-1">       
-            <p class="font-bold">Highest Scoring Player (score)</p>
+            <p class="font-bold">Highest Scoring Player </p>
             <p>{{ this.gameweek.highest_scoring_player }} ( {{ this.gameweek.highest_player_score }} )</p>
         </div>
         
@@ -44,12 +44,13 @@
 <script>
     export default {
 
-        props: ['gameweek'],
+        props: ['gameweek', 'teams'],
+            
 
         created() {
             
             console.log(this.gameweek);
-            
+            console.log(this.teams);
         },
 
         methods: {
@@ -60,80 +61,84 @@
 </script>
 
 <style scoped>
-    .arsenal {
+    .ARS {
 
     }
 
-    .aston-villa {
+    .AVL {
 
     }
 
-    .brentford {
+    .BRE {
 
     }
 
-    .brighton {
+    .BHA{
 
     }
 
-    .burnley {
+    .BUR {
 
     }
 
-    .chelsea {
+    .CHE {
 
     }
 
-    .crystal-palace {
+    .CRY {
 
     }
 
-    .everton {
+    .EVE{
 
     }
 
-    .leicester {
+    .LEI {
 
     }
 
-    .leeds {
+    .LEE {
 
     }
 
-    .liverpool {
+    .LIV {
         background-color: red;
         color: yellow;
     }
 
-    .man-city {
+    .MCI {
 
     }
 
-    .man-united {
+    .MUN {
 
     }
 
-    .newcastle {
+    .NEW {
 
     }
 
-    .norwich {
+    .NOR {
 
     }
 
-    .southampton {
+    .SOU {
 
     }
 
-    .spurs {
+    .TOT {
 
     }
 
-    .watford {
+    .WAT {
 
     }
 
-    .wolves {
+    .WHU {
+
+    }
+
+    .WOL {
 
     }
 </style>
