@@ -19,12 +19,12 @@ class Player extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'player_id';
 
     public function getPlayerTeam()
     {
         $data =  $this->hasOne(Team::class, 'team_id', 'team');
-        
+        // dd($data);
         return $data;
     }
 }

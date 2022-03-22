@@ -62,83 +62,102 @@
 
 <style scoped>
     .ARS {
-
+        background-color: #EF0107;
+        color: white;
     }
 
     .AVL {
-
+        background-color: #95BFE5;
+        color: #670E36;
     }
 
     .BRE {
-
+        background-color: red;
+        color: white;
     }
 
-    .BHA{
-
+    .BHA {
+        background-color: #0057B8;
+        color: white;
     }
 
     .BUR {
-
+        background-color: #6C1D45;
+        color: #99D6EA;
     }
 
     .CHE {
-
+        background-color: #034694;
+        color: white;
     }
 
     .CRY {
-
+        background-color: #1B458F;
+        color: #C4122E;
     }
 
-    .EVE{
-
+    .EVE {
+        background-color: #003399;
+        color: white;
     }
 
     .LEI {
-
+        background-color: #003090;
+        color: #FDBE11;
     }
 
     .LEE {
-
+        background-color: #FFCD00;
+        color: white;
     }
 
     .LIV {
-        background-color: red;
-        color: yellow;
+        background-color: #C8102E;
+        color: white;
     }
 
     .MCI {
-
+        background-color: #6CABDD;
+        color: white;
     }
 
     .MUN {
-
+        background-color: #DA291C;
+        color: black;
     }
 
     .NEW {
-
+        background-color: black;
+        color: white;
     }
 
     .NOR {
-
+        background-color: #00A650;
+        color: #FFF200;
     }
 
     .SOU {
-
+        background-color: #D71920;
+        color: white;
     }
 
     .TOT {
-
+        background-color: white;
+        color: #132257;
     }
 
     .WAT {
-
+        background-color: #FBEE23;
+        color: #ED2127;
     }
 
     .WHU {
-
+        background-color: #1BB1E7;
+        color: #7A263A;
     }
 
     .WOL {
-
+        background-color: #FDB913;
+        color: black;
     }
 </style>
