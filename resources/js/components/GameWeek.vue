@@ -5,7 +5,7 @@
 
         <div class="border-b-2 border-[#00ff85] p-1">
             <p class="font-bold">Highest Scoring squad</p>
-            <p>{{ this.gameweek.highest_team_points.player_name }}</p>
+            <p>{{ this.gameweek.highest_team_points }}</p>
         </div>
 
         <div class="border-b-2 border-[#00ff85] p-1">
@@ -16,27 +16,27 @@
         <div class="border-b-2 border-[#00ff85] p-1">    
             <p class="font-bold">Most Selected Player</p>
             <!-- <p id="ewrr {{this.gameweek.most_selected_player.player_name}}">{{ this.gameweek.most_selected_player.player_name }}</p> -->
-            <p :id="elementId">{{ this.gameweek.most_selected_player.player_name }}</p>
+            <p :id="generateMostSelectedPlayerId()">{{ this.gameweek.most_selected_player.player_name }}</p>
         </div>
 
         <div class="border-b-2 border-[#00ff85] p-1">       
             <p class="font-bold">Highest Scoring Player </p>
-            <p>{{ this.gameweek.highest_scoring_player.player_name }} ( {{ this.gameweek.highest_player_score }} )</p>
+            <p :id="generateHighestScoringPlayerId()">{{ this.gameweek.highest_scoring_player.player_name }} ( {{ this.gameweek.highest_player_score }} )</p>
         </div>
         
         <div class="border-b-2 border-[#00ff85] p-1">
             <p class="font-bold">Most Captained Player</p>
-            <p>{{ this.gameweek.most_captained_player.player_name }}</p>
+            <p :id="generateMostCaptainedPlayerId()">{{ this.gameweek.most_captained_player.player_name }}</p>
         </div>
         
         <div class="border-b-2 border-[#00ff85] p-1">
             <p class="font-bold">Most Vice-Captained Player</p>
-            <p>{{ this.gameweek.most_vice_captained_player.player_name }}</p>
+            <p :id="generateMostViceCaptainedPlayerId()">{{ this.gameweek.most_vice_captained_player.player_name }}</p>
         </div>
 
         <div class="p-1">    
             <p class="font-bold">Most Transferred-In Player</p>
-            <p>{{ this.gameweek.most_transferred_in_player.player_name }}</p>
+            <p :id="generateMostTransferredInPlayerId()">{{ this.gameweek.most_transferred_in_player.player_name }}</p>
         </div> 
 
     </div>
@@ -47,31 +47,130 @@
 
         props: ['gameweek', 'teams'],
         
-        data() {
-            return elementId;
-        },
+        // data() {
+        //     return {
+        //         msp: mspId,
+        //     }
+        // },
 
         created() {
             
             // console.log(this.gameweek);
             // console.log(this.teams);
             // console.log(this.gameweek.most_selected_player.player_name)
-                this.mostSelectedPlayerColours();
+                // this.generateMostSelectedPlayerId();
+            
+        },
+
+        mounted() {
+
+            this.addMostSelectedPlayerColour();
+
+            this.addHighestScoringPlayerColour();
+
+            this.addMostCaptainedPlayerColour();
+
+            this.addMostViceCaptainedPlayerColour();
+
+            this.addMostTransferredInPlayerColour();
+
         },
 
         methods: {
-
-           mostSelectedPlayerColours() {
+            //most selected
+           generateMostSelectedPlayerId() {
 
                let mostSelected = this.gameweek.most_selected_player.category;
                let gameweek = this.gameweek.id;
-               let elementId = mostSelected.concat(gameweek);
-               console.log(elementId);
-               
-            
-            //    this.elementId.classList.add("${this.gameweek.most_selected_player.player_team}");
-           }
+               let mspId = mostSelected.concat(gameweek);
 
+               return mspId;
+           },
+
+           addMostSelectedPlayerColour() {
+               let identifier = this.generateMostSelectedPlayerId();
+               
+               let element = document.getElementById(identifier);
+               
+               let colourClass = this.gameweek.most_selected_player.player_team;
+               element.classList.add(colourClass);
+           },
+
+            //highest scoring
+           generateHighestScoringPlayerId() {
+
+               let highestScoring = this.gameweek.highest_scoring_player.category;
+               let gameweek = this.gameweek.id;
+               let hspId = highestScoring.concat(gameweek);
+
+               return hspId;
+           },
+
+           addHighestScoringPlayerColour() {
+               let identifier = this.generateHighestScoringPlayerId();
+               
+               let element = document.getElementById(identifier);
+               
+               let colourClass = this.gameweek.highest_scoring_player.player_team;
+               element.classList.add(colourClass);
+           },
+
+           //most captained
+            generateMostCaptainedPlayerId() {
+
+               let mostCaptained = this.gameweek.most_captained_player.category;
+               let gameweek = this.gameweek.id;
+               let mcpId = mostCaptained.concat(gameweek);
+
+               return mcpId;
+           },
+
+           addMostCaptainedPlayerColour() {
+               let identifier = this.generateMostCaptainedPlayerId();
+               
+               let element = document.getElementById(identifier);
+           
+               let colourClass = this.gameweek.most_captained_player.player_team;
+               element.classList.add(colourClass);
+           },
+
+           //most vice captained
+            generateMostViceCaptainedPlayerId() {
+
+               let mostViceCaptained = this.gameweek.most_vice_captained_player.category;
+               let gameweek = this.gameweek.id;
+               let mvcpId = mostViceCaptained.concat(gameweek);
+
+               return mvcpId;
+           },
+
+           addMostViceCaptainedPlayerColour() {
+               let identifier = this.generateMostViceCaptainedPlayerId();
+               
+               let element = document.getElementById(identifier);
+               
+               let colourClass = this.gameweek.most_vice_captained_player.player_team;
+               element.classList.add(colourClass);
+           },
+
+           //most transferred in 
+            generateMostTransferredInPlayerId() {
+
+               let mostTransferredIn = this.gameweek.most_transferred_in_player.category;
+               let gameweek = this.gameweek.id;
+               let mtipId = mostTransferredIn.concat(gameweek);
+            
+               return mtipId;
+           },
+
+           addMostTransferredInPlayerColour() {
+               let identifier = this.generateMostTransferredInPlayerId();
+               
+               let element = document.getElementById(identifier);
+               
+               let colourClass = this.gameweek.most_transferred_in_player.player_team;
+               element.classList.add(colourClass);
+           },
         },
     }
 </script>

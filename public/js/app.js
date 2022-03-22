@@ -5445,21 +5445,88 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['gameweek', 'teams'],
-  data: function data() {
-    return elementId;
-  },
-  created: function created() {
-    // console.log(this.gameweek);
+  // data() {
+  //     return {
+  //         msp: mspId,
+  //     }
+  // },
+  created: function created() {// console.log(this.gameweek);
     // console.log(this.teams);
     // console.log(this.gameweek.most_selected_player.player_name)
-    this.mostSelectedPlayerColours();
+    // this.generateMostSelectedPlayerId();
+  },
+  mounted: function mounted() {
+    this.addMostSelectedPlayerColour();
+    this.addHighestScoringPlayerColour();
+    this.addMostCaptainedPlayerColour();
+    this.addMostViceCaptainedPlayerColour();
+    this.addMostTransferredInPlayerColour();
   },
   methods: {
-    mostSelectedPlayerColours: function mostSelectedPlayerColours() {
+    //most selected
+    generateMostSelectedPlayerId: function generateMostSelectedPlayerId() {
       var mostSelected = this.gameweek.most_selected_player.category;
       var gameweek = this.gameweek.id;
-      var elementId = mostSelected.concat(gameweek);
-      console.log(elementId); //    this.elementId.classList.add("${this.gameweek.most_selected_player.player_team}");
+      var mspId = mostSelected.concat(gameweek);
+      return mspId;
+    },
+    addMostSelectedPlayerColour: function addMostSelectedPlayerColour() {
+      var identifier = this.generateMostSelectedPlayerId();
+      var element = document.getElementById(identifier);
+      var colourClass = this.gameweek.most_selected_player.player_team;
+      element.classList.add(colourClass);
+    },
+    //highest scoring
+    generateHighestScoringPlayerId: function generateHighestScoringPlayerId() {
+      var highestScoring = this.gameweek.highest_scoring_player.category;
+      var gameweek = this.gameweek.id;
+      var hspId = highestScoring.concat(gameweek);
+      return hspId;
+    },
+    addHighestScoringPlayerColour: function addHighestScoringPlayerColour() {
+      var identifier = this.generateHighestScoringPlayerId();
+      var element = document.getElementById(identifier);
+      var colourClass = this.gameweek.highest_scoring_player.player_team;
+      element.classList.add(colourClass);
+    },
+    //most captained
+    generateMostCaptainedPlayerId: function generateMostCaptainedPlayerId() {
+      var mostCaptained = this.gameweek.most_captained_player.category;
+      var gameweek = this.gameweek.id;
+      var mcpId = mostCaptained.concat(gameweek);
+      return mcpId;
+    },
+    addMostCaptainedPlayerColour: function addMostCaptainedPlayerColour() {
+      var identifier = this.generateMostCaptainedPlayerId();
+      var element = document.getElementById(identifier);
+      var colourClass = this.gameweek.most_captained_player.player_team;
+      element.classList.add(colourClass);
+    },
+    //most vice captained
+    generateMostViceCaptainedPlayerId: function generateMostViceCaptainedPlayerId() {
+      var mostViceCaptained = this.gameweek.most_vice_captained_player.category;
+      var gameweek = this.gameweek.id;
+      var mvcpId = mostViceCaptained.concat(gameweek);
+      return mvcpId;
+    },
+    addMostViceCaptainedPlayerColour: function addMostViceCaptainedPlayerColour() {
+      var identifier = this.generateMostViceCaptainedPlayerId();
+      var element = document.getElementById(identifier);
+      var colourClass = this.gameweek.most_vice_captained_player.player_team;
+      element.classList.add(colourClass);
+    },
+    //most transferred in 
+    generateMostTransferredInPlayerId: function generateMostTransferredInPlayerId() {
+      var mostTransferredIn = this.gameweek.most_transferred_in_player.category;
+      var gameweek = this.gameweek.id;
+      var mtipId = mostTransferredIn.concat(gameweek);
+      return mtipId;
+    },
+    addMostTransferredInPlayerColour: function addMostTransferredInPlayerColour() {
+      var identifier = this.generateMostTransferredInPlayerId();
+      var element = document.getElementById(identifier);
+      var colourClass = this.gameweek.most_transferred_in_player.player_team;
+      element.classList.add(colourClass);
     }
   }
 });
@@ -28759,9 +28826,7 @@ var render = function () {
           _vm._v("Highest Scoring squad"),
         ]),
         _vm._v(" "),
-        _c("p", [
-          _vm._v(_vm._s(this.gameweek.highest_team_points.player_name)),
-        ]),
+        _c("p", [_vm._v(_vm._s(this.gameweek.highest_team_points))]),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "border-b-2 border-[#00ff85] p-1" }, [
@@ -28773,7 +28838,7 @@ var render = function () {
       _c("div", { staticClass: "border-b-2 border-[#00ff85] p-1" }, [
         _c("p", { staticClass: "font-bold" }, [_vm._v("Most Selected Player")]),
         _vm._v(" "),
-        _c("p", { attrs: { id: _vm.elementId } }, [
+        _c("p", { attrs: { id: _vm.generateMostSelectedPlayerId() } }, [
           _vm._v(_vm._s(this.gameweek.most_selected_player.player_name)),
         ]),
       ]),
@@ -28783,7 +28848,7 @@ var render = function () {
           _vm._v("Highest Scoring Player "),
         ]),
         _vm._v(" "),
-        _c("p", [
+        _c("p", { attrs: { id: _vm.generateHighestScoringPlayerId() } }, [
           _vm._v(
             _vm._s(this.gameweek.highest_scoring_player.player_name) +
               " ( " +
@@ -28798,7 +28863,7 @@ var render = function () {
           _vm._v("Most Captained Player"),
         ]),
         _vm._v(" "),
-        _c("p", [
+        _c("p", { attrs: { id: _vm.generateMostCaptainedPlayerId() } }, [
           _vm._v(_vm._s(this.gameweek.most_captained_player.player_name)),
         ]),
       ]),
@@ -28808,7 +28873,7 @@ var render = function () {
           _vm._v("Most Vice-Captained Player"),
         ]),
         _vm._v(" "),
-        _c("p", [
+        _c("p", { attrs: { id: _vm.generateMostViceCaptainedPlayerId() } }, [
           _vm._v(_vm._s(this.gameweek.most_vice_captained_player.player_name)),
         ]),
       ]),
@@ -28818,7 +28883,7 @@ var render = function () {
           _vm._v("Most Transferred-In Player"),
         ]),
         _vm._v(" "),
-        _c("p", [
+        _c("p", { attrs: { id: _vm.generateMostTransferredInPlayerId() } }, [
           _vm._v(_vm._s(this.gameweek.most_transferred_in_player.player_name)),
         ]),
       ]),
