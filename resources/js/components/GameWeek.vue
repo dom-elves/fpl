@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50">
+    <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[270px]">
         
         <p class="font-bold border-b-2 border-[#00ff85] p-1">Gameweek {{ this.gameweek.id }}</p>
 
@@ -182,8 +182,8 @@
     }
 
     .AVL {
-        background-color: #95BFE5;
-        color: #670E36;
+        background-color: #670E36;
+        color: #95BFE5;
     }
 
     .BRE {
@@ -267,8 +267,8 @@
     }
 
     .WHU {
-        background-color: #1BB1E7;
-        color: #7A263A;
+        background-color: #7A263A;
+        color: #1BB1E7;
     }
 
     .WOL {

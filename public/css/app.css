@@ -11833,6 +11833,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-auto {
   width: auto;
 }
+.w-\[600px\] {
+  width: 600px;
+}
+.w-\[900px\] {
+  width: 900px;
+}
+.w-\[250px\] {
+  width: 250px;
+}
+.w-\[270px\] {
+  width: 270px;
+}
 .max-w-6xl {
   max-width: 72rem;
 }

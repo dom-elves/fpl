@@ -9,8 +9,8 @@
 @section('content')
 
     <p>gameweeks blade inside of section</p>
-    
-    <div class="flex flex-wrap bg-[#38003c]">
+    <div class="bg-[#38003c] flex justify-center">
+    <div class="flex flex-wrap w-[900px]">
 
         @foreach ($gameweeks as $gameweek)
             
@@ -18,6 +18,7 @@
 
         @endforeach
 
+    </div>
     </div>
 @endsection
 
