@@ -15,7 +15,6 @@
      
         <div class="border-b-2 border-[#00ff85] p-1">    
             <p class="font-bold">Most Selected Player</p>
-            <!-- <p id="ewrr {{this.gameweek.most_selected_player.player_name}}">{{ this.gameweek.most_selected_player.player_name }}</p> -->
             <p :id="generateMostSelectedPlayerId()">{{ this.gameweek.most_selected_player.player_name }}</p>
         </div>
 

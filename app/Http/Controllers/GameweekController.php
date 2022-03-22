@@ -14,6 +14,7 @@ use App\Models\Gameweek;
 use App\Models\Player;
 use App\Models\Team;
 
+
 class GameweekController extends Controller
 {
 
@@ -22,89 +23,13 @@ class GameweekController extends Controller
     {
         $gameweeks = DB::table('gameweeks')->get();
           
-        //most selected player
         foreach ( $gameweeks as $gameweek ) {
           
-          $first_name = Gameweek::find($gameweek->id)->mostSelectedPlayer->first_name;
-          
-          $last_name = Gameweek::find($gameweek->id)->mostSelectedPlayer->last_name;
+          //this is in a function below, saves having to loop four times & can be accessed in other areas
+          $this->applyPlayerDetails($gameweek);
 
-          $player_team = Player::find($gameweek->most_selected_player)->getPlayerTeam;
-
-          $player_name = $first_name . " " . $last_name;
-
-          $gameweek->most_selected_player = ['player_name' => $player_name, 'player_team' => $player_team->team_short_name, 'category' => 'MSP'];
-          // dd($gameweek);
-        }
-
-        //highest scoring player
-        foreach ( $gameweeks as $gameweek ) {
-          
-          $first_name = Gameweek::find($gameweek->id)->highestScoringPlayer->first_name;
-
-          $last_name = Gameweek::find($gameweek->id)->highestScoringPlayer->last_name;
-
-          $player_team = Player::find($gameweek->highest_scoring_player)->getPlayerTeam;
-
-          $player_name = $first_name . " " . $last_name;
-
-          $gameweek->highest_scoring_player = ['player_name' => $player_name, 'player_team' => $player_team->team_short_name, 'category' => 'HSP'];
-        }
-
-        //most captained player
-        foreach ( $gameweeks as $gameweek ) {
-          
-          $first_name = Gameweek::find($gameweek->id)->mostCaptainedPlayer->first_name;
-
-          $last_name = Gameweek::find($gameweek->id)->mostCaptainedPlayer->last_name;
-
-          $player_team = Player::find($gameweek->most_captained_player)->getPlayerTeam;
-
-          $player_name = $first_name . " " . $last_name;
-
-          $gameweek->most_captained_player = ['player_name' => $player_name, 'player_team' => $player_team->team_short_name, 'category' => 'MCP'];
-        }
-
-        //most vice captained player
-        foreach ( $gameweeks as $gameweek ) {
-          
-          $first_name = Gameweek::find($gameweek->id)->mostViceCaptainedPlayer->first_name;
-
-          $last_name = Gameweek::find($gameweek->id)->mostViceCaptainedPlayer->last_name;
-
-          $player_team = Player::find($gameweek->most_vice_captained_player)->getPlayerTeam;
-
-          $player_name = $first_name . " " . $last_name;
-
-          $gameweek->most_vice_captained_player = ['player_name' => $player_name, 'player_team' => $player_team->team_short_name, 'category' => 'MVCP'];
-        }
-
-        //most transferred in player
-        foreach ( $gameweeks as $gameweek ) {
-          
-          $first_name = Gameweek::find($gameweek->id)->mostTransferredInPlayer->first_name;
-
-          $last_name = Gameweek::find($gameweek->id)->mostTransferredInPlayer->last_name;
-
-          $player_team = Player::find($gameweek->most_transferred_in_player)->getPlayerTeam;
-
-          $player_name = $first_name . " " . $last_name;
-
-          $gameweek->most_transferred_in_player = ['player_name' => $player_name, 'player_team' => $player_team->team_short_name, 'category' => 'MTIP'];
         }
        
-        // dd($gameweek);
-        
-        // $player_team = Player::find($gameweek->id)->getPlayerTeam;
-          
-        //   $player_object = [$player_name => $player_team];
-
-        //   dd($player_object);
-
-        //   $player_name = $player_object;
-          // dd($gameweek);
-        
-
         $teams = DB::table('teams')->get();
 
         return view('/gameweeks', ['gameweeks' => $gameweeks, 'teams' => $teams]);
@@ -149,5 +74,65 @@ class GameweekController extends Controller
         }  
       }
       return redirect('/gameweeks');
+    }
+
+    public function applyPlayerDetails($gameweek) 
+    {
+        //most selected
+        $msp_first_name = Gameweek::find($gameweek->id)->mostSelectedPlayer->first_name;
+          
+        $msp_last_name = Gameweek::find($gameweek->id)->mostSelectedPlayer->last_name;
+
+        $msp_player_team = Player::find($gameweek->most_selected_player)->getPlayerTeam;
+
+        $msp_player_name = $msp_first_name . " " . $msp_last_name;
+        
+        $gameweek->most_selected_player = ['player_name' => $msp_player_name, 'player_team' => $msp_player_team->team_short_name, 'category' => 'MSP'];
+        
+        //highest scoring
+        $hsp_first_name = Gameweek::find($gameweek->id)->highestScoringPlayer->first_name;
+        
+        $hsp_last_name = Gameweek::find($gameweek->id)->highestScoringPlayer->last_name;
+        
+        $hsp_player_team = Player::find($gameweek->highest_scoring_player)->getPlayerTeam;
+
+        $hsp_player_name = $hsp_first_name . " " . $hsp_last_name;
+        
+        $gameweek->highest_scoring_player = ['player_name' => $hsp_player_name, 'player_team' => $hsp_player_team->team_short_name, 'category' => 'HSP'];
+        
+        //most captained
+        $mcp_first_name = Gameweek::find($gameweek->id)->mostCaptainedPlayer->first_name;
+          
+        $mcp_last_name = Gameweek::find($gameweek->id)->mostCaptainedPlayer->last_name;
+        
+        $mcp_player_team = Player::find($gameweek->most_captained_player)->getPlayerTeam;
+
+        $mcp_player_name = $mcp_first_name . " " . $mcp_last_name;
+        
+        $gameweek->most_captained_player = ['player_name' => $mcp_player_name, 'player_team' => $mcp_player_team->team_short_name, 'category' => 'MCP'];
+        
+        //most vice captained
+        $mvcp_first_name = Gameweek::find($gameweek->id)->mostViceCaptainedPlayer->first_name;
+          
+        $mvcp_last_name = Gameweek::find($gameweek->id)->mostViceCaptainedPlayer->last_name;
+        
+        $mvcp_player_team = Player::find($gameweek->most_vice_captained_player)->getPlayerTeam;
+
+        $mvcp_player_name = $mvcp_first_name . " " . $mvcp_last_name;
+
+        $gameweek->most_vice_captained_player = ['player_name' => $mvcp_player_name, 'player_team' => $mvcp_player_team->team_short_name, 'category' => 'MVCP'];
+        
+        //most transferred in
+        $mtip_first_name = Gameweek::find($gameweek->id)->mostTransferredInPlayer->first_name;
+          
+        $mtip_last_name = Gameweek::find($gameweek->id)->mostTransferredInPlayer->last_name;
+        
+        $mtip_player_team = Player::find($gameweek->most_transferred_in_player)->getPlayerTeam;
+
+        $mtip_player_name = $mtip_first_name . " " . $mtip_last_name;
+
+        $gameweek->most_transferred_in_player = ['player_name' => $mtip_player_name, 'player_team' => $mtip_player_team->team_short_name, 'category' => 'MTIP'];
+
+        return $gameweek;        
     }
 }
