@@ -21,30 +21,18 @@
 
   </div>
   
-  <div>
-    <table>
+  <div class="bg-[#38003c] flex justify-center">
+    <div class="flex flex-wrap w-[900px]">
+      @foreach ($teams as $team)
 
-      <tr>
-        <!-- add search feature for players after player component is built -->
-        <th>Player</th>
-        <th>Points</th>
-        <th>Player ID</th>
-      </tr>
-
-        
-        @foreach ($data as $player)
-          <tr>
-            <td><a href="/player/{{ $player->id }}">{{ $player->first_name }} {{ $player->last_name }}</a></td>
-
-            <td>{{ $player->total_points_season }}</td>
-            <!-- <td>{{ $player->id }}</td> -->
-            <td>{{ $player->player_id }}
-          </tr>
-          
-
-        @endforeach  
-
-    </table>
+      <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[270px]">
+      {{ $team->team_name }} <!-- replace this with a component -->
+      </div>
+      <team></team>
+      @endforeach
+    </div>
   </div>
+
+
 
 @endsection

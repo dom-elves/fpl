@@ -25,6 +25,8 @@ Vue.component('player', require('./components/Player.vue').default);
 
 Vue.component('game-week', require('./components/GameWeek.vue').default);
 
+Vue.component('team', require('./components/Team.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

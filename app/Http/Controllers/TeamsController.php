@@ -11,6 +11,14 @@ use Illuminate\Support\Facades\Http;
 
 class TeamsController extends Controller
 {
+
+    public function index()
+    {
+      $teams = DB::table('teams')->get();
+      // dd($teams);
+      return view('/main')->with(['teams' => $teams]);
+    }
+
     public function updateTeams()
     {
       

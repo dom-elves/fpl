@@ -24,7 +24,7 @@ Route::get('/', function () {
 });
 
 //initial main view
-Route::get('/main', [PlayerController::class, 'index']);
+Route::get('/main', [TeamsController::class, 'index']);
 
 //updates teams data - doesn't really need to be used but cba to manually enter data
 Route::get('update-teams', [TeamsController::class, 'updateTeams']);
