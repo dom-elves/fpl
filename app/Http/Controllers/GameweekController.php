@@ -21,20 +21,20 @@ class GameweekController extends Controller
     public function index()
     {
         $gameweeks = DB::table('gameweeks')->get();
-
+          
         //most selected player
         foreach ( $gameweeks as $gameweek ) {
-
+          
           $first_name = Gameweek::find($gameweek->id)->mostSelectedPlayer->first_name;
           
           $last_name = Gameweek::find($gameweek->id)->mostSelectedPlayer->last_name;
 
           $player_team = Player::find($gameweek->most_selected_player)->getPlayerTeam;
 
-          $player_name = $first_name . " " . $last_name . " - " . $player_team->team_short_name;
+          $player_name = $first_name . " " . $last_name;
 
-          $gameweek->most_selected_player = $player_name;
-          
+          $gameweek->most_selected_player = ['player_name' => $player_name, 'player_team' => $player_team->team_short_name];
+          // dd($gameweek);
         }
 
         //highest scoring player
@@ -46,9 +46,9 @@ class GameweekController extends Controller
 
           $player_team = Player::find($gameweek->highest_scoring_player)->getPlayerTeam;
 
-          $player_name = $first_name . " " . $last_name . " - " . $player_team->team_short_name;
+          $player_name = $first_name . " " . $last_name;
 
-          $gameweek->highest_scoring_player = $player_name;
+          $gameweek->most_selected_player = ['player_name' => $player_name, 'player_team' => $player_team->team_short_name];
         }
 
         //most captained player
@@ -60,9 +60,9 @@ class GameweekController extends Controller
 
           $player_team = Player::find($gameweek->most_captained_player)->getPlayerTeam;
 
-          $player_name = $first_name . " " . $last_name . " - " . $player_team->team_short_name;
+          $player_name = $first_name . " " . $last_name;
 
-          $gameweek->most_captained_player = $player_name;
+          $gameweek->most_captained_player = ['player_name' => $player_name, 'player_team' => $player_team->team_short_name];
         }
 
         //most vice captained player
@@ -74,9 +74,9 @@ class GameweekController extends Controller
 
           $player_team = Player::find($gameweek->most_vice_captained_player)->getPlayerTeam;
 
-          $player_name = $first_name . " " . $last_name . " - " . $player_team->team_short_name;
+          $player_name = $first_name . " " . $last_name;
 
-          $gameweek->most_vice_captained_player = $player_name;
+          $gameweek->most_vice_captained_player = ['player_name' => $player_name, 'player_team' => $player_team->team_short_name];
         }
 
         //most transferred in player
@@ -88,11 +88,12 @@ class GameweekController extends Controller
 
           $player_team = Player::find($gameweek->most_transferred_in_player)->getPlayerTeam;
 
-          $player_name = $first_name . " " . $last_name . " - " . $player_team->team_short_name;
+          $player_name = $first_name . " " . $last_name;
 
-          $gameweek->most_transferred_in_player = $player_name;
+          $gameweek->most_transferred_in_player = ['player_name' => $player_name, 'player_team' => $player_team->team_short_name];
         }
-        // dd($gameweek);
+       
+        
         
         // $player_team = Player::find($gameweek->id)->getPlayerTeam;
           

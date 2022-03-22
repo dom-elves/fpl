@@ -11760,14 +11760,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .m-20 {
   margin: 5rem;
 }
-.m-10 {
-  margin: 2.5rem;
-}
 .m-2 {
   margin: 0.5rem;
-}
-.m-8 {
-  margin: 2rem;
 }
 .mx-auto {
   margin-left: auto;
@@ -11839,12 +11833,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-auto {
   width: auto;
 }
-.w-\[200px\] {
-  width: 200px;
-}
-.w-\[300px\] {
-  width: 300px;
-}
 .max-w-6xl {
   max-width: 72rem;
 }
@@ -11882,14 +11870,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
-.border-slate-200 {
-  --tw-border-opacity: 1;
-  border-color: rgb(226 232 240 / var(--tw-border-opacity));
-}
-.border-slate-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(148 163 184 / var(--tw-border-opacity));
-}
 .border-\[\#00ff85\] {
   --tw-border-opacity: 1;
   border-color: rgb(0 255 133 / var(--tw-border-opacity));
@@ -11897,6 +11877,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-green-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(74 222 128 / var(--tw-bg-opacity));
+}
+.bg-\[\#38003c\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(56 0 60 / var(--tw-bg-opacity));
 }
 .bg-blue-400 {
   --tw-bg-opacity: 1;
@@ -11910,32 +11894,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
-.bg-purple-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(88 28 135 / var(--tw-bg-opacity));
-}
 .bg-purple-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(250 245 255 / var(--tw-bg-opacity));
 }
-.bg-\[\#38003c\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(56 0 60 / var(--tw-bg-opacity));
-}
 .p-10 {
   padding: 2.5rem;
-}
-.p-6 {
-  padding: 1.5rem;
 }
 .p-5 {
   padding: 1.25rem;
 }
-.p-3 {
-  padding: 0.75rem;
-}
-.p-2 {
-  padding: 0.5rem;
+.p-6 {
+  padding: 1.5rem;
 }
 .p-1 {
   padding: 0.25rem;
@@ -11958,6 +11928,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -11965,10 +11939,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
-}
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
 }
 .font-bold {
   font-weight: 700;
