@@ -42,7 +42,7 @@ class PlayerController extends BaseController
       $response = Http::get('https://fantasy.premierleague.com/api/bootstrap-static/');
     
       $decoded = json_decode($response->body());
-      // dd($decoded);
+      dd($decoded->elements[373]);
       $players = $decoded->elements;
       
       $query = DB::table('players')->get()->first();
@@ -79,6 +79,7 @@ class PlayerController extends BaseController
             'minutes_season' => $player->minutes,
             'transfers_in_week' => $player->transfers_in_event,
             'transfers_out_week' => $player->transfers_out_event,
+            'percent_selected' => $player->selected_by_percent
           ]);
         }
         return redirect('/main');
