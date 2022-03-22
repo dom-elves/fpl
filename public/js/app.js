@@ -5444,16 +5444,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['gameweek', 'teams'],
-  // data() {
-  //     return {
-  //         msp: mspId,
-  //     }
-  // },
-  created: function created() {// console.log(this.gameweek);
-    // console.log(this.teams);
-    // console.log(this.gameweek.most_selected_player.player_name)
-    // this.generateMostSelectedPlayerId();
-  },
+  created: function created() {},
   mounted: function mounted() {
     this.addMostSelectedPlayerColour();
     this.addHighestScoringPlayerColour();
@@ -5543,18 +5534,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -28918,35 +28897,16 @@ var render = function () {
   return _c("div", [
     _c("p", [_vm._v(_vm._s(this.player))]),
     _vm._v(" "),
-    _c("p", [_vm._v("Minutes")]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(this.player.minutes_season))]),
-    _vm._v(" "),
     _c("div", { staticClass: "container" }, [
-      _c("table", [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", [_vm._v(_vm._s(this.player.current_cost))]),
-          _vm._v(" "),
-          _c("td"),
-        ]),
+      _c("p", [
+        _vm._v(
+          _vm._s(this.player.first_name) + " " + _vm._s(this.player.last_name)
+        ),
       ]),
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("th", [_vm._v("Cost")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Average Cost")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

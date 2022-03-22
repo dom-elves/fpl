@@ -45,19 +45,8 @@
     export default {
 
         props: ['gameweek', 'teams'],
-        
-        // data() {
-        //     return {
-        //         msp: mspId,
-        //     }
-        // },
 
         created() {
-            
-            // console.log(this.gameweek);
-            // console.log(this.teams);
-            // console.log(this.gameweek.most_selected_player.player_name)
-                // this.generateMostSelectedPlayerId();
             
         },
 

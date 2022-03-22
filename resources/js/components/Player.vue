@@ -1,21 +1,9 @@
 <template>
     <div>
         <p>{{ this.player }}</p>
-        <p>Minutes</p>
-        <p>{{ this.player.minutes_season }}</p>
-
+    
         <div class="container">
-            <table>
-                <tr>
-                    <th>Cost</th>
-                    <th>Average Cost</th>
-                </tr>
-
-                <tr>
-                    <td>{{ this.player.current_cost }}</td>
-                    <td></td>
-                </tr>
-            </table>
+            <p>{{ this.player.first_name }} {{ this.player.last_name}}</p>
         </div>
     </div>
 </template>
