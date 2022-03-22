@@ -5,7 +5,7 @@
 
         <div class="border-b-2 border-[#00ff85] p-1">
             <p class="font-bold">Highest Scoring squad</p>
-            <p>{{ this.gameweek.highest_team_points }}</p>
+            <p>{{ this.gameweek.highest_team_points.player_name }}</p>
         </div>
 
         <div class="border-b-2 border-[#00ff85] p-1">
@@ -15,27 +15,28 @@
      
         <div class="border-b-2 border-[#00ff85] p-1">    
             <p class="font-bold">Most Selected Player</p>
-            <p>{{ this.gameweek.most_selected_player }}</p>
+            <!-- <p id="ewrr {{this.gameweek.most_selected_player.player_name}}">{{ this.gameweek.most_selected_player.player_name }}</p> -->
+            <p :id="elementId">{{ this.gameweek.most_selected_player.player_name }}</p>
         </div>
 
         <div class="border-b-2 border-[#00ff85] p-1">       
             <p class="font-bold">Highest Scoring Player </p>
-            <p>{{ this.gameweek.highest_scoring_player }} ( {{ this.gameweek.highest_player_score }} )</p>
+            <p>{{ this.gameweek.highest_scoring_player.player_name }} ( {{ this.gameweek.highest_player_score }} )</p>
         </div>
         
         <div class="border-b-2 border-[#00ff85] p-1">
             <p class="font-bold">Most Captained Player</p>
-            <p>{{ this.gameweek.most_captained_player }}</p>
+            <p>{{ this.gameweek.most_captained_player.player_name }}</p>
         </div>
         
         <div class="border-b-2 border-[#00ff85] p-1">
             <p class="font-bold">Most Vice-Captained Player</p>
-            <p>{{ this.gameweek.most_vice_captained_player }}</p>
+            <p>{{ this.gameweek.most_vice_captained_player.player_name }}</p>
         </div>
 
         <div class="p-1">    
             <p class="font-bold">Most Transferred-In Player</p>
-            <p>{{ this.gameweek.most_transferred_in_player }}</p>
+            <p>{{ this.gameweek.most_transferred_in_player.player_name }}</p>
         </div> 
 
     </div>
@@ -45,18 +46,33 @@
     export default {
 
         props: ['gameweek', 'teams'],
-            
+        
+        data() {
+            return elementId;
+        },
 
         created() {
             
-            console.log(this.gameweek);
-            console.log(this.teams);
+            // console.log(this.gameweek);
+            // console.log(this.teams);
+            // console.log(this.gameweek.most_selected_player.player_name)
+                this.mostSelectedPlayerColours();
         },
 
         methods: {
 
-           
-        }
+           mostSelectedPlayerColours() {
+
+               let mostSelected = this.gameweek.most_selected_player.category;
+               let gameweek = this.gameweek.id;
+               let elementId = mostSelected.concat(gameweek);
+               console.log(elementId);
+               
+            
+            //    this.elementId.classList.add("${this.gameweek.most_selected_player.player_team}");
+           }
+
+        },
     }
 </script>
 

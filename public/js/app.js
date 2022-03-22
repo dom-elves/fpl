@@ -5442,13 +5442,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['gameweek', 'teams'],
-  created: function created() {
-    console.log(this.gameweek);
-    console.log(this.teams);
+  data: function data() {
+    return elementId;
   },
-  methods: {}
+  created: function created() {
+    // console.log(this.gameweek);
+    // console.log(this.teams);
+    // console.log(this.gameweek.most_selected_player.player_name)
+    this.mostSelectedPlayerColours();
+  },
+  methods: {
+    mostSelectedPlayerColours: function mostSelectedPlayerColours() {
+      var mostSelected = this.gameweek.most_selected_player.category;
+      var gameweek = this.gameweek.id;
+      var elementId = mostSelected.concat(gameweek);
+      console.log(elementId); //    this.elementId.classList.add("${this.gameweek.most_selected_player.player_team}");
+    }
+  }
 });
 
 /***/ }),
@@ -28746,7 +28759,9 @@ var render = function () {
           _vm._v("Highest Scoring squad"),
         ]),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(this.gameweek.highest_team_points))]),
+        _c("p", [
+          _vm._v(_vm._s(this.gameweek.highest_team_points.player_name)),
+        ]),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "border-b-2 border-[#00ff85] p-1" }, [
@@ -28758,7 +28773,9 @@ var render = function () {
       _c("div", { staticClass: "border-b-2 border-[#00ff85] p-1" }, [
         _c("p", { staticClass: "font-bold" }, [_vm._v("Most Selected Player")]),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(this.gameweek.most_selected_player))]),
+        _c("p", { attrs: { id: _vm.elementId } }, [
+          _vm._v(_vm._s(this.gameweek.most_selected_player.player_name)),
+        ]),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "border-b-2 border-[#00ff85] p-1" }, [
@@ -28768,7 +28785,7 @@ var render = function () {
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            _vm._s(this.gameweek.highest_scoring_player) +
+            _vm._s(this.gameweek.highest_scoring_player.player_name) +
               " ( " +
               _vm._s(this.gameweek.highest_player_score) +
               " )"
@@ -28781,7 +28798,9 @@ var render = function () {
           _vm._v("Most Captained Player"),
         ]),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(this.gameweek.most_captained_player))]),
+        _c("p", [
+          _vm._v(_vm._s(this.gameweek.most_captained_player.player_name)),
+        ]),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "border-b-2 border-[#00ff85] p-1" }, [
@@ -28789,7 +28808,9 @@ var render = function () {
           _vm._v("Most Vice-Captained Player"),
         ]),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(this.gameweek.most_vice_captained_player))]),
+        _c("p", [
+          _vm._v(_vm._s(this.gameweek.most_vice_captained_player.player_name)),
+        ]),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "p-1" }, [
@@ -28797,7 +28818,9 @@ var render = function () {
           _vm._v("Most Transferred-In Player"),
         ]),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(this.gameweek.most_transferred_in_player))]),
+        _c("p", [
+          _vm._v(_vm._s(this.gameweek.most_transferred_in_player.player_name)),
+        ]),
       ]),
     ]
   )

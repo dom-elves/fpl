@@ -33,7 +33,7 @@ class GameweekController extends Controller
 
           $player_name = $first_name . " " . $last_name;
 
-          $gameweek->most_selected_player = ['player_name' => $player_name, 'player_team' => $player_team->team_short_name];
+          $gameweek->most_selected_player = ['player_name' => $player_name, 'player_team' => $player_team->team_short_name, 'category' => 'MSP'];
           // dd($gameweek);
         }
 
@@ -48,7 +48,7 @@ class GameweekController extends Controller
 
           $player_name = $first_name . " " . $last_name;
 
-          $gameweek->most_selected_player = ['player_name' => $player_name, 'player_team' => $player_team->team_short_name];
+          $gameweek->highest_scoring_player = ['player_name' => $player_name, 'player_team' => $player_team->team_short_name, 'category' => 'HSP'];
         }
 
         //most captained player
@@ -62,7 +62,7 @@ class GameweekController extends Controller
 
           $player_name = $first_name . " " . $last_name;
 
-          $gameweek->most_captained_player = ['player_name' => $player_name, 'player_team' => $player_team->team_short_name];
+          $gameweek->most_captained_player = ['player_name' => $player_name, 'player_team' => $player_team->team_short_name, 'category' => 'MCP'];
         }
 
         //most vice captained player
@@ -76,7 +76,7 @@ class GameweekController extends Controller
 
           $player_name = $first_name . " " . $last_name;
 
-          $gameweek->most_vice_captained_player = ['player_name' => $player_name, 'player_team' => $player_team->team_short_name];
+          $gameweek->most_vice_captained_player = ['player_name' => $player_name, 'player_team' => $player_team->team_short_name, 'category' => 'MVCP'];
         }
 
         //most transferred in player
@@ -90,10 +90,10 @@ class GameweekController extends Controller
 
           $player_name = $first_name . " " . $last_name;
 
-          $gameweek->most_transferred_in_player = ['player_name' => $player_name, 'player_team' => $player_team->team_short_name];
+          $gameweek->most_transferred_in_player = ['player_name' => $player_name, 'player_team' => $player_team->team_short_name, 'category' => 'MTIP'];
         }
        
-        
+        // dd($gameweek);
         
         // $player_team = Player::find($gameweek->id)->getPlayerTeam;
           
