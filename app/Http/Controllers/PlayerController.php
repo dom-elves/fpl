@@ -42,18 +42,16 @@ class PlayerController extends BaseController
       $response = Http::get('https://fantasy.premierleague.com/api/bootstrap-static/');
     
       $decoded = json_decode($response->body());
-      dd($decoded->elements[373]);
+      
       $players = $decoded->elements;
       
       $query = DB::table('players')->get()->first();
-
-      // dd($players[430]);
 
       if ($query) {
         DB::table('players')->truncate();
 
         foreach ($players as $player) {
-          //figure out how to add individual rank, team, historical costs and total games 
+          //figure out how to add individual rank, historical costs and total games 
           DB::table('players')->insert([
             'player_id' => $player->id,
             'first_name' => $player->first_name,

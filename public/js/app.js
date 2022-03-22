@@ -5570,14 +5570,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: [],
+  props: ['team'],
   mounted: function mounted() {
-    console.log('team mounted');
+    console.log(this.team);
   }
 });
 
@@ -29032,20 +29028,16 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    {
+      staticClass:
+        "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[270px]",
+    },
+    [_c("p", [_vm._v(_vm._s(this.team.team_name))])]
+  )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("p"),
-      _vm._v(" "),
-      _c("div", { staticClass: "container" }, [_c("p")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
