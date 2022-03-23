@@ -2,9 +2,9 @@
     <div>
         <!-- <p>{{ this.player }}</p> -->
     
-        <div class="container">
-            <!-- <p>hello</p> -->
-            <!-- <p>{{ this.player.first_name }} {{ this.player.last_name}}</p> -->
+        <div class="container text-white">
+            <p>hello</p>
+            <p>{{ this.player.first_name }} {{ this.player.last_name}}</p>
         </div>
     </div>
 </template>

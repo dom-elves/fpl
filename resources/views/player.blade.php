@@ -3,9 +3,9 @@
 @section('content')
 
 
-   <p>player blade</p>
+   <p class="text-white">player blade</p>
     
-    
+    <player v-bind:player="{{ $player }}"></player>
 
     
 
