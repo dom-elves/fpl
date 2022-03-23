@@ -5544,6 +5544,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['player'],
   mounted: function mounted() {// console.log(this.player);
@@ -5571,10 +5572,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['team'],
   mounted: function mounted() {
-    console.log(this.team);
+    // console.log(this.team);
+    this.getTeamName();
+    this.getPlayers();
+  },
+  methods: {
+    getTeamName: function getTeamName() {
+      var teamName = this.team[0].team_name;
+      return teamName;
+    },
+    getPlayers: function getPlayers() {
+      var players = this.team[1]; // console.log(players);
+
+      for (var player in players) {
+        console.log(players[player]);
+        var team = this.team[0].team_name;
+        var teamDiv = document.getElementById(team);
+        var playerElement = document.createElement("player");
+        var text = document.createTextNode("test");
+        playerElement.appendChild(text);
+        teamDiv.appendChild(playerElement);
+      }
+    }
   }
 });
 
@@ -29001,7 +29025,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("div", { staticClass: "container" })])
+    return _c("div", [
+      _c("div", { staticClass: "container" }, [_c("p", [_vm._v("hello")])]),
+    ])
   },
 ]
 render._withStripped = true
@@ -29031,15 +29057,15 @@ var render = function () {
     {
       staticClass:
         "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[270px]",
+      attrs: { id: _vm.getTeamName() },
     },
     [
-      _c("a", { attrs: { href: "team" } }, [
-        _c("p", [_vm._v(_vm._s(this.team.team_name))]),
-      ]),
-      _vm._v("\n    " + _vm._s(this.team) + "\n    "),
-      _c("player"),
-    ],
-    1
+      _vm._v(
+        "\n    \n    " +
+          _vm._s(this.team[0].team_name) +
+          " \n    \n    \n    \n"
+      ),
+    ]
   )
 }
 var staticRenderFns = []

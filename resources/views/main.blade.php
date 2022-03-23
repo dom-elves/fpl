@@ -28,7 +28,7 @@
     <div class="flex flex-wrap w-[900px]">
 
       @foreach ($teams as $team)
-      <!-- <p>{{ App\Http\Controllers\TeamsController::assignPlayers($team->team_id) }}</p> -->
+      
       <team v-bind:team="[{{ json_encode($team) }}, {{ App\Http\Controllers\TeamsController::assignPlayers($team->team_id) }}]"></team>
 
       @endforeach
