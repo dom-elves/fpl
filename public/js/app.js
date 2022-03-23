@@ -5578,8 +5578,9 @@ __webpack_require__.r(__webpack_exports__);
   props: ['team'],
   mounted: function mounted() {
     // console.log(this.team);
-    this.getTeamName();
-    this.getPlayers();
+    // this.getTeamName();
+    // this.getPlayers();
+    console.log(this.team[1]);
   },
   methods: {
     getTeamName: function getTeamName() {
@@ -29025,9 +29026,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "container" }, [_c("p", [_vm._v("hello")])]),
-    ])
+    return _c("div", [_c("div", { staticClass: "container" })])
   },
 ]
 render._withStripped = true
@@ -29052,21 +29051,11 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass:
-        "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[270px]",
-      attrs: { id: _vm.getTeamName() },
-    },
-    [
-      _vm._v(
-        "\n    \n    " +
-          _vm._s(this.team[0].team_name) +
-          " \n    \n    \n    \n"
-      ),
-    ]
-  )
+  return _c("div", {
+    staticClass:
+      "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[270px]",
+    attrs: { id: _vm.getTeamName() },
+  })
 }
 var staticRenderFns = []
 render._withStripped = true

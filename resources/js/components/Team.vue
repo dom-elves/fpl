@@ -1,9 +1,9 @@
 <template>
     <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[270px]" :id="getTeamName()">
         
-        {{ this.team[0].team_name }} 
+        <!-- {{ this.team[0].team_name }} 
         
-        
+        {{ this.team[1] }} -->
         
     </div>
 </template>
@@ -16,9 +16,10 @@
         mounted() {
             
             // console.log(this.team);
-            this.getTeamName();
+            // this.getTeamName();
 
-            this.getPlayers();
+            // this.getPlayers();
+            console.log(this.team[1]);
         },
 
         methods: {

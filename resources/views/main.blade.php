@@ -17,11 +17,7 @@
 
   </div>
 
-  <!-- <div>
-    @foreach ($players as $player)
-    <p class="text-white">{{ $player->team }}</p>
-    @endforeach
-  </div> -->
+
   
   <div class="bg-[#38003c] flex justify-center">
   
@@ -29,9 +25,20 @@
 
       @foreach ($teams as $team)
       
-      <team v-bind:team="[{{ json_encode($team) }}, {{ App\Http\Controllers\TeamsController::assignPlayers($team->team_id) }}]"></team>
+      <!-- <team v-bind:team="[{{ json_encode($team) }}, {{ App\Http\Controllers\TeamsController::assignPlayers($team->team_id) }}]"></team> -->
 
+      <p class="text-white">{{ $team->team_name }}</p>
+
+          <!-- @foreach ($players as $player)
+        
+          <p class="text-white">setsdr</p>
+
+          @endforeach -->
+      
+      
       @endforeach
+
+      
 
     </div>
 

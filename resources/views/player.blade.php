@@ -3,11 +3,11 @@
 @section('content')
 
 
-    <!-- <example-component></example-component> -->
+   <p>player blade</p>
     
-    <!-- can accept $player from main.blade as $data resides in the foreach loop -->
+    
 
-    <player v-bind:player="{{ json_encode($player) }}"></player>
+    
 
 
 @endsection

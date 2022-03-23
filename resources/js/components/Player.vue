@@ -3,7 +3,7 @@
         <!-- <p>{{ this.player }}</p> -->
     
         <div class="container">
-            <p>hello</p>
+            <!-- <p>hello</p> -->
             <!-- <p>{{ this.player.first_name }} {{ this.player.last_name}}</p> -->
         </div>
     </div>

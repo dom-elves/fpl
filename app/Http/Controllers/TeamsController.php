@@ -15,7 +15,7 @@ class TeamsController extends Controller
     public function index()
     {
       $teams = DB::table('teams')->get();
-
+      
       $players = DB::table('players')->get();
      
       return view('/main')->with(['teams' => $teams, 'players' => $players]);
@@ -24,11 +24,19 @@ class TeamsController extends Controller
     public static function assignPlayers($team_id)
     {
       $getPlayers = DB::table('players')->where('team', '=', $team_id)->get();
-      
+
       $players = json_encode($getPlayers);
-      
+      dd($players);
       return $players;
     }
+
+    public function checkTeam($player, $team) {
+
+      if ($player->team == $team->team_id ) {
+        dd('hello');
+      }
+    }
+
     public function updateTeams()
     {
       
