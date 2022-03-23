@@ -11821,8 +11821,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .min-h-screen {
   min-height: 100vh;
 }
-.w-4\/5 {
-  width: 80%;
+.w-\[900px\] {
+  width: 900px;
 }
 .w-5 {
   width: 1.25rem;
@@ -11832,15 +11832,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-auto {
   width: auto;
-}
-.w-\[600px\] {
-  width: 600px;
-}
-.w-\[900px\] {
-  width: 900px;
-}
-.w-\[250px\] {
-  width: 250px;
 }
 .w-\[270px\] {
   width: 270px;

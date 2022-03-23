@@ -5570,6 +5570,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['team'],
   mounted: function mounted() {
@@ -29034,7 +29036,14 @@ var render = function () {
       staticClass:
         "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[270px]",
     },
-    [_c("p", [_vm._v(_vm._s(this.team.team_name))])]
+    [
+      _c("a", { attrs: { href: "team" } }, [
+        _c("p", [_vm._v(_vm._s(this.team.team_name))]),
+      ]),
+      _vm._v(" "),
+      _c("player"),
+    ],
+    1
   )
 }
 var staticRenderFns = []

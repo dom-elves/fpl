@@ -23,7 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//initial main view
+//initial main view, returns $players and $teams
 Route::get('/main', [TeamsController::class, 'index']);
 
 //updates teams data - doesn't really need to be used but cba to manually enter data

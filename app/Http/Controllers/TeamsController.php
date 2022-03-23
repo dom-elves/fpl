@@ -15,8 +15,10 @@ class TeamsController extends Controller
     public function index()
     {
       $teams = DB::table('teams')->get();
-      // dd($teams);
-      return view('/main')->with(['teams' => $teams]);
+
+      $players = DB::table('players')->get();
+     
+      return view('/main')->with(['teams' => $teams, 'players' => $players]);
     }
 
     public function updateTeams()
