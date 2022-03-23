@@ -1,9 +1,9 @@
 <template>
     <div>
-        <p>{{ this.player }}</p>
+        <!-- <p>{{ this.player }}</p> -->
     
         <div class="container">
-            <p>{{ this.player.first_name }} {{ this.player.last_name}}</p>
+            <!-- <p>{{ this.player.first_name }} {{ this.player.last_name}}</p> -->
         </div>
     </div>
 </template>
@@ -15,7 +15,7 @@
 
         mounted() {
             
-            console.log(this.player);
+            // console.log(this.player);
         }
     }
 </script>

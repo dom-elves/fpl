@@ -5546,8 +5546,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['player'],
-  mounted: function mounted() {
-    console.log(this.player);
+  mounted: function mounted() {// console.log(this.player);
   }
 });
 
@@ -28995,19 +28994,16 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("p", [_vm._v(_vm._s(this.player))]),
-    _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
-      _c("p", [
-        _vm._v(
-          _vm._s(this.player.first_name) + " " + _vm._s(this.player.last_name)
-        ),
-      ]),
-    ]),
-  ])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("div", { staticClass: "container" })])
+  },
+]
 render._withStripped = true
 
 
@@ -29040,7 +29036,7 @@ var render = function () {
       _c("a", { attrs: { href: "team" } }, [
         _c("p", [_vm._v(_vm._s(this.team.team_name))]),
       ]),
-      _vm._v(" "),
+      _vm._v("\n    " + _vm._s(this.team) + "\n    "),
       _c("player"),
     ],
     1

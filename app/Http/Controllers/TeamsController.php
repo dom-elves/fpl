@@ -21,6 +21,14 @@ class TeamsController extends Controller
       return view('/main')->with(['teams' => $teams, 'players' => $players]);
     }
 
+    public static function assignPlayers($team_id)
+    {
+      $getPlayers = DB::table('players')->where('team', '=', $team_id)->get();
+      
+      $players = json_encode($getPlayers);
+      
+      return $players;
+    }
     public function updateTeams()
     {
       
