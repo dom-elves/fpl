@@ -5545,9 +5545,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['player'],
-  mounted: function mounted() {// console.log(this.player);
+  mounted: function mounted() {
+    console.log(this.player);
+  },
+  methods: {
+    //just to display costs as decimal
+    makeDecimal: function makeDecimal() {
+      var cost = this.player.current_cost;
+      var newCost = cost / 10;
+      var decimalCost = newCost.toFixed(1);
+      return decimalCost;
+    }
   }
 });
 
@@ -29020,15 +29047,46 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "container text-white" }, [
-      _c("p", [_vm._v("hello")]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          _vm._s(this.player.first_name) + " " + _vm._s(this.player.last_name)
-        ),
-      ]),
-    ]),
+    _c(
+      "div",
+      {
+        staticClass:
+          "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[400px]",
+      },
+      [
+        _c("p", { staticClass: "font-bold text-lg p-2" }, [
+          _vm._v(
+            _vm._s(this.player.first_name) + " " + _vm._s(this.player.last_name)
+          ),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Points")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex flex-row justify-around" }, [
+          _c("p", [
+            _vm._v("Total: " + _vm._s(this.player.total_points_season)),
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Per game: " + _vm._s(this.player.points_per_game))]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Bonus: " + _vm._s(this.player.bonus_points_season)),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Data")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex flex-row justify-around" }, [
+          _c("p", [_vm._v("Cost: " + _vm._s(this.makeDecimal()) + "m")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Minutes: " + _vm._s(this.player.points_per_game))]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Popularity: " + _vm._s(this.player.percent_selected) + "%"),
+          ]),
+        ]),
+      ]
+    ),
   ])
 }
 var staticRenderFns = []

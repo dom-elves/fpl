@@ -1,14 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-
-
-   <p class="text-white">player blade</p>
     
     <player v-bind:player="{{ $player }}"></player>
-
-    
-
 
 @endsection
 <style>

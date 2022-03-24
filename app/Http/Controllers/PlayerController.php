@@ -51,12 +51,30 @@ class PlayerController extends BaseController
         DB::table('players')->truncate();
 
         foreach ($players as $player) {
-          //figure out how to add individual rank, historical costs and total games 
+          //figure out how to add individual rank, historical costs and total games
+
+          if ($player->element_type == 1) {
+            $player->element_type = 'GK';
+          }
+
+          if ($player->element_type == 2) {
+            $player->element_type = 'DEF';
+          }
+
+          if ($player->element_type == 3) {
+            $player->element_type = 'MID';
+          }
+
+          if ($player->element_type == 4) {
+            $player->element_type = 'FWD';
+          }
+
           DB::table('players')->insert([
             'player_id' => $player->id,
             'first_name' => $player->first_name,
             'last_name' => $player->second_name,
             'team' => $player->team,
+            'position' => $player->element_type,
             'total_points_season' => $player->total_points,
             'total_points_week' => $player->event_points,
             'points_per_game' => $player->points_per_game,

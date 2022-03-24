@@ -11836,6 +11836,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-\[270px\] {
   width: 270px;
 }
+.w-\[400px\] {
+  width: 400px;
+}
 .max-w-6xl {
   max-width: 72rem;
 }
@@ -11853,6 +11856,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .justify-center {
   justify-content: center;
+}
+.justify-around {
+  justify-content: space-around;
 }
 .overflow-hidden {
   overflow: hidden;
@@ -11912,6 +11918,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .p-6 {
   padding: 1.5rem;
+}
+.p-2 {
+  padding: 0.5rem;
 }
 .py-4 {
   padding-top: 1rem;
