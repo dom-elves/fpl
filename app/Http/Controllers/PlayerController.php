@@ -39,13 +39,14 @@ class PlayerController extends BaseController
     public function returnSearchedPlayer(Request $request)
     {
       // dd('here');
-      $test = $request->input('search-field');
+      $input = $request->input('search-field');
 
-      $results = DB::table('players')->where('last_name', $test)->get();
-
-      // dd($results);
-
-      return view('/search-result')->with(['results' => $results]);
+      $results = DB::table('players')->where('last_name', 'like', '%' . $input . '%')
+                                     ->orWhere('first_name', 'like', '%' . $input . '%')
+                                     ->get()
+                                     ->toArray();
+      
+      return view('/search-result')->with(['results' => $results, 'input' => $input]);
     }
 
     
