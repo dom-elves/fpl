@@ -18,7 +18,7 @@
 
             <div class="flex flex-row justify-around">
                 <p>Cost: {{ this.makeDecimal() }}m</p>
-                <p>Minutes: {{ this.player.points_per_game }}</p>
+                <p>Minutes: {{ this.player.minutes_season }}</p>
                 <p>Popularity: {{this.player.percent_selected}}%</p>
             </div>
 

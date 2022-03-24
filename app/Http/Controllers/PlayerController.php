@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
 use App\Models\Player;
+use Illuminate\Http\Request;
 
 class PlayerController extends BaseController
 {
@@ -33,6 +34,18 @@ class PlayerController extends BaseController
         $player = $collection[0]; //figure out how to take the object out of the array, casting to object doesn't work somehow?
         
         return view('player')->with(['player' => $player]); 
+    }
+
+    public function returnSearchedPlayer(Request $request)
+    {
+      // dd('here');
+      $test = $request->input('search-field');
+
+      $results = DB::table('players')->where('last_name', $test)->get();
+
+      // dd($results);
+
+      return view('/search-result')->with(['results' => $results]);
     }
 
     

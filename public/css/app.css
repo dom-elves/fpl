@@ -11818,6 +11818,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-16 {
   height: 4rem;
 }
+.h-\[100px\] {
+  height: 100px;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -11838,6 +11841,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-\[400px\] {
   width: 400px;
+}
+.w-\[300px\] {
+  width: 300px;
+}
+.w-\[250px\] {
+  width: 250px;
 }
 .max-w-6xl {
   max-width: 72rem;
@@ -11992,6 +12001,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-gray-900 {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
+}
+.text-\[\#38003c\] {
+  --tw-text-opacity: 1;
+  color: rgb(56 0 60 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;

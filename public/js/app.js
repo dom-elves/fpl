@@ -29079,7 +29079,7 @@ var render = function () {
         _c("div", { staticClass: "flex flex-row justify-around" }, [
           _c("p", [_vm._v("Cost: " + _vm._s(this.makeDecimal()) + "m")]),
           _vm._v(" "),
-          _c("p", [_vm._v("Minutes: " + _vm._s(this.player.points_per_game))]),
+          _c("p", [_vm._v("Minutes: " + _vm._s(this.player.minutes_season))]),
           _vm._v(" "),
           _c("p", [
             _vm._v("Popularity: " + _vm._s(this.player.percent_selected) + "%"),

@@ -32,6 +32,11 @@ Route::get('update-teams', [TeamsController::class, 'updateTeams']);
 //generates views based on player selected
 Route::get('/player/{id}', [PlayerController::class, 'returnSelectedPlayer']);
 
+//for searching by player name
+Route::get('/search-player', [PlayerController::class, 'returnSearchedPlayer']);
+
+// Route::get('/search-result');
+
 //runs API call for player data- used by 'update' button on main page
 Route::get('/update-players', [PlayerController::class, 'requestPlayers']);
 
