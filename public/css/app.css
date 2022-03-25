@@ -11821,6 +11821,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-\[100px\] {
   height: 100px;
 }
+.h-\[50px\] {
+  height: 50px;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -11847,6 +11850,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-\[250px\] {
   width: 250px;
+}
+.w-\[50px\] {
+  width: 50px;
 }
 .max-w-6xl {
   max-width: 72rem;
@@ -11919,6 +11925,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-red-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+}
+.bg-\[\#00ff85\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 255 133 / var(--tw-bg-opacity));
 }
 .p-10 {
   padding: 2.5rem;

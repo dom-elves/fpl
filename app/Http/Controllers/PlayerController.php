@@ -45,6 +45,7 @@ class PlayerController extends BaseController
       // dd('here');
       $input = $request->input('search-field');
 
+      
       //returns empty array if user enters complete waffle, error message is in search-result.blade
       $results = DB::table('players')->where('last_name', 'like', '%' . $input . '%')
                                      ->orWhere('first_name', 'like', '%' . $input . '%')
@@ -68,11 +69,11 @@ class PlayerController extends BaseController
       $query = DB::table('players')->get()->first();
 
       if ($query) {
+
         DB::table('players')->truncate();
 
         foreach ($players as $player) {
-          //figure out how to add individual rank, historical costs and total games
-
+          //manually setting positions because i want them to display as text
           if ($player->element_type == 1) {
             $player->element_type = 'GK';
           }
@@ -90,6 +91,7 @@ class PlayerController extends BaseController
           }
 
           DB::table('players')->insert([
+
             'player_id' => $player->id,
             'first_name' => $player->first_name,
             'last_name' => $player->second_name,
@@ -99,7 +101,7 @@ class PlayerController extends BaseController
             'total_points_week' => $player->event_points,
             'points_per_game' => $player->points_per_game,
             'current_cost' => $player->now_cost,
-            'start_cost' => null,
+            'start_cost' => null, //need to look into cost stuff again at some point
             'goals_scored' => $player->goals_scored,
             'goals_assisted' => $player->assists,
             'goals_conceded' => $player->goals_conceded,
@@ -117,6 +119,7 @@ class PlayerController extends BaseController
             'transfers_out_week' => $player->transfers_out_event,
             'percent_selected' => $player->selected_by_percent
           ]);
+
         }
         return redirect('/main');
       }

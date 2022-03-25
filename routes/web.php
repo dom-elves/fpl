@@ -35,8 +35,6 @@ Route::get('/player/{id}', [PlayerController::class, 'returnSelectedPlayer']);
 //for searching by player name
 Route::get('/search-player', [PlayerController::class, 'returnSearchedPlayer']);
 
-// Route::get('/search-result');
-
 //runs API call for player data- used by 'update' button on main page
 Route::get('/update-players', [PlayerController::class, 'requestPlayers']);
 
@@ -46,13 +44,3 @@ Route::get('/gameweeks', [GameweekController::class, 'index']);
 //runs api call for gameweek data
 Route::get('/update-gameweeks', [GameweekController::class, 'requestGameweeks']);
 
-
-//runs API call for table data - same as above
-// Route::get('/update-table', [TableAPIController::class, 'request']);
-
-
-
-
-// Route::get('/test', function () {
-//   return view('test');
-// });
