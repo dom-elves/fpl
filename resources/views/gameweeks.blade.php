@@ -1,16 +1,14 @@
 @extends('layouts.master')
 
-<p>gameweeks blade, outside of section (maybe review this at some point)</p>
-
-<div>
-    <a href="update-gameweeks" class="text-3xl font-bold text-white bg-green-400 p-10">Update Gameweek</a>
-</div>
+<!-- <p>gameweeks blade, outside of section (maybe review this at some point)</p> -->
 
 @section('content')
 
-    <p>gameweeks blade inside of section</p>
-    <div class="bg-[#38003c] flex justify-center">
-        <div class="flex flex-wrap w-[900px]">
+    <div class="bg-[#38003c] flex items-center flex flex-column">
+
+    <a href="update-gameweeks" class="mt-2"><div class="w-[870px] bg-[#00ff85] font-bold text-[30px] text-white h-[50px] text-center">Update Gameweeks</div></a>
+
+        <div class="flex flex-wrap w-[900px] justify-around">
 
             @foreach ($gameweeks as $gameweek)
                 

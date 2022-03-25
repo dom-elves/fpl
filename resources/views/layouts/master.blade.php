@@ -2,6 +2,15 @@
 
     <head>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+        <style>
+            .button-hover-state:hover {
+              
+                    background-color: #38003c;
+                    color: #04f5ff;
+                    border: 2px solid #04f5ff;
+            }
+        </style>
     </head>
 
     <body id="master-body" class="bg-[#38003c]">
@@ -20,11 +29,26 @@
 
             </div>
         </form>
+        
+        <div id="header-buttons" class="flex flex-column">
 
-        <a href="/main"><div class="h-[50px] w-[50px] bg-[#00ff85] text-white">
-            Home
-        </div></a>
+            <div class="flex flex-row text-center">
 
+                <a href="update-players" class="m-1"><div class="button-hover-state font-bold text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[120px] p-1 rounded-sm">Update Players</div></a>
+
+                <a href="update-teams" class="m-1"><div class=" button-hover-state font-bold  text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[120px] p-1 rounded-sm">Update Teams</div></a>
+
+            </div>
+
+            <div class="flex flex-row text-center">
+
+                <a href="gameweeks" class="m-1"><div class="button-hover-state font-bold  text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[120px] p-1 rounded-sm">Gameweeks</div></a>
+                
+                <a href="main" class="m-1"><div class="button-hover-state font-bold  text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[120px] p-1 rounded-sm">Home</div></a>
+
+            </div>
+
+        <div>
     </header>
         <div id="app">
 
@@ -34,7 +58,7 @@
     </body>
 
     <script src="{{ mix('/js/app.js') }}"></script>
-
+    
 </html>
 
 <!-- <script> has to live outsdie <head> due to DOM order -->
