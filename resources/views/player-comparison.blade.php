@@ -15,10 +15,12 @@
 
                 </div>
 
+                <compare v-bind:player="{{ $players }}"></compare>
+
                 <div>
 
                     <input placeholder="Enter a player">
-                    
+
                 </div>
 
             </form>
