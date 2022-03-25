@@ -11830,6 +11830,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-\[50px\] {
   height: 50px;
 }
+.h-\[900px\] {
+  height: 900px;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -11919,6 +11922,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .border-b-2 {
   border-bottom-width: 2px;
+}
+.border-l-2 {
+  border-left-width: 2px;
+}
+.border-r-2 {
+  border-right-width: 2px;
 }
 .border-\[\#00ff85\] {
   --tw-border-opacity: 1;

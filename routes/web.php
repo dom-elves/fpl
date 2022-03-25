@@ -44,3 +44,5 @@ Route::get('/gameweeks', [GameweekController::class, 'index']);
 //runs api call for gameweek data
 Route::get('/update-gameweeks', [GameweekController::class, 'requestGameweeks']);
 
+//player comparison
+Route::get('player-comparison', [PlayerController::class, 'comparePlayers']);

@@ -21,7 +21,7 @@ class PlayerController extends BaseController
     public function index()
     {
         $data = DB::table('players')->get();
-
+        
         return view('/main')->with(['data' => $data]);
     }
 
@@ -123,5 +123,12 @@ class PlayerController extends BaseController
         }
         return redirect('/main');
       }
+    }
+
+    public function comparePlayers()
+    {
+      $players = DB::table('players')->get();
+
+      return view('/player-comparison')->with(['players' => $players]);
     }
 }
