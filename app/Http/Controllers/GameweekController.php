@@ -130,7 +130,7 @@ class GameweekController extends Controller
         $mtip_player_team = Player::find($gameweek->most_transferred_in_player)->getPlayerTeam;
 
         $mtip_player_name = $mtip_first_name . " " . $mtip_last_name;
-
+        
         $gameweek->most_transferred_in_player = ['player_name' => $mtip_player_name, 'player_team' => $mtip_player_team->team_short_name, 'category' => 'MTIP'];
 
         return $gameweek;        

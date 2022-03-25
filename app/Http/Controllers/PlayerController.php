@@ -33,6 +33,10 @@ class PlayerController extends BaseController
         
         $player = $collection[0]; //figure out how to take the object out of the array, casting to object doesn't work somehow?
         
+        $team = DB::table('teams')->where('team_id', $player->team)->get()->toArray();
+        
+        $player->team = $team[0]->team_name;
+        
         return view('player')->with(['player' => $player]); 
     }
 
@@ -41,11 +45,13 @@ class PlayerController extends BaseController
       // dd('here');
       $input = $request->input('search-field');
 
+      //returns empty array if user enters complete waffle, error message is in search-result.blade
       $results = DB::table('players')->where('last_name', 'like', '%' . $input . '%')
                                      ->orWhere('first_name', 'like', '%' . $input . '%')
                                      ->get()
                                      ->toArray();
       
+      //returning $input allows for custom error to be displayed
       return view('/search-result')->with(['results' => $results, 'input' => $input]);
     }
 

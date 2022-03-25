@@ -37,8 +37,9 @@ class TeamsController extends Controller
 
         $first_name = $player->first_name;
         $last_name = $player->last_name;
+        $position = $player->position;
 
-        $player_name = $first_name . ' ' . $last_name;
+        $player_name = $position . ' ' . $first_name . ' ' . $last_name;
 
         return $player_name;
       } 

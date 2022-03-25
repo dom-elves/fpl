@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    
+     
     <player v-bind:player="{{ $player }}"></player>
 
 @endsection

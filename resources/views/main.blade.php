@@ -29,6 +29,7 @@
       <p class="text-center font-bold">{{ $team->team_name }}</p>
 
         @foreach ($players as $player)
+        
           <a href="player/{{ $player->player_id }}"><p class="text-center">{{ App\Http\Controllers\TeamsController::checkTeam($player, $team) }}</p></a>
         @endforeach
 
