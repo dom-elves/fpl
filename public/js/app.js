@@ -5620,13 +5620,13 @@ __webpack_require__.r(__webpack_exports__);
       var player_2_yellows = document.getElementById('player_2_yellows');
 
       if (this.player_1[0].yellow_cards > this.player_2[0].yellow_cards) {
-        player_1_yellows.classList.add('higher');
-        player_2_yellows.classList.add('lower');
+        player_1_yellows.classList.add('lower');
+        player_2_yellows.classList.add('higher');
       }
 
       if (this.player_1[0].yellow_cards < this.player_2[0].yellow_cards) {
-        player_1_yellows.classList.add('lower');
-        player_2_yellows.classList.add('higher');
+        player_1_yellows.classList.add('higher');
+        player_2_yellows.classList.add('lower');
       }
 
       if (this.player_1[0].yellow_cards == this.player_2[0].yellow_cards) {
@@ -5639,13 +5639,13 @@ __webpack_require__.r(__webpack_exports__);
       var player_2_reds = document.getElementById('player_2_reds');
 
       if (this.player_1[0].red_cards > this.player_2[0].red_cards) {
-        player_1_reds.classList.add('higher');
-        player_2_reds.classList.add('lower');
+        player_1_reds.classList.add('lower');
+        player_2_reds.classList.add('higher');
       }
 
       if (this.player_1[0].red_cards < this.player_2[0].red_cards) {
-        player_1_reds.classList.add('lower');
-        player_2_reds.classList.add('higher');
+        player_1_reds.classList.add('higher');
+        player_2_reds.classList.add('lower');
       }
 
       if (this.player_1[0].red_cards == this.player_2[0].red_cards) {
