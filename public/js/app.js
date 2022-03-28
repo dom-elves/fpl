@@ -5460,12 +5460,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['player_1', 'player_2'],
   mounted: function mounted() {
     this.checkTotalPoints();
+    this.checkPointsPerGame();
+    this.checkTotalBonusPoints();
+    this.checkCurrentCost();
+    this.checkPopularity();
+    this.checkGoalsScored();
+    this.checkGoalsAssisted();
+    this.checkYellowCards();
+    this.checkRedCards();
+    this.checkMinutes();
+    this.checkTransfersIn();
+    this.checkTransfersOut();
   },
   methods: {
     makeDecimal: function makeDecimal(player_cost) {
@@ -5490,6 +5499,215 @@ __webpack_require__.r(__webpack_exports__);
       if (this.player_1[0].total_points_season == this.player_2[0].total_points_season) {
         player_1_total_points.classList.add('even');
         player_2_total_points.classList.add('even');
+      }
+    },
+    checkPointsPerGame: function checkPointsPerGame() {
+      var player_1_ppg = document.getElementById('player_1_ppg');
+      var player_2_ppg = document.getElementById('player_2_ppg');
+
+      if (this.player_1[0].points_per_game > this.player_2[0].points_per_game) {
+        player_1_ppg.classList.add('higher');
+        player_2_ppg.classList.add('lower');
+      }
+
+      if (this.player_1[0].points_per_game < this.player_2[0].points_per_game) {
+        player_1_ppg.classList.add('lower');
+        player_2_ppg.classList.add('higher');
+      }
+
+      if (this.player_1[0].points_per_game == this.player_2[0].points_per_game) {
+        player_1_ppg.classList.add('even');
+        player_2_ppg.classList.add('even');
+      }
+    },
+    checkTotalBonusPoints: function checkTotalBonusPoints() {
+      var player_1_bs = document.getElementById('player_1_bonus_season');
+      var player_2_bs = document.getElementById('player_2_bonus_season');
+
+      if (this.player_1[0].bonus_points_season > this.player_2[0].bonus_points_season) {
+        player_1_bs.classList.add('higher');
+        player_2_bs.classList.add('lower');
+      }
+
+      if (this.player_1[0].bonus_points_season < this.player_2[0].bonus_points_season) {
+        player_1_bs.classList.add('lower');
+        player_2_bs.classList.add('higher');
+      }
+
+      if (this.player_1[0].bonus_points_season == this.player_2[0].bonus_points_season) {
+        player_1_bs.classList.add('even');
+        player_2_bs.classList.add('even');
+      }
+    },
+    checkCurrentCost: function checkCurrentCost() {
+      var player_1_cost = document.getElementById('player_1_cost');
+      var player_2_cost = document.getElementById('player_2_cost');
+
+      if (this.player_1[0].current_cost > this.player_2[0].current_cost) {
+        player_1_cost.classList.add('higher');
+        player_2_cost.classList.add('lower');
+      }
+
+      if (this.player_1[0].current_cost < this.player_2[0].current_cost) {
+        player_1_cost.classList.add('lower');
+        player_2_cost.classList.add('higher');
+      }
+
+      if (this.player_1[0].current_cost == this.player_2[0].current_cost) {
+        player_1_cost.classList.add('even');
+        player_2_cost.classList.add('even');
+      }
+    },
+    checkPopularity: function checkPopularity() {
+      var player_1_popularity = document.getElementById('player_1_popularity');
+      var player_2_popularity = document.getElementById('player_2_popularity');
+
+      if (this.player_1[0].percent_selected > this.player_2[0].percent_selected) {
+        player_1_popularity.classList.add('higher');
+        player_2_popularity.classList.add('lower');
+      }
+
+      if (this.player_1[0].percent_selected < this.player_2[0].percent_selected) {
+        player_1_popularity.classList.add('lower');
+        player_2_popularity.classList.add('higher');
+      }
+
+      if (this.player_1[0].percent_selected == this.player_2[0].percent_selected) {
+        player_1_popularity.classList.add('even');
+        player_2_popularity.classList.add('even');
+      }
+    },
+    checkGoalsScored: function checkGoalsScored() {
+      var player_1_gs = document.getElementById('player_1_goals_scored');
+      var player_2_gs = document.getElementById('player_2_goals_scored');
+
+      if (this.player_1[0].goals_scored > this.player_2[0].goals_scored) {
+        player_1_gs.classList.add('higher');
+        player_2_gs.classList.add('lower');
+      }
+
+      if (this.player_1[0].goals_scored < this.player_2[0].goals_scored) {
+        player_1_gs.classList.add('lower');
+        player_2_gs.classList.add('higher');
+      }
+
+      if (this.player_1[0].goals_scored == this.player_2[0].goals_scored) {
+        player_1_gs.classList.add('even');
+        player_2_gs.classList.add('even');
+      }
+    },
+    checkGoalsAssisted: function checkGoalsAssisted() {
+      var player_1_ga = document.getElementById('player_1_goals_assisted');
+      var player_2_ga = document.getElementById('player_2_goals_assisted');
+
+      if (this.player_1[0].goals_assisted > this.player_2[0].goals_assisted) {
+        player_1_ga.classList.add('higher');
+        player_2_ga.classList.add('lower');
+      }
+
+      if (this.player_1[0].goals_assisted < this.player_2[0].goals_assisted) {
+        player_1_ga.classList.add('lower');
+        player_2_ga.classList.add('higher');
+      }
+
+      if (this.player_1[0].goals_assisted == this.player_2[0].goals_assisted) {
+        player_1_ga.classList.add('even');
+        player_2_ga.classList.add('even');
+      }
+    },
+    checkYellowCards: function checkYellowCards() {
+      var player_1_yellows = document.getElementById('player_1_yellows');
+      var player_2_yellows = document.getElementById('player_2_yellows');
+
+      if (this.player_1[0].yellow_cards > this.player_2[0].yellow_cards) {
+        player_1_yellows.classList.add('higher');
+        player_2_yellows.classList.add('lower');
+      }
+
+      if (this.player_1[0].yellow_cards < this.player_2[0].yellow_cards) {
+        player_1_yellows.classList.add('lower');
+        player_2_yellows.classList.add('higher');
+      }
+
+      if (this.player_1[0].yellow_cards == this.player_2[0].yellow_cards) {
+        player_1_yellows.classList.add('even');
+        player_2_yellows.classList.add('even');
+      }
+    },
+    checkRedCards: function checkRedCards() {
+      var player_1_reds = document.getElementById('player_1_reds');
+      var player_2_reds = document.getElementById('player_2_reds');
+
+      if (this.player_1[0].red_cards > this.player_2[0].red_cards) {
+        player_1_reds.classList.add('higher');
+        player_2_reds.classList.add('lower');
+      }
+
+      if (this.player_1[0].red_cards < this.player_2[0].red_cards) {
+        player_1_reds.classList.add('lower');
+        player_2_reds.classList.add('higher');
+      }
+
+      if (this.player_1[0].red_cards == this.player_2[0].red_cards) {
+        player_1_reds.classList.add('even');
+        player_2_reds.classList.add('even');
+      }
+    },
+    checkMinutes: function checkMinutes() {
+      var player_1_minutes = document.getElementById('player_1_minutes');
+      var player_2_minutes = document.getElementById('player_2_minutes');
+
+      if (this.player_1[0].minutes_season > this.player_2[0].minutes_season) {
+        player_1_minutes.classList.add('higher');
+        player_2_minutes.classList.add('lower');
+      }
+
+      if (this.player_1[0].minutes_season < this.player_2[0].minutes_season) {
+        player_1_minutes.classList.add('lower');
+        player_2_minutes.classList.add('higher');
+      }
+
+      if (this.player_1[0].minutes_season == this.player_2[0].minutes_season) {
+        player_1_minutes.classList.add('even');
+        player_2_minutes.classList.add('even');
+      }
+    },
+    checkTransfersIn: function checkTransfersIn() {
+      var player_1_transfers_in = document.getElementById('player_1_transfers_in');
+      var player_2_transfers_in = document.getElementById('player_2_transfers_in');
+
+      if (this.player_1[0].transfers_in_week > this.player_2[0].transfers_in_week) {
+        player_1_transfers_in.classList.add('higher');
+        player_2_transfers_in.classList.add('lower');
+      }
+
+      if (this.player_1[0].transfers_in_week < this.player_2[0].transfers_in_week) {
+        player_1_transfers_in.classList.add('lower');
+        player_2_transfers_in.classList.add('higher');
+      }
+
+      if (this.player_1[0].transfers_in_week == this.player_2[0].transfers_in_week) {
+        player_1_transfers_in.classList.add('even');
+        player_2_transfers_in.classList.add('even');
+      }
+    },
+    checkTransfersOut: function checkTransfersOut() {
+      var player_1_transfers_out = document.getElementById('player_1_transfers_out');
+      var player_2_transfers_out = document.getElementById('player_2_transfers_out');
+
+      if (this.player_1[0].transfers_out_week > this.player_2[0].transfers_out_week) {
+        player_1_transfers_out.classList.add('higher');
+        player_2_transfers_out.classList.add('lower');
+      }
+
+      if (this.player_1[0].transfers_out_week < this.player_2[0].transfers_out_week) {
+        player_1_transfers_out.classList.add('lower');
+        player_2_transfers_out.classList.add('higher');
+      }
+
+      if (this.player_1[0].transfers_out_week == this.player_2[0].transfers_out_week) {
+        player_1_transfers_out.classList.add('even');
+        player_2_transfers_out.classList.add('even');
       }
     }
   }
@@ -29204,11 +29422,11 @@ var render = function () {
             _vm._v("Total: " + _vm._s(this.player_1[0].total_points_season)),
           ]),
           _vm._v(" "),
-          _c("p", [
+          _c("p", { attrs: { id: "player_1_ppg" } }, [
             _vm._v("Per game: " + _vm._s(this.player_1[0].points_per_game)),
           ]),
           _vm._v(" "),
-          _c("p", [
+          _c("p", { attrs: { id: "player_1_bonus_season" } }, [
             _vm._v("Bonus: " + _vm._s(this.player_1[0].bonus_points_season)),
           ]),
         ]),
@@ -29216,7 +29434,7 @@ var render = function () {
         _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Data")]),
         _vm._v(" "),
         _c("div", { staticClass: "flex flex-row justify-around" }, [
-          _c("p", [
+          _c("p", { attrs: { id: "player_1_cost" } }, [
             _vm._v(
               "Cost: " +
                 _vm._s(this.makeDecimal(this.player_1[0].current_cost)) +
@@ -29224,11 +29442,7 @@ var render = function () {
             ),
           ]),
           _vm._v(" "),
-          _c("p", [
-            _vm._v("Minutes: " + _vm._s(this.player_1[0].minutes_season)),
-          ]),
-          _vm._v(" "),
-          _c("p", [
+          _c("p", { attrs: { id: "player_1_popularity" } }, [
             _vm._v(
               "Popularity: " + _vm._s(this.player_1[0].percent_selected) + "%"
             ),
@@ -29238,9 +29452,11 @@ var render = function () {
         _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Goals")]),
         _vm._v(" "),
         _c("div", { staticClass: "flex flex-row justify-around" }, [
-          _c("p", [_vm._v("Scored: " + _vm._s(this.player_1[0].goals_scored))]),
+          _c("p", { attrs: { id: "player_1_goals_scored" } }, [
+            _vm._v("Scored: " + _vm._s(this.player_1[0].goals_scored)),
+          ]),
           _vm._v(" "),
-          _c("p", [
+          _c("p", { attrs: { id: "player_1_goals_assisted" } }, [
             _vm._v("Assisted: " + _vm._s(this.player_1[0].goals_assisted)),
           ]),
           _vm._v(" "),
@@ -29250,13 +29466,15 @@ var render = function () {
         _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Misc.")]),
         _vm._v(" "),
         _c("div", { staticClass: "flex flex-row justify-around" }, [
-          _c("p", [
+          _c("p", { attrs: { id: "player_1_yellows" } }, [
             _vm._v("Yellows: " + _vm._s(this.player_1[0].yellow_cards)),
           ]),
           _vm._v(" "),
-          _c("p", [_vm._v("Reds: " + _vm._s(this.player_1[0].red_cards))]),
+          _c("p", { attrs: { id: "player_1_reds" } }, [
+            _vm._v("Reds: " + _vm._s(this.player_1[0].red_cards)),
+          ]),
           _vm._v(" "),
-          _c("p", [
+          _c("p", { attrs: { id: "player_1_minutes" } }, [
             _vm._v(
               "Mnutes this season: " + _vm._s(this.player_1[0].minutes_season)
             ),
@@ -29268,11 +29486,11 @@ var render = function () {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "flex flex-row justify-around" }, [
-          _c("p", [
+          _c("p", { attrs: { id: "player_1_transfers_in" } }, [
             _vm._v("In: " + _vm._s(this.player_1[0].transfers_in_week)),
           ]),
           _vm._v(" "),
-          _c("p", [
+          _c("p", { attrs: { id: "player_1_transfers_out" } }, [
             _vm._v("Out: " + _vm._s(this.player_1[0].transfers_out_week)),
           ]),
         ]),
@@ -29301,11 +29519,11 @@ var render = function () {
             _vm._v("Total: " + _vm._s(this.player_2[0].total_points_season)),
           ]),
           _vm._v(" "),
-          _c("p", [
+          _c("p", { attrs: { id: "player_2_ppg" } }, [
             _vm._v("Per game: " + _vm._s(this.player_2[0].points_per_game)),
           ]),
           _vm._v(" "),
-          _c("p", [
+          _c("p", { attrs: { id: "player_2_bonus_season" } }, [
             _vm._v("Bonus: " + _vm._s(this.player_2[0].bonus_points_season)),
           ]),
         ]),
@@ -29313,7 +29531,7 @@ var render = function () {
         _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Data")]),
         _vm._v(" "),
         _c("div", { staticClass: "flex flex-row justify-around" }, [
-          _c("p", [
+          _c("p", { attrs: { id: "player_2_cost" } }, [
             _vm._v(
               "Cost: " +
                 _vm._s(this.makeDecimal(this.player_2[0].current_cost)) +
@@ -29321,11 +29539,7 @@ var render = function () {
             ),
           ]),
           _vm._v(" "),
-          _c("p", [
-            _vm._v("Minutes: " + _vm._s(this.player_2[0].minutes_season)),
-          ]),
-          _vm._v(" "),
-          _c("p", [
+          _c("p", { attrs: { id: "player_2_popularity" } }, [
             _vm._v(
               "Popularity: " + _vm._s(this.player_2[0].percent_selected) + "%"
             ),
@@ -29335,9 +29549,11 @@ var render = function () {
         _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Goals")]),
         _vm._v(" "),
         _c("div", { staticClass: "flex flex-row justify-around" }, [
-          _c("p", [_vm._v("Scored: " + _vm._s(this.player_2[0].goals_scored))]),
+          _c("p", { attrs: { id: "player_2_goals_scored" } }, [
+            _vm._v("Scored: " + _vm._s(this.player_2[0].goals_scored)),
+          ]),
           _vm._v(" "),
-          _c("p", [
+          _c("p", { attrs: { id: "player_2_goals_assisted" } }, [
             _vm._v("Assisted: " + _vm._s(this.player_2[0].goals_assisted)),
           ]),
           _vm._v(" "),
@@ -29347,13 +29563,15 @@ var render = function () {
         _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Misc.")]),
         _vm._v(" "),
         _c("div", { staticClass: "flex flex-row justify-around" }, [
-          _c("p", [
+          _c("p", { attrs: { id: "player_2_yellows" } }, [
             _vm._v("Yellows: " + _vm._s(this.player_2[0].yellow_cards)),
           ]),
           _vm._v(" "),
-          _c("p", [_vm._v("Reds: " + _vm._s(this.player_2[0].red_cards))]),
+          _c("p", { attrs: { id: "player_2_reds" } }, [
+            _vm._v("Reds: " + _vm._s(this.player_2[0].red_cards)),
+          ]),
           _vm._v(" "),
-          _c("p", [
+          _c("p", { attrs: { id: "player_2_minutes" } }, [
             _vm._v(
               "Mnutes this season: " + _vm._s(this.player_2[0].minutes_season)
             ),
@@ -29365,11 +29583,11 @@ var render = function () {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "flex flex-row justify-around" }, [
-          _c("p", [
+          _c("p", { attrs: { id: "player_2_transfers_in" } }, [
             _vm._v("In: " + _vm._s(this.player_2[0].transfers_in_week)),
           ]),
           _vm._v(" "),
-          _c("p", [
+          _c("p", { attrs: { id: "player_2_transfers_out" } }, [
             _vm._v("Out: " + _vm._s(this.player_2[0].transfers_out_week)),
           ]),
         ]),
