@@ -26,9 +26,11 @@
                 </form>
 
             </div>
+            @if (!$player_1 == '' || !$player_2 == '')
 
-            <compare v-bind:player_1="{{ $player_1 }}" :player_2="{{ $player_2 }}"></compare>
-            
+                <compare v-bind:player_1="{{ $player_1 }}" :player_2="{{ $player_2 }}"></compare>
+
+            @endif
         </div>
 
     </div>

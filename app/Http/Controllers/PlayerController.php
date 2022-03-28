@@ -132,10 +132,10 @@ class PlayerController extends BaseController
 
       if ($input_1 == null && $input_2 == null ) {
 
-        $search_results = ['No player names have been entered', '']; //this is absolutely a cheating way of doing this but i'll come back to it when i can at least return players
-        $search_results_json = json_encode($search_results);
+        $player_1 = '';
+        $player_2 = '';
 
-        return view('/player-comparison')->with(['search_results_json' => $search_results_json]);
+        return view('/player-comparison')->with(['player_1' => $player_1, 'player_2' => $player_2]);
 
       }
 

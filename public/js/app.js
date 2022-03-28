@@ -5380,12 +5380,105 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['player_1', 'player_2'],
   mounted: function mounted() {
     console.log(this.player_1[0]);
   },
-  methods: {}
+  methods: {
+    //probably a better way of doing this - come back to it 
+    makeDecimal: function makeDecimal() {
+      var cost_1 = this.player_1[0].current_cost;
+      var newCost_1 = cost_1 / 10;
+      var decimalCost_1 = newCost_1.toFixed(1);
+      var cost_2 = this.player_2[0].current_cost;
+      var newCost_2 = cost_2 / 10;
+      var decimalCost_2 = newCost_2.toFixed(1);
+      return decimalCost_1, decimalCost_2;
+    }
+  }
 });
 
 /***/ }),
@@ -29006,13 +29099,187 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "flex flex-row justify-around" }, [
-    _c("div", { staticClass: "bg-purple-50 w-[400px]" }, [
-      _c("p", [_vm._v(_vm._s(this.player_1[0].first_name))]),
-    ]),
+    _c(
+      "div",
+      {
+        staticClass:
+          "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[400px]",
+      },
+      [
+        _c("p", { staticClass: "font-bold text-lg p-2" }, [
+          _vm._v(
+            _vm._s(this.player_1[0].first_name) +
+              " " +
+              _vm._s(this.player_1[0].last_name)
+          ),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Points")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex flex-row justify-around" }, [
+          _c("p", [
+            _vm._v("Total: " + _vm._s(this.player_1[0].total_points_season)),
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Per game: " + _vm._s(this.player_1[0].points_per_game)),
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Bonus: " + _vm._s(this.player_1[0].bonus_points_season)),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Data")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex flex-row justify-around" }, [
+          _c("p", [_vm._v("Cost: " + _vm._s(this.makeDecimal()) + "m")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Minutes: " + _vm._s(this.player_1[0].minutes_season)),
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "Popularity: " + _vm._s(this.player_1[0].percent_selected) + "%"
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Goals")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex flex-row justify-around" }, [
+          _c("p", [_vm._v("Scored: " + _vm._s(this.player_1[0].goals_scored))]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Assisted: " + _vm._s(this.player_1[0].goals_assisted)),
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Position: " + _vm._s(this.player_1[0].position))]),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Misc.")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex flex-row justify-around" }, [
+          _c("p", [
+            _vm._v("Yellows: " + _vm._s(this.player_1[0].yellow_cards)),
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Reds: " + _vm._s(this.player_1[0].red_cards))]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "Mnutes this season: " + _vm._s(this.player_1[0].minutes_season)
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "font-bold p-2" }, [
+          _vm._v("Transfers This Week"),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex flex-row justify-around" }, [
+          _c("p", [
+            _vm._v("In: " + _vm._s(this.player_1[0].transfers_in_week)),
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Out: " + _vm._s(this.player_1[0].transfers_out_week)),
+          ]),
+        ]),
+      ]
+    ),
     _vm._v(" "),
-    _c("div", { staticClass: "bg-purple-50 w-[400px]" }, [
-      _c("p", [_vm._v(_vm._s(this.player_2[0].first_name))]),
-    ]),
+    _c(
+      "div",
+      {
+        staticClass:
+          "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[400px]",
+      },
+      [
+        _c("p", { staticClass: "font-bold text-lg p-2" }, [
+          _vm._v(
+            _vm._s(this.player_2[0].first_name) +
+              " " +
+              _vm._s(this.player_2[0].last_name)
+          ),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Points")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex flex-row justify-around" }, [
+          _c("p", [
+            _vm._v("Total: " + _vm._s(this.player_2[0].total_points_season)),
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Per game: " + _vm._s(this.player_2[0].points_per_game)),
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Bonus: " + _vm._s(this.player_2[0].bonus_points_season)),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Data")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex flex-row justify-around" }, [
+          _c("p", [_vm._v("Cost: " + _vm._s(this.makeDecimal()) + "m")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Minutes: " + _vm._s(this.player_2[0].minutes_season)),
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "Popularity: " + _vm._s(this.player_2[0].percent_selected) + "%"
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Goals")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex flex-row justify-around" }, [
+          _c("p", [_vm._v("Scored: " + _vm._s(this.player_2[0].goals_scored))]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Assisted: " + _vm._s(this.player_2[0].goals_assisted)),
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Position: " + _vm._s(this.player_2[0].position))]),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Misc.")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex flex-row justify-around" }, [
+          _c("p", [
+            _vm._v("Yellows: " + _vm._s(this.player_2[0].yellow_cards)),
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Reds: " + _vm._s(this.player_2[0].red_cards))]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "Mnutes this season: " + _vm._s(this.player_2[0].minutes_season)
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "font-bold p-2" }, [
+          _vm._v("Transfers This Week"),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex flex-row justify-around" }, [
+          _c("p", [
+            _vm._v("In: " + _vm._s(this.player_2[0].transfers_in_week)),
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Out: " + _vm._s(this.player_2[0].transfers_out_week)),
+          ]),
+        ]),
+      ]
+    ),
   ])
 }
 var staticRenderFns = []
