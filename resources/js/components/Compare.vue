@@ -42,6 +42,7 @@
             <div class="flex flex-row justify-around">
                 <p id="player_1_transfers_in">In: {{this.player_1[0].transfers_in_week }}</p>
                 <p id="player_1_transfers_out">Out: {{this.player_1[0].transfers_out_week }}</p>
+                <p id="p1d">{{ this.calculateTransferDifference(this.player_1[0].transfers_in_week, this.player_1[0].transfers_out_week) }}</p>
             </div>
 
         </div>
@@ -86,6 +87,7 @@
             <div class="flex flex-row justify-around">
                 <p id="player_2_transfers_in">In: {{this.player_2[0].transfers_in_week }}</p>
                 <p id="player_2_transfers_out">Out: {{this.player_2[0].transfers_out_week }}</p>
+                <p id="p2d">{{ this.calculateTransferDifference(this.player_2[0].transfers_in_week, this.player_2[0].transfers_out_week) }}</p>
             </div>
 
         </div>
@@ -125,6 +127,11 @@
             this.checkTransfersIn();
 
             this.checkTransfersOut();
+
+            this.applyPlayer1DifferenceBackgrounds();
+
+            this.applyPlayer2DifferenceBackgrounds();
+
         },
 
         methods: {
@@ -136,6 +143,60 @@
                 let decimalCost = newCost.toFixed(1);
 
                 return decimalCost;
+            },
+
+            calculateTransferDifference(transfer_in, transfer_out) {
+                
+                let difference = transfer_in - transfer_out;
+                
+                return difference;
+               
+            },
+
+            applyPlayer1DifferenceBackgrounds() {
+
+                let difference = document.getElementById('p1d').innerHTML;
+                
+                let player_1_dif = document.getElementById('p1d');
+
+                if (difference < 0) {
+                    player_1_dif.classList.add('lower');
+                    console.log('lower');
+                }
+
+                if (difference > 0) {
+                    player_1_dif.classList.add('higher');
+                    console.log('higher');
+                }
+
+                if (difference == 0) {
+                    player_1_dif.add('even');
+                    console.log('even');
+                }
+
+            },
+
+            applyPlayer2DifferenceBackgrounds() {
+                
+                let difference = document.getElementById('p2d').innerHTML;
+                
+                let player_2_dif = document.getElementById('p2d');
+
+                if (difference < 0) {
+                    player_2_dif.classList.add('lower');
+                    console.log('lower');
+                }
+
+                if (difference > 0) {
+                    player_2_dif.classList.add('higher');
+                    console.log('higher');
+                }
+
+                if (difference == 0) {
+                    player_2_dif.add('even');
+                    console.log('even');
+                }
+
             },
 
             checkTotalPoints() {
@@ -401,6 +462,7 @@
                 }
 
             },
+
         },
 
     }
