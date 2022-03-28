@@ -5376,6 +5376,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['search_results'],
   mounted: function mounted() {
@@ -29000,13 +29004,13 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("p", { staticClass: "text-white" }, [
-      _vm._v(_vm._s(this.search_results[0])),
+  return _c("div", { staticClass: "flex flex-row justify-around" }, [
+    _c("div", { staticClass: "bg-purple-50 w-[400px]" }, [
+      _c("p", [_vm._v(_vm._s(this.search_results[0]))]),
     ]),
     _vm._v(" "),
-    _c("p", { staticClass: "text-white" }, [
-      _vm._v(_vm._s(this.search_results[1])),
+    _c("div", { staticClass: "bg-purple-50 w-[400px]" }, [
+      _c("p", [_vm._v(_vm._s(this.search_results[1]))]),
     ]),
   ])
 }

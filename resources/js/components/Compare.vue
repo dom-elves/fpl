@@ -1,10 +1,14 @@
 <template>
 
-    <div>
+    <div class="flex flex-row justify-around">
 
-        <p class="text-white">{{ this.search_results[0] }}</p>
+        <div class="bg-purple-50 w-[400px]">
+        <p>{{ this.search_results[0] }}</p>
+        </div>
 
-        <p class="text-white">{{ this.search_results[1] }}</p>
+        <div class="bg-purple-50 w-[400px]">
+        <p>{{ this.search_results[1] }}</p>
+        </div>
 
     </div>
 
