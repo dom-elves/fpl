@@ -5465,18 +5465,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['player_1', 'player_2'],
   mounted: function mounted() {
-    console.log(this.player_1[0]);
+    // console.log(this.player_1[0]);
+    // let p1tp = document.getElementById('player_1_total_points');
+    // console.log(p1tp.value());
+    var player_1_cost = this.player_1[0].current_cost;
+    var player_2_cost = this.player_2[0].current_cost;
   },
   methods: {
     //probably a better way of doing this - come back to it 
-    makeDecimal: function makeDecimal() {
-      var cost_1 = this.player_1[0].current_cost;
-      var newCost_1 = cost_1 / 10;
-      var decimalCost_1 = newCost_1.toFixed(1);
-      var cost_2 = this.player_2[0].current_cost;
-      var newCost_2 = cost_2 / 10;
-      var decimalCost_2 = newCost_2.toFixed(1);
-      return decimalCost_1, decimalCost_2;
+    makeDecimal: function makeDecimal(player_cost) {
+      console.log(player_cost); // let cost = this.player_1[0].current_cost;
+
+      var newCost = player_cost / 10;
+      var decimalCost = newCost.toFixed(1);
+      return decimalCost;
     }
   }
 });
@@ -29117,7 +29119,7 @@ var render = function () {
         _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Points")]),
         _vm._v(" "),
         _c("div", { staticClass: "flex flex-row justify-around" }, [
-          _c("p", [
+          _c("p", { attrs: { id: "player_1_total_points" } }, [
             _vm._v("Total: " + _vm._s(this.player_1[0].total_points_season)),
           ]),
           _vm._v(" "),
@@ -29133,7 +29135,13 @@ var render = function () {
         _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Data")]),
         _vm._v(" "),
         _c("div", { staticClass: "flex flex-row justify-around" }, [
-          _c("p", [_vm._v("Cost: " + _vm._s(this.makeDecimal()) + "m")]),
+          _c("p", [
+            _vm._v(
+              "Cost: " +
+                _vm._s(this.makeDecimal(this.player_1[0].current_cost)) +
+                "m"
+            ),
+          ]),
           _vm._v(" "),
           _c("p", [
             _vm._v("Minutes: " + _vm._s(this.player_1[0].minutes_season)),
@@ -29208,7 +29216,7 @@ var render = function () {
         _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Points")]),
         _vm._v(" "),
         _c("div", { staticClass: "flex flex-row justify-around" }, [
-          _c("p", [
+          _c("p", { attrs: { id: "player_2_total_points" } }, [
             _vm._v("Total: " + _vm._s(this.player_2[0].total_points_season)),
           ]),
           _vm._v(" "),
@@ -29224,7 +29232,13 @@ var render = function () {
         _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Data")]),
         _vm._v(" "),
         _c("div", { staticClass: "flex flex-row justify-around" }, [
-          _c("p", [_vm._v("Cost: " + _vm._s(this.makeDecimal()) + "m")]),
+          _c("p", [
+            _vm._v(
+              "Cost: " +
+                _vm._s(this.makeDecimal(this.player_2[0].current_cost)) +
+                "m"
+            ),
+          ]),
           _vm._v(" "),
           _c("p", [
             _vm._v("Minutes: " + _vm._s(this.player_2[0].minutes_season)),

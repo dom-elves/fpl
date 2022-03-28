@@ -9,7 +9,7 @@
             <p class="font-bold p-2">Points</p>
 
             <div class="flex flex-row justify-around">
-                <p>Total: {{ this.player_1[0].total_points_season }}</p>
+                <p id="player_1_total_points">Total: {{ this.player_1[0].total_points_season }}</p>
                 <p>Per game: {{ this.player_1[0].points_per_game }}</p>
                 <p>Bonus: {{this.player_1[0].bonus_points_season }}</p>
             </div>
@@ -17,7 +17,7 @@
             <p class="font-bold p-2">Data</p>
 
             <div class="flex flex-row justify-around">
-                <p>Cost: {{ this.makeDecimal() }}m</p>
+                <p>Cost: {{ this.makeDecimal(this.player_1[0].current_cost) }}m</p>
                 <p>Minutes: {{ this.player_1[0].minutes_season }}</p>
                 <p>Popularity: {{this.player_1[0].percent_selected}}%</p>
             </div>
@@ -54,7 +54,7 @@
             <p class="font-bold p-2">Points</p>
 
             <div class="flex flex-row justify-around">
-                <p>Total: {{ this.player_2[0].total_points_season }}</p>
+                <p id="player_2_total_points">Total: {{ this.player_2[0].total_points_season }}</p>
                 <p>Per game: {{ this.player_2[0].points_per_game }}</p>
                 <p>Bonus: {{this.player_2[0].bonus_points_season }}</p>
             </div>
@@ -62,7 +62,7 @@
             <p class="font-bold p-2">Data</p>
 
             <div class="flex flex-row justify-around">
-                <p>Cost: {{ this.makeDecimal() }}m</p>
+                <p>Cost: {{ this.makeDecimal(this.player_2[0].current_cost) }}m</p>
                 <p>Minutes: {{ this.player_2[0].minutes_season }}</p>
                 <p>Popularity: {{this.player_2[0].percent_selected}}%</p>
             </div>
@@ -103,22 +103,25 @@
         props: ['player_1', 'player_2'],
 
         mounted() {
-            console.log(this.player_1[0]);
+            // console.log(this.player_1[0]);
+
+            // let p1tp = document.getElementById('player_1_total_points');
+
+            // console.log(p1tp.value());
+
+            let player_1_cost = this.player_1[0].current_cost;
+            let player_2_cost = this.player_2[0].current_cost
         },
 
         methods: {
             //probably a better way of doing this - come back to it 
-            makeDecimal() {
+            makeDecimal(player_cost) {
+                console.log(player_cost);
+                // let cost = this.player_1[0].current_cost;
+                let newCost = player_cost/10;
+                let decimalCost = newCost.toFixed(1);
 
-                let cost_1 = this.player_1[0].current_cost;
-                let newCost_1 = cost_1/10;
-                let decimalCost_1 = newCost_1.toFixed(1);
-
-                let cost_2 = this.player_2[0].current_cost;
-                let newCost_2 = cost_2/10;
-                let decimalCost_2 = newCost_2.toFixed(1);
-
-                return decimalCost_1, decimalCost_2;
+                return decimalCost;
             },
         },
 
