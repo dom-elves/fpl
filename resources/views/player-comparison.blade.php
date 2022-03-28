@@ -5,25 +5,29 @@
 
     <div class="w-[900px] h-[900px] border-l-2 border-r-2 border-[#00ff85] justify-around flex flex-row">
 
-        <div class="w-full">
+        <div class="w-full flex flex-column">
 
-            <form class="justify-around flex flex-row">
+            <div>
 
-                <div>
+                <form class="justify-around flex flex-row">
 
-                    <input placeholder="Enter a player">
+                    <div>
 
-                </div>
+                        <input placeholder="Enter a player">
 
-                <compare v-bind:player="{{ $players }}"></compare>
+                    </div>
 
-                <div>
+                    <div>
 
-                    <input placeholder="Enter a player">
+                        <input placeholder="Enter a player">
 
-                </div>
+                    </div>
 
-            </form>
+                </form>
+
+            </div>
+            
+            <compare v-bind:player="{{ $players }}"></compare>
             
         </div>
 
