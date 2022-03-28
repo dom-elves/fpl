@@ -103,28 +103,63 @@
         props: ['player_1', 'player_2'],
 
         mounted() {
-            // console.log(this.player_1[0]);
 
-            // let p1tp = document.getElementById('player_1_total_points');
+            this.checkTotalPoints();
 
-            // console.log(p1tp.value());
-
-            let player_1_cost = this.player_1[0].current_cost;
-            let player_2_cost = this.player_2[0].current_cost
         },
 
         methods: {
-            //probably a better way of doing this - come back to it 
+        
             makeDecimal(player_cost) {
-                console.log(player_cost);
-                // let cost = this.player_1[0].current_cost;
+                
                 let newCost = player_cost/10;
+
                 let decimalCost = newCost.toFixed(1);
 
                 return decimalCost;
+            },
+
+            checkTotalPoints() {
+
+                let player_1_total_points = document.getElementById('player_1_total_points');
+                let player_2_total_points = document.getElementById('player_2_total_points');
+
+                if ( this.player_1[0].total_points_season > this.player_2[0].total_points_season) {
+                    player_1_total_points.classList.add('higher');
+                    player_2_total_points.classList.add('lower');
+                }
+
+                if ( this.player_1[0].total_points_season < this.player_2[0].total_points_season) {
+                    player_1_total_points.classList.add('lower');
+                    player_2_total_points.classList.add('higher');
+                }
+
+                if ( this.player_1[0].total_points_season == this.player_2[0].total_points_season) {
+                    player_1_total_points.classList.add('even');
+                    player_2_total_points.classList.add('even');
+                }
+
             },
         },
 
     }
     
 </script>
+
+<style scoped>
+
+    .higher {
+        background-color: green;
+        color: white;
+    }
+
+    .lower {
+        background-color: red;
+        color: white;
+    }
+
+    .even {
+        background-color: yellow;
+    }
+
+</style>
