@@ -3,11 +3,11 @@
     <div class="flex flex-row justify-around">
 
         <div class="bg-purple-50 w-[400px]">
-        <p>{{ this.search_results[0] }}</p>
+        <p>{{ this.player_1[0].first_name }}</p>
         </div>
 
         <div class="bg-purple-50 w-[400px]">
-        <p>{{ this.search_results[1] }}</p>
+        <p>{{ this.player_2[0].first_name }}</p>
         </div>
 
     </div>
@@ -18,11 +18,15 @@
 
     export default {
         
-        props: ['search_results'],
+        props: ['player_1', 'player_2'],
 
         mounted() {
-            console.log(this.search_results);
-        }
+            console.log(this.player_1[0]);
+        },
+
+        methods: {
+
+        },
 
     }
     

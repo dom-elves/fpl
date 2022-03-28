@@ -5381,10 +5381,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['search_results'],
+  props: ['player_1', 'player_2'],
   mounted: function mounted() {
-    console.log(this.search_results);
-  }
+    console.log(this.player_1[0]);
+  },
+  methods: {}
 });
 
 /***/ }),
@@ -29006,11 +29007,11 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "flex flex-row justify-around" }, [
     _c("div", { staticClass: "bg-purple-50 w-[400px]" }, [
-      _c("p", [_vm._v(_vm._s(this.search_results[0]))]),
+      _c("p", [_vm._v(_vm._s(this.player_1[0].first_name))]),
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "bg-purple-50 w-[400px]" }, [
-      _c("p", [_vm._v(_vm._s(this.search_results[1]))]),
+      _c("p", [_vm._v(_vm._s(this.player_2[0].first_name))]),
     ]),
   ])
 }

@@ -6,7 +6,7 @@
     <div class="w-[900px] h-[900px] border-l-2 border-r-2 border-[#00ff85] justify-around flex flex-row">
 
         <div class="w-full flex flex-column">
-        {{ $search_results_json }}
+        
             <div>
 
                 <form action="/player-comparison" class="justify-around flex flex-row">
@@ -27,7 +27,7 @@
 
             </div>
 
-            <compare v-bind:search_results="{{ $search_results_json }}"></compare>
+            <compare v-bind:player_1="{{ $player_1 }}" :player_2="{{ $player_2 }}"></compare>
             
         </div>
 

@@ -140,21 +140,19 @@ class PlayerController extends BaseController
       }
 
       $search_result_1 = DB::table('players')->where('last_name', $input_1)
-                                     ->get()
-                                     ->toArray();
+                                     ->get();
+                                     
                                      
 
       $search_result_2 = DB::table('players')->where('last_name', $input_2)
-                                     ->get()
-                                     ->toArray();
+                                     ->get();
                                      
-
+                                     
       // dd($search_result_2, $search_result_2);
 
-      $search_results = [$search_result_1, $search_result_2]; 
-      
-      $search_results_json = json_encode($search_results);     
-
-      return view('/player-comparison')->with(['search_results_json' => $search_results_json]);
+      $player_1 = json_encode($search_result_1); 
+      $player_2 = json_encode($search_result_2); 
+          
+      return view('/player-comparison')->with(['player_1' => $player_1, 'player_2' => $player_2]);
     }
 }
