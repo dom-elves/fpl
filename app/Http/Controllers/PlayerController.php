@@ -125,15 +125,31 @@ class PlayerController extends BaseController
       }
     }
 
-    public function comparePlayers()
+    public function comparePlayers(Request $request)
     {
-      
-      $search_result_1 = 'test1';
-      $search_result_2 = 'test2';
+      //initialises as empty strings so it can function on initial render
+      // $search_result_1 = '';
+      // $search_result_2 = '';
 
-      $search_results = [$search_result_1, $search_result_2]; 
-      $search_results_json = json_encode($search_results);
-      
+      // $search_results = [$search_result_1, $search_result_2]; 
+      // $search_results_json = json_encode($search_results);
+
+      //for when a user has input
+      $input_1 = $request->input('search-input-1');
+      $input_2 = $request->input('search-input-2');
+
+      if ($input_1 == null && $input_2 == null ) {
+
+        $search_results = ['No player names have been entered', '']; //this is absolutely a cheating way of doing this but i'll come back to it when i can at least return players
+        $search_results_json = json_encode($search_results);
+
+        return view('/player-comparison')->with(['search_results_json' => $search_results_json]);
+
+      }
+
+      $search_results = [$input_1, $input_2]; 
+      $search_results_json = json_encode($search_results);     
+
       return view('/player-comparison')->with(['search_results_json' => $search_results_json]);
     }
 }
