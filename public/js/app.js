@@ -5374,7 +5374,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['search_results'],
+  mounted: function mounted() {
+    console.log(this.search_results);
+  }
+});
 
 /***/ }),
 
@@ -28993,18 +29000,17 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("p", { staticClass: "text-white" }, [
+      _vm._v(_vm._s(this.search_results[0])),
+    ]),
+    _vm._v(" "),
+    _c("p", { staticClass: "text-white" }, [
+      _vm._v(_vm._s(this.search_results[1])),
+    ]),
+  ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("p", { staticClass: "text-white" }, [_vm._v("sdfkosdfglkjsdg;kl")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

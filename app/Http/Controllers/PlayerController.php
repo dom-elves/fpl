@@ -127,8 +127,13 @@ class PlayerController extends BaseController
 
     public function comparePlayers()
     {
-      $players = DB::table('players')->get();
+      
+      $search_result_1 = 'test1';
+      $search_result_2 = 'test2';
 
-      return view('/player-comparison')->with(['players' => $players]);
+      $search_results = [$search_result_1, $search_result_2]; 
+      $search_results_json = json_encode($search_results);
+      
+      return view('/player-comparison')->with(['search_results_json' => $search_results_json]);
     }
 }
