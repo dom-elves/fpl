@@ -5462,6 +5462,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['player_1', 'player_2'],
   mounted: function mounted() {
@@ -5481,6 +5483,12 @@ __webpack_require__.r(__webpack_exports__);
     this.applyPlayer2DifferenceBackgrounds();
   },
   methods: {
+    pointsPer90: function pointsPer90(points, minutes) {
+      var games = minutes / 90;
+      var pp90 = points / games;
+      var pp90_decimal = pp90.toFixed(2);
+      return pp90_decimal;
+    },
     makeDecimal: function makeDecimal(player_cost) {
       var newCost = player_cost / 10;
       var decimalCost = newCost.toFixed(1);
@@ -5496,17 +5504,14 @@ __webpack_require__.r(__webpack_exports__);
 
       if (difference < 0) {
         player_1_dif.classList.add('lower');
-        console.log('lower');
       }
 
       if (difference > 0) {
         player_1_dif.classList.add('higher');
-        console.log('higher');
       }
 
       if (difference == 0) {
         player_1_dif.add('even');
-        console.log('even');
       }
     },
     applyPlayer2DifferenceBackgrounds: function applyPlayer2DifferenceBackgrounds() {
@@ -5515,17 +5520,14 @@ __webpack_require__.r(__webpack_exports__);
 
       if (difference < 0) {
         player_2_dif.classList.add('lower');
-        console.log('lower');
       }
 
       if (difference > 0) {
         player_2_dif.classList.add('higher');
-        console.log('higher');
       }
 
       if (difference == 0) {
         player_2_dif.add('even');
-        console.log('even');
       }
     },
     checkTotalPoints: function checkTotalPoints() {
@@ -29469,11 +29471,25 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("p", { attrs: { id: "player_1_ppg" } }, [
-            _vm._v("Per game: " + _vm._s(this.player_1[0].points_per_game)),
+            _vm._v(
+              "Per appearance: " + _vm._s(this.player_1[0].points_per_game)
+            ),
           ]),
           _vm._v(" "),
           _c("p", { attrs: { id: "player_1_bonus_season" } }, [
             _vm._v("Bonus: " + _vm._s(this.player_1[0].bonus_points_season)),
+          ]),
+          _vm._v(" "),
+          _c("p", { attrs: { id: "player_1_pp90" } }, [
+            _vm._v(
+              "Per 90mins: " +
+                _vm._s(
+                  this.pointsPer90(
+                    this.player_1[0].total_points_season,
+                    this.player_1[0].minutes_season
+                  )
+                )
+            ),
           ]),
         ]),
         _vm._v(" "),
@@ -29577,11 +29593,25 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("p", { attrs: { id: "player_2_ppg" } }, [
-            _vm._v("Per game: " + _vm._s(this.player_2[0].points_per_game)),
+            _vm._v(
+              "Per appearance: " + _vm._s(this.player_2[0].points_per_game)
+            ),
           ]),
           _vm._v(" "),
           _c("p", { attrs: { id: "player_2_bonus_season" } }, [
             _vm._v("Bonus: " + _vm._s(this.player_2[0].bonus_points_season)),
+          ]),
+          _vm._v(" "),
+          _c("p", { attrs: { id: "player_2_pp90" } }, [
+            _vm._v(
+              "Per 90mins: " +
+                _vm._s(
+                  this.pointsPer90(
+                    this.player_2[0].total_points_season,
+                    this.player_2[0].minutes_season
+                  )
+                )
+            ),
           ]),
         ]),
         _vm._v(" "),

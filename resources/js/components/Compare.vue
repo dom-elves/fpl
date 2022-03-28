@@ -10,8 +10,9 @@
 
             <div class="flex flex-row justify-around">
                 <p id="player_1_total_points">Total: {{ this.player_1[0].total_points_season }}</p>
-                <p id="player_1_ppg">Per game: {{ this.player_1[0].points_per_game }}</p>
+                <p id="player_1_ppg">Per appearance: {{ this.player_1[0].points_per_game }}</p>
                 <p id="player_1_bonus_season">Bonus: {{this.player_1[0].bonus_points_season }}</p>
+                <p id="player_1_pp90">Per 90mins: {{ this.pointsPer90(this.player_1[0].total_points_season, this.player_1[0].minutes_season) }}</p>
             </div>
 
             <p class="font-bold p-2">Data</p>
@@ -55,8 +56,9 @@
 
             <div class="flex flex-row justify-around">
                 <p id="player_2_total_points">Total: {{ this.player_2[0].total_points_season }}</p>
-                <p id="player_2_ppg">Per game: {{ this.player_2[0].points_per_game }}</p>
+                <p id="player_2_ppg">Per appearance: {{ this.player_2[0].points_per_game }}</p>
                 <p id="player_2_bonus_season">Bonus: {{this.player_2[0].bonus_points_season }}</p>
+                <p id="player_2_pp90">Per 90mins: {{ this.pointsPer90(this.player_2[0].total_points_season, this.player_2[0].minutes_season) }}</p>
             </div>
 
             <p class="font-bold p-2">Data</p>
@@ -135,6 +137,16 @@
         },
 
         methods: {
+
+            pointsPer90(points, minutes) {
+
+                let games = minutes / 90;
+               
+                let pp90 = points / games;
+                let pp90_decimal = pp90.toFixed(2);
+
+                return pp90_decimal;
+            },
         
             makeDecimal(player_cost) {
                 
@@ -160,18 +172,21 @@
                 let player_1_dif = document.getElementById('p1d');
 
                 if (difference < 0) {
+
                     player_1_dif.classList.add('lower');
-                    console.log('lower');
+                    
                 }
 
                 if (difference > 0) {
+
                     player_1_dif.classList.add('higher');
-                    console.log('higher');
+                    
                 }
 
                 if (difference == 0) {
+
                     player_1_dif.add('even');
-                    console.log('even');
+                    
                 }
 
             },
@@ -183,18 +198,21 @@
                 let player_2_dif = document.getElementById('p2d');
 
                 if (difference < 0) {
+
                     player_2_dif.classList.add('lower');
-                    console.log('lower');
+                    
                 }
 
                 if (difference > 0) {
+
                     player_2_dif.classList.add('higher');
-                    console.log('higher');
+                    
                 }
 
                 if (difference == 0) {
+
                     player_2_dif.add('even');
-                    console.log('even');
+                    
                 }
 
             },
@@ -288,7 +306,7 @@
             },
 
             checkPopularity() {
-
+                
                 let player_1_popularity = document.getElementById('player_1_popularity');
                 let player_2_popularity = document.getElementById('player_2_popularity');
 
