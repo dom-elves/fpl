@@ -5467,6 +5467,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['player_1', 'player_2'],
   mounted: function mounted() {
+    console.log(this.player_1, this.player_2);
     this.checkTotalPoints();
     this.checkPointsPerGame();
     this.checkTotalBonusPoints();
@@ -5481,14 +5482,9 @@ __webpack_require__.r(__webpack_exports__);
     this.checkTransfersOut();
     this.applyPlayer1DifferenceBackgrounds();
     this.applyPlayer2DifferenceBackgrounds();
+    this.checkPointsPer90();
   },
   methods: {
-    pointsPer90: function pointsPer90(points, minutes) {
-      var games = minutes / 90;
-      var pp90 = points / games;
-      var pp90_decimal = pp90.toFixed(2);
-      return pp90_decimal;
-    },
     makeDecimal: function makeDecimal(player_cost) {
       var newCost = player_cost / 10;
       var decimalCost = newCost.toFixed(1);
@@ -5756,6 +5752,25 @@ __webpack_require__.r(__webpack_exports__);
       if (this.player_1[0].transfers_out_week == this.player_2[0].transfers_out_week) {
         player_1_transfers_out.classList.add('even');
         player_2_transfers_out.classList.add('even');
+      }
+    },
+    checkPointsPer90: function checkPointsPer90() {
+      var player_1_pp90 = document.getElementById('player_1_pp90');
+      var player_2_pp90 = document.getElementById('player_2_pp90');
+
+      if (this.player_1[0].points_per_90 > this.player_2[0].points_per_90) {
+        player_1_pp90.classList.add('higher');
+        player_2_pp90.classList.add('lower');
+      }
+
+      if (this.player_1[0].points_per_90 < this.player_2[0].points_per_90) {
+        player_1_pp90.classList.add('lower');
+        player_2_pp90.classList.add('higher');
+      }
+
+      if (this.player_1[0].points_per_90 == this.player_2[0].points_per_90) {
+        player_1_pp90.classList.add('even');
+        player_2_pp90.classList.add('even');
       }
     }
   }
@@ -29481,15 +29496,7 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("p", { attrs: { id: "player_1_pp90" } }, [
-            _vm._v(
-              "Per 90mins: " +
-                _vm._s(
-                  this.pointsPer90(
-                    this.player_1[0].total_points_season,
-                    this.player_1[0].minutes_season
-                  )
-                )
-            ),
+            _vm._v("Per 90mins: " + _vm._s(this.player_1[0].points_per_90)),
           ]),
         ]),
         _vm._v(" "),
@@ -29603,15 +29610,7 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("p", { attrs: { id: "player_2_pp90" } }, [
-            _vm._v(
-              "Per 90mins: " +
-                _vm._s(
-                  this.pointsPer90(
-                    this.player_2[0].total_points_season,
-                    this.player_2[0].minutes_season
-                  )
-                )
-            ),
+            _vm._v("Per 90mins: " + _vm._s(this.player_2[0].points_per_90)),
           ]),
         ]),
         _vm._v(" "),

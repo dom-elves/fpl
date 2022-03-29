@@ -12,7 +12,7 @@
                 <p id="player_1_total_points">Total: {{ this.player_1[0].total_points_season }}</p>
                 <p id="player_1_ppg">Per appearance: {{ this.player_1[0].points_per_game }}</p>
                 <p id="player_1_bonus_season">Bonus: {{this.player_1[0].bonus_points_season }}</p>
-                <p id="player_1_pp90">Per 90mins: {{ this.pointsPer90(this.player_1[0].total_points_season, this.player_1[0].minutes_season) }}</p>
+                <p id="player_1_pp90">Per 90mins: {{ this.player_1[0].points_per_90 }}</p>
             </div>
 
             <p class="font-bold p-2">Data</p>
@@ -58,7 +58,7 @@
                 <p id="player_2_total_points">Total: {{ this.player_2[0].total_points_season }}</p>
                 <p id="player_2_ppg">Per appearance: {{ this.player_2[0].points_per_game }}</p>
                 <p id="player_2_bonus_season">Bonus: {{this.player_2[0].bonus_points_season }}</p>
-                <p id="player_2_pp90">Per 90mins: {{ this.pointsPer90(this.player_2[0].total_points_season, this.player_2[0].minutes_season) }}</p>
+                <p id="player_2_pp90">Per 90mins: {{ this.player_2[0].points_per_90 }}</p>
             </div>
 
             <p class="font-bold p-2">Data</p>
@@ -105,7 +105,7 @@
         props: ['player_1', 'player_2'],
 
         mounted() {
-
+            console.log(this.player_1, this.player_2);
             this.checkTotalPoints();
 
             this.checkPointsPerGame();
@@ -134,19 +134,11 @@
 
             this.applyPlayer2DifferenceBackgrounds();
 
+            this.checkPointsPer90();
+
         },
 
         methods: {
-
-            pointsPer90(points, minutes) {
-
-                let games = minutes / 90;
-               
-                let pp90 = points / games;
-                let pp90_decimal = pp90.toFixed(2);
-
-                return pp90_decimal;
-            },
         
             makeDecimal(player_cost) {
                 
@@ -480,6 +472,29 @@
                 }
 
             },
+
+            checkPointsPer90() {
+
+                let player_1_pp90 = document.getElementById('player_1_pp90');
+                let player_2_pp90 = document.getElementById('player_2_pp90');
+
+                if ( this.player_1[0].points_per_90  > this.player_2[0].points_per_90 ) {
+                    player_1_pp90.classList.add('higher');
+                    player_2_pp90.classList.add('lower');
+                }
+
+                if ( this.player_1[0].points_per_90  < this.player_2[0].points_per_90 ) {
+                    player_1_pp90.classList.add('lower');
+                    player_2_pp90.classList.add('higher');
+                }
+
+                if ( this.player_1[0].points_per_90 == this.player_2[0].points_per_90 ) {
+                    player_1_pp90.classList.add('even');
+                    player_2_pp90.classList.add('even');
+                }
+
+            },
+
 
         },
 

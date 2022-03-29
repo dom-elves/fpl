@@ -57,7 +57,9 @@ class GameweekController extends Controller
             $highestPlayerScore = $gameweek->top_element_info->points;
             
         } else {
+
             break;
+            
         }
           DB::table('gameweeks')->insert([
             

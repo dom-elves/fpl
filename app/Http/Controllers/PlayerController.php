@@ -90,6 +90,19 @@ class PlayerController extends BaseController
             $player->element_type = 'FWD';
           }
 
+          //for calcing player points per 90min rather than calcing in vue component
+        
+          if ($player->minutes == 0) {
+
+            continue;
+  
+          }
+          
+          $games = $player->minutes / 90;
+          $pp90 = $player->total_points / $games;
+  
+          $player->points_per_90 = $pp90;
+          
           DB::table('players')->insert([
 
             'player_id' => $player->id,
@@ -100,6 +113,7 @@ class PlayerController extends BaseController
             'total_points_season' => $player->total_points,
             'total_points_week' => $player->event_points,
             'points_per_game' => $player->points_per_game,
+            'points_per_90' => $player->points_per_90,
             'current_cost' => $player->now_cost,
             'start_cost' => null, //need to look into cost stuff again at some point
             'goals_scored' => $player->goals_scored,
@@ -117,7 +131,8 @@ class PlayerController extends BaseController
             'minutes_season' => $player->minutes,
             'transfers_in_week' => $player->transfers_in_event,
             'transfers_out_week' => $player->transfers_out_event,
-            'percent_selected' => $player->selected_by_percent
+            'percent_selected' => $player->selected_by_percent,
+            
           ]);
 
         }
@@ -173,5 +188,12 @@ class PlayerController extends BaseController
           
       // dd($player_1, $player_list_1); 
       return view('/player-comparison')->with(['player_1' => $player_1, 'player_2' => $player_2, 'player_list_1' => $player_list_1, 'player_list_2' => $player_list_2]);
+    }
+
+    public function returnAllPlayers()
+    {
+        $players = DB::table('players')->get();
+        
+        return view('/player-index')->with(['players' => $players]);
     }
 }
