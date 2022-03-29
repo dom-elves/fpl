@@ -134,8 +134,10 @@ class PlayerController extends BaseController
 
         $player_1 = '';
         $player_2 = '';
+        $player_list_1 = '';
+        $player_list_2 = '';
 
-        return view('/player-comparison')->with(['player_1' => $player_1, 'player_2' => $player_2]);
+        return view('/player-comparison')->with(['player_1' => $player_1, 'player_2' => $player_2, 'player_list_1' => $player_list_1, 'player_list_2' => $player_list_2]);
 
       }
 
