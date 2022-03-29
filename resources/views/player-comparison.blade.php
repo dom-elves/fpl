@@ -34,7 +34,7 @@
 
                         @foreach ($player_list_1 as $player)
 
-                            <p class="text-white">{{ $player->first_name }} {{ $player->last_name }}</p>
+                            <p class="text-white">{{ $player->first_name }} {{ $player->last_name }} ({{ $player->player_id }})</p>
 
                         @endforeach
 
@@ -44,7 +44,7 @@
 
                         @foreach ($player_list_2 as $player)
 
-                            <p class="text-white">{{ $player->first_name }} {{ $player->last_name }}</p>
+                            <p class="text-white">{{ $player->first_name }} {{ $player->last_name }} ({{ $player->player_id }})</p>
 
                         @endforeach
 

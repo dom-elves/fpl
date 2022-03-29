@@ -139,16 +139,18 @@ class PlayerController extends BaseController
 
       }
 
-      $player_1 = DB::table('players')->where('last_name', 'like', '%' . $input_1 . '%')
+      $player_1 = DB::table('players')->where('player_id', $input_1)
+                                      ->orWhere('last_name', 'like', '%' . $input_1 . '%')
                                      ->orWhere('first_name', 'like', '%' . $input_1 . '%')
                                      ->get();
                                      
                                                                
 
-      $player_2 = DB::table('players')->where('last_name', 'like', '%' . $input_2 . '%')
-      ->orWhere('first_name', 'like', '%' . $input_2 . '%')
-      ->get();
-                                    
+      $player_2 = DB::table('players')->where('player_id', $input_2)
+                                      ->orWhere('last_name', 'like', '%' . $input_2 . '%')
+                                      ->orWhere('first_name', 'like', '%' . $input_2 . '%')
+                                      ->get();
+                                                                    
       
                                   
       if ( count($player_1) > 1 || count($player_2) > 1 ) {
