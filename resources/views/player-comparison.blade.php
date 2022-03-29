@@ -26,11 +26,39 @@
                 </form>
 
             </div>
-            @if (!$player_1 == '' || !$player_2 == '')
 
-                <compare v-bind:player_1="{{ $player_1 }}" :player_2="{{ $player_2 }}"></compare>
+            @if (!$player_list_1 == '' || !$player_list_2 == '')
+                <div class="flex flex-row justify-around">
+
+                    <div>
+
+                        @foreach ($player_list_1 as $player)
+
+                            <p class="text-white">{{ $player->first_name }} {{ $player->last_name }}</p>
+
+                        @endforeach
+
+                    </div>
+
+                    <div>
+
+                        @foreach ($player_list_2 as $player)
+
+                            <p class="text-white">{{ $player->first_name }} {{ $player->last_name }}</p>
+
+                        @endforeach
+
+                    </div>
+
+                </div>
+            @endif
+
+            @if (!$player_1 == '' || !$player_2 == '')
+               
+                <compare v-bind:player_1="{{ json_encode($player_1) }}" :player_2="{{ json_encode($player_2) }}"></compare>
 
             @endif
+
         </div>
 
     </div>

@@ -139,20 +139,35 @@ class PlayerController extends BaseController
 
       }
 
-      $search_result_1 = DB::table('players')->where('last_name', $input_1)
+      $player_1 = DB::table('players')->where('last_name', 'like', '%' . $input_1 . '%')
+                                     ->orWhere('first_name', 'like', '%' . $input_1 . '%')
                                      ->get();
                                      
-                                     
+                                                               
 
-      $search_result_2 = DB::table('players')->where('last_name', $input_2)
-                                     ->get();
-                                     
-                                     
-      // dd($search_result_2, $search_result_2);
+      $player_2 = DB::table('players')->where('last_name', 'like', '%' . $input_2 . '%')
+      ->orWhere('first_name', 'like', '%' . $input_2 . '%')
+      ->get();
+                                    
+      
+                                  
+      if ( count($player_1) > 1 || count($player_2) > 1 ) {
+        
+        
+        $player_list_1 = $player_1;
+        $player_list_2 = $player_2;
 
-      $player_1 = json_encode($search_result_1); 
-      $player_2 = json_encode($search_result_2); 
+        $player_1 = '';
+        $player_2 = '';
+
+        return view('/player-comparison')->with(['player_1' => $player_1, 'player_2' => $player_2, 'player_list_1' => $player_list_1, 'player_list_2' => $player_list_2]);
+
+      }
+     
+      $player_list_1 = '';
+      $player_list_2 = '';
           
-      return view('/player-comparison')->with(['player_1' => $player_1, 'player_2' => $player_2]);
+      // dd($player_1, $player_list_1); 
+      return view('/player-comparison')->with(['player_1' => $player_1, 'player_2' => $player_2, 'player_list_1' => $player_list_1, 'player_list_2' => $player_list_2]);
     }
 }
