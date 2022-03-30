@@ -97,12 +97,17 @@ class PlayerController extends BaseController
             continue;
   
           }
-          
+
           $games = $player->minutes / 90;
           $pp90 = $player->total_points / $games;
   
           $player->points_per_90 = $pp90;
+
+
+          //value?
+          $player->value = $player->total_points / $player->now_cost;
           
+          //insert data
           DB::table('players')->insert([
 
             'player_id' => $player->id,
@@ -114,6 +119,7 @@ class PlayerController extends BaseController
             'total_points_week' => $player->event_points,
             'points_per_game' => $player->points_per_game,
             'points_per_90' => $player->points_per_90,
+            'value' => $player->value,
             'current_cost' => $player->now_cost,
             'start_cost' => null, //need to look into cost stuff again at some point
             'goals_scored' => $player->goals_scored,

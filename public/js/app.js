@@ -5464,10 +5464,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['player_1', 'player_2'],
   mounted: function mounted() {
-    console.log(this.player_1, this.player_2);
+    console.log(this.player_2[0].percent_selected, this.player_1[0].percent_selected);
     this.checkTotalPoints();
     this.checkPointsPerGame();
     this.checkTotalBonusPoints();
@@ -5483,6 +5485,7 @@ __webpack_require__.r(__webpack_exports__);
     this.applyPlayer1DifferenceBackgrounds();
     this.applyPlayer2DifferenceBackgrounds();
     this.checkPointsPer90();
+    this.checkValue();
   },
   methods: {
     makeDecimal: function makeDecimal(player_cost) {
@@ -5771,6 +5774,25 @@ __webpack_require__.r(__webpack_exports__);
       if (this.player_1[0].points_per_90 == this.player_2[0].points_per_90) {
         player_1_pp90.classList.add('even');
         player_2_pp90.classList.add('even');
+      }
+    },
+    checkValue: function checkValue() {
+      var player_1_value = document.getElementById('player_1_value');
+      var player_2_value = document.getElementById('player_2_value');
+
+      if (this.player_1[0].value > this.player_2[0].value) {
+        player_1_value.classList.add('higher');
+        player_2_value.classList.add('lower');
+      }
+
+      if (this.player_1[0].value < this.player_2[0].value) {
+        player_1_value.classList.add('lower');
+        player_2_value.classList.add('higher');
+      }
+
+      if (this.player_1[0].value == this.player_2[0].value) {
+        player_1_value.classList.add('even');
+        player_2_value.classList.add('even');
       }
     }
   }
@@ -29485,24 +29507,16 @@ var render = function () {
             _vm._v("Total: " + _vm._s(this.player_1[0].total_points_season)),
           ]),
           _vm._v(" "),
-          _c("p", { attrs: { id: "player_1_ppg" } }, [
-            _vm._v(
-              "Per appearance: " + _vm._s(this.player_1[0].points_per_game)
-            ),
-          ]),
-          _vm._v(" "),
           _c("p", { attrs: { id: "player_1_bonus_season" } }, [
             _vm._v("Bonus: " + _vm._s(this.player_1[0].bonus_points_season)),
           ]),
           _vm._v(" "),
-          _c("p", { attrs: { id: "player_1_pp90" } }, [
-            _vm._v("Per 90mins: " + _vm._s(this.player_1[0].points_per_90)),
+          _c("p", { attrs: { id: "player_1_popularity" } }, [
+            _vm._v(
+              "Popularity: " + _vm._s(this.player_1[0].percent_selected) + "%"
+            ),
           ]),
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Data")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "flex flex-row justify-around" }, [
+          _vm._v(" "),
           _c("p", { attrs: { id: "player_1_cost" } }, [
             _vm._v(
               "Cost: " +
@@ -29510,11 +29524,23 @@ var render = function () {
                 "m"
             ),
           ]),
-          _vm._v(" "),
-          _c("p", { attrs: { id: "player_1_popularity" } }, [
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Points Per X")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex flex-row justify-around" }, [
+          _c("p", { attrs: { id: "player_1_ppg" } }, [
             _vm._v(
-              "Popularity: " + _vm._s(this.player_1[0].percent_selected) + "%"
+              "Per appearance: " + _vm._s(this.player_1[0].points_per_game)
             ),
+          ]),
+          _vm._v(" "),
+          _c("p", { attrs: { id: "player_1_pp90" } }, [
+            _vm._v("Per 90mins: " + _vm._s(this.player_1[0].points_per_90)),
+          ]),
+          _vm._v(" "),
+          _c("p", { attrs: { id: "player_1_value" } }, [
+            _vm._v("Value (Total/Cost) " + _vm._s(this.player_1[0].value)),
           ]),
         ]),
         _vm._v(" "),
@@ -29599,24 +29625,16 @@ var render = function () {
             _vm._v("Total: " + _vm._s(this.player_2[0].total_points_season)),
           ]),
           _vm._v(" "),
-          _c("p", { attrs: { id: "player_2_ppg" } }, [
-            _vm._v(
-              "Per appearance: " + _vm._s(this.player_2[0].points_per_game)
-            ),
-          ]),
-          _vm._v(" "),
           _c("p", { attrs: { id: "player_2_bonus_season" } }, [
             _vm._v("Bonus: " + _vm._s(this.player_2[0].bonus_points_season)),
           ]),
           _vm._v(" "),
-          _c("p", { attrs: { id: "player_2_pp90" } }, [
-            _vm._v("Per 90mins: " + _vm._s(this.player_2[0].points_per_90)),
+          _c("p", { attrs: { id: "player_2_popularity" } }, [
+            _vm._v(
+              "Popularity: " + _vm._s(this.player_2[0].percent_selected) + "%"
+            ),
           ]),
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Data")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "flex flex-row justify-around" }, [
+          _vm._v(" "),
           _c("p", { attrs: { id: "player_2_cost" } }, [
             _vm._v(
               "Cost: " +
@@ -29624,11 +29642,23 @@ var render = function () {
                 "m"
             ),
           ]),
-          _vm._v(" "),
-          _c("p", { attrs: { id: "player_2_popularity" } }, [
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "font-bold p-2" }, [_vm._v("Points Per X")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex flex-row justify-around" }, [
+          _c("p", { attrs: { id: "player_2_ppg" } }, [
             _vm._v(
-              "Popularity: " + _vm._s(this.player_2[0].percent_selected) + "%"
+              "Per appearance: " + _vm._s(this.player_2[0].points_per_game)
             ),
+          ]),
+          _vm._v(" "),
+          _c("p", { attrs: { id: "player_2_pp90" } }, [
+            _vm._v("Per 90mins: " + _vm._s(this.player_2[0].points_per_90)),
+          ]),
+          _vm._v(" "),
+          _c("p", { attrs: { id: "player_2_value" } }, [
+            _vm._v("Value (Total/Cost) " + _vm._s(this.player_2[0].value)),
           ]),
         ]),
         _vm._v(" "),

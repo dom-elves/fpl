@@ -10,16 +10,17 @@
 
             <div class="flex flex-row justify-around">
                 <p id="player_1_total_points">Total: {{ this.player_1[0].total_points_season }}</p>
-                <p id="player_1_ppg">Per appearance: {{ this.player_1[0].points_per_game }}</p>
                 <p id="player_1_bonus_season">Bonus: {{this.player_1[0].bonus_points_season }}</p>
-                <p id="player_1_pp90">Per 90mins: {{ this.player_1[0].points_per_90 }}</p>
+                <p id="player_1_popularity">Popularity: {{this.player_1[0].percent_selected}}%</p> 
+                <p id="player_1_cost">Cost: {{ this.makeDecimal(this.player_1[0].current_cost) }}m</p>
             </div>
 
-            <p class="font-bold p-2">Data</p>
+            <p class="font-bold p-2">Points Per X</p>
 
             <div class="flex flex-row justify-around">
-                <p id="player_1_cost">Cost: {{ this.makeDecimal(this.player_1[0].current_cost) }}m</p>
-                <p id="player_1_popularity">Popularity: {{this.player_1[0].percent_selected}}%</p>
+                <p id="player_1_ppg">Per appearance: {{ this.player_1[0].points_per_game }}</p>
+                <p id="player_1_pp90">Per 90mins: {{ this.player_1[0].points_per_90 }}</p>
+                <p id="player_1_value">Value (Total/Cost) {{ this.player_1[0].value}}</p>
             </div>
 
             <p class="font-bold p-2">Goals</p>
@@ -56,16 +57,17 @@
 
             <div class="flex flex-row justify-around">
                 <p id="player_2_total_points">Total: {{ this.player_2[0].total_points_season }}</p>
-                <p id="player_2_ppg">Per appearance: {{ this.player_2[0].points_per_game }}</p>
                 <p id="player_2_bonus_season">Bonus: {{this.player_2[0].bonus_points_season }}</p>
-                <p id="player_2_pp90">Per 90mins: {{ this.player_2[0].points_per_90 }}</p>
+                <p id="player_2_popularity">Popularity: {{this.player_2[0].percent_selected}}%</p> 
+                <p id="player_2_cost">Cost: {{ this.makeDecimal(this.player_2[0].current_cost) }}m</p>
             </div>
 
-            <p class="font-bold p-2">Data</p>
+            <p class="font-bold p-2">Points Per X</p>
 
             <div class="flex flex-row justify-around">
-                <p id="player_2_cost">Cost: {{ this.makeDecimal(this.player_2[0].current_cost) }}m</p>
-                <p id="player_2_popularity">Popularity: {{this.player_2[0].percent_selected}}%</p>
+                <p id="player_2_ppg">Per appearance: {{ this.player_2[0].points_per_game }}</p>
+                <p id="player_2_pp90">Per 90mins: {{ this.player_2[0].points_per_90 }}</p>
+                <p id="player_2_value">Value (Total/Cost) {{ this.player_2[0].value}}</p>
             </div>
 
             <p class="font-bold p-2">Goals</p>
@@ -105,7 +107,7 @@
         props: ['player_1', 'player_2'],
 
         mounted() {
-            console.log(this.player_1, this.player_2);
+            console.log(this.player_2[0].percent_selected, this.player_1[0].percent_selected);
             this.checkTotalPoints();
 
             this.checkPointsPerGame();
@@ -135,6 +137,8 @@
             this.applyPlayer2DifferenceBackgrounds();
 
             this.checkPointsPer90();
+
+            this.checkValue();
 
         },
 
@@ -491,6 +495,28 @@
                 if ( this.player_1[0].points_per_90 == this.player_2[0].points_per_90 ) {
                     player_1_pp90.classList.add('even');
                     player_2_pp90.classList.add('even');
+                }
+
+            },
+
+            checkValue() {
+
+                let player_1_value = document.getElementById('player_1_value');
+                let player_2_value = document.getElementById('player_2_value');
+
+                if ( this.player_1[0].value  > this.player_2[0].value ) {
+                    player_1_value.classList.add('higher');
+                    player_2_value.classList.add('lower');
+                }
+
+                if ( this.player_1[0].value  < this.player_2[0].value) {
+                    player_1_value.classList.add('lower');
+                    player_2_value.classList.add('higher');
+                }
+
+                if ( this.player_1[0].value == this.player_2[0].value ) {
+                    player_1_value.classList.add('even');
+                    player_2_value.classList.add('even');
                 }
 
             },
