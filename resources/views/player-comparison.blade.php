@@ -11,16 +11,18 @@
 
                 <form action="/player-comparison" class="justify-around flex flex-row">
                 {{ csrf_field() }}
-                    <div>
+                    <div class="mt-10 flex flex-row">
 
-                        <input placeholder="Enter a player" name="search-input-1">
-                        <button type="submit" class="bg-purple-50 p-1 text-[#38003c] text-bold">Find</button>
+                        <input placeholder="Enter a player" name="search-input-1" class="search-field">
+                        <button type="submit" class="bg-purple-50 text-[#38003c] text-bold search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+
                     </div>
 
-                    <div>
+                    <div class="mt-10 flex flex-row">
 
-                        <input placeholder="Enter a player" name="search-input-2">
-                        <button type="submit" class="bg-purple-50 p-1 text-[#38003c] text-bold">Find</button>
+                        <input placeholder="Enter a player" name="search-input-2" class="search-field">
+                        <button type="submit" class="bg-purple-50 text-[#38003c] text-bold search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+
                     </div>
 
                 </form>

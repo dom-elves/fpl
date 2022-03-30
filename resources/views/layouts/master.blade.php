@@ -1,15 +1,44 @@
 <html>
 
     <head>
+
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <style>
             .button-hover-state:hover {
-              
                     background-color: #38003c;
                     color: #04f5ff;
                     border: 2px solid #04f5ff;
             }
+
+            .search-field {
+                background-color: #38003c;
+                color: #FFF;
+                border-top: 2px solid #04f5ff;
+                border-left: 2px solid #04f5ff;
+                border-bottom: 2px solid #04f5ff;
+                padding: 5px;
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+                height: 40px;
+                outline: none;
+            }
+
+            .search-button {
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                border-top: 2px solid #04f5ff;
+                border-right: 2px solid #04f5ff;
+                border-bottom: 2px solid #04f5ff;
+                background-color: #38003c;
+                color: #FFF;
+                margin: none;
+                height: 40px;
+                padding: 5px;
+            }
+
         </style>
     </head>
 
@@ -24,8 +53,8 @@
             <!-- <label class="text-3x1 text-white">Search:</label> -->
             <div class="flex flex-row">
 
-                <input type="text" placeholder="Search for a player" class="w-[250px] p-1" name="search-field"></input>
-                <button type="submit" class="bg-purple-50 p-1 text-[#38003c] text-bold">Find</button>
+                <input type="text" placeholder="Search for a player" class="w-[250px] search-field" name="search-field"></input>
+                <button type="submit" class="text-bold search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
 
             </div>
         </form>
