@@ -68,6 +68,8 @@ class PlayerController extends BaseController
       
       $query = DB::table('players')->get()->first();
 
+      // dd($players[300]);
+
       if ($query) {
 
         DB::table('players')->truncate();
@@ -121,7 +123,7 @@ class PlayerController extends BaseController
             'points_per_90' => $player->points_per_90,
             'value' => $player->value,
             'current_cost' => $player->now_cost,
-            'start_cost' => null, //need to look into cost stuff again at some point
+            'start_cost' => $player->now_cost - $player->cost_change_start,
             'goals_scored' => $player->goals_scored,
             'goals_assisted' => $player->assists,
             'goals_conceded' => $player->goals_conceded,
