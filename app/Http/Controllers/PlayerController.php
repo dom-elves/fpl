@@ -68,8 +68,6 @@ class PlayerController extends BaseController
       
       $query = DB::table('players')->get()->first();
 
-      // dd($players[373]);
-
       if ($query) {
 
         DB::table('players')->truncate();
