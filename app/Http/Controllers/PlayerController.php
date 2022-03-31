@@ -203,4 +203,11 @@ class PlayerController extends BaseController
         
         return view('/player-index')->with(['players' => $players]);
     }
+
+    public function returnTrumpsPlayers()
+    {
+        $players = DB::table('players')->orderBy('current_cost', 'DESC')->limit(30)->get();
+        
+        return view('/top-trumps')->with(['players' => $players]);
+    }
 }
