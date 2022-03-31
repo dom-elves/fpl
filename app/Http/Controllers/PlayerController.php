@@ -206,8 +206,8 @@ class PlayerController extends BaseController
 
     public function returnTrumpsPlayers()
     {
-        $players = DB::table('players')->orderBy('total_points_season', 'DESC')->limit(30)->get();
+        $deck = DB::table('players')->orderBy('total_points_season', 'DESC')->limit(30)->get();
         
-        return view('/top-trumps')->with(['players' => $players]);
+        return view('/top-trumps')->with(['deck' => $deck]);
     }
 }

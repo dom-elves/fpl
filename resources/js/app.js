@@ -31,6 +31,8 @@ Vue.component('compare', require('./components/Compare.vue').default);
 
 Vue.component('top-trumps', require('./components/TopTrumps.vue').default);
 
+Vue.component('top-trumps-house', require('./components/TopTrumpsHouse.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

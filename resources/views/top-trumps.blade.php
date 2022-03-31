@@ -4,7 +4,7 @@
 
 <div>
 
-    <top-trumps v-bind:players="{{ $players }}"></top-trumps>
+    <top-trumps-house :deck="{{ $deck }}"></top-trumps-house>
 
 </div>
 @endsection

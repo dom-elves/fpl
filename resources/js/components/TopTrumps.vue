@@ -8,6 +8,8 @@
     
             <div class="flex flex-row justify-around">
 
+                
+
                 <div class="flex flex-column items-center">
 
                     <p class="text-white text-4xl">Player One</p>
@@ -73,9 +75,12 @@
 
 <script>
 
+
     export default {
+
+            name: 'TopTrumps',
             
-            props: ['players'],
+            props: ['deck'],
 
             created() {
                
@@ -86,6 +91,7 @@
 
             mounted() {
                 this.testMethod();
+                console.log(this.deck, 'child');
             },
 
             methods: {
@@ -106,7 +112,7 @@
 
                 shuffleAndSplit() {
 
-                    const deck = this.players;
+                    const deck = this.deck;
 
                     //for the 'shuffle' aspect, refer back to stack overflow thread for better understanding
                     let currentIndex = deck.length,  randomIndex;
@@ -132,11 +138,11 @@
                     this.player_one = player_one;
                     this.player_two = player_two;
 
-                    console.log('hit', this.player_one[0]); 
+                    
                 },
 
                 testMethod() {
-                    console.log(this.player_one, this.player_two, 'mounted');
+                    // console.log(this.player_one, this.player_two, 'mounted');
                 }
             }
 
