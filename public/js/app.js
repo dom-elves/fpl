@@ -6164,17 +6164,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'TopTrumps',
-  props: ['deck'],
-  created: function created() {
-    this.shuffleAndSplit();
-    console.log(this.player_one, this.player_two, 'created');
+  props: ['player_one', 'player_two'],
+  created: function created() {// this.shuffleAndSplit();
   },
   mounted: function mounted() {
     this.testMethod();
-    console.log(this.deck, 'child');
+    console.log(this.player_one, this.player_two);
   },
   methods: {
     makeDecimal: function makeDecimal(player_cost) {
@@ -6184,28 +6181,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     reload: function reload() {
       location.reload();
-    },
-    shuffleAndSplit: function shuffleAndSplit() {
-      var deck = this.deck; //for the 'shuffle' aspect, refer back to stack overflow thread for better understanding
-
-      var currentIndex = deck.length,
-          randomIndex; // While there remain elements to shuffle...
-
-      while (currentIndex != 0) {
-        // Pick a remaining element...
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--; // And swap it with the current element.
-
-        var _ref = [deck[randomIndex], deck[currentIndex]];
-        deck[currentIndex] = _ref[0];
-        deck[randomIndex] = _ref[1];
-      }
-
-      var half = Math.ceil(deck.length / 2);
-      var player_one = deck.slice(0, half);
-      var player_two = deck.slice(-half);
-      this.player_one = player_one;
-      this.player_two = player_two;
     },
     testMethod: function testMethod() {// console.log(this.player_one, this.player_two, 'mounted');
     }
@@ -6236,7 +6211,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'TopTrumpsHouse',
@@ -6244,8 +6218,36 @@ __webpack_require__.r(__webpack_exports__);
     TopTrumps: _TopTrumps_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: ['deck'],
-  mounted: function mounted() {
-    console.log(this.deck, 'parent deck');
+  created: function created() {
+    this.shuffleAndSplit();
+    console.log(this.player_one, this.player_two, 'created');
+  },
+  mounted: function mounted() {// console.log(this.deck);
+  },
+  methods: {
+    shuffleAndSplit: function shuffleAndSplit() {
+      var deck = this.deck; //for the 'shuffle' aspect, refer back to stack overflow thread for better understanding
+
+      var currentIndex = deck.length,
+          randomIndex; // While there remain elements to shuffle...
+
+      while (currentIndex != 0) {
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--; // And swap it with the current element.
+
+        var _ref = [deck[randomIndex], deck[currentIndex]];
+        deck[currentIndex] = _ref[0];
+        deck[randomIndex] = _ref[1];
+      } //chop the randomized 'deck' and separate into two props to be handed to child component
+
+
+      var half = Math.ceil(deck.length / 2);
+      var player_one = deck.slice(0, half);
+      var player_two = deck.slice(-half);
+      this.player_one = player_one;
+      this.player_two = player_two; // console.log(this.player_one, this.player_two);
+    }
   }
 });
 
@@ -30309,184 +30311,201 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "flex justify-center" }, [
-    _c(
-      "div",
-      {
-        staticClass:
-          "w-[900px] h-[900px] border-l-2 border-r-2 border-[#00ff85] flex flex-column items-center",
-      },
-      [
-        _c(
-          "button",
-          {
-            staticClass:
-              "text-3xl font-bold bg-green-400 text-white text-center p-4 rounded-sm my-10",
-            on: {
-              click: function ($event) {
-                return _vm.reload()
+  return _c(
+    "div",
+    {
+      staticClass: "flex justify-center",
+      attrs: { id: "TopTrumps.vue Container" },
+    },
+    [
+      _c(
+        "div",
+        {
+          staticClass:
+            "w-[900px] h-[900px] border-l-2 border-r-2 border-[#00ff85] flex flex-column items-center",
+        },
+        [
+          _c(
+            "button",
+            {
+              staticClass:
+                "text-3xl font-bold bg-green-400 text-white text-center p-4 rounded-sm my-10",
+              on: {
+                click: function ($event) {
+                  return _vm.reload()
+                },
               },
             },
-          },
-          [_vm._v("New Game")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "flex flex-row justify-around" }, [
-          _c("div", { staticClass: "flex flex-column items-center" }, [
-            _c("p", { staticClass: "text-white text-4xl" }, [
-              _vm._v("Player One"),
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "border-2 border-[#00ff85] w-[300px] h-[450px] bg-purple-50 m-5 flex flex-column",
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "items-center flex flex-column py-5 border-b-2 border-[#00ff85]",
-                  },
-                  [
-                    _c("p", { staticClass: "text-4xl font-bold" }, [
-                      _vm._v(_vm._s(this.player_one[0].first_name)),
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "text-4xl font-bold" }, [
-                      _vm._v(_vm._s(this.player_one[0].last_name)),
-                    ]),
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "p-4" }, [
-                  _c("p", { staticClass: "text-2xl mb-2" }, [
-                    _vm._v(
-                      "Total Points: " +
-                        _vm._s(this.player_one[0].total_points_season)
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "text-2xl mb-2" }, [
-                    _vm._v(
-                      "Goals Scored: " + _vm._s(this.player_one[0].goals_scored)
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "text-2xl mb-2" }, [
-                    _vm._v(
-                      "Goals Assisted: " +
-                        _vm._s(this.player_one[0].goals_assisted)
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "text-2xl mb-2" }, [
-                    _vm._v(
-                      "Cost: £" +
-                        _vm._s(
-                          this.makeDecimal(this.player_one[0].current_cost)
-                        ) +
-                        "m"
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "text-2xl mb-2" }, [
-                    _vm._v(
-                      "Popularity: " +
-                        _vm._s(this.player_one[0].percent_selected) +
-                        "%"
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "text-2xl mb-2" }, [
-                    _vm._v("Saves: " + _vm._s(this.player_one[0].saves)),
-                  ]),
-                ]),
-              ]
-            ),
-          ]),
+            [_vm._v("New Game")]
+          ),
           _vm._v(" "),
-          _c("div", { staticClass: "flex flex-column items-center" }, [
-            _c("p", { staticClass: "text-white text-4xl" }, [
-              _vm._v("Player Two"),
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "border-2 border-[#00ff85] w-[300px] h-[450px] bg-purple-50 m-5 flex flex-column",
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "items-center flex flex-column py-5 border-b-2 border-[#00ff85]",
-                  },
-                  [
-                    _c("p", { staticClass: "text-4xl font-bold" }, [
-                      _vm._v(_vm._s(this.player_two[0].first_name)),
+          _c("div", { staticClass: "flex flex-row justify-around" }, [
+            _c("div", { staticClass: "flex flex-column items-center" }, [
+              _c("p", { staticClass: "text-white text-4xl" }, [
+                _vm._v("Player One"),
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "border-2 border-[#00ff85] w-[300px] h-[470px] bg-purple-50 m-5 flex flex-column",
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "items-center flex flex-column py-5 border-b-2 border-[#00ff85]",
+                    },
+                    [
+                      _c("p", { staticClass: "text-3xl font-bold" }, [
+                        _vm._v(_vm._s(this.player_one[0].first_name)),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "text-3xl font-bold" }, [
+                        _vm._v(_vm._s(this.player_one[0].last_name)),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "text-lg" }, [
+                        _vm._v(_vm._s(this.player_one[0].position)),
+                      ]),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "p-4" }, [
+                    _c("p", { staticClass: "text-2xl mb-2" }, [
+                      _vm._v(
+                        "Total Points: " +
+                          _vm._s(this.player_one[0].total_points_season)
+                      ),
                     ]),
                     _vm._v(" "),
-                    _c("p", { staticClass: "text-4xl font-bold" }, [
-                      _vm._v(_vm._s(this.player_two[0].last_name)),
+                    _c("p", { staticClass: "text-2xl mb-2" }, [
+                      _vm._v(
+                        "Goals Scored: " +
+                          _vm._s(this.player_one[0].goals_scored)
+                      ),
                     ]),
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "p-4" }, [
-                  _c("p", { staticClass: "text-2xl mb-2" }, [
-                    _vm._v(
-                      "Total Points: " +
-                        _vm._s(this.player_two[0].total_points_season)
-                    ),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "text-2xl mb-2" }, [
+                      _vm._v(
+                        "Goals Assisted: " +
+                          _vm._s(this.player_one[0].goals_assisted)
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "text-2xl mb-2" }, [
+                      _vm._v(
+                        "Cost: £" +
+                          _vm._s(
+                            this.makeDecimal(this.player_one[0].current_cost)
+                          ) +
+                          "m"
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "text-2xl mb-2" }, [
+                      _vm._v(
+                        "Popularity: " +
+                          _vm._s(this.player_one[0].percent_selected) +
+                          "%"
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "text-2xl mb-2" }, [
+                      _vm._v("Saves: " + _vm._s(this.player_one[0].saves)),
+                    ]),
                   ]),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex flex-column items-center" }, [
+              _c("p", { staticClass: "text-white text-4xl" }, [
+                _vm._v("Player Two"),
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "border-2 border-[#00ff85] w-[300px] h-[470px] bg-purple-50 m-5 flex flex-column",
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "items-center flex flex-column py-5 border-b-2 border-[#00ff85]",
+                    },
+                    [
+                      _c("p", { staticClass: "text-3xl font-bold" }, [
+                        _vm._v(_vm._s(this.player_two[0].first_name)),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "text-3xl font-bold" }, [
+                        _vm._v(_vm._s(this.player_two[0].last_name)),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "text-lg" }, [
+                        _vm._v(_vm._s(this.player_two[0].position)),
+                      ]),
+                    ]
+                  ),
                   _vm._v(" "),
-                  _c("p", { staticClass: "text-2xl mb-2" }, [
-                    _vm._v(
-                      "Goals Scored: " + _vm._s(this.player_two[0].goals_scored)
-                    ),
+                  _c("div", { staticClass: "p-4" }, [
+                    _c("p", { staticClass: "text-2xl mb-2" }, [
+                      _vm._v(
+                        "Total Points: " +
+                          _vm._s(this.player_two[0].total_points_season)
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "text-2xl mb-2" }, [
+                      _vm._v(
+                        "Goals Scored: " +
+                          _vm._s(this.player_two[0].goals_scored)
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "text-2xl mb-2" }, [
+                      _vm._v(
+                        "Goals Assisted: " +
+                          _vm._s(this.player_two[0].goals_assisted)
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "text-2xl mb-2" }, [
+                      _vm._v(
+                        "Cost: £" +
+                          _vm._s(
+                            this.makeDecimal(this.player_two[0].current_cost)
+                          ) +
+                          "m"
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "text-2xl mb-2" }, [
+                      _vm._v(
+                        "Popularity: " +
+                          _vm._s(this.player_two[0].percent_selected) +
+                          "%"
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "text-2xl mb-2" }, [
+                      _vm._v("Saves: " + _vm._s(this.player_two[0].saves)),
+                    ]),
                   ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "text-2xl mb-2" }, [
-                    _vm._v(
-                      "Goals Assisted: " +
-                        _vm._s(this.player_two[0].goals_assisted)
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "text-2xl mb-2" }, [
-                    _vm._v(
-                      "Cost: £" +
-                        _vm._s(
-                          this.makeDecimal(this.player_two[0].current_cost)
-                        ) +
-                        "m"
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "text-2xl mb-2" }, [
-                    _vm._v(
-                      "Popularity: " +
-                        _vm._s(this.player_two[0].percent_selected) +
-                        "%"
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "text-2xl mb-2" }, [
-                    _vm._v("Saves: " + _vm._s(this.player_two[0].saves)),
-                  ]),
-                ]),
-              ]
-            ),
+                ]
+              ),
+            ]),
           ]),
-        ]),
-      ]
-    ),
-  ])
+        ]
+      ),
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -30511,7 +30530,15 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("top-trumps", { attrs: { deck: this.deck } })], 1)
+  return _c(
+    "div",
+    [
+      _c("top-trumps", {
+        attrs: { player_one: this.player_one, player_two: this.player_two },
+      }),
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
