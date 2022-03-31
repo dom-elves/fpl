@@ -152,13 +152,14 @@ class PlayerController extends BaseController
       $input_1 = $request->input('search-input-1');
       $input_2 = $request->input('search-input-2');
 
+      //sets everything blank for initial page load, player_lists are used for when multiple records are returned e.g. searching 'james'
       if ($input_1 == null && $input_2 == null ) {
 
         $player_1 = '';
         $player_2 = '';
         $player_list_1 = '';
         $player_list_2 = '';
-
+        
         return view('/player-comparison')->with(['player_1' => $player_1, 'player_2' => $player_2, 'player_list_1' => $player_list_1, 'player_list_2' => $player_list_2]);
 
       }
@@ -176,7 +177,7 @@ class PlayerController extends BaseController
                                       ->get();
                                                                     
       
-                                  
+      //check for multiple records on a search term, returns lists instead of going straight to player                    
       if ( count($player_1) > 1 || count($player_2) > 1 ) {
         
         
@@ -193,7 +194,7 @@ class PlayerController extends BaseController
       $player_list_1 = '';
       $player_list_2 = '';
           
-      // dd($player_1, $player_list_1); 
+      //for if both search terms are unique e.g. searching for 'kane' and 'foden'
       return view('/player-comparison')->with(['player_1' => $player_1, 'player_2' => $player_2, 'player_list_1' => $player_list_1, 'player_list_2' => $player_list_2]);
     }
 
@@ -204,6 +205,7 @@ class PlayerController extends BaseController
         return view('/player-index')->with(['players' => $players]);
     }
 
+    //change this to decide how many players will be in the deck
     public function returnTrumpsPlayers()
     {
         $deck = DB::table('players')->orderBy('total_points_season', 'DESC')->limit(30)->get();

@@ -21,6 +21,7 @@ class TeamsController extends Controller
       return view('/main')->with(['teams' => $teams, 'players' => $players]);
     }
 
+    //used in main.blade so separate the players into their team sections (loop within loop) - probably a better way of doing this
     public static function checkTeam($player, $team) 
     {
       if ($player->team == $team->team_id ) {
@@ -34,7 +35,7 @@ class TeamsController extends Controller
         return $player_name;
       } 
     }
-
+    
     public function updateTeams()
     {
       

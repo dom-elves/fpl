@@ -15,7 +15,7 @@ class Player extends Model
     protected $table = 'players';
 
     /**
-     * The primary key associated with the table.
+     * The primary key associated with the table, has to be player_id rather than id
      *
      * @var string
      */

@@ -47,7 +47,7 @@ Route::get('/update-gameweeks', [GameweekController::class, 'requestGameweeks'])
 //player comparison
 Route::get('player-comparison', [PlayerController::class, 'comparePlayers']);
 
-//player index
+//player index - currently unused
 Route::get('player-index', [PlayerController::class, 'returnAllPlayers']);
 
 //top trumps

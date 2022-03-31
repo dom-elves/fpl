@@ -50,17 +50,18 @@ class GameweekController extends Controller
         DB::table('gameweeks')->truncate();
 
         foreach ($gameweeks as $gameweek) {
+          //check that won't fail i think unless i run it during the first match of a gameweek 
+          if ($gameweek->average_entry_score !== 0) {
+              //had to do this due to some parts being embedded objects
+              $highestScoringPlayer = $gameweek->top_element_info->id; 
+              $highestPlayerScore = $gameweek->top_element_info->points;
+              
+          } else {
 
-        if ($gameweek->average_entry_score !== 0) {
+              break;
+              
+          }
 
-            $highestScoringPlayer = $gameweek->top_element_info->id; 
-            $highestPlayerScore = $gameweek->top_element_info->points;
-            
-        } else {
-
-            break;
-            
-        }
           DB::table('gameweeks')->insert([
             
             'id' => $gameweek->id,
@@ -81,14 +82,16 @@ class GameweekController extends Controller
     public function applyPlayerDetails($gameweek) 
     {
         //most selected
+        //API data only provides the player ID for these stats, this goes into the gameweek model and searches the player ID and returns the model
+        //each comment on this applies to the other sections to this function, just for different object attributes
         $msp_first_name = Gameweek::find($gameweek->id)->mostSelectedPlayer->first_name;
-          
+        //same but for last_name
         $msp_last_name = Gameweek::find($gameweek->id)->mostSelectedPlayer->last_name;
-
+        //similar principle just for the player team
         $msp_player_team = Player::find($gameweek->most_selected_player)->getPlayerTeam;
-
+        //created proper full name which is used in frontend
         $msp_player_name = $msp_first_name . " " . $msp_last_name;
-        
+        //finally creates the object for 'most selected player' rather than it just being a player ID, object details are used in front end desing (colouring etc)
         $gameweek->most_selected_player = ['player_name' => $msp_player_name, 'player_team' => $msp_player_team->team_short_name, 'category' => 'MSP'];
         
         //highest scoring
