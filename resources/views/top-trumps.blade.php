@@ -2,7 +2,9 @@
 
 @section('content')
 
+<div>
 
-<top-trumps v-bind:players="{{ $players }}"></top-trumps>
+    <top-trumps v-bind:players="{{ $players }}"></top-trumps>
 
+</div>
 @endsection

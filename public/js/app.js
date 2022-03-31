@@ -6096,6 +6096,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['players'],
   mounted: function mounted() {
@@ -30090,8 +30098,26 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("p", { staticClass: "text-white" }, [_vm._v(_vm._s(this.players))]),
+  return _c("div", { staticClass: "flex justify-center" }, [
+    _c(
+      "div",
+      {
+        staticClass:
+          "w-[900px] h-[900px] border-l-2 border-r-2 border-[#00ff85] flex flex-column items-center",
+      },
+      [
+        _c(
+          "button",
+          {
+            staticClass:
+              "text-3xl font-bold bg-green-400 text-white text-center p-4 rounded-sm my-10",
+          },
+          [_vm._v("New Game")]
+        ),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-white" }, [_vm._v(_vm._s(this.players))]),
+      ]
+    ),
   ])
 }
 var staticRenderFns = []
