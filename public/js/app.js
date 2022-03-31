@@ -6104,10 +6104,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['players'],
+  created: function created() {
+    this.shuffleAndSplit();
+    console.log(this.player_one, this.player_two, 'created');
+  },
   mounted: function mounted() {
-    console.log(this.players);
+    this.testMethod();
+  },
+  methods: {
+    shuffleAndSplit: function shuffleAndSplit() {
+      var deck = this.players; //for the 'shuffle' aspect, refer back to stack overflow thread for better understanding
+
+      var currentIndex = deck.length,
+          randomIndex; // While there remain elements to shuffle...
+
+      while (currentIndex != 0) {
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--; // And swap it with the current element.
+
+        var _ref = [deck[randomIndex], deck[currentIndex]];
+        deck[currentIndex] = _ref[0];
+        deck[randomIndex] = _ref[1];
+      }
+
+      var half = Math.ceil(deck.length / 2);
+      var player_one = deck.slice(0, half);
+      var player_two = deck.slice(-half);
+      this.player_one = player_one;
+      this.player_two = player_two;
+    },
+    testMethod: function testMethod() {
+      console.log(this.player_one, this.player_two, 'mounted');
+    }
   }
 });
 
@@ -30115,7 +30150,13 @@ var render = function () {
           [_vm._v("New Game")]
         ),
         _vm._v(" "),
-        _c("p", { staticClass: "text-white" }, [_vm._v(_vm._s(this.players))]),
+        _c("p", { staticClass: "text-white" }, [
+          _vm._v(_vm._s(this.player_one)),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-white" }, [
+          _vm._v(_vm._s(this.player_two)),
+        ]),
       ]
     ),
   ])
