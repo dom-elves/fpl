@@ -3,14 +3,69 @@
         
         <div class="w-[900px] h-[900px] border-l-2 border-r-2 border-[#00ff85] flex flex-column items-center">
 
-            <button class="text-3xl font-bold bg-green-400 text-white text-center p-4 rounded-sm my-10">New Game</button>
+            <button @click="reload()" class="text-3xl font-bold bg-green-400 text-white text-center p-4 rounded-sm my-10">New Game</button>
 
-            <p class="text-white">{{ this.player_one }}</p>
+    
+            <div class="flex flex-row justify-around">
 
-            <p class="text-white">{{ this.player_two }}</p>
+                <div class="flex flex-column items-center">
 
+                    <p class="text-white text-4xl">Player One</p>
+
+                    <div class="border-2 border-[#00ff85] w-[300px] h-[450px] bg-purple-50 m-5 flex flex-column">
+
+                        <div class="items-center flex flex-column py-5 border-b-2 border-[#00ff85]">
+
+                            <p class="text-4xl font-bold">{{ this.player_one[0].first_name }}</p>
+                            <p class="text-4xl font-bold">{{ this.player_one[0].last_name }}</p>
+
+                        </div>
+
+                        <div class="p-4">
+
+                            <p class="text-2xl mb-2">Total Points: {{ this.player_one[0].total_points_season }}</p>
+                            <p class="text-2xl mb-2">Goals Scored: {{ this.player_one[0].goals_scored }}</p>
+                            <p class="text-2xl mb-2">Goals Assisted: {{ this.player_one[0].goals_assisted }}</p>
+                            <p class="text-2xl mb-2">Cost: £{{ this.makeDecimal(this.player_one[0].current_cost) }}m</p>
+                            <p class="text-2xl mb-2">Popularity: {{ this.player_one[0].percent_selected }}%</p>
+                            <p class="text-2xl mb-2">Saves: {{ this.player_one[0].saves }}</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="flex flex-column items-center">
+
+                    <p class="text-white text-4xl">Player Two</p>
+
+                    <div class="border-2 border-[#00ff85] w-[300px] h-[450px] bg-purple-50 m-5 flex flex-column">
+
+                        <div class="items-center flex flex-column py-5 border-b-2 border-[#00ff85]">
+
+                            <p class="text-4xl font-bold">{{ this.player_two[0].first_name }}</p>
+                            <p class="text-4xl font-bold">{{ this.player_two[0].last_name }}</p>
+
+                        </div>
+
+                        <div class="p-4">
+
+                            <p class="text-2xl mb-2">Total Points: {{ this.player_two[0].total_points_season }}</p>
+                            <p class="text-2xl mb-2">Goals Scored: {{ this.player_two[0].goals_scored }}</p>
+                            <p class="text-2xl mb-2">Goals Assisted: {{ this.player_two[0].goals_assisted }}</p>
+                            <p class="text-2xl mb-2">Cost: £{{ this.makeDecimal(this.player_two[0].current_cost) }}m</p>
+                            <p class="text-2xl mb-2">Popularity: {{ this.player_two[0].percent_selected }}%</p>
+                            <p class="text-2xl mb-2">Saves: {{ this.player_two[0].saves }}</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
             
-
         </div>
 
     </div>
@@ -34,6 +89,20 @@
             },
 
             methods: {
+
+                makeDecimal(player_cost) {
+                
+                let newCost = player_cost/10;
+
+                let decimalCost = newCost.toFixed(1);
+
+                return decimalCost;
+
+                },
+
+                reload() {
+                    location.reload();
+                },
 
                 shuffleAndSplit() {
 
@@ -62,7 +131,8 @@
                     
                     this.player_one = player_one;
                     this.player_two = player_two;
-                    
+
+                    console.log('hit', this.player_one[0]); 
                 },
 
                 testMethod() {
