@@ -6190,7 +6190,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {// this.shuffleAndSplit();
   },
   mounted: function mounted() {
-    console.log(this.player_one, this.player_two);
+    console.log(this.player_one, this.player_two); // console.log(this.player1.popularity, this.player2.popularity);
   },
   methods: {
     makeDecimal: function makeDecimal(player_cost) {

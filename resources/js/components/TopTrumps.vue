@@ -111,6 +111,9 @@
         mounted() {
 
             console.log(this.player_one, this.player_two);
+
+            // console.log(this.player1.popularity, this.player2.popularity);
+            
         },
 
         methods: {
@@ -137,7 +140,7 @@
             playerOneStatCheck(event) {
                 //makes it so p1 is defined by which section was clicked on e.g. goals
                 let selected_stat = event.target;
-                    
+                
                     // this.player_two.push(this.player_one.shift());
                     // console.log(this.player_one, this.player_two);
                 //checks higher/lower on total points
