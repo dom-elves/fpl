@@ -138,8 +138,8 @@
                 //makes it so p1 is defined by which section was clicked on e.g. goals
                 let selected_stat = event.target;
                     
-                    this.player_two.push(this.player_one.shift());
-                    console.log(this.player_one, this.player_two);
+                    // this.player_two.push(this.player_one.shift());
+                    // console.log(this.player_one, this.player_two);
                 //checks higher/lower on total points
                 if (selected_stat.id == "player_one_points") {
 
@@ -148,6 +148,8 @@
                     if (this.player1.points > this.player2.points) {
                         event.target.classList.add('higher');
                         player_two.classList.add('lower');
+
+                        this.$emit('sendToPlayer1', this.player_two[0]);
                         
                     }
 
@@ -170,7 +172,6 @@
                     if (this.player1.goals > this.player2.goals) {
                         event.target.classList.add('higher');
                         player_two.classList.add('lower');
-                        pla
                     }
 
                     if (this.player1.goals < this.player2.goals) {
@@ -268,8 +269,6 @@
                     }
                 }
                 
-                
-        
             },
         }
 

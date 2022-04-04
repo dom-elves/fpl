@@ -6205,9 +6205,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     playerOneStatCheck: function playerOneStatCheck(event) {
       //makes it so p1 is defined by which section was clicked on e.g. goals
-      var selected_stat = event.target;
-      this.player_two.push(this.player_one.shift());
-      console.log(this.player_one, this.player_two); //checks higher/lower on total points
+      var selected_stat = event.target; // this.player_two.push(this.player_one.shift());
+      // console.log(this.player_one, this.player_two);
+      //checks higher/lower on total points
 
       if (selected_stat.id == "player_one_points") {
         var player_two = document.getElementById('player_two_points');
@@ -6215,6 +6215,7 @@ __webpack_require__.r(__webpack_exports__);
         if (this.player1.points > this.player2.points) {
           event.target.classList.add('higher');
           player_two.classList.add('lower');
+          this.$emit('sendToPlayer1', this.player_two[0]);
         }
 
         if (this.player1.points < this.player2.points) {
@@ -6236,8 +6237,6 @@ __webpack_require__.r(__webpack_exports__);
           event.target.classList.add('higher');
 
           _player_two.classList.add('lower');
-
-          pla;
         }
 
         if (this.player1.goals < this.player2.goals) {
@@ -6379,6 +6378,11 @@ __webpack_require__.r(__webpack_exports__);
     TopTrumps: _TopTrumps_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: ['deck'],
+  data: function data() {
+    return {
+      fromChild: null
+    };
+  },
   created: function created() {
     this.shuffleAndSplit(); // console.log(this.player_one, this.player_two, 'created');
   },
@@ -6407,6 +6411,15 @@ __webpack_require__.r(__webpack_exports__);
       var player_two = deck.slice(-half);
       this.player_one = player_one;
       this.player_two = player_two; // console.log(this.player_one, this.player_two);
+    },
+    receivePlayer1Card: function receivePlayer1Card(playerCard) {
+      this.fromChild = playerCard;
+      this.player_one.push(playerCard);
+      console.log(this.player_one);
+    },
+    receivePlayer2Card: function receivePlayer2Card(playerCard) {
+      this.fromChild = playerCard;
+      console.log(this.fromChild);
     }
   }
 });
@@ -30852,6 +30865,7 @@ var render = function () {
     [
       _c("top-trumps", {
         attrs: { player_one: this.player_one, player_two: this.player_two },
+        on: { sendToPlayer1: _vm.receivePlayer1Card },
       }),
     ],
     1

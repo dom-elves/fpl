@@ -2,7 +2,7 @@
 
     <div>
 
-        <top-trumps :player_one="this.player_one" :player_two="this.player_two"></top-trumps>
+        <top-trumps :player_one="this.player_one" :player_two="this.player_two" v-on:sendToPlayer1="receivePlayer1Card"></top-trumps>
         
     </div>
 
@@ -23,6 +23,12 @@ export default {
     },
 
     props: ['deck'],
+
+    data() {
+        return {
+            fromChild: null,
+        }
+    },
 
     created() {
 
@@ -71,6 +77,17 @@ export default {
 
             // console.log(this.player_one, this.player_two);
         },
+
+        receivePlayer1Card(playerCard) {
+            this.fromChild = playerCard;
+            this.player_one.push(playerCard);
+            console.log(this.player_one)
+        },
+
+        receivePlayer2Card(playerCard) {
+            this.fromChild = playerCard;
+            console.log(this.fromChild);
+        }
     }
 }
 </script>
