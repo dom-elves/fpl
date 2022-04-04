@@ -23,12 +23,12 @@
 
                         <div class="p-4">
 
-                            <button class="text-2xl mb-2" id="player_one_points" @click="playerOneStatCheck(player1.points, player2.points, event)">Total Points: {{ this.player_one[0].total_points_season }}</button>
-                            <p class="text-2xl mb-2" id="player_one_goals">Goals Scored: {{ this.player_one[0].goals_scored }}</p>
-                            <p class="text-2xl mb-2" id="player_one_assists">Goals Assisted: {{ this.player_one[0].goals_assisted }}</p>
-                            <p class="text-2xl mb-2" id="player_one_cost">Cost: £{{ this.makeDecimal(this.player_one[0].current_cost) }}m</p>
-                            <p class="text-2xl mb-2" id="player_one_popularity">Popularity: {{ this.player_one[0].percent_selected }}%</p>
-                            <p class="text-2xl mb-2" id="player_one_saves">Saves: {{ this.player_one[0].saves }}</p>
+                            <p class="text-2xl mb-2" id="player_one_points" @click="playerOneStatCheck">Total Points: <span>{{ this.player_one[0].total_points_season }}</span></p>
+                            <p class="text-2xl mb-2" id="player_one_goals" @click="playerOneStatCheck">Goals Scored: {{ this.player_one[0].goals_scored }}</p>
+                            <p class="text-2xl mb-2" id="player_one_assists" @click="playerOneStatCheck">Goals Assisted: {{ this.player_one[0].goals_assisted }}</p>
+                            <p class="text-2xl mb-2" id="player_one_cost" @click="playerOneStatCheck">Cost: £{{ this.makeDecimal(this.player_one[0].current_cost) }}m</p>
+                            <p class="text-2xl mb-2" id="player_one_popularity" @click="playerOneStatCheck">Popularity: {{ this.player_one[0].percent_selected }}%</p>
+                            <p class="text-2xl mb-2" id="player_one_saves" @click="playerOneStatCheck">Saves: {{ this.player_one[0].saves }}</p>
 
                         </div>
 
@@ -52,12 +52,12 @@
 
                         <div class="p-4">
 
-                            <p class="text-2xl mb-2">Total Points: {{ this.player_two[0].total_points_season }}</p>
-                            <p class="text-2xl mb-2">Goals Scored: {{ this.player_two[0].goals_scored }}</p>
-                            <p class="text-2xl mb-2">Goals Assisted: {{ this.player_two[0].goals_assisted }}</p>
-                            <p class="text-2xl mb-2">Cost: £{{ this.makeDecimal(this.player_two[0].current_cost) }}m</p>
-                            <p class="text-2xl mb-2">Popularity: {{ this.player_two[0].percent_selected }}%</p>
-                            <p class="text-2xl mb-2">Saves: {{ this.player_two[0].saves }}</p>
+                            <p class="text-2xl mb-2" id="player_two_points">Total Points: {{ this.player_two[0].total_points_season }}</p>
+                            <p class="text-2xl mb-2" id="player_two_goals">Goals Scored: {{ this.player_two[0].goals_scored }}</p>
+                            <p class="text-2xl mb-2" id="player_two_assists">Goals Assisted: {{ this.player_two[0].goals_assisted }}</p>
+                            <p class="text-2xl mb-2" id="player_two_cost">Cost: £{{ this.makeDecimal(this.player_two[0].current_cost) }}m</p>
+                            <p class="text-2xl mb-2" id="player_two_popularity">Popularity: {{ this.player_two[0].percent_selected }}%</p>
+                            <p class="text-2xl mb-2" id="player_two_saves">Saves: {{ this.player_two[0].saves }}</p>
 
                         </div>
 
@@ -110,9 +110,7 @@
 
         mounted() {
 
-            this.testMethod();
-            console.log();
-            
+            console.log(this.player_one, this.player_two);
         },
 
         methods: {
@@ -136,22 +134,141 @@
                 // console.log(this.player_one, this.player_two, 'mounted');
             },
 
-            playerOneStatCheck(p1_stat, p2_stat, event) {
-                console.log(event.target);
-                
-                if (p1_stat > p2_stat) {
-                    console.log('add p1 css');
+            playerOneStatCheck(event) {
+                //makes it so p1 is defined by which section was clicked on e.g. goals
+                let selected_stat = event.target;
                     
-                  
+                    this.player_two.push(this.player_one.shift());
+                    console.log(this.player_one, this.player_two);
+                //checks higher/lower on total points
+                if (selected_stat.id == "player_one_points") {
+
+                    let player_two = document.getElementById('player_two_points');
+                    
+                    if (this.player1.points > this.player2.points) {
+                        event.target.classList.add('higher');
+                        player_two.classList.add('lower');
+                        
+                    }
+
+                    if (this.player1.points < this.player2.points) {
+                        event.target.classList.add('lower');
+                        player_two.classList.add('higher');
+                    }
+
+                    if (this.player1.points == this.player2.points) {
+                        event.target.classList.add('equal');
+                        player_two.classList.add('equal');
+                    }
                 }
 
-                if (p1_stat < p2_stat) {
-                    console.log('add p2 css');
+                //checks higher/lower on goals
+                if (selected_stat.id == "player_one_goals") {
+
+                    let player_two = document.getElementById('player_two_goals');
+                    
+                    if (this.player1.goals > this.player2.goals) {
+                        event.target.classList.add('higher');
+                        player_two.classList.add('lower');
+                        pla
+                    }
+
+                    if (this.player1.goals < this.player2.goals) {
+                        event.target.classList.add('lower');
+                        player_two.classList.add('higher');
+                    }
+
+                    if (this.player1.goals == this.player2.goals) {
+                        event.target.classList.add('equal');
+                        player_two.classList.add('equal');
+                    }
                 }
 
-                if (p1_stat == p2_stat) {
-                    console.log('add even css');
+                //checks higher/lower on assists
+                if (selected_stat.id == "player_one_assists") {
+
+                    let player_two = document.getElementById('player_two_assists');
+                    
+                    if (this.player1.assists > this.player2.assists) {
+                        event.target.classList.add('higher');
+                        player_two.classList.add('lower');
+                    }
+
+                    if (this.player1.assists < this.player2.assists) {
+                        event.target.classList.add('lower');
+                        player_two.classList.add('higher');
+                    }
+
+                    if (this.player1.assists == this.player2.assists) {
+                        event.target.classList.add('equal');
+                        player_two.classList.add('equal');
+                    }
                 }
+
+                //cehcks higher/lower on cost
+                if (selected_stat.id == "player_one_cost") {
+
+                    let player_two = document.getElementById('player_two_cost');
+                    
+                    if (this.player1.cost > this.player2.cost) {
+                        event.target.classList.add('higher');
+                        player_two.classList.add('lower');
+                    }
+
+                    if (this.player1.cost < this.player2.cost) {
+                        event.target.classList.add('lower');
+                        player_two.classList.add('higher');
+                    }
+
+                    if (this.player1.cost == this.player2.cost) {
+                        event.target.classList.add('equal');
+                        player_two.classList.add('equal');
+                    }
+                }
+
+                //checks higher/lower on popularity
+                if (selected_stat.id == "player_one_popularity") {
+
+                    let player_two = document.getElementById('player_two_popularity');
+                    
+                    if (this.player1.popularity > this.player2.popularity) {
+                        event.target.classList.add('higher');
+                        player_two.classList.add('lower');
+                    }
+
+                    if (this.player1.popularity < this.player2.popularity) {
+                        event.target.classList.add('lower');
+                        player_two.classList.add('higher');
+                    }
+
+                    if (this.player1.popularity == this.player2.popularity) {
+                        event.target.classList.add('equal');
+                        player_two.classList.add('equal');
+                    }
+                }
+
+                //checks high/lower on saves
+                if (selected_stat.id == "player_one_saves") {
+
+                    let player_two = document.getElementById('player_two_saves');
+                    
+                    if (this.player1.saves > this.player2.saves) {
+                        event.target.classList.add('higher');
+                        player_two.classList.add('lower');
+                    }
+
+                    if (this.player1.saves < this.player2.saves) {
+                        event.target.classList.add('lower');
+                        player_two.classList.add('higher');
+                    }
+
+                    if (this.player1.saves == this.player2.saves) {
+                        event.target.classList.add('equal');
+                        player_two.classList.add('equal');
+                    }
+                }
+                
+                
         
             },
         }
@@ -159,3 +276,18 @@
     }
 
 </script>
+
+<style scoped>
+
+    .higher {
+        background-color: #6ff294;
+    }
+
+    .lower {
+        background-color: #f0484b;
+    }
+
+    .equal {
+        background-color: #f3f57f;
+    }
+</style>

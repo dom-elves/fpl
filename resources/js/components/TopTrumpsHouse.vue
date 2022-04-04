@@ -27,7 +27,7 @@ export default {
     created() {
 
         this.shuffleAndSplit();
-        console.log(this.player_one, this.player_two, 'created');
+        // console.log(this.player_one, this.player_two, 'created');
 
     },
 
