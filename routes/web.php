@@ -50,5 +50,8 @@ Route::get('player-comparison', [PlayerController::class, 'comparePlayers']);
 //player index
 Route::get('player-index', [PlayerController::class, 'returnAllPlayers']);
 
+//routes for sorting player index
+Route::get('sort-popularity', [PlayerController::class, 'sortPopularity']);
+
 //top trumps
 Route::get('top-trumps', [PlayerController::class, 'returnTrumpsPlayers']);

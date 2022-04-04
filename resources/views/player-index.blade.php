@@ -2,12 +2,13 @@
 
 @section('content')
 
+
 <table class="bg-purple-50 m-2">
 
     <tr>
 
         <th>Player Name</th>
-        <th>Popularity</th>
+        <th><a href="sort-popularity">Popularity</a></th>
         <th>Position</th>
         <th>Total Points</th>
         <th>Per Week</th>

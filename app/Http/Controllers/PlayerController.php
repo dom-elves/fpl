@@ -205,6 +205,17 @@ class PlayerController extends BaseController
         return view('/player-index')->with(['players' => $players]);
     }
 
+    public function sortPopularity() 
+    {
+      $players = DB::table('players')->orderBy('percent_selected', 'DESC')->limit(25)->get();
+
+      if ($players[0]->percent_selected != 0 ) {
+
+      }
+        
+      return view('/player-index')->with(['players' => $players]);
+    }
+
     //change this to decide how many players will be in the deck
     public function returnTrumpsPlayers()
     {
