@@ -6167,11 +6167,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'TopTrumps',
   props: ['player_one', 'player_two'],
+  data: function data() {
+    return {
+      player1: {
+        points: this.player_one[0].total_points_season,
+        goals: this.player_one[0].goals_scored,
+        assists: this.player_one[0].goals_assisted,
+        cost: this.player_one[0].current_cost,
+        popularity: this.player_one[0].percent_selected,
+        saves: this.player_one[0].saves
+      },
+      player2: {
+        points: this.player_two[0].total_points_season,
+        goals: this.player_two[0].goals_scored,
+        assists: this.player_two[0].goals_assisted,
+        cost: this.player_two[0].current_cost,
+        popularity: this.player_two[0].percent_selected,
+        saves: this.player_two[0].saves
+      }
+    };
+  },
   created: function created() {// this.shuffleAndSplit();
   },
   mounted: function mounted() {
     this.testMethod();
-    console.log(this.player_one, this.player_two);
+    console.log();
   },
   methods: {
     makeDecimal: function makeDecimal(player_cost) {
@@ -6183,6 +6203,21 @@ __webpack_require__.r(__webpack_exports__);
       location.reload();
     },
     testMethod: function testMethod() {// console.log(this.player_one, this.player_two, 'mounted');
+    },
+    playerOneStatCheck: function playerOneStatCheck(p1_stat, p2_stat, event) {
+      console.log(event.target);
+
+      if (p1_stat > p2_stat) {
+        console.log('add p1 css');
+      }
+
+      if (p1_stat < p2_stat) {
+        console.log('add p2 css');
+      }
+
+      if (p1_stat == p2_stat) {
+        console.log('add even css');
+      }
     }
   }
 });
@@ -30374,48 +30409,97 @@ var render = function () {
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "p-4" }, [
-                    _c("p", { staticClass: "text-2xl mb-2" }, [
-                      _vm._v(
-                        "Total Points: " +
-                          _vm._s(this.player_one[0].total_points_season)
-                      ),
-                    ]),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "text-2xl mb-2",
+                        attrs: { id: "player_one_points" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.playerOneStatCheck(
+                              _vm.player1.points,
+                              _vm.player2.points,
+                              _vm.event
+                            )
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "Total Points: " +
+                            _vm._s(this.player_one[0].total_points_season)
+                        ),
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("p", { staticClass: "text-2xl mb-2" }, [
-                      _vm._v(
-                        "Goals Scored: " +
-                          _vm._s(this.player_one[0].goals_scored)
-                      ),
-                    ]),
+                    _c(
+                      "p",
+                      {
+                        staticClass: "text-2xl mb-2",
+                        attrs: { id: "player_one_goals" },
+                      },
+                      [
+                        _vm._v(
+                          "Goals Scored: " +
+                            _vm._s(this.player_one[0].goals_scored)
+                        ),
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("p", { staticClass: "text-2xl mb-2" }, [
-                      _vm._v(
-                        "Goals Assisted: " +
-                          _vm._s(this.player_one[0].goals_assisted)
-                      ),
-                    ]),
+                    _c(
+                      "p",
+                      {
+                        staticClass: "text-2xl mb-2",
+                        attrs: { id: "player_one_assists" },
+                      },
+                      [
+                        _vm._v(
+                          "Goals Assisted: " +
+                            _vm._s(this.player_one[0].goals_assisted)
+                        ),
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("p", { staticClass: "text-2xl mb-2" }, [
-                      _vm._v(
-                        "Cost: £" +
-                          _vm._s(
-                            this.makeDecimal(this.player_one[0].current_cost)
-                          ) +
-                          "m"
-                      ),
-                    ]),
+                    _c(
+                      "p",
+                      {
+                        staticClass: "text-2xl mb-2",
+                        attrs: { id: "player_one_cost" },
+                      },
+                      [
+                        _vm._v(
+                          "Cost: £" +
+                            _vm._s(
+                              this.makeDecimal(this.player_one[0].current_cost)
+                            ) +
+                            "m"
+                        ),
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("p", { staticClass: "text-2xl mb-2" }, [
-                      _vm._v(
-                        "Popularity: " +
-                          _vm._s(this.player_one[0].percent_selected) +
-                          "%"
-                      ),
-                    ]),
+                    _c(
+                      "p",
+                      {
+                        staticClass: "text-2xl mb-2",
+                        attrs: { id: "player_one_popularity" },
+                      },
+                      [
+                        _vm._v(
+                          "Popularity: " +
+                            _vm._s(this.player_one[0].percent_selected) +
+                            "%"
+                        ),
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("p", { staticClass: "text-2xl mb-2" }, [
-                      _vm._v("Saves: " + _vm._s(this.player_one[0].saves)),
-                    ]),
+                    _c(
+                      "p",
+                      {
+                        staticClass: "text-2xl mb-2",
+                        attrs: { id: "player_one_saves" },
+                      },
+                      [_vm._v("Saves: " + _vm._s(this.player_one[0].saves))]
+                    ),
                   ]),
                 ]
               ),

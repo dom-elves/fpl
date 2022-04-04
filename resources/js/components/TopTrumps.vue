@@ -23,12 +23,12 @@
 
                         <div class="p-4">
 
-                            <p class="text-2xl mb-2">Total Points: {{ this.player_one[0].total_points_season }}</p>
-                            <p class="text-2xl mb-2">Goals Scored: {{ this.player_one[0].goals_scored }}</p>
-                            <p class="text-2xl mb-2">Goals Assisted: {{ this.player_one[0].goals_assisted }}</p>
-                            <p class="text-2xl mb-2">Cost: £{{ this.makeDecimal(this.player_one[0].current_cost) }}m</p>
-                            <p class="text-2xl mb-2">Popularity: {{ this.player_one[0].percent_selected }}%</p>
-                            <p class="text-2xl mb-2">Saves: {{ this.player_one[0].saves }}</p>
+                            <button class="text-2xl mb-2" id="player_one_points" @click="playerOneStatCheck(player1.points, player2.points, event)">Total Points: {{ this.player_one[0].total_points_season }}</button>
+                            <p class="text-2xl mb-2" id="player_one_goals">Goals Scored: {{ this.player_one[0].goals_scored }}</p>
+                            <p class="text-2xl mb-2" id="player_one_assists">Goals Assisted: {{ this.player_one[0].goals_assisted }}</p>
+                            <p class="text-2xl mb-2" id="player_one_cost">Cost: £{{ this.makeDecimal(this.player_one[0].current_cost) }}m</p>
+                            <p class="text-2xl mb-2" id="player_one_popularity">Popularity: {{ this.player_one[0].percent_selected }}%</p>
+                            <p class="text-2xl mb-2" id="player_one_saves">Saves: {{ this.player_one[0].saves }}</p>
 
                         </div>
 
@@ -80,6 +80,28 @@
         
         props: ['player_one', 'player_two'],
 
+        data() {
+            return {
+                player1: {
+                    points: this.player_one[0].total_points_season,
+                    goals: this.player_one[0].goals_scored,
+                    assists: this.player_one[0].goals_assisted,
+                    cost: this.player_one[0].current_cost,
+                    popularity: this.player_one[0].percent_selected,
+                    saves: this.player_one[0].saves
+                },
+
+                player2: {
+                    points: this.player_two[0].total_points_season,
+                    goals: this.player_two[0].goals_scored,
+                    assists: this.player_two[0].goals_assisted,
+                    cost: this.player_two[0].current_cost,
+                    popularity: this.player_two[0].percent_selected,
+                    saves: this.player_two[0].saves
+                }
+            }
+        },
+
         created() {
             
             // this.shuffleAndSplit();
@@ -89,7 +111,7 @@
         mounted() {
 
             this.testMethod();
-            console.log(this.player_one, this.player_two);
+            console.log();
             
         },
 
@@ -112,7 +134,26 @@
 
             testMethod() {
                 // console.log(this.player_one, this.player_two, 'mounted');
-            }
+            },
+
+            playerOneStatCheck(p1_stat, p2_stat, event) {
+                console.log(event.target);
+                
+                if (p1_stat > p2_stat) {
+                    console.log('add p1 css');
+                    
+                  
+                }
+
+                if (p1_stat < p2_stat) {
+                    console.log('add p2 css');
+                }
+
+                if (p1_stat == p2_stat) {
+                    console.log('add even css');
+                }
+        
+            },
         }
 
     }
