@@ -161,7 +161,7 @@ class PlayerController extends BaseController
 
       $gameweeks = $decoded->events;
 
-        DB::table('player_score_history')->truncate();
+        // DB::table('player_score_history')->truncate();
         
         foreach ($gameweeks as $gameweek) {
           
@@ -171,6 +171,8 @@ class PlayerController extends BaseController
               $current_gameweek = 'gameweek_' . $current;
 
               foreach ($players as $player) {
+
+              DB::table('player_score_history')->update([$current_gameweek => null]);
                 
               DB::table('player_score_history')->insert([
 
