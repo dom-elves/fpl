@@ -140,19 +140,23 @@
             playerOneStatCheck(event) {
                 //makes it so p1 is defined by which section was clicked on e.g. goals
                 let selected_stat = event.target;
-                
-                    // this.player_two.push(this.player_one.shift());
-                    // console.log(this.player_one, this.player_two);
+                let p1_score = 0;
                 //checks higher/lower on total points
                 if (selected_stat.id == "player_one_points") {
 
                     let player_two = document.getElementById('player_two_points');
                     
                     if (this.player1.points > this.player2.points) {
+
                         event.target.classList.add('higher');
                         player_two.classList.add('lower');
 
-                        this.$emit('sendToPlayer1', this.player_two[0]);
+                        this.player_one.push(this.player_two.shift());
+                        this.player_one.push(this.player_one.shift());
+                        console.log(this.player_one[0]);
+                        // this.$emit('sendToPlayer1', this.player_two[0]);
+                        
+                        
                         
                     }
 
