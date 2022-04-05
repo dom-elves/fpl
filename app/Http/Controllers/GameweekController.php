@@ -42,7 +42,7 @@ class GameweekController extends Controller
       $decoded = json_decode($response->body());
       
       $gameweeks = $decoded->events;
-      
+      // dd($gameweeks);
       $query = DB::table('gameweeks')->get()->first();
       
       if ($query) {

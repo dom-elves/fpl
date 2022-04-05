@@ -107,7 +107,7 @@ class PlayerController extends BaseController
           //value?
           $player->value = $player->total_points / $player->now_cost;
           
-          //insert data
+          //insert player data
           DB::table('players')->insert([
 
             'player_id' => $player->id,
@@ -142,7 +142,30 @@ class PlayerController extends BaseController
             
           ]);
 
+          $gameweeks = $decoded->events;
+
+          DB::table('player_score_history')->truncate();
+          
+          foreach ($gameweeks as $gameweek) {
+
+            if ($gameweek->is_current == true) {
+
+              $current = $gameweek->id;
+              $current_gameweek = 'gameweek_' . $current;
+
+              DB::table('player_score_history')->insert([
+
+                'player_id' => $player->id,
+                'first_name' => $player->first_name,
+                'last_name' => $player->second_name,
+                $current_gameweek => $player->event_points
+              ]);
+            }
+          }
+
         }
+
+
         return redirect('/main');
       }
     }
