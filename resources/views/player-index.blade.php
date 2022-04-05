@@ -8,7 +8,7 @@
     <tr>
 
         <th>Player Name</th>
-        <th><a href="sort-popularity">Popularity</a></th>
+        <th>Popularity<a  href="sort-popularity-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-popularity-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
         <th>Position</th>
         <th>Total Points</th>
         <th>Per Week</th>
@@ -25,7 +25,7 @@
     @foreach ($players as $player)
 
         <tr>
-            <td>{{$player->first_name}}{{$player->last_name}}</td>
+            <td>{{$player->first_name}} {{$player->last_name}}</td>
             <td>{{$player->percent_selected}}</td>
             <td>{{$player->position}}</td>
             <td>{{$player->total_points_season}}</td>
@@ -44,3 +44,16 @@
 </table>
 
 @endsection
+
+
+<style>
+
+    .upArrow {
+        color: green;
+    }
+
+    .downArrow {
+        color: red;
+    }
+
+</style>
