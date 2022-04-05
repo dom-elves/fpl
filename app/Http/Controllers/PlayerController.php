@@ -157,12 +157,13 @@ class PlayerController extends BaseController
                 $current = $gameweek->id;
                 $current_gameweek = 'gameweek_' . $current;
 
-                DB::table('player_score_history')->insert([
+                DB::table('player_score_history')->update([
 
                   'player_id' => $player->id,
                   'first_name' => $player->first_name,
                   'last_name' => $player->second_name,
                   $current_gameweek => $player->event_points
+
                 ]);
               }
             }
