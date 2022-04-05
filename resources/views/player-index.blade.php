@@ -8,17 +8,17 @@
     <tr>
 
         <th>Player Name</th>
-        <th>Popularity<a  href="sort-popularity-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-popularity-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
+        <th>Popularity<a href="sort-popularity-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-popularity-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
         <th>Position</th>
-        <th>Total Points</th>
-        <th>Per Week</th>
-        <th>Per Game</th>
-        <th>Value</th>
-        <th>Goals</th>
-        <th>Assists</th>
-        <th>Start Cost</th>
-        <th>Now Cost</th>
-        <th>Cost Change</th>
+        <th>Total Points<a href="sort-total-points-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-total-points-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
+        <th>This Week<a href="sort-points-this-week-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-points-this-week-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
+        <th>Per Game<a href="sort-points-per-game-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-points-per-game-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
+        <th>Per Million<a href="sort-points-per-million-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-points-per-million-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
+        <th>Goals<a href="sort-goals-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-goals-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
+        <th>Assists<a href="sort-assists-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-assists-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
+        <th>Start Cost<a href="sort-start-cost-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-start-cost-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
+        <th>Now Cost<a href="sort-now-cost-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-now-cost-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
+        <th>Cost Change<a href="sort-cost-change-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-cost-change-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
 
     </tr>
 
@@ -26,7 +26,7 @@
 
         <tr>
             <td>{{$player->first_name}} {{$player->last_name}}</td>
-            <td>{{$player->percent_selected}}</td>
+            <td>{{$player->percent_selected}}%</td>
             <td>{{$player->position}}</td>
             <td>{{$player->total_points_season}}</td>
             <td>{{$player->total_points_week}}</td>

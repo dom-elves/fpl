@@ -119,7 +119,7 @@ class PlayerController extends BaseController
             'total_points_week' => $player->event_points,
             'points_per_game' => $player->points_per_game,
             'points_per_90' => $player->points_per_90,
-            'value' => $player->value,
+            'value' => $player->value * 10, //to calculate points per million spent
             'current_cost' => $player->now_cost,
             'start_cost' => $player->now_cost - $player->cost_change_start,
             'cost_change' => $player->cost_change_start,
@@ -205,6 +205,7 @@ class PlayerController extends BaseController
         return view('/player-index')->with(['players' => $players]);
     }
 
+    //sort by popularity
     public function sortPopularityAsc() 
     {
       $players = DB::table('players')->orderBy('percent_selected', 'ASC')->limit(25)->get();
@@ -218,6 +219,142 @@ class PlayerController extends BaseController
  
       return view('/player-index')->with(['players' => $players]);
     }
+
+    //sort by total points
+    public function sortTotalPointsAsc() 
+    {
+      $players = DB::table('players')->orderBy('total_points_season', 'ASC')->limit(25)->get();
+ 
+      return view('/player-index')->with(['players' => $players]);
+    }
+
+    public function sortTotalPointsDesc() 
+    {
+      $players = DB::table('players')->orderBy('total_points_season', 'DESC')->limit(25)->get();
+ 
+      return view('/player-index')->with(['players' => $players]);
+    }
+
+    //sort by points this week
+    public function sortPointsThisWeekAsc() 
+    {
+      $players = DB::table('players')->orderBy('total_points_week', 'ASC')->limit(25)->get();
+ 
+      return view('/player-index')->with(['players' => $players]);
+    }
+
+    public function sortPointsThisWeekDesc() 
+    {
+      $players = DB::table('players')->orderBy('total_points_week', 'DESC')->limit(25)->get();
+ 
+      return view('/player-index')->with(['players' => $players]);
+    }
+
+    //sort by points per game
+    public function sortPointsPerGameAsc() 
+    {
+      $players = DB::table('players')->orderBy('points_per_game', 'ASC')->limit(25)->get();
+ 
+      return view('/player-index')->with(['players' => $players]);
+    }
+
+    public function sortPointsPerGameDesc() 
+    {
+      $players = DB::table('players')->orderBy('points_per_game', 'DESC')->limit(25)->get();
+ 
+      return view('/player-index')->with(['players' => $players]);
+    }
+
+    //sort by points per million
+    public function sortPointsPerMillionAsc() 
+    {
+      $players = DB::table('players')->orderBy('value', 'ASC')->limit(25)->get();
+ 
+      return view('/player-index')->with(['players' => $players]);
+    }
+
+    public function sortPointsPerMillionDesc() 
+    {
+      $players = DB::table('players')->orderBy('value', 'DESC')->limit(25)->get();
+ 
+      return view('/player-index')->with(['players' => $players]);
+    }
+
+    //sort by goals
+    public function sortGoalsAsc() 
+    {
+      $players = DB::table('players')->orderBy('goals_scored', 'ASC')->limit(25)->get();
+ 
+      return view('/player-index')->with(['players' => $players]);
+    }
+
+    public function sortGoalsDesc() 
+    {
+      $players = DB::table('players')->orderBy('goals_scored', 'DESC')->limit(25)->get();
+ 
+      return view('/player-index')->with(['players' => $players]);
+    }
+
+    //sort by assists
+    public function sortAssistsAsc() 
+    {
+      $players = DB::table('players')->orderBy('goals_assisted', 'ASC')->limit(25)->get();
+ 
+      return view('/player-index')->with(['players' => $players]);
+    }
+
+    public function sortAssistsDesc() 
+    {
+      $players = DB::table('players')->orderBy('goals_assisted', 'DESC')->limit(25)->get();
+ 
+      return view('/player-index')->with(['players' => $players]);
+    }
+
+    //sort by start cost
+    public function sortStartCostAsc() 
+    {
+      $players = DB::table('players')->orderBy('start_cost', 'ASC')->limit(25)->get();
+ 
+      return view('/player-index')->with(['players' => $players]);
+    }
+
+    public function sortStartCostDesc() 
+    {
+      $players = DB::table('players')->orderBy('start_cost', 'DESC')->limit(25)->get();
+ 
+      return view('/player-index')->with(['players' => $players]);
+    }
+
+    //sort by now cost
+    public function sortNowCostAsc() 
+    {
+      $players = DB::table('players')->orderBy('current_cost', 'ASC')->limit(25)->get();
+ 
+      return view('/player-index')->with(['players' => $players]);
+    }
+
+    public function sortNowCostDesc() 
+    {
+      $players = DB::table('players')->orderBy('current_cost', 'DESC')->limit(25)->get();
+ 
+      return view('/player-index')->with(['players' => $players]);
+    }
+
+    //sort by cost change
+    public function sortCostChangeAsc() 
+    {
+      $players = DB::table('players')->orderBy('cost_change', 'ASC')->limit(25)->get();
+ 
+      return view('/player-index')->with(['players' => $players]);
+    }
+
+    public function sortCostChangeDesc() 
+    {
+      $players = DB::table('players')->orderBy('cost_change', 'DESC')->limit(25)->get();
+ 
+      return view('/player-index')->with(['players' => $players]);
+    }
+
 
     //change this to decide how many players will be in the deck
     public function returnTrumpsPlayers()
