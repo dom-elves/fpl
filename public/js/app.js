@@ -6445,7 +6445,160 @@ __webpack_require__.r(__webpack_exports__);
       p2_assists.innerHTML = assists_text.concat(this.player_two[0].goals_assisted);
       p2_cost.innerHTML = cost_text.concat(this.player_two[0].current_cost);
       p2_popularity.innerHTML = popularity_text.concat(this.player_two[0].percent_selected);
-      p2_saves.innerHTML = saves_text.concat(this.player_two[0].saves);
+      p2_saves.innerHTML = saves_text.concat(this.player_two[0].saves); //clearing highlights at end of turn
+
+      if (p1_points.classList.contains('higher')) {
+        p1_points.classList.remove('higher');
+      }
+
+      if (p1_points.classList.contains('lower')) {
+        p1_points.classList.remove('lower');
+      }
+
+      if (p1_points.classList.contains('equal')) {
+        p1_points.classList.remove('equal');
+      }
+
+      if (p1_goals.classList.contains('higher')) {
+        p1_goals.classList.remove('higher');
+      }
+
+      if (p1_goals.classList.contains('lower')) {
+        p1_goals.classList.remove('lower');
+      }
+
+      if (p1_goals.classList.contains('equal')) {
+        p1_goals.classList.remove('equal');
+      }
+
+      if (p1_assists.classList.contains('higher')) {
+        p1_assists.classList.remove('higher');
+      }
+
+      if (p1_assists.classList.contains('lower')) {
+        p1_assists.classList.remove('lower');
+      }
+
+      if (p1_assists.classList.contains('equal')) {
+        p1_assists.classList.remove('equal');
+      }
+
+      if (p1_cost.classList.contains('higher')) {
+        p1_cost.classList.remove('higher');
+      }
+
+      if (p1_cost.classList.contains('lower')) {
+        p1_cost.classList.remove('lower');
+      }
+
+      if (p1_cost.classList.contains('equal')) {
+        p1_cost.classList.remove('equal');
+      }
+
+      if (p1_cost.classList.contains('higher')) {
+        p1_cost.classList.remove('higher');
+      }
+
+      if (p1_popularity.classList.contains('lower')) {
+        p1_popularity.classList.remove('lower');
+      }
+
+      if (p1_popularity.classList.contains('higher')) {
+        p1_popularity.classList.remove('higher');
+      }
+
+      if (p1_popularity.classList.contains('equal')) {
+        p1_popularity.classList.remove('equal');
+      }
+
+      if (p1_saves.classList.contains('higher')) {
+        p1_saves.classList.remove('higher');
+      }
+
+      if (p1_saves.classList.contains('lower')) {
+        p1_saves.classList.remove('lower');
+      }
+
+      if (p1_saves.classList.contains('equal')) {
+        p1_saves.classList.remove('equal');
+      } //clearing p2 highlights at end of turn
+
+
+      if (p2_points.classList.contains('higher')) {
+        p2_points.classList.remove('higher');
+      }
+
+      if (p2_points.classList.contains('lower')) {
+        p2_points.classList.remove('lower');
+      }
+
+      if (p2_points.classList.contains('equal')) {
+        p2_points.classList.remove('equal');
+      }
+
+      if (p2_goals.classList.contains('higher')) {
+        p2_goals.classList.remove('higher');
+      }
+
+      if (p2_goals.classList.contains('lower')) {
+        p2_goals.classList.remove('lower');
+      }
+
+      if (p2_goals.classList.contains('equal')) {
+        p2_goals.classList.remove('equal');
+      }
+
+      if (p2_assists.classList.contains('higher')) {
+        p2_assists.classList.remove('higher');
+      }
+
+      if (p2_assists.classList.contains('lower')) {
+        p2_assists.classList.remove('lower');
+      }
+
+      if (p2_assists.classList.contains('equal')) {
+        p2_assists.classList.remove('equal');
+      }
+
+      if (p2_cost.classList.contains('higher')) {
+        p2_cost.classList.remove('higher');
+      }
+
+      if (p2_cost.classList.contains('lower')) {
+        p2_cost.classList.remove('lower');
+      }
+
+      if (p2_cost.classList.contains('equal')) {
+        p2_cost.classList.remove('equal');
+      }
+
+      if (p2_cost.classList.contains('higher')) {
+        p2_cost.classList.remove('higher');
+      }
+
+      if (p2_popularity.classList.contains('lower')) {
+        p2_popularity.classList.remove('lower');
+      }
+
+      if (p2_popularity.classList.contains('equal')) {
+        p2_popularity.classList.remove('equal');
+      }
+
+      if (p2_popularity.classList.contains('equal')) {
+        p2_popularity.classList.remove('equal');
+      }
+
+      if (p2_saves.classList.contains('higher')) {
+        p2_saves.classList.remove('higher');
+      }
+
+      if (p2_saves.classList.contains('lower')) {
+        p2_saves.classList.remove('lower');
+      }
+
+      if (p2_saves.classList.contains('equal')) {
+        p2_saves.classList.remove('equal');
+      }
     }
   }
 });
