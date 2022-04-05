@@ -6166,6 +6166,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'TopTrumps',
   props: ['player_one', 'player_two'],
@@ -6186,10 +6194,15 @@ __webpack_require__.r(__webpack_exports__);
         cost: this.player_two[0].current_cost,
         popularity: this.player_two[0].percent_selected,
         saves: this.player_two[0].saves
+      },
+      score: {
+        player1: 0,
+        player2: 0
       }
     };
   },
-  created: function created() {// this.shuffleAndSplit();
+  created: function created() {
+    console.log(this.score);
   },
   mounted: function mounted() {
     console.log(this.player_one, this.player_two); // console.log(this.player1.popularity, this.player2.popularity);
@@ -6203,11 +6216,12 @@ __webpack_require__.r(__webpack_exports__);
     reload: function reload() {
       location.reload();
     },
-    testMethod: function testMethod() {// console.log(this.player_one, this.player_two, 'mounted');
-    },
     playerOneStatCheck: function playerOneStatCheck(event) {
       //makes it so p1 is defined by which section was clicked on e.g. goals
-      var selected_stat = event.target; //checks higher/lower on total points
+      var selected_stat = event.target;
+      var p1_score = this.score.player1;
+      var p2_score = this.score.player2;
+      console.log(p1_score, p2_score, 'beginning of function'); //checks higher/lower on total points
 
       if (selected_stat.id == "player_one_points") {
         var player_two = document.getElementById('player_two_points');
@@ -6217,7 +6231,10 @@ __webpack_require__.r(__webpack_exports__);
           player_two.classList.add('lower');
           this.player_one.push(this.player_two.shift());
           this.player_one.push(this.player_one.shift());
-          console.log(this.player_one[0]);
+          p1_score++;
+          console.log(this.player_one[0], this.player_two[0]);
+          console.log(p1_score);
+          document.getElementById("player1_score").innerHTML = p1_score;
         }
 
         if (this.player1.points < this.player2.points) {
@@ -6225,7 +6242,6 @@ __webpack_require__.r(__webpack_exports__);
           player_two.classList.add('higher');
           this.player_two.push(this.player_two.shift());
           this.player_two.push(this.player_one.shift());
-          console.log(this.player_one[0]);
         }
 
         if (this.player1.points == this.player2.points) {
@@ -6378,6 +6394,9 @@ __webpack_require__.r(__webpack_exports__);
           _player_two5.classList.add('equal');
         }
       }
+
+      console.log(p1_score, p2_score);
+      return p1_score, p2_score;
     },
     nextTurn: function nextTurn() {
       //variables so text is included
@@ -30671,6 +30690,15 @@ var render = function () {
                 _vm._v("Player One"),
               ]),
               _vm._v(" "),
+              _c("div", { staticClass: "flex flex-row" }, [
+                _c("p", { staticClass: "text-white" }, [_vm._v("Score: ")]),
+                _c(
+                  "p",
+                  { staticClass: "text-white", attrs: { id: "player1_score" } },
+                  [_vm._v(" " + _vm._s(this.score.player1))]
+                ),
+              ]),
+              _vm._v(" "),
               _c(
                 "div",
                 {
@@ -30811,6 +30839,13 @@ var render = function () {
             _c("div", { staticClass: "flex flex-column items-center" }, [
               _c("p", { staticClass: "text-white text-4xl" }, [
                 _vm._v("Player Two"),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex flex-row" }, [
+                _c("p", { staticClass: "text-white" }, [_vm._v("Score: ")]),
+                _c("p", { staticClass: "text-white" }, [
+                  _vm._v(" " + _vm._s(this.score.player2)),
+                ]),
               ]),
               _vm._v(" "),
               _c(

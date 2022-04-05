@@ -11,6 +11,10 @@
 
                     <p class="text-white text-4xl">Player One</p>
 
+                    <div class="flex flex-row">
+                        <p class="text-white">Score: </p><p class="text-white" id="player1_score"> {{ this.score.player1}}</p>
+                    </div>
+
                     <div class="border-2 border-[#00ff85] w-[300px] h-[470px] bg-purple-50 m-5 flex flex-column">
 
                         <div class="items-center flex flex-column py-5 border-b-2 border-[#00ff85]">
@@ -39,6 +43,10 @@
                 <div class="flex flex-column items-center">
 
                     <p class="text-white text-4xl">Player Two</p>
+
+                    <div class="flex flex-row">
+                        <p class="text-white">Score: </p><p class="text-white"> {{ this.score.player2}}</p>
+                    </div>
 
                     <div class="border-2 border-[#00ff85] w-[300px] h-[470px] bg-purple-50 m-5 flex flex-column">
 
@@ -100,13 +108,18 @@
                     cost: this.player_two[0].current_cost,
                     popularity: this.player_two[0].percent_selected,
                     saves: this.player_two[0].saves
+                },
+
+                score: {
+                    player1: 0,
+                    player2: 0,
                 }
             }
         },
 
         created() {
             
-            // this.shuffleAndSplit();
+            console.log(this.score);
 
         },
 
@@ -131,18 +144,19 @@
             },
 
             reload() {
+                
                 location.reload();
+
             },
 
-
-            testMethod() {
-                // console.log(this.player_one, this.player_two, 'mounted');
-            },
 
             playerOneStatCheck(event) {
                 //makes it so p1 is defined by which section was clicked on e.g. goals
                 let selected_stat = event.target;
-                
+
+                let p1_score = this.score.player1;
+                let p2_score = this.score.player2;
+                console.log(p1_score, p2_score, 'beginning of function');
                 //checks higher/lower on total points
                 if (selected_stat.id == "player_one_points") {
 
@@ -155,8 +169,12 @@
 
                         this.player_one.push(this.player_two.shift());
                         this.player_one.push(this.player_one.shift());
-                        console.log(this.player_one[0]);
-            
+                        
+                        p1_score++;
+                        console.log(this.player_one[0], this.player_two[0]);
+                        console.log(p1_score);
+                        document.getElementById("player1_score").innerHTML = p1_score;
+                        
                     }
 
                     if (this.player1.points < this.player2.points) {
@@ -165,13 +183,14 @@
 
                         this.player_two.push(this.player_two.shift());
                         this.player_two.push(this.player_one.shift());
-                        console.log(this.player_one[0]);
+                        
                     }
 
                     if (this.player1.points == this.player2.points) {
                         event.target.classList.add('equal');
                         player_two.classList.add('equal');
                     }
+                    
                 }
 
                 //checks higher/lower on goals
@@ -308,7 +327,8 @@
                         player_two.classList.add('equal');
                     }
                 }
-                
+                console.log(p1_score, p2_score);
+                return p1_score, p2_score;
             },
 
             nextTurn() {
