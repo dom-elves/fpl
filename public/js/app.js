@@ -6201,8 +6201,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
-  created: function created() {
-    console.log(this.score);
+  created: function created() {// console.log(this.score);
   },
   mounted: function mounted() {
     console.log(this.player_one, this.player_two); // console.log(this.player1.popularity, this.player2.popularity);
@@ -6220,13 +6219,14 @@ __webpack_require__.r(__webpack_exports__);
       //makes it so p1 is defined by which section was clicked on e.g. goals
       var selected_stat = event.target;
       var p1_score = this.score.player1;
-      var p2_score = this.score.player2;
-      console.log(p1_score, p2_score, 'beginning of function'); //checks higher/lower on total points
+      var p2_score = this.score.player2; // console.log(p1_score, p2_score, 'beginning of check');
+      //checks higher/lower on total points
 
       if (selected_stat.id == "player_one_points") {
+        console.log(this.player_one[0].total_points_season, this.player_two[0].total_points_season);
         var player_two = document.getElementById('player_two_points');
 
-        if (this.player1.points > this.player2.points) {
+        if (this.player_one[0].total_points_season > this.player_two[0].total_points_season) {
           event.target.classList.add('higher');
           player_two.classList.add('lower');
           this.player_one.push(this.player_two.shift());
@@ -6237,14 +6237,14 @@ __webpack_require__.r(__webpack_exports__);
           document.getElementById("player1_score").innerHTML = p1_score;
         }
 
-        if (this.player1.points < this.player2.points) {
+        if (this.player_one[0].total_points_season < this.player_two[0].total_points_season) {
           event.target.classList.add('lower');
           player_two.classList.add('higher');
           this.player_two.push(this.player_two.shift());
           this.player_two.push(this.player_one.shift());
         }
 
-        if (this.player1.points == this.player2.points) {
+        if (this.player_one[0].total_points_season == this.player_two[0].total_points_season) {
           event.target.classList.add('equal');
           player_two.classList.add('equal');
         }
@@ -6254,7 +6254,7 @@ __webpack_require__.r(__webpack_exports__);
       if (selected_stat.id == "player_one_goals") {
         var _player_two = document.getElementById('player_two_goals');
 
-        if (this.player1.goals > this.player2.goals) {
+        if (this.player_one[0].goals_scored > this.player_two[0].goals_scored) {
           event.target.classList.add('higher');
 
           _player_two.classList.add('lower');
@@ -6263,7 +6263,7 @@ __webpack_require__.r(__webpack_exports__);
           this.player_one.push(this.player_one.shift());
         }
 
-        if (this.player1.goals < this.player2.goals) {
+        if (this.player_one[0].goals_scored < this.player_two[0].goals_scored) {
           event.target.classList.add('lower');
 
           _player_two.classList.add('higher');
@@ -6272,7 +6272,7 @@ __webpack_require__.r(__webpack_exports__);
           this.player_two.push(this.player_one.shift());
         }
 
-        if (this.player1.goals == this.player2.goals) {
+        if (this.player_one[0].goals_scored == this.player_two[0].goals_scored) {
           event.target.classList.add('equal');
 
           _player_two.classList.add('equal');
@@ -6283,7 +6283,7 @@ __webpack_require__.r(__webpack_exports__);
       if (selected_stat.id == "player_one_assists") {
         var _player_two2 = document.getElementById('player_two_assists');
 
-        if (this.player1.assists > this.player2.assists) {
+        if (this.player_one[0].goals_assisted > this.player_two[0].goals_assisted) {
           event.target.classList.add('higher');
 
           _player_two2.classList.add('lower');
@@ -6292,7 +6292,7 @@ __webpack_require__.r(__webpack_exports__);
           this.player_one.push(this.player_one.shift());
         }
 
-        if (this.player1.assists < this.player2.assists) {
+        if (this.player_one[0].goals_assisted < this.player_two[0].goals_assisted) {
           event.target.classList.add('lower');
 
           _player_two2.classList.add('higher');
@@ -6301,7 +6301,7 @@ __webpack_require__.r(__webpack_exports__);
           this.player_two.push(this.player_one.shift());
         }
 
-        if (this.player1.assists == this.player2.assists) {
+        if (this.player_one[0].goals_assisted == this.player_two[0].goals_assisted) {
           event.target.classList.add('equal');
 
           _player_two2.classList.add('equal');
@@ -6312,7 +6312,7 @@ __webpack_require__.r(__webpack_exports__);
       if (selected_stat.id == "player_one_cost") {
         var _player_two3 = document.getElementById('player_two_cost');
 
-        if (this.player1.cost > this.player2.cost) {
+        if (this.player_one[0].current_cost > this.player_two[0].current_cost) {
           event.target.classList.add('higher');
 
           _player_two3.classList.add('lower');
@@ -6321,7 +6321,7 @@ __webpack_require__.r(__webpack_exports__);
           this.player_one.push(this.player_one.shift());
         }
 
-        if (this.player1.cost < this.player2.cost) {
+        if (this.player_one[0].current_cost < this.player_two[0].current_cost) {
           event.target.classList.add('lower');
 
           _player_two3.classList.add('higher');
@@ -6330,7 +6330,7 @@ __webpack_require__.r(__webpack_exports__);
           this.player_two.push(this.player_one.shift());
         }
 
-        if (this.player1.cost == this.player2.cost) {
+        if (this.player_one[0].current_cost == this.player_two[0].current_cost) {
           event.target.classList.add('equal');
 
           _player_two3.classList.add('equal');
@@ -6341,7 +6341,7 @@ __webpack_require__.r(__webpack_exports__);
       if (selected_stat.id == "player_one_popularity") {
         var _player_two4 = document.getElementById('player_two_popularity');
 
-        if (this.player1.popularity > this.player2.popularity) {
+        if (this.player_one[0].percent_selected > this.player_two[0].percent_selected) {
           event.target.classList.add('higher');
 
           _player_two4.classList.add('lower');
@@ -6350,7 +6350,7 @@ __webpack_require__.r(__webpack_exports__);
           this.player_one.push(this.player_one.shift());
         }
 
-        if (this.player1.popularity < this.player2.popularity) {
+        if (this.player_one[0].percent_selected < this.player_two[0].percent_selected) {
           event.target.classList.add('lower');
 
           _player_two4.classList.add('higher');
@@ -6359,7 +6359,7 @@ __webpack_require__.r(__webpack_exports__);
           this.player_two.push(this.player_one.shift());
         }
 
-        if (this.player1.popularity == this.player2.popularity) {
+        if (this.player_one[0].percent_selected == this.player_two[0].percent_selected) {
           event.target.classList.add('equal');
 
           _player_two4.classList.add('equal');
@@ -6370,7 +6370,7 @@ __webpack_require__.r(__webpack_exports__);
       if (selected_stat.id == "player_one_saves") {
         var _player_two5 = document.getElementById('player_two_saves');
 
-        if (this.player1.saves > this.player2.saves) {
+        if (this.player_one[0].saves > this.player_two[0].saves) {
           event.target.classList.add('higher');
 
           _player_two5.classList.add('lower');
@@ -6379,7 +6379,7 @@ __webpack_require__.r(__webpack_exports__);
           this.player_one.push(this.player_one.shift());
         }
 
-        if (this.player1.saves < this.player2.saves) {
+        if (this.player_one[0].saves < this.player_two[0].saves) {
           event.target.classList.add('lower');
 
           _player_two5.classList.add('higher');
@@ -6388,15 +6388,16 @@ __webpack_require__.r(__webpack_exports__);
           this.player_two.push(this.player_one.shift());
         }
 
-        if (this.player1.saves == this.player2.saves) {
+        if (this.player_one[0].saves == this.player_two[0].saves) {
           event.target.classList.add('equal');
 
           _player_two5.classList.add('equal');
         }
       }
 
-      console.log(p1_score, p2_score);
-      return p1_score, p2_score;
+      console.log(p1_score, p2_score); // return p1_score, p2_score;
+
+      console.log(this.player_one, this.player_two);
     },
     nextTurn: function nextTurn() {
       //variables so text is included
@@ -6572,16 +6573,12 @@ __webpack_require__.r(__webpack_exports__);
         p2_cost.classList.remove('equal');
       }
 
-      if (p2_cost.classList.contains('higher')) {
-        p2_cost.classList.remove('higher');
+      if (p2_popularity.classList.contains('higher')) {
+        p2_popularity.classList.remove('higher');
       }
 
       if (p2_popularity.classList.contains('lower')) {
         p2_popularity.classList.remove('lower');
-      }
-
-      if (p2_popularity.classList.contains('equal')) {
-        p2_popularity.classList.remove('equal');
       }
 
       if (p2_popularity.classList.contains('equal')) {
