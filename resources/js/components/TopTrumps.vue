@@ -15,15 +15,15 @@
 
                         <div class="items-center flex flex-column py-5 border-b-2 border-[#00ff85]">
 
-                            <p class="text-3xl font-bold">{{ this.player_one[0].first_name }}</p>
-                            <p class="text-3xl font-bold">{{ this.player_one[0].last_name }}</p>
-                            <p class="text-lg">{{ this.player_one[0].position }}</p>
+                            <p class="text-3xl font-bold" id="player_one_first_name">{{ this.player_one[0].first_name }}</p>
+                            <p class="text-3xl font-bold" id="player_one_last_name">{{ this.player_one[0].last_name }}</p>
+                            <p class="text-lg" id="player_one_position">{{ this.player_one[0].position }}</p>
 
                         </div>
 
                         <div class="p-4">
 
-                            <p class="text-2xl mb-2" id="player_one_points" @click="playerOneStatCheck">Total Points: <span>{{ this.player_one[0].total_points_season }}</span></p>
+                            <p class="text-2xl mb-2" id="player_one_points" @click="playerOneStatCheck">Total Points:{{ this.player_one[0].total_points_season }}</p>
                             <p class="text-2xl mb-2" id="player_one_goals" @click="playerOneStatCheck">Goals Scored: {{ this.player_one[0].goals_scored }}</p>
                             <p class="text-2xl mb-2" id="player_one_assists" @click="playerOneStatCheck">Goals Assisted: {{ this.player_one[0].goals_assisted }}</p>
                             <p class="text-2xl mb-2" id="player_one_cost" @click="playerOneStatCheck">Cost: £{{ this.makeDecimal(this.player_one[0].current_cost) }}m</p>
@@ -44,9 +44,9 @@
 
                         <div class="items-center flex flex-column py-5 border-b-2 border-[#00ff85]">
 
-                            <p class="text-3xl font-bold">{{ this.player_two[0].first_name }}</p>
-                            <p class="text-3xl font-bold">{{ this.player_two[0].last_name }}</p>
-                            <p class="text-lg">{{ this.player_two[0].position }}</p>
+                            <p class="text-3xl font-bold" id="player_two_first_name">{{ this.player_two[0].first_name }}</p>
+                            <p class="text-3xl font-bold" id="player_two_last_name">{{ this.player_two[0].last_name }}</p>
+                            <p class="text-lg" id="player_two_position">{{ this.player_two[0].position }}</p>
 
                         </div>
 
@@ -66,6 +66,8 @@
                 </div>
 
             </div>
+
+            <button @click="nextTurn()" class="text-3xl font-bold bg-green-400 text-white text-center p-4 rounded-sm my-10">Next Turn</button>
             
         </div>
 
@@ -140,7 +142,7 @@
             playerOneStatCheck(event) {
                 //makes it so p1 is defined by which section was clicked on e.g. goals
                 let selected_stat = event.target;
-                let p1_score = 0;
+                
                 //checks higher/lower on total points
                 if (selected_stat.id == "player_one_points") {
 
@@ -154,15 +156,16 @@
                         this.player_one.push(this.player_two.shift());
                         this.player_one.push(this.player_one.shift());
                         console.log(this.player_one[0]);
-                        // this.$emit('sendToPlayer1', this.player_two[0]);
-                        
-                        
-                        
+            
                     }
 
                     if (this.player1.points < this.player2.points) {
                         event.target.classList.add('lower');
                         player_two.classList.add('higher');
+
+                        this.player_two.push(this.player_two.shift());
+                        this.player_two.push(this.player_one.shift());
+                        console.log(this.player_one[0]);
                     }
 
                     if (this.player1.points == this.player2.points) {
@@ -179,11 +182,17 @@
                     if (this.player1.goals > this.player2.goals) {
                         event.target.classList.add('higher');
                         player_two.classList.add('lower');
+
+                        this.player_one.push(this.player_two.shift());
+                        this.player_one.push(this.player_one.shift());
                     }
 
                     if (this.player1.goals < this.player2.goals) {
                         event.target.classList.add('lower');
                         player_two.classList.add('higher');
+
+                        this.player_two.push(this.player_two.shift());
+                        this.player_two.push(this.player_one.shift());
                     }
 
                     if (this.player1.goals == this.player2.goals) {
@@ -200,11 +209,17 @@
                     if (this.player1.assists > this.player2.assists) {
                         event.target.classList.add('higher');
                         player_two.classList.add('lower');
+
+                        this.player_one.push(this.player_two.shift());
+                        this.player_one.push(this.player_one.shift());
                     }
 
                     if (this.player1.assists < this.player2.assists) {
                         event.target.classList.add('lower');
                         player_two.classList.add('higher');
+
+                        this.player_two.push(this.player_two.shift());
+                        this.player_two.push(this.player_one.shift());
                     }
 
                     if (this.player1.assists == this.player2.assists) {
@@ -221,11 +236,17 @@
                     if (this.player1.cost > this.player2.cost) {
                         event.target.classList.add('higher');
                         player_two.classList.add('lower');
+
+                        this.player_one.push(this.player_two.shift());
+                        this.player_one.push(this.player_one.shift());
                     }
 
                     if (this.player1.cost < this.player2.cost) {
                         event.target.classList.add('lower');
                         player_two.classList.add('higher');
+
+                        this.player_two.push(this.player_two.shift());
+                        this.player_two.push(this.player_one.shift());
                     }
 
                     if (this.player1.cost == this.player2.cost) {
@@ -242,11 +263,17 @@
                     if (this.player1.popularity > this.player2.popularity) {
                         event.target.classList.add('higher');
                         player_two.classList.add('lower');
+
+                        this.player_one.push(this.player_two.shift());
+                        this.player_one.push(this.player_one.shift());
                     }
 
                     if (this.player1.popularity < this.player2.popularity) {
                         event.target.classList.add('lower');
                         player_two.classList.add('higher');
+
+                        this.player_two.push(this.player_two.shift());
+                        this.player_two.push(this.player_one.shift());
                     }
 
                     if (this.player1.popularity == this.player2.popularity) {
@@ -263,11 +290,17 @@
                     if (this.player1.saves > this.player2.saves) {
                         event.target.classList.add('higher');
                         player_two.classList.add('lower');
+
+                        this.player_one.push(this.player_two.shift());
+                        this.player_one.push(this.player_one.shift());
                     }
 
                     if (this.player1.saves < this.player2.saves) {
                         event.target.classList.add('lower');
                         player_two.classList.add('higher');
+
+                        this.player_two.push(this.player_two.shift());
+                        this.player_two.push(this.player_one.shift());
                     }
 
                     if (this.player1.saves == this.player2.saves) {
@@ -277,6 +310,62 @@
                 }
                 
             },
+
+            nextTurn() {
+
+                //variables so text is included
+                let points_text = "Total Points: ";
+                let goals_text = "Goals Scored: ";
+                let assists_text = "Goals Assisted: ";
+                let cost_text = "Cost: £";
+                let popularity_text = "Popularity: ";
+                let saves_text = "Saves: ";
+            
+                //p1 fields
+                let p1_first_name = document.getElementById('player_one_first_name');
+                let p1_last_name = document.getElementById('player_one_last_name');
+                let p1_position = document.getElementById('player_one_position');
+                let p1_points = document.getElementById('player_one_points');
+                let p1_goals = document.getElementById('player_one_goals');
+                let p1_assists = document.getElementById('player_one_assists');
+                let p1_cost = document.getElementById('player_one_cost');
+                let p1_popularity = document.getElementById('player_one_popularity');
+                let p1_saves = document.getElementById('player_one_saves');
+
+                //changing p1 card
+                p1_first_name.innerHTML = this.player_one[0].first_name;
+                p1_last_name.innerHTML = this.player_one[0].last_name;
+                p1_position.innerHTML = this.player_one[0].position;
+                p1_points.innerHTML = points_text.concat(this.player_one[0].total_points_season);
+                p1_goals.innerHTML = goals_text.concat(this.player_one[0].goals_scored);
+                p1_assists.innerHTML = assists_text.concat(this.player_one[0].goals_assisted);
+                p1_cost.innerHTML = cost_text.concat(this.player_one[0].current_cost);
+                p1_popularity.innerHTML = popularity_text.concat(this.player_one[0].percent_selected);
+                p1_saves.innerHTML = saves_text.concat(this.player_one[0].saves);
+
+                //p2 fields
+                let p2_first_name = document.getElementById('player_two_first_name');
+                let p2_last_name = document.getElementById('player_two_last_name');
+                let p2_position = document.getElementById('player_two_position');
+                let p2_points = document.getElementById('player_two_points');
+                let p2_goals = document.getElementById('player_two_goals');
+                let p2_assists = document.getElementById('player_two_assists');
+                let p2_cost = document.getElementById('player_two_cost');
+                let p2_popularity = document.getElementById('player_two_popularity');
+                let p2_saves = document.getElementById('player_two_saves');
+
+                //changing p2 card
+                p2_first_name.innerHTML = this.player_two[0].first_name;
+                p2_last_name.innerHTML = this.player_two[0].last_name;
+                p2_position.innerHTML = this.player_two[0].position;
+                p2_points.innerHTML = points_text.concat(this.player_two[0].total_points_season);
+                p2_goals.innerHTML = goals_text.concat(this.player_two[0].goals_scored);
+                p2_assists.innerHTML = assists_text.concat(this.player_two[0].goals_assisted);
+                p2_cost.innerHTML = cost_text.concat(this.player_two[0].current_cost);
+                p2_popularity.innerHTML = popularity_text.concat(this.player_two[0].percent_selected);
+                p2_saves.innerHTML = saves_text.concat(this.player_two[0].saves);
+
+            }
         }
 
     }

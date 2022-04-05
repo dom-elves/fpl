@@ -6164,6 +6164,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'TopTrumps',
   props: ['player_one', 'player_two'],
@@ -6205,8 +6207,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     playerOneStatCheck: function playerOneStatCheck(event) {
       //makes it so p1 is defined by which section was clicked on e.g. goals
-      var selected_stat = event.target;
-      var p1_score = 0; //checks higher/lower on total points
+      var selected_stat = event.target; //checks higher/lower on total points
 
       if (selected_stat.id == "player_one_points") {
         var player_two = document.getElementById('player_two_points');
@@ -6216,12 +6217,15 @@ __webpack_require__.r(__webpack_exports__);
           player_two.classList.add('lower');
           this.player_one.push(this.player_two.shift());
           this.player_one.push(this.player_one.shift());
-          console.log(this.player_one[0]); // this.$emit('sendToPlayer1', this.player_two[0]);
+          console.log(this.player_one[0]);
         }
 
         if (this.player1.points < this.player2.points) {
           event.target.classList.add('lower');
           player_two.classList.add('higher');
+          this.player_two.push(this.player_two.shift());
+          this.player_two.push(this.player_one.shift());
+          console.log(this.player_one[0]);
         }
 
         if (this.player1.points == this.player2.points) {
@@ -6238,12 +6242,18 @@ __webpack_require__.r(__webpack_exports__);
           event.target.classList.add('higher');
 
           _player_two.classList.add('lower');
+
+          this.player_one.push(this.player_two.shift());
+          this.player_one.push(this.player_one.shift());
         }
 
         if (this.player1.goals < this.player2.goals) {
           event.target.classList.add('lower');
 
           _player_two.classList.add('higher');
+
+          this.player_two.push(this.player_two.shift());
+          this.player_two.push(this.player_one.shift());
         }
 
         if (this.player1.goals == this.player2.goals) {
@@ -6261,12 +6271,18 @@ __webpack_require__.r(__webpack_exports__);
           event.target.classList.add('higher');
 
           _player_two2.classList.add('lower');
+
+          this.player_one.push(this.player_two.shift());
+          this.player_one.push(this.player_one.shift());
         }
 
         if (this.player1.assists < this.player2.assists) {
           event.target.classList.add('lower');
 
           _player_two2.classList.add('higher');
+
+          this.player_two.push(this.player_two.shift());
+          this.player_two.push(this.player_one.shift());
         }
 
         if (this.player1.assists == this.player2.assists) {
@@ -6284,12 +6300,18 @@ __webpack_require__.r(__webpack_exports__);
           event.target.classList.add('higher');
 
           _player_two3.classList.add('lower');
+
+          this.player_one.push(this.player_two.shift());
+          this.player_one.push(this.player_one.shift());
         }
 
         if (this.player1.cost < this.player2.cost) {
           event.target.classList.add('lower');
 
           _player_two3.classList.add('higher');
+
+          this.player_two.push(this.player_two.shift());
+          this.player_two.push(this.player_one.shift());
         }
 
         if (this.player1.cost == this.player2.cost) {
@@ -6307,12 +6329,18 @@ __webpack_require__.r(__webpack_exports__);
           event.target.classList.add('higher');
 
           _player_two4.classList.add('lower');
+
+          this.player_one.push(this.player_two.shift());
+          this.player_one.push(this.player_one.shift());
         }
 
         if (this.player1.popularity < this.player2.popularity) {
           event.target.classList.add('lower');
 
           _player_two4.classList.add('higher');
+
+          this.player_two.push(this.player_two.shift());
+          this.player_two.push(this.player_one.shift());
         }
 
         if (this.player1.popularity == this.player2.popularity) {
@@ -6330,12 +6358,18 @@ __webpack_require__.r(__webpack_exports__);
           event.target.classList.add('higher');
 
           _player_two5.classList.add('lower');
+
+          this.player_one.push(this.player_two.shift());
+          this.player_one.push(this.player_one.shift());
         }
 
         if (this.player1.saves < this.player2.saves) {
           event.target.classList.add('lower');
 
           _player_two5.classList.add('higher');
+
+          this.player_two.push(this.player_two.shift());
+          this.player_two.push(this.player_one.shift());
         }
 
         if (this.player1.saves == this.player2.saves) {
@@ -6344,6 +6378,55 @@ __webpack_require__.r(__webpack_exports__);
           _player_two5.classList.add('equal');
         }
       }
+    },
+    nextTurn: function nextTurn() {
+      //variables so text is included
+      var points_text = "Total Points: ";
+      var goals_text = "Goals Scored: ";
+      var assists_text = "Goals Assisted: ";
+      var cost_text = "Cost: £";
+      var popularity_text = "Popularity: ";
+      var saves_text = "Saves: "; //p1 fields
+
+      var p1_first_name = document.getElementById('player_one_first_name');
+      var p1_last_name = document.getElementById('player_one_last_name');
+      var p1_position = document.getElementById('player_one_position');
+      var p1_points = document.getElementById('player_one_points');
+      var p1_goals = document.getElementById('player_one_goals');
+      var p1_assists = document.getElementById('player_one_assists');
+      var p1_cost = document.getElementById('player_one_cost');
+      var p1_popularity = document.getElementById('player_one_popularity');
+      var p1_saves = document.getElementById('player_one_saves'); //changing p1 card
+
+      p1_first_name.innerHTML = this.player_one[0].first_name;
+      p1_last_name.innerHTML = this.player_one[0].last_name;
+      p1_position.innerHTML = this.player_one[0].position;
+      p1_points.innerHTML = points_text.concat(this.player_one[0].total_points_season);
+      p1_goals.innerHTML = goals_text.concat(this.player_one[0].goals_scored);
+      p1_assists.innerHTML = assists_text.concat(this.player_one[0].goals_assisted);
+      p1_cost.innerHTML = cost_text.concat(this.player_one[0].current_cost);
+      p1_popularity.innerHTML = popularity_text.concat(this.player_one[0].percent_selected);
+      p1_saves.innerHTML = saves_text.concat(this.player_one[0].saves); //p2 fields
+
+      var p2_first_name = document.getElementById('player_two_first_name');
+      var p2_last_name = document.getElementById('player_two_last_name');
+      var p2_position = document.getElementById('player_two_position');
+      var p2_points = document.getElementById('player_two_points');
+      var p2_goals = document.getElementById('player_two_goals');
+      var p2_assists = document.getElementById('player_two_assists');
+      var p2_cost = document.getElementById('player_two_cost');
+      var p2_popularity = document.getElementById('player_two_popularity');
+      var p2_saves = document.getElementById('player_two_saves'); //changing p2 card
+
+      p2_first_name.innerHTML = this.player_two[0].first_name;
+      p2_last_name.innerHTML = this.player_two[0].last_name;
+      p2_position.innerHTML = this.player_two[0].position;
+      p2_points.innerHTML = points_text.concat(this.player_two[0].total_points_season);
+      p2_goals.innerHTML = goals_text.concat(this.player_two[0].goals_scored);
+      p2_assists.innerHTML = assists_text.concat(this.player_two[0].goals_assisted);
+      p2_cost.innerHTML = cost_text.concat(this.player_two[0].current_cost);
+      p2_popularity.innerHTML = popularity_text.concat(this.player_two[0].percent_selected);
+      p2_saves.innerHTML = saves_text.concat(this.player_two[0].saves);
     }
   }
 });
@@ -30602,17 +30685,32 @@ var render = function () {
                         "items-center flex flex-column py-5 border-b-2 border-[#00ff85]",
                     },
                     [
-                      _c("p", { staticClass: "text-3xl font-bold" }, [
-                        _vm._v(_vm._s(this.player_one[0].first_name)),
-                      ]),
+                      _c(
+                        "p",
+                        {
+                          staticClass: "text-3xl font-bold",
+                          attrs: { id: "player_one_first_name" },
+                        },
+                        [_vm._v(_vm._s(this.player_one[0].first_name))]
+                      ),
                       _vm._v(" "),
-                      _c("p", { staticClass: "text-3xl font-bold" }, [
-                        _vm._v(_vm._s(this.player_one[0].last_name)),
-                      ]),
+                      _c(
+                        "p",
+                        {
+                          staticClass: "text-3xl font-bold",
+                          attrs: { id: "player_one_last_name" },
+                        },
+                        [_vm._v(_vm._s(this.player_one[0].last_name))]
+                      ),
                       _vm._v(" "),
-                      _c("p", { staticClass: "text-lg" }, [
-                        _vm._v(_vm._s(this.player_one[0].position)),
-                      ]),
+                      _c(
+                        "p",
+                        {
+                          staticClass: "text-lg",
+                          attrs: { id: "player_one_position" },
+                        },
+                        [_vm._v(_vm._s(this.player_one[0].position))]
+                      ),
                     ]
                   ),
                   _vm._v(" "),
@@ -30625,12 +30723,10 @@ var render = function () {
                         on: { click: _vm.playerOneStatCheck },
                       },
                       [
-                        _vm._v("Total Points: "),
-                        _c("span", [
-                          _vm._v(
+                        _vm._v(
+                          "Total Points:" +
                             _vm._s(this.player_one[0].total_points_season)
-                          ),
-                        ]),
+                        ),
                       ]
                     ),
                     _vm._v(" "),
@@ -30731,17 +30827,32 @@ var render = function () {
                         "items-center flex flex-column py-5 border-b-2 border-[#00ff85]",
                     },
                     [
-                      _c("p", { staticClass: "text-3xl font-bold" }, [
-                        _vm._v(_vm._s(this.player_two[0].first_name)),
-                      ]),
+                      _c(
+                        "p",
+                        {
+                          staticClass: "text-3xl font-bold",
+                          attrs: { id: "player_two_first_name" },
+                        },
+                        [_vm._v(_vm._s(this.player_two[0].first_name))]
+                      ),
                       _vm._v(" "),
-                      _c("p", { staticClass: "text-3xl font-bold" }, [
-                        _vm._v(_vm._s(this.player_two[0].last_name)),
-                      ]),
+                      _c(
+                        "p",
+                        {
+                          staticClass: "text-3xl font-bold",
+                          attrs: { id: "player_two_last_name" },
+                        },
+                        [_vm._v(_vm._s(this.player_two[0].last_name))]
+                      ),
                       _vm._v(" "),
-                      _c("p", { staticClass: "text-lg" }, [
-                        _vm._v(_vm._s(this.player_two[0].position)),
-                      ]),
+                      _c(
+                        "p",
+                        {
+                          staticClass: "text-lg",
+                          attrs: { id: "player_two_position" },
+                        },
+                        [_vm._v(_vm._s(this.player_two[0].position))]
+                      ),
                     ]
                   ),
                   _vm._v(" "),
@@ -30833,6 +30944,20 @@ var render = function () {
               ),
             ]),
           ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass:
+                "text-3xl font-bold bg-green-400 text-white text-center p-4 rounded-sm my-10",
+              on: {
+                click: function ($event) {
+                  return _vm.nextTurn()
+                },
+              },
+            },
+            [_vm._v("Next Turn")]
+          ),
         ]
       ),
     ]
