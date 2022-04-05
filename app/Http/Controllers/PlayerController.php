@@ -141,25 +141,30 @@ class PlayerController extends BaseController
             'percent_selected' => $player->selected_by_percent,
             
           ]);
-
+          //below snippet is for adding player points by week
           $gameweeks = $decoded->events;
 
-          DB::table('player_score_history')->truncate();
+          // DB::table('player_score_history')->truncate();
           
           foreach ($gameweeks as $gameweek) {
 
-            if ($gameweek->is_current == true) {
+            if ($gameweek->is_current == false ) {
 
-              $current = $gameweek->id;
-              $current_gameweek = 'gameweek_' . $current;
+              continue;
 
-              DB::table('player_score_history')->insert([
+              if ($gameweek->is_current == true) {
 
-                'player_id' => $player->id,
-                'first_name' => $player->first_name,
-                'last_name' => $player->second_name,
-                $current_gameweek => $player->event_points
-              ]);
+                $current = $gameweek->id;
+                $current_gameweek = 'gameweek_' . $current;
+
+                DB::table('player_score_history')->insert([
+
+                  'player_id' => $player->id,
+                  'first_name' => $player->first_name,
+                  'last_name' => $player->second_name,
+                  $current_gameweek => $player->event_points
+                ]);
+              }
             }
           }
 
