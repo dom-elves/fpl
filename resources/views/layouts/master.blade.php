@@ -69,6 +69,8 @@
 
                 <a href="update-teams" class="m-1"><div class=" button-hover-state font-bold  text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Update Teams</div></a>
 
+                <a href="player-history" class="m-1"><div class=" button-hover-state font-bold  text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Update Player History</div></a>
+
             </div>
 
             <div class="flex flex-row text-center">

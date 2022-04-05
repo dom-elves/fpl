@@ -141,39 +141,50 @@ class PlayerController extends BaseController
             'percent_selected' => $player->selected_by_percent,
             
           ]);
-          //below snippet is for adding player points by week
-          $gameweeks = $decoded->events;
-
-          // DB::table('player_score_history')->truncate();
           
-          foreach ($gameweeks as $gameweek) {
 
-            if ($gameweek->is_current == false ) {
+        }//
 
-              continue;
-
-              if ($gameweek->is_current == true) {
-
-                $current = $gameweek->id;
-                $current_gameweek = 'gameweek_' . $current;
-
-                DB::table('player_score_history')->update([
-
-                  'player_id' => $player->id,
-                  'first_name' => $player->first_name,
-                  'last_name' => $player->second_name,
-                  $current_gameweek => $player->event_points
-
-                ]);
-              }
-            }
-          }
-
-        }
-
+        //below snippet is for adding player points by week
 
         return redirect('/main');
       }
+    }
+
+    public function updatePlayerHistory() {
+
+      $response = Http::get('https://fantasy.premierleague.com/api/bootstrap-static/');
+    
+      $decoded = json_decode($response->body());
+      
+      $players = $decoded->elements;
+
+      $gameweeks = $decoded->events;
+
+        DB::table('player_score_history')->truncate();
+        
+        foreach ($gameweeks as $gameweek) {
+          
+          if ($gameweek->is_current !== false ) {
+            
+              $current = $gameweek->id;
+              $current_gameweek = 'gameweek_' . $current;
+
+              foreach ($players as $player) {
+                
+              DB::table('player_score_history')->insert([
+
+                'player_id' => $player->id,
+                'first_name' => $player->first_name,
+                'last_name' => $player->second_name,
+                $current_gameweek => $player->event_points
+
+              ]);
+            }
+
+          }
+        }
+        return redirect('/main');
     }
 
     public function comparePlayers(Request $request)

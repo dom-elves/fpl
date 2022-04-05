@@ -83,3 +83,6 @@ Route::get('sort-cost-change-desc', [PlayerController::class, 'sortCostChangeDes
 
 //top trumps
 Route::get('top-trumps', [PlayerController::class, 'returnTrumpsPlayers']);
+
+//player history
+Route::get('player-history', [PlayerController::class, 'updatePlayerHistory']);
