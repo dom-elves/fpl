@@ -3,7 +3,7 @@
 @section('content')
 
 
-<table class="bg-purple-50 m-2">
+<table class="bg-purple-50 m-2" id="player-index-table">
 
     <tr class="border-b-2 border-[#ccc]">
 
@@ -92,7 +92,7 @@
             <td class="p-1 border-r-2 border-[#ccc]">{{$player->total_points_season}}</td>
             <td class="p-1 border-r-2 border-[#ccc]">{{$player->total_points_week}}</td>
             <td class="p-1 border-r-2 border-[#ccc]">{{$player->points_per_game}}</td>
-            <td class="p-1 border-r-2 border-[#ccc]">{{$player->value}}</td>
+            <td class="p-1 border-r-2 border-[#ccc]"><p>{{$player->value}}</p></td>
             <td class="p-1 border-r-2 border-[#ccc]">{{$player->goals_scored}}</td>
             <td class="p-1 border-r-2 border-[#ccc]">{{$player->goals_assisted}}</td>
             <td class="p-1 border-r-2 border-[#ccc]">{{$player->start_cost}}</td>
@@ -106,8 +106,7 @@
 
 @endsection
 
-
-<style>
+<style lang="scss">
 
     .upArrow {
         color: green;
@@ -116,5 +115,8 @@
     .downArrow {
         color: red;
     }
+
+
+    
 
 </style>

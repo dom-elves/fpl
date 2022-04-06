@@ -11286,6 +11286,12 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+#player-index-table tr:hover {
+  background-color: #38003c;
+}
+#player-index-table tr:hover td {
+  color: #FFFFFF;
+}
 /*
 ! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com
 *//*
@@ -11924,15 +11930,19 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-r-2 {
   border-right-width: 2px;
 }
-.border-t {
-  border-top-width: 1px;
-}
 .border-b-2 {
   border-bottom-width: 2px;
+}
+.border-t {
+  border-top-width: 1px;
 }
 .border-\[\#00ff85\] {
   --tw-border-opacity: 1;
   border-color: rgb(0 255 133 / var(--tw-border-opacity));
+}
+.border-\[\#ccc\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(204 204 204 / var(--tw-border-opacity));
 }
 .border-gray-200 {
   --tw-border-opacity: 1;
@@ -11941,10 +11951,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-\[\#38003c\] {
   --tw-border-opacity: 1;
   border-color: rgb(56 0 60 / var(--tw-border-opacity));
-}
-.border-\[\#ccc\] {
-  --tw-border-opacity: 1;
-  border-color: rgb(204 204 204 / var(--tw-border-opacity));
 }
 .bg-\[\#38003c\] {
   --tw-bg-opacity: 1;

@@ -6,3 +6,16 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+//hover states on player index
+     #player-index-table { 
+
+        tr:hover {
+
+            background-color: #38003c;
+
+                & td {
+                    color: #FFFFFF;
+                }
+            }
+        }    
