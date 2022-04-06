@@ -160,37 +160,42 @@ class PlayerController extends BaseController
       $players = $decoded->elements;
 
       $gameweeks = $decoded->events;
-
-        // DB::table('player_score_history')->truncate();
         
-        foreach ($gameweeks as $gameweek) {
+        foreach ($gameweeks as $gameweek) { //checks if gameweek is going (is_current property) 
           
           if ($gameweek->is_current !== false ) {
             
               $current = $gameweek->id;
-              $current_gameweek = 'gameweek_' . $current;
+              $current_gameweek = 'gameweek_' . $current; //this is built just for the column name so it's unique each week
+                
+                foreach ($players as $player) {
 
-              foreach ($players as $player) {
+                  $existing_player = DB::table('player_score_history')->where('player_id', $player->id) //checks if the player exists (at this point they always will)
+                                                                      ->get();
+                
+                if ($existing_player) {
+                  
+                  DB::table('player_score_history')->where('player_id', $player->id) //all existing values are null, updates to whatever current one is 
+                                                   ->update([
 
-              $existing_player = DB::table('player_score_history')->where('player_id', $player->id)->get();
-              
-              if ($existing_player) {
+                                                            $current_gameweek => $player->event_points
+                                                  ]);
 
-                DB::table('player_score_history')->where('player_id', $player->id)->update([$current_gameweek => $player->event_points]);
+                } else {
+                  
+                  DB::table('player_score_history')->insert([ //kinda only necessary if i accidentally delete everything 
 
-              } else {
+                                                      'player_id', $player->id,
+                                                      'first_name' => $player->first_name,
+                                                      'last_name' => $player->second_name,
+                                                      $current_gameweek => $player->event_points
 
-                DB::table('player_score_history')->insert(['player_id', $player->id,
-                                                           'first_name' => $player->first_name,
-                                                           'last_name' => $player->second_name,
-                                                           $current_gameweek => $player->event_points
-              ]);
-              
+                                                    ]);
+                }
               }
-            }
           }
         }
-        return redirect('/main');
+      return redirect('/main');
     }
 
     public function comparePlayers(Request $request)
