@@ -172,18 +172,22 @@ class PlayerController extends BaseController
 
               foreach ($players as $player) {
 
-              DB::table('player_score_history')->update([$current_gameweek => null]);
-                
-              DB::table('player_score_history')->insert([
+              $existing_player = DB::table('player_score_history')->where('player_id', $player->id)->get();
+              
+              if ($existing_player) {
 
-                'player_id' => $player->id,
-                'first_name' => $player->first_name,
-                'last_name' => $player->second_name,
-                $current_gameweek => $player->event_points
+                DB::table('player_score_history')->where('player_id', $player->id)->update([$current_gameweek => $player->event_points]);
 
+              } else {
+
+                DB::table('player_score_history')->insert(['player_id', $player->id,
+                                                           'first_name' => $player->first_name,
+                                                           'last_name' => $player->second_name,
+                                                           $current_gameweek => $player->event_points
               ]);
+              
+              }
             }
-
           }
         }
         return redirect('/main');
