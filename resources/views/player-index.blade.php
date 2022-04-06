@@ -5,38 +5,99 @@
 
 <table class="bg-purple-50 m-2">
 
-    <tr>
+    <tr class="border-b-2 border-[#ccc]">
 
-        <th>Player Name</th>
-        <th>Popularity<a href="sort-popularity-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-popularity-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
-        <th>Position</th>
-        <th>Total Points<a href="sort-total-points-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-total-points-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
-        <th>This Week<a href="sort-points-this-week-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-points-this-week-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
-        <th>Per Game<a href="sort-points-per-game-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-points-per-game-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
-        <th>Per Million<a href="sort-points-per-million-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-points-per-million-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
-        <th>Goals<a href="sort-goals-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-goals-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
-        <th>Assists<a href="sort-assists-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-assists-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
-        <th>Start Cost<a href="sort-start-cost-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-start-cost-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
-        <th>Now Cost<a href="sort-now-cost-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-now-cost-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
-        <th>Cost Change<a href="sort-cost-change-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a><a  href="sort-cost-change-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a></th>
+        <th class="border-r-2 border-[#ccc]">Player Name</th>
+
+        <th class="p-1 border-r-2 border-[#ccc]">Popularity
+            <div class="flex flex-row justify-center">
+                <a href="sort-popularity-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a>
+                <a  href="sort-popularity-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a>
+            </div>
+        </th>
+
+        <th class="border-r-2 border-[#ccc]">Position</th>
+
+        <th class="p-1 border-r-2 border-[#ccc]">Total Points
+            <div class="flex flex-row justify-center">
+                <a href="sort-total-points-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a>
+                <a  href="sort-total-points-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a>
+            </div>
+        </th>
+
+        <th class="p-1 border-r-2 border-[#ccc]">This Week
+            <div class="flex flex-row justify-center">
+                <a href="sort-points-this-week-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a>
+                <a  href="sort-points-this-week-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a>
+            </div>
+        </th>
+    
+        <th class="p-1 border-r-2 border-[#ccc]">Per Game
+            <div class="flex flex-row justify-center">
+                <a href="sort-points-per-game-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a>
+                <a  href="sort-points-per-game-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a>
+            </div>
+        </th>
+
+        <th class="p-1 border-r-2 border-[#ccc]">Per Million
+            <div class="flex flex-row justify-center">
+                <a href="sort-points-per-million-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a>
+                <a  href="sort-points-per-million-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a>
+            </div>
+        </th>
+
+        <th class="p-1 border-r-2 border-[#ccc]">Goals
+            <div class="flex flex-row justify-center">
+                <a href="sort-goals-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a>
+                <a  href="sort-goals-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a>
+            </div>
+        </th>
+        
+        <th class="p-1 border-r-2 border-[#ccc]">Assists
+            <div class="flex flex-row justify-center">
+                <a href="sort-assists-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a>
+                <a  href="sort-assists-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a>
+            </div>
+        </th>
+
+        <th class="p-1 border-r-2 border-[#ccc]">Start Cost
+            <div class="flex flex-row justify-center">
+                <a href="sort-start-cost-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a>
+                <a  href="sort-start-cost-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a>
+            </div>
+        </th>
+
+        <th class="p-1 border-r-2 border-[#ccc]">Now Cost
+            <div class="flex flex-row justify-center">
+                <a href="sort-now-cost-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a>
+                <a  href="sort-now-cost-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a>
+            </div>
+        </th>
+
+        <th class="p-1 border-r-2 border-[#ccc]">Cost Change
+            <div class="flex flex-row justify-center">
+                <a href="sort-cost-change-desc"><i class="fa-solid fa-angle-up w-[20px] h-[20px] upArrow"></i></a>
+                <a  href="sort-cost-change-asc"><i class="fa-solid fa-angle-down w-[20px] h-[20px] downArrow"></i></a>
+            </div>
+        </th> 
 
     </tr>
 
     @foreach ($players as $player)
 
-        <tr>
-            <td>{{$player->first_name}} {{$player->last_name}}</td>
-            <td>{{$player->percent_selected}}%</td>
-            <td>{{$player->position}}</td>
-            <td>{{$player->total_points_season}}</td>
-            <td>{{$player->total_points_week}}</td>
-            <td>{{$player->points_per_game}}</td>
-            <td>{{$player->value}}</td>
-            <td>{{$player->goals_scored}}</td>
-            <td>{{$player->goals_assisted}}</td>
-            <td>{{$player->start_cost}}</td>
-            <td>{{$player->current_cost}}</td>
-            <td>{{$player->cost_change}}</td>
+        <tr class="border-b-2 border-[#ccc]">
+            <td class="p-1 border-r-2 border-[#ccc]"><a href="player/{{ $player->player_id }}">{{$player->first_name}} {{$player->last_name}}</a></td>
+            <td class="p-1 border-r-2 border-[#ccc]">{{$player->percent_selected}}%</td>
+            <td class="p-1 border-r-2 border-[#ccc]">{{$player->position}}</td>
+            <td class="p-1 border-r-2 border-[#ccc]">{{$player->total_points_season}}</td>
+            <td class="p-1 border-r-2 border-[#ccc]">{{$player->total_points_week}}</td>
+            <td class="p-1 border-r-2 border-[#ccc]">{{$player->points_per_game}}</td>
+            <td class="p-1 border-r-2 border-[#ccc]">{{$player->value}}</td>
+            <td class="p-1 border-r-2 border-[#ccc]">{{$player->goals_scored}}</td>
+            <td class="p-1 border-r-2 border-[#ccc]">{{$player->goals_assisted}}</td>
+            <td class="p-1 border-r-2 border-[#ccc]">{{$player->start_cost}}</td>
+            <td class="p-1 border-r-2 border-[#ccc]">{{$player->current_cost}}</td>
+            <td class="p-1 border-r-2 border-[#ccc]">{{$player->cost_change}}</td>
         </tr>
 
     @endforeach
