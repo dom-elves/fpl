@@ -29,7 +29,7 @@ class PlayerController extends BaseController
     //for some reason, object returns in an array - making it always pos 0 takes it out of array 
     public function returnSelectedPlayer($id)
     {
-        $collection = Player::where('player_id', '=', $id)->get();
+        $collection = Player::where('player_id', $id)->get(); //used to have ' = ' in
         
         $player = $collection[0]; //figure out how to take the object out of the array, casting to object doesn't work somehow?
         
@@ -104,7 +104,7 @@ class PlayerController extends BaseController
           $player->points_per_90 = $pp90;
 
            
-          //value?
+          //value//points per million
           $player->value = $player->total_points / $player->now_cost;
           
           //insert player data
@@ -164,7 +164,7 @@ class PlayerController extends BaseController
         foreach ($gameweeks as $gameweek) { //checks if gameweek is going (is_current property) 
           
           if ($gameweek->is_current !== false ) {
-            
+            // dd($gameweek);
               $current = $gameweek->id;
               $current_gameweek = 'gameweek_' . $current; //this is built just for the column name so it's unique each week
                 

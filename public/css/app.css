@@ -11289,7 +11289,7 @@ textarea.form-control-lg {
 #player-index-table tr:hover {
   background-color: #38003c;
 }
-#player-index-table tr:hover td {
+#player-index-table tr:hover td, #player-index-table tr:hover th, #player-index-table tr:hover a {
   color: #FFFFFF;
 }
 /*

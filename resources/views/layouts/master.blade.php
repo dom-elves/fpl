@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <link href="{{ asset('sass/app.css') }}" rel="stylesheet">
-        
+
         <style>
             .button-hover-state:hover {
                     background-color: #38003c;
@@ -60,32 +60,33 @@
 
             </div>
         </form>
+
+        <a href="/player-history" class="m-1"><div class=" button-hover-state font-bold  text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm text-center">Update Player History (Weeky Points)</div></a>
         
         <div id="header-buttons" class="flex flex-column">
 
             <div class="flex flex-row text-center">
 
-                <a href="player-comparison" class="m-1"><div class="button-hover-state font-bold text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Player Comparison</div></a>
+                <a href="/player-comparison" class="m-1"><div class="button-hover-state font-bold text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Player Comparison</div></a>
 
-                <a href="update-players" class="m-1"><div class="button-hover-state font-bold text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Update Players</div></a>
+                <a href="/update-players" class="m-1"><div class="button-hover-state font-bold text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Update Players</div></a>
 
-                <a href="update-teams" class="m-1"><div class=" button-hover-state font-bold  text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Update Teams</div></a>
-
-                <a href="player-history" class="m-1"><div class=" button-hover-state font-bold  text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Update Player History</div></a>
+                <a href="/update-teams" class="m-1"><div class=" button-hover-state font-bold  text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Update Teams</div></a>
 
             </div>
 
             <div class="flex flex-row text-center">
 
-                <a href="gameweeks" class="m-1"><div class="button-hover-state font-bold  text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Gameweeks</div></a>
+                <a href="/gameweeks" class="m-1"><div class="button-hover-state font-bold  text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Gameweeks</div></a>
                 
-                <a href="main" class="m-1"><div class="button-hover-state font-bold  text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Home</div></a>
+                <a href="/main" class="m-1"><div class="button-hover-state font-bold  text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Home</div></a>
 
-                <a href="player-index" class="m-1"><div class=" button-hover-state font-bold  text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Player Index</div></a>
+                <a href="/player-index" class="m-1"><div class=" button-hover-state font-bold  text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Player Index</div></a>
 
             </div>
 
         <div>
+
     </header>
         <div id="app">
 
