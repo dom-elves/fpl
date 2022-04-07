@@ -11,8 +11,9 @@ class Gameweek extends Model
 
     public function mostSelectedPlayer()
     {
-        $data =  $this->hasOne(Player::class, 'player_id', 'most_selected_player');
         
+        $data =  $this->hasOne(Player::class, 'player_id', 'most_selected_player');
+        // dd($data);
         return $data;
     }
 
