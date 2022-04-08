@@ -42,43 +42,31 @@ class GameweekController extends Controller
       $decoded = json_decode($response->body());
       
       $gameweeks = $decoded->events;
-      // dd($gameweeks[30]);
+      // dd($gameweeks[31]);
 
       foreach ($gameweeks as $gameweek) {
+
         //skips over all COMPLETED gameweeks
         if ($gameweek->finished == true) {
+          continue;
+        }
+        
+        //inside of here is CURRENT gameweek
+        if ($gameweek->is_current == true) {
           
-          //inside of here is CURRENT gameweek
-          if ($gameweek->is_current == true) {
-            
-            //checks if there's any data for CURRENT gameweek already in db
-            $current = $gameweek->id;
-            $current_gameweek = DB::table('gameweeks')->find($current);
+          //checks if there's any data for CURRENT gameweek already in db
+          $current = $gameweek->id;
+          $current_gameweek = DB::table('gameweeks')->find($current);
 
-            //some variables
-            $highestScoringPlayer = $gameweek->top_element_info->id; 
-            $highestPlayerScore = $gameweek->top_element_info->points;
+          //some variables
+          $highestScoringPlayer = $gameweek->top_element_info->id; 
+          $highestPlayerScore = $gameweek->top_element_info->points;
 
-            if ($current_gameweek) {
-              //updates if gameweek has already started
-              DB::table('gameweeks')->where('id', $current
-                                   )->update([
+          if ($current_gameweek) {
+            //updates if gameweek has already started
+            DB::table('gameweeks')->where('id', $current
+                                  )->update([
 
-                                      'id' => $gameweek->id,
-                                      'average_team_points' => $gameweek->average_entry_score,
-                                      'highest_team_points' => $gameweek->highest_score,
-                                      'most_selected_player' => $gameweek->most_selected,
-                                      'highest_scoring_player' => $highestScoringPlayer,
-                                      'highest_player_score' => $highestPlayerScore,
-                                      'most_transferred_in_player' => $gameweek->most_transferred_in,
-                                      'most_captained_player' => $gameweek->most_captained,
-                                      'most_vice_captained_player' => $gameweek->most_vice_captained,
-                                   ]);
-
-            } else {
-              //inserts if running for the first time during a gameweek
-              DB::table('gameweeks')->insert([
-      
                                     'id' => $gameweek->id,
                                     'average_team_points' => $gameweek->average_entry_score,
                                     'highest_team_points' => $gameweek->highest_score,
@@ -89,66 +77,27 @@ class GameweekController extends Controller
                                     'most_captained_player' => $gameweek->most_captained,
                                     'most_vice_captained_player' => $gameweek->most_vice_captained,
                                   ]);
-            }
 
-            
-
-
-            // if ($gameweek->finished == false) {
-              
-            //   $current = $gameweek->id;
-            //   $current_gameweek = DB::table('gameweeks')->find($current);
-
-
-            //   dd('here');
-            // }
-
-            // $highestScoringPlayer = $gameweek->top_element_info->id; 
-            // $highestPlayerScore = $gameweek->top_element_info->points;
-
-            // dd($current_gameweek, $gameweek);
+          } else {
+            //inserts if running for the first time during a gameweek
+            DB::table('gameweeks')->insert([
+    
+                                  'id' => $gameweek->id,
+                                  'average_team_points' => $gameweek->average_entry_score,
+                                  'highest_team_points' => $gameweek->highest_score,
+                                  'most_selected_player' => $gameweek->most_selected,
+                                  'highest_scoring_player' => $highestScoringPlayer,
+                                  'highest_player_score' => $highestPlayerScore,
+                                  'most_transferred_in_player' => $gameweek->most_transferred_in,
+                                  'most_captained_player' => $gameweek->most_captained,
+                                  'most_vice_captained_player' => $gameweek->most_vice_captained,
+                                ]);
           }
-
+        }
           continue;
         }
-        
+        return redirect('/gameweeks');
       }
-      // $query = DB::table('gameweeks')->get()->first();
-      
-      // if ($query) {
-
-      //   DB::table('gameweeks')->truncate();
- 
-      //   foreach ($gameweeks as $gameweek) {
-      //     //check that won't fail i think unless i run it during the first match of a gameweek 
-          
-      //     if ($gameweek->average_entry_score !== 0) {
-      //         //had to do this due to some parts being embedded objects
-      //         $highestScoringPlayer = $gameweek->top_element_info->id; 
-      //         $highestPlayerScore = $gameweek->top_element_info->points;
-              
-      //     } else {
-
-      //         break;
-              
-      //     }
-
-      //     DB::table('gameweeks')->insert([
-            
-      //       'id' => $gameweek->id,
-      //       'average_team_points' => $gameweek->average_entry_score,
-      //       'highest_team_points' => $gameweek->highest_score,
-      //       'most_selected_player' => $gameweek->most_selected,
-      //       'highest_scoring_player' => $highestScoringPlayer,
-      //       'highest_player_score' => $highestPlayerScore,
-      //       'most_transferred_in_player' => $gameweek->most_transferred_in,
-      //       'most_captained_player' => $gameweek->most_captained,
-      //       'most_vice_captained_player' => $gameweek->most_vice_captained,
-      //     ]);
-      //   }  
-      // }
-      return redirect('/gameweeks');
-    }
 
     public function applyPlayerDetails($gameweek) 
     {
