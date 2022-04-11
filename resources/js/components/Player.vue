@@ -2,7 +2,7 @@
     <div>
         <!-- <p>{{ this.player }}</p> -->
     
-        <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[400px]">
+        <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[800px]">
             
             <p class="font-bold text-lg p-2">{{ this.player.first_name }} {{ this.player.last_name}}</p>
 
@@ -21,22 +21,46 @@
                 <p>Minutes: {{ this.player.minutes_season }}</p>
                 <p>Popularity: {{this.player.percent_selected}}%</p>
             </div>
+            <!-- <p>{{this.generateBarChatData() }}</p> -->
+            <column-chart :data="player_gameweeks"></column-chart>
+            
 
         </div>
     </div>
 </template>
 
 <script>
+
+import Vue from 'vue'
+import Chartkick from 'vue-chartkick'
+import Chart from 'chart.js'
+
+
     export default {
+
+        data() {
+
+           return {
+               player_gameweeks: this.player_history
+           }
+
+       },
 
         props: ['player', 'player_history'],
 
-        mounted() {
-            
-            console.log(this.player);
-            console.log(this.player_history);
+        created() {
+
+            this.generateBarChatData();
             
 
+        },
+
+        mounted() {
+            
+            // console.log(this.player);
+            
+            
+            
         },
 
         methods: {
@@ -49,6 +73,23 @@
                 
                 return decimalCost;
             },
+
+            generateBarChatData() {
+                // console.log(Object.keys(this.player_history));
+
+                //remove uneccessary elements
+                delete this.player_history['id'];
+                delete this.player_history['player_id'];
+                delete this.player_history['first_name'];
+                delete this.player_history['last_name'];
+                // console.log(this.player_history);
+
+               
+                let points = Object.entries(this.player_history);
+
+                console.log(this.player_history);
+                return points;
+            }
         },
     }
 </script>

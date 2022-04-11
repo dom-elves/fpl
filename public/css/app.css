@@ -11891,6 +11891,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-\[140px\] {
   width: 140px;
 }
+.w-\[800px\] {
+  width: 800px;
+}
 .max-w-6xl {
   max-width: 72rem;
 }

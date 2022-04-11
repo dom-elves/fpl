@@ -4,8 +4,8 @@
      
     <player v-bind:player="{{ $player }}" :player_history="{{ $player_history }}"></player>
 
- <p class="text-white">{{ $player }}</p>
- <p class="text-white">{{ $player_history }}</p>
+ <!-- <p class="text-white">{{ $player }}</p>
+ <p class="text-white">{{ $player_history }}</p> -->
 
 @endsection
 <style>
