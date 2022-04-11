@@ -52,7 +52,7 @@ class GameweekController extends Controller
         }
         
         //inside of here is CURRENT gameweek
-        if ($gameweek->is_current == true) {
+        if ($gameweek->is_current == true ) {
           
           //checks if there's any data for CURRENT gameweek already in db
           $current = $gameweek->id;
@@ -61,7 +61,7 @@ class GameweekController extends Controller
           //some variables
           $highestScoringPlayer = $gameweek->top_element_info->id; 
           $highestPlayerScore = $gameweek->top_element_info->points;
-
+          
           if ($current_gameweek) {
             //updates if gameweek has already started
             DB::table('gameweeks')->where('id', $current

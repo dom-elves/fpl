@@ -67,13 +67,11 @@ class PlayerController extends BaseController
       $players = $decoded->elements;
       
       $query = DB::table('players')->get()->first();
+       
+      foreach ($players as $player) {
 
-      if ($query) {
-
-        DB::table('players')->truncate();
-
-        foreach ($players as $player) {
-          //manually setting positions because i want them to display as text
+        if ($query) {
+        //manually setting positions because i want them to display as text
           if ($player->element_type == 1) {
             $player->element_type = 'GK';
           }
@@ -91,19 +89,88 @@ class PlayerController extends BaseController
           }
 
           //for calcing player points per 90min rather than calcing in vue component
-        
+          
           if ($player->minutes == 0) {
 
             continue;
-  
+
           }
 
           $games = $player->minutes / 90;
           $pp90 = $player->total_points / $games;
-  
+
           $player->points_per_90 = $pp90;
 
-           
+            
+          //value//points per million
+          $player->value = $player->total_points / $player->now_cost;
+          
+          //insert player data
+          DB::table('players')->where('id', $player->id)->update([
+
+            'player_id' => $player->id,
+            'first_name' => $player->first_name,
+            'last_name' => $player->second_name,
+            'team' => $player->team,
+            'position' => $player->element_type,
+            'total_points_season' => $player->total_points,
+            'total_points_week' => $player->event_points,
+            'points_per_game' => $player->points_per_game,
+            'points_per_90' => $player->points_per_90,
+            'value' => $player->value * 10, //to calculate points per million spent
+            'current_cost' => $player->now_cost,
+            'start_cost' => $player->now_cost - $player->cost_change_start,
+            'cost_change' => $player->cost_change_start,
+            'goals_scored' => $player->goals_scored,
+            'goals_assisted' => $player->assists,
+            'goals_conceded' => $player->goals_conceded,
+            'clean_sheets' => $player->clean_sheets,
+            'own_goals' => $player->own_goals,
+            'penalties_saved' => $player->penalties_saved,
+            'penalties_missed' => $player->penalties_missed,
+            'yellow_cards' => $player->yellow_cards,
+            'red_cards' => $player->red_cards,
+            'saves' => $player->saves,
+            'bonus_points_season' => $player->bonus,
+            'form' => $player->form,
+            'minutes_season' => $player->minutes,
+            'transfers_in_week' => $player->transfers_in_event,
+            'transfers_out_week' => $player->transfers_out_event,
+            'percent_selected' => $player->selected_by_percent,
+            
+          ]);
+        } else {
+
+          if ($player->element_type == 1) {
+            $player->element_type = 'GK';
+          }
+
+          if ($player->element_type == 2) {
+            $player->element_type = 'DEF';
+          }
+
+          if ($player->element_type == 3) {
+            $player->element_type = 'MID';
+          }
+
+          if ($player->element_type == 4) {
+            $player->element_type = 'FWD';
+          }
+
+          //for calcing player points per 90min rather than calcing in vue component
+          
+          if ($player->minutes == 0) {
+
+            continue;
+
+          }
+
+          $games = $player->minutes / 90;
+          $pp90 = $player->total_points / $games;
+
+          $player->points_per_90 = $pp90;
+
+            
           //value//points per million
           $player->value = $player->total_points / $player->now_cost;
           
@@ -141,14 +208,13 @@ class PlayerController extends BaseController
             'percent_selected' => $player->selected_by_percent,
             
           ]);
-          
-
-        }//
+        }
+      }//
 
         //below snippet is for adding player points by week
 
         return redirect('/main');
-      }
+       
     }
 
     public function updatePlayerHistory() {
@@ -164,7 +230,7 @@ class PlayerController extends BaseController
         foreach ($gameweeks as $gameweek) { //checks if gameweek is going (is_current property) 
           
           if ($gameweek->is_current !== false ) {
-            // dd($gameweek);
+            
               $current = $gameweek->id;
               $current_gameweek = 'gameweek_' . $current; //this is built just for the column name so it's unique each week
                 
