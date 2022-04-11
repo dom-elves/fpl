@@ -24,7 +24,7 @@ class GameweekController extends Controller
         $gameweeks = DB::table('gameweeks')->get();
           
         foreach ( $gameweeks as $gameweek ) {
-          
+
           //this is in a function below, saves having to loop four times & can be accessed in other areas
           $this->applyPlayerDetails($gameweek);
 
@@ -45,7 +45,7 @@ class GameweekController extends Controller
       // dd($gameweeks[31]);
 
       foreach ($gameweeks as $gameweek) {
-
+        
         //skips over all COMPLETED gameweeks
         if ($gameweek->finished == true) {
           continue;
@@ -101,6 +101,7 @@ class GameweekController extends Controller
 
     public function applyPlayerDetails($gameweek) 
     {
+      // dd($gameweek);
         //most selected
         //API data only provides the player ID for these stats, this goes into the gameweek model and searches the player ID and returns the model
         //each comment on this applies to the other sections to this function, just for different object attributes
@@ -148,6 +149,7 @@ class GameweekController extends Controller
         $gameweek->most_vice_captained_player = ['player_name' => $mvcp_player_name, 'player_team' => $mvcp_player_team->team_short_name, 'category' => 'MVCP'];
         
         //most transferred in
+       
         $mtip_first_name = Gameweek::find($gameweek->id)->mostTransferredInPlayer->first_name;
           
         $mtip_last_name = Gameweek::find($gameweek->id)->mostTransferredInPlayer->last_name;

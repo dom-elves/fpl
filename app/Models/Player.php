@@ -27,4 +27,11 @@ class Player extends Model
         // dd($data);
         return $data;
     }
+
+    public function getPlayerHistory()
+    {
+        $data =  $this->hasOne(PlayerHistory::class, 'player_id', 'player_id');
+        // dd($data);
+        return $data;
+    }
 }

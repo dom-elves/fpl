@@ -6010,9 +6010,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['player'],
+  props: ['player', 'player_history'],
   mounted: function mounted() {
     console.log(this.player);
+    console.log(this.player_history);
   },
   methods: {
     //just to display costs as decimal

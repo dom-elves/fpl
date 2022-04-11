@@ -29,11 +29,13 @@
 <script>
     export default {
 
-        props: ['player'],
+        props: ['player', 'player_history'],
 
         mounted() {
             
             console.log(this.player);
+            console.log(this.player_history);
+            
 
         },
 

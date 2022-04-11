@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
 use App\Models\Player;
+use App\Models\PlayerHistory;
 use Illuminate\Http\Request;
 
 class PlayerController extends BaseController
@@ -29,15 +30,26 @@ class PlayerController extends BaseController
     //for some reason, object returns in an array - making it always pos 0 takes it out of array 
     public function returnSelectedPlayer($id)
     {
-        $collection = Player::where('player_id', $id)->get(); //used to have ' = ' in
+        //player model
+        $player_model = Player::where('player_id', $id)->get(); //used to have ' = ' in
         
-        $player = $collection[0]; //figure out how to take the object out of the array, casting to object doesn't work somehow?
+        $player = $player_model[0]; //figure out how to take the object out of the array, casting to object doesn't work somehow?
         
+
+        //appending team to name
         $team = DB::table('teams')->where('team_id', $player->team)->get()->toArray();
         
         $player->team = $team[0]->team_name;
+
+    
+        //player history model
+        $player_history_model = PlayerHistory::where('player_id', $id)->get();
+       
+        $player_history = $player_history_model[0];
+
+        // dd($player_history, $player);
         
-        return view('player')->with(['player' => $player]); 
+        return view('player')->with(['player' => $player, 'player_history' => $player_history]); 
     }
 
     public function returnSearchedPlayer(Request $request)
@@ -67,7 +79,7 @@ class PlayerController extends BaseController
       $players = $decoded->elements;
       
       $query = DB::table('players')->get()->first();
-       
+      
       foreach ($players as $player) {
 
         if ($query) {
