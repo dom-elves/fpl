@@ -21,8 +21,8 @@
                 <p>Minutes: {{ this.player.minutes_season }}</p>
                 <p>Popularity: {{this.player.percent_selected}}%</p>
             </div>
-            <!-- <p>{{this.generateBarChatData() }}</p> -->
-            <column-chart :data="player_gameweeks"></column-chart>
+            
+            <line-chart :data="player_gameweeks"></line-chart>
             
 
         </div>
@@ -57,7 +57,7 @@ import Chart from 'chart.js'
 
         mounted() {
             
-            // console.log(this.player);
+            console.log(this.player);
             
             
             
@@ -85,10 +85,10 @@ import Chart from 'chart.js'
                 // console.log(this.player_history);
 
                
-                let points = Object.entries(this.player_history);
+                
 
                 console.log(this.player_history);
-                return points;
+               
             }
         },
     }

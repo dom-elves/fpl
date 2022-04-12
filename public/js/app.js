@@ -6028,7 +6028,8 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.generateBarChatData();
   },
-  mounted: function mounted() {// console.log(this.player);
+  mounted: function mounted() {
+    console.log(this.player);
   },
   methods: {
     //just to display costs as decimal
@@ -6046,9 +6047,7 @@ __webpack_require__.r(__webpack_exports__);
       delete this.player_history['first_name'];
       delete this.player_history['last_name']; // console.log(this.player_history);
 
-      var points = Object.entries(this.player_history);
       console.log(this.player_history);
-      return points;
     }
   }
 });
@@ -72718,7 +72717,7 @@ var render = function () {
           ]),
         ]),
         _vm._v(" "),
-        _c("column-chart", { attrs: { data: _vm.player_gameweeks } }),
+        _c("line-chart", { attrs: { data: _vm.player_gameweeks } }),
       ],
       1
     ),
