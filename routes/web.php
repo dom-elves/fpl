@@ -1,11 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PlayerController;
-use App\Http\Controllers\TableAPIController;
-use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\GameweekController;
-use App\Http\Controllers\LiveTableController;
+use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\TeamBuilderController;
+use App\Http\Controllers\TeamsController;
+use Illuminate\Support\Facades\Route;
 
 
 /*
@@ -86,3 +85,5 @@ Route::get('top-trumps', [PlayerController::class, 'returnTrumpsPlayers']);
 
 //player history
 Route::get('player-history', [PlayerController::class, 'updatePlayerHistory']);
+
+Route::get('make-a-team', [TeamBuilderController::class, 'index']);

@@ -34,6 +34,9 @@ Vue.component('top-trumps', require('./components/TopTrumps.vue').default);
 Vue.component('top-trumps-house', require('./components/TopTrumpsHouse.vue').default);
 
 
+Vue.component('make-a-team', require('./components/MakeATeam.vue').default);
+
+
 
 Vue.use(Chartkick.use(Chart))
 

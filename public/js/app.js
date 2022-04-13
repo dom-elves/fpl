@@ -6737,6 +6737,7 @@ Vue.component('team', (__webpack_require__(/*! ./components/Team.vue */ "./resou
 Vue.component('compare', (__webpack_require__(/*! ./components/Compare.vue */ "./resources/js/components/Compare.vue")["default"]));
 Vue.component('top-trumps', (__webpack_require__(/*! ./components/TopTrumps.vue */ "./resources/js/components/TopTrumps.vue")["default"]));
 Vue.component('top-trumps-house', (__webpack_require__(/*! ./components/TopTrumpsHouse.vue */ "./resources/js/components/TopTrumpsHouse.vue")["default"]));
+Vue.component('make-a-team', (__webpack_require__(/*! ./components/MakeATeam.vue */ "./resources/js/components/MakeATeam.vue")["default"]));
 Vue.use(Chartkick.use(Chart));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -71821,6 +71822,43 @@ component.options.__file = "resources/js/components/GameWeek.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/MakeATeam.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/components/MakeATeam.vue ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MakeATeam_vue_vue_type_template_id_efaa6196___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MakeATeam.vue?vue&type=template&id=efaa6196& */ "./resources/js/components/MakeATeam.vue?vue&type=template&id=efaa6196&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _MakeATeam_vue_vue_type_template_id_efaa6196___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MakeATeam_vue_vue_type_template_id_efaa6196___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/MakeATeam.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/Player.vue":
 /*!********************************************!*\
   !*** ./resources/js/components/Player.vue ***!
@@ -72177,6 +72215,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GameWeek_vue_vue_type_template_id_03538d1e_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GameWeek_vue_vue_type_template_id_03538d1e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./GameWeek.vue?vue&type=template&id=03538d1e&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameWeek.vue?vue&type=template&id=03538d1e&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/MakeATeam.vue?vue&type=template&id=efaa6196&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/MakeATeam.vue?vue&type=template&id=efaa6196& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MakeATeam_vue_vue_type_template_id_efaa6196___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MakeATeam_vue_vue_type_template_id_efaa6196___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MakeATeam_vue_vue_type_template_id_efaa6196___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MakeATeam.vue?vue&type=template&id=efaa6196& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MakeATeam.vue?vue&type=template&id=efaa6196&");
 
 
 /***/ }),
@@ -72655,6 +72710,42 @@ var render = function () {
   )
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MakeATeam.vue?vue&type=template&id=efaa6196&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MakeATeam.vue?vue&type=template&id=efaa6196& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("p", { staticClass: "text-white" }, [
+        _vm._v(" make a team component"),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
