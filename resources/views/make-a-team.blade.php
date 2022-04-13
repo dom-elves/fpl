@@ -3,11 +3,9 @@
 @section('content')
 
 
-<p class="text-white"> make a team</p>
+<p class="text-white"> make a team blade file </p>
 
-<make-a-team></make-a-team>
+<make-a-team :players="{{ json_encode($players) }}" :teams="{{ json_encode($teams) }}"></make-a-team>
 
 
-{{ $players}}
-{{ $teams}}
 @endsection

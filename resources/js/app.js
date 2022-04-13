@@ -36,6 +36,11 @@ Vue.component('top-trumps-house', require('./components/TopTrumpsHouse.vue').def
 
 Vue.component('make-a-team', require('./components/MakeATeam.vue').default);
 
+Vue.component('mini-player', require('./components/MiniPlayer.vue').default);
+
+import vSelect from "vue-select";
+Vue.component("v-select", vSelect);
+
 
 
 Vue.use(Chartkick.use(Chart))
