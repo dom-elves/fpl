@@ -4,7 +4,7 @@
 
         <p> player information placeholder </p>
 
-        <v-select :options="[{label: 'Canada', code: 'ca'}]"></v-select>
+        <!-- <v-select :options="[{label: 'Canada', code: 'ca'}]"></v-select> -->
 
     </div>
 

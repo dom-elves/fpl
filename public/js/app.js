@@ -6025,17 +6025,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'MakeATeam',
+  data: function data() {
+    return {
+      gk: this.goalkeepers,
+      def: this.defenders,
+      mid: this.midfielders,
+      fwd: this.forwards
+    };
+  },
   components: {
     MiniPlayer: _MiniPlayer_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: ['goalkeepers', 'defenders', 'midfielders', 'forwards', 'teams'],
   mounted: function mounted() {
-    console.log(this.goalkeepers[0], this.defenders[0], this.midfielders[0], this.forwards[0], this.teams[0]);
+    var gk1 = document.getElementById("gk-1").innerHTML;
+    console.log(gk1);
   }
 });
 
@@ -72941,9 +72954,19 @@ var render = function () {
       "div",
       { staticClass: "flex flex-row", attrs: { id: "goalkeeper-row" } },
       [
-        _c("v-select", {
-          attrs: { options: [{ label: "Canada", code: "ca" }] },
-        }),
+        _c(
+          "select",
+          _vm._l(_vm.gk, function (goalkeeper) {
+            return _c("option", { attrs: { id: "gk-1" } }, [
+              _vm._v(
+                _vm._s(goalkeeper.first_name) +
+                  " " +
+                  _vm._s(goalkeeper.last_name)
+              ),
+            ])
+          }),
+          0
+        ),
         _vm._v(" "),
         _c("mini-player"),
         _vm._v(" "),
@@ -73025,21 +73048,23 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass:
-        "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px]",
-    },
-    [
-      _c("p", [_vm._v(" player information placeholder ")]),
-      _vm._v(" "),
-      _c("v-select", { attrs: { options: [{ label: "Canada", code: "ca" }] } }),
-    ],
-    1
-  )
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px]",
+      },
+      [_c("p", [_vm._v(" player information placeholder ")])]
+    )
+  },
+]
 render._withStripped = true
 
 

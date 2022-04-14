@@ -3,7 +3,11 @@
     <div class="flex items-center flex flex-column">
         
         <div class="flex flex-row" id="goalkeeper-row">
-            <v-select :options="[{label: 'Canada', code: 'ca'}]"></v-select>
+            
+            <select>
+                <option v-for="goalkeeper in gk" id="gk-1">{{ goalkeeper.first_name}} {{ goalkeeper.last_name }}</option>
+            </select>
+
             <mini-player></mini-player>
 
             <v-select></v-select>
@@ -50,6 +54,15 @@ export default {
 
     name: 'MakeATeam',
 
+    data() {
+        return {
+            gk: this.goalkeepers,
+            def: this.defenders,
+            mid: this.midfielders,
+            fwd: this.forwards,
+        }
+    },
+
     components: {
 
         MiniPlayer,
@@ -59,7 +72,9 @@ export default {
     props: ['goalkeepers', 'defenders', 'midfielders', 'forwards', 'teams'],
 
     mounted() {
-        console.log(this.goalkeepers[0], this.defenders[0], this.midfielders[0], this.forwards[0], this.teams[0]);
+
+        let gk1 = document.getElementById("gk-1").innerHTML;
+        console.log(gk1);
     }
 }
 </script>
