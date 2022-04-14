@@ -6079,8 +6079,18 @@ __webpack_require__.r(__webpack_exports__);
     MiniPlayer: _MiniPlayer_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: ['goalkeepers', 'defenders', 'midfielders', 'forwards', 'teams'],
-  mounted: function mounted() {// let gk1 = document.getElementById("gk-1");
-    // console.log(gk1);
+  mounted: function mounted() {
+    var gk_1 = document.getElementById("gk-1"); //move this into a watch
+  },
+  methods: {
+    dropdowns: function dropdowns() {
+      gk_1.addEventListener('onchange', test);
+    },
+    test: function test() {
+      var gk_1 = document.getElementById("gk-1");
+      var selected_gk = gk_1.options[gk_1.selectedIndex].value;
+      console.log(selected_gk);
+    }
   }
 });
 
@@ -73005,8 +73015,9 @@ var render = function () {
           [
             _c(
               "select",
+              { attrs: { id: "gk-1" } },
               _vm._l(_vm.gks, function (goalkeeper) {
-                return _c("option", { attrs: { id: "gk-1" } }, [
+                return _c("option", [
                   _vm._v(
                     _vm._s(goalkeeper.first_name) +
                       " " +
@@ -73031,8 +73042,9 @@ var render = function () {
           [
             _c(
               "select",
+              { attrs: { id: "gk-2" } },
               _vm._l(_vm.gks, function (goalkeeper) {
-                return _c("option", { attrs: { id: "gk-2" } }, [
+                return _c("option", [
                   _vm._v(
                     _vm._s(goalkeeper.first_name) +
                       " " +

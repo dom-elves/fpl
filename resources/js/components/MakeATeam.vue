@@ -6,9 +6,9 @@
             
             <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column">
 
-                <select>
+                <select id="gk-1">
 
-                    <option v-for="goalkeeper in gks" id="gk-1">{{ goalkeeper.first_name}} {{ goalkeeper.last_name }}</option>
+                    <option v-for="goalkeeper in gks">{{ goalkeeper.first_name }} {{ goalkeeper.last_name }}</option>
 
                 </select>
 
@@ -18,9 +18,9 @@
 
             <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column">
 
-                <select>
+                <select id="gk-2">
 
-                    <option v-for="goalkeeper in gks" id="gk-2">{{ goalkeeper.first_name}} {{ goalkeeper.last_name }}</option>
+                    <option v-for="goalkeeper in gks">{{ goalkeeper.first_name}} {{ goalkeeper.last_name }}</option>
                     
                 </select>
 
@@ -110,8 +110,27 @@ export default {
 
     mounted() {
 
-        // let gk1 = document.getElementById("gk-1");
-        // console.log(gk1);
+        let gk_1 = document.getElementById("gk-1");
+
+    //move this into a watch
+
+    },
+
+    methods: {
+
+        dropdowns() {
+            
+            gk_1.addEventListener('onchange', test);
+        },
+
+        test() {
+
+            let gk_1 = document.getElementById("gk-1");
+            let selected_gk =  gk_1.options[ gk_1.selectedIndex ].value;
+            console.log(selected_gk);
+            
+        }
     }
+    
 }
 </script>
