@@ -12,16 +12,46 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
+
 class TeamBuilderController extends Controller
 {
     public function index()
     {
         
         $players = DB::table('players')->get();
-          
-        $teams = DB::table('teams')->get();
 
-        return view('/make-a-team', ['players' => $players, 'teams' => $teams]);
+
+        foreach ($players as $player) {
+            
+            if ($player->position == 'GK') {
+                
+                $goalkeepers[] = $player;
+            }
+
+            if ($player->position == 'DEF') {
+                
+                $defenders[] = $player;
+            }
+
+            if ($player->position == 'MID') {
+                
+                $midfielders[] = $player;
+            }
+
+            if ($player->position == 'FWD') {
+                
+                $forwards[] = $player;
+            }
+        }
+        
+        $teams = DB::table('teams')->get();
+        
+        return view('/make-a-team', ['goalkeepers' => $goalkeepers, 
+                                     'defenders' => $defenders, 
+                                     'midfielders' => $midfielders, 
+                                     'forwards' => $forwards, 
+                                     'teams' => $teams
+                                    ]);
     }
 
 }

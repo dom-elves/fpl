@@ -5,7 +5,12 @@
 
 <p class="text-white"> make a team blade file </p>
 
-<make-a-team :players="{{ json_encode($players) }}" :teams="{{ json_encode($teams) }}"></make-a-team>
+<make-a-team :goalkeepers="{{ json_encode($goalkeepers) }}" 
+             :defenders="{{ json_encode($defenders) }}" 
+             :midfielders="{{ json_encode($midfielders) }}" 
+             :forwards="{{ json_encode($forwards) }}" 
+             :teams="{{ json_encode($teams) }}">
+                </make-a-team>
 
 
 @endsection

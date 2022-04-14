@@ -56,10 +56,10 @@ export default {
 
     },
 
-    props: ['players', 'teams'],
+    props: ['goalkeepers', 'defenders', 'midfielders', 'forwards', 'teams'],
 
     mounted() {
-        console.log(this.players[0], this.teams[0]);
+        console.log(this.goalkeepers[0], this.defenders[0], this.midfielders[0], this.forwards[0], this.teams[0]);
     }
 }
 </script>

@@ -6033,9 +6033,9 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     MiniPlayer: _MiniPlayer_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  props: ['players', 'teams'],
+  props: ['goalkeepers', 'defenders', 'midfielders', 'forwards', 'teams'],
   mounted: function mounted() {
-    console.log(this.players[0], this.teams[0]);
+    console.log(this.goalkeepers[0], this.defenders[0], this.midfielders[0], this.forwards[0], this.teams[0]);
   }
 });
 
