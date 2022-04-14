@@ -6029,6 +6029,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -6036,19 +6052,35 @@ __webpack_require__.r(__webpack_exports__);
   name: 'MakeATeam',
   data: function data() {
     return {
-      gk: this.goalkeepers,
-      def: this.defenders,
-      mid: this.midfielders,
-      fwd: this.forwards
+      gks: this.goalkeepers,
+      defs: this.defenders,
+      mids: this.midfielders,
+      fwds: this.forwards,
+      gk1: 'keeper 1',
+      gk2: 'keeper 2',
+      def1: '',
+      def2: '',
+      def3: '',
+      def4: '',
+      def5: '',
+      mid1: '',
+      mid2: '',
+      mid3: '',
+      mid4: '',
+      mid5: '',
+      fwd1: '',
+      fwd2: '',
+      fwd3: '',
+      fwd4: '',
+      fwd5: ''
     };
   },
   components: {
     MiniPlayer: _MiniPlayer_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: ['goalkeepers', 'defenders', 'midfielders', 'forwards', 'teams'],
-  mounted: function mounted() {
-    var gk1 = document.getElementById("gk-1").innerHTML;
-    console.log(gk1);
+  mounted: function mounted() {// let gk1 = document.getElementById("gk-1");
+    // console.log(gk1);
   }
 });
 
@@ -6085,7 +6117,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'MiniPlayer'
+  name: 'MiniPlayer',
+  created: function created() {
+    var player_data = this.$attrs.data;
+    console.log(player_data);
+    return player_data;
+  }
 });
 
 /***/ }),
@@ -72955,26 +72992,70 @@ var render = function () {
       { staticClass: "flex flex-row", attrs: { id: "goalkeeper-row" } },
       [
         _c(
-          "select",
-          _vm._l(_vm.gk, function (goalkeeper) {
-            return _c("option", { attrs: { id: "gk-1" } }, [
-              _vm._v(
-                _vm._s(goalkeeper.first_name) +
-                  " " +
-                  _vm._s(goalkeeper.last_name)
-              ),
-            ])
-          }),
-          0
+          "div",
+          {
+            staticClass:
+              "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column",
+          },
+          [
+            _c(
+              "select",
+              _vm._l(_vm.gks, function (goalkeeper) {
+                return _c(
+                  "option",
+                  {
+                    attrs: { id: "gk-1" },
+                    model: {
+                      value: _vm.gk1,
+                      callback: function ($$v) {
+                        _vm.gk1 = $$v
+                      },
+                      expression: "gk1",
+                    },
+                  },
+                  [
+                    _vm._v(
+                      _vm._s(goalkeeper.first_name) +
+                        " " +
+                        _vm._s(goalkeeper.last_name)
+                    ),
+                  ]
+                )
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c("mini-player", { attrs: { data: _vm.gk1 } }),
+          ],
+          1
         ),
         _vm._v(" "),
-        _c("mini-player"),
-        _vm._v(" "),
-        _c("v-select"),
-        _vm._v(" "),
-        _c("mini-player"),
-      ],
-      1
+        _c(
+          "div",
+          {
+            staticClass:
+              "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column",
+          },
+          [
+            _c(
+              "select",
+              _vm._l(_vm.gks, function (goalkeeper) {
+                return _c("option", { attrs: { id: "gk-2" } }, [
+                  _vm._v(
+                    _vm._s(goalkeeper.first_name) +
+                      " " +
+                      _vm._s(goalkeeper.last_name)
+                  ),
+                ])
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c("mini-player", { attrs: { data: _vm.gk2 } }),
+          ],
+          1
+        ),
+      ]
     ),
     _vm._v(" "),
     _c(
@@ -73048,23 +73129,13 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("p", [_vm._v(" player information placeholder ")]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.player_data))]),
+  ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px]",
-      },
-      [_c("p", [_vm._v(" player information placeholder ")])]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

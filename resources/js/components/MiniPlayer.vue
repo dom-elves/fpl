@@ -1,11 +1,11 @@
 <template>
 
-    <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px]">
+    <div>
 
         <p> player information placeholder </p>
 
         <!-- <v-select :options="[{label: 'Canada', code: 'ca'}]"></v-select> -->
-
+        <p>{{ player_data }}</p>
     </div>
 
 </template>
@@ -21,5 +21,13 @@ import vSelect from "vue-select";
 export default {
 
     name: 'MiniPlayer',
+
+    created() {
+
+        let player_data = this.$attrs.data
+        console.log(player_data);
+        return player_data;
+        
+    }
 }
 </script>

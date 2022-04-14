@@ -4,14 +4,30 @@
         
         <div class="flex flex-row" id="goalkeeper-row">
             
-            <select>
-                <option v-for="goalkeeper in gk" id="gk-1">{{ goalkeeper.first_name}} {{ goalkeeper.last_name }}</option>
-            </select>
+            <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column">
 
-            <mini-player></mini-player>
+                <select>
 
-            <v-select></v-select>
-            <mini-player></mini-player>
+                    <option v-for="goalkeeper in gks" id="gk-1" v-model="gk1">{{ goalkeeper.first_name}} {{ goalkeeper.last_name }}</option>
+
+                </select>
+
+                <mini-player :data="gk1"></mini-player>
+
+            </div>
+
+            <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column">
+
+                <select>
+
+                    <option v-for="goalkeeper in gks" id="gk-2">{{ goalkeeper.first_name}} {{ goalkeeper.last_name }}</option>
+                    
+                </select>
+
+                <mini-player :data="gk2"></mini-player>
+
+            </div>
+            
         </div>
 
         <div class="flex flex-row" id="defender-row">
@@ -56,10 +72,31 @@ export default {
 
     data() {
         return {
-            gk: this.goalkeepers,
-            def: this.defenders,
-            mid: this.midfielders,
-            fwd: this.forwards,
+            gks: this.goalkeepers,
+            defs: this.defenders,
+            mids: this.midfielders,
+            fwds: this.forwards,
+
+            gk1: 'keeper 1',
+            gk2: 'keeper 2',
+
+            def1: '',
+            def2: '',
+            def3: '',
+            def4: '',
+            def5: '',
+
+            mid1: '',
+            mid2: '',
+            mid3: '',
+            mid4: '',
+            mid5: '',
+
+            fwd1: '',
+            fwd2: '',
+            fwd3: '',
+            fwd4: '',
+            fwd5: '',
         }
     },
 
@@ -73,8 +110,8 @@ export default {
 
     mounted() {
 
-        let gk1 = document.getElementById("gk-1").innerHTML;
-        console.log(gk1);
+        // let gk1 = document.getElementById("gk-1");
+        // console.log(gk1);
     }
 }
 </script>
