@@ -8,7 +8,7 @@
 
                 <select>
 
-                    <option v-for="goalkeeper in gks" id="gk-1" v-model="gk1">{{ goalkeeper.first_name}} {{ goalkeeper.last_name }}</option>
+                    <option v-for="goalkeeper in gks" id="gk-1">{{ goalkeeper.first_name}} {{ goalkeeper.last_name }}</option>
 
                 </select>
 

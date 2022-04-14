@@ -5,7 +5,7 @@
         <p> player information placeholder </p>
 
         <!-- <v-select :options="[{label: 'Canada', code: 'ca'}]"></v-select> -->
-        <p>{{ player_data }}</p>
+        <p>{{ player }}</p>
     </div>
 
 </template>
@@ -22,12 +22,18 @@ export default {
 
     name: 'MiniPlayer',
 
-    created() {
+    data() {
+        return {
+            player: this.$attrs.data
+        }
+    },
 
-        let player_data = this.$attrs.data
-        console.log(player_data);
-        return player_data;
+    // mounted() {
+
+    //     let player_data = this.$attrs.data
+    //     console.log(player_data);
+    //     return player_data;
         
-    }
+    // }
 }
 </script>

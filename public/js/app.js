@@ -6118,11 +6118,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'MiniPlayer',
-  created: function created() {
-    var player_data = this.$attrs.data;
-    console.log(player_data);
-    return player_data;
-  }
+  data: function data() {
+    return {
+      player: this.$attrs.data
+    };
+  } // mounted() {
+  //     let player_data = this.$attrs.data
+  //     console.log(player_data);
+  //     return player_data;
+  // }
+
 });
 
 /***/ }),
@@ -73001,26 +73006,13 @@ var render = function () {
             _c(
               "select",
               _vm._l(_vm.gks, function (goalkeeper) {
-                return _c(
-                  "option",
-                  {
-                    attrs: { id: "gk-1" },
-                    model: {
-                      value: _vm.gk1,
-                      callback: function ($$v) {
-                        _vm.gk1 = $$v
-                      },
-                      expression: "gk1",
-                    },
-                  },
-                  [
-                    _vm._v(
-                      _vm._s(goalkeeper.first_name) +
-                        " " +
-                        _vm._s(goalkeeper.last_name)
-                    ),
-                  ]
-                )
+                return _c("option", { attrs: { id: "gk-1" } }, [
+                  _vm._v(
+                    _vm._s(goalkeeper.first_name) +
+                      " " +
+                      _vm._s(goalkeeper.last_name)
+                  ),
+                ])
               }),
               0
             ),
@@ -73132,7 +73124,7 @@ var render = function () {
   return _c("div", [
     _c("p", [_vm._v(" player information placeholder ")]),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.player_data))]),
+    _c("p", [_vm._v(_vm._s(_vm.player))]),
   ])
 }
 var staticRenderFns = []
