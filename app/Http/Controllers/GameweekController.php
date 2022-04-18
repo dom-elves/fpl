@@ -22,14 +22,14 @@ class GameweekController extends Controller
     public function index()
     {
         $gameweeks = DB::table('gameweeks')->get();
-          
+         
         foreach ( $gameweeks as $gameweek ) {
-
+          // dump($gameweek);
           //this is in a function below, saves having to loop four times & can be accessed in other areas
           $this->applyPlayerDetails($gameweek);
-
+          
         }
-       
+        
         $teams = DB::table('teams')->get();
 
         return view('/gameweeks', ['gameweeks' => $gameweeks, 'teams' => $teams]);
@@ -42,10 +42,10 @@ class GameweekController extends Controller
       $decoded = json_decode($response->body());
       
       $gameweeks = $decoded->events;
-      // dd($gameweeks[31]);
+      // dd($gameweeks);
 
       foreach ($gameweeks as $gameweek) {
-        
+    
         //skips over all COMPLETED gameweeks
         if ($gameweek->finished == true) {
           continue;
@@ -53,7 +53,7 @@ class GameweekController extends Controller
         
         //inside of here is CURRENT gameweek
         if ($gameweek->is_current == true ) {
-          
+          // dd($gameweek);
           //checks if there's any data for CURRENT gameweek already in db
           $current = $gameweek->id;
           $current_gameweek = DB::table('gameweeks')->find($current);
@@ -101,7 +101,7 @@ class GameweekController extends Controller
 
     public function applyPlayerDetails($gameweek) 
     {
-      // dd($gameweek);
+      
         //most selected
         //API data only provides the player ID for these stats, this goes into the gameweek model and searches the player ID and returns the model
         //each comment on this applies to the other sections to this function, just for different object attributes
@@ -136,7 +136,7 @@ class GameweekController extends Controller
         $mcp_player_name = $mcp_first_name . " " . $mcp_last_name;
         
         $gameweek->most_captained_player = ['player_name' => $mcp_player_name, 'player_team' => $mcp_player_team->team_short_name, 'category' => 'MCP'];
-        
+       
         //most vice captained
         $mvcp_first_name = Gameweek::find($gameweek->id)->mostViceCaptainedPlayer->first_name;
           
@@ -149,7 +149,7 @@ class GameweekController extends Controller
         $gameweek->most_vice_captained_player = ['player_name' => $mvcp_player_name, 'player_team' => $mvcp_player_team->team_short_name, 'category' => 'MVCP'];
         
         //most transferred in
-       
+        
         $mtip_first_name = Gameweek::find($gameweek->id)->mostTransferredInPlayer->first_name;
           
         $mtip_last_name = Gameweek::find($gameweek->id)->mostTransferredInPlayer->last_name;
@@ -159,7 +159,7 @@ class GameweekController extends Controller
         $mtip_player_name = $mtip_first_name . " " . $mtip_last_name;
         
         $gameweek->most_transferred_in_player = ['player_name' => $mtip_player_name, 'player_team' => $mtip_player_team->team_short_name, 'category' => 'MTIP'];
-
+        
         return $gameweek;        
     }
 }

@@ -5891,7 +5891,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['gameweek', 'teams'],
-  created: function created() {},
+  created: function created() {
+    console.log(this.gameweek);
+  },
   mounted: function mounted() {
     this.addMostSelectedPlayerColour();
     this.addHighestScoringPlayerColour();
@@ -5904,6 +5906,7 @@ __webpack_require__.r(__webpack_exports__);
     generateMostSelectedPlayerId: function generateMostSelectedPlayerId() {
       var mostSelected = this.gameweek.most_selected_player.category;
       var gameweek = this.gameweek.id;
+      console.log(this.gameweek);
       var mspId = mostSelected.concat(gameweek);
       return mspId;
     },

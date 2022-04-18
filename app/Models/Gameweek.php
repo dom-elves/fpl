@@ -41,7 +41,7 @@ class Gameweek extends Model
     public function mostTransferredInPlayer()
     {
         $data =  $this->hasOne(Player::class, 'player_id', 'most_transferred_in_player');
-        
+        // dump($data);
         return $data;
     }
 }
