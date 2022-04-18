@@ -78,10 +78,10 @@ class PlayerController extends BaseController
       
       $players = $decoded->elements;
       
-      DB::table('players')->truncate();
-      
+      // DB::table('players')->truncate();
+
       foreach ($players as $player) {
-        
+
         if ($player->element_type == 1) {
           $player->element_type = 'GK';
         }
@@ -114,53 +114,82 @@ class PlayerController extends BaseController
         //value//points per million
         $player->value = $player->total_points / $player->now_cost;
 
-
-       
+        $existing = DB::table('players')->where('player_id', $player->id)->get();
         
-        
-        DB::table('players')->insert([
+        if ($existing) {
 
-          'player_id' => $player->id,
-          'first_name' => $player->first_name,
-          'last_name' => $player->second_name,
-          'team' => $player->team,
-          'position' => $player->element_type,
-          'total_points_season' => $player->total_points,
-          'total_points_week' => $player->event_points,
-          'points_per_game' => $player->points_per_game,
-          'points_per_90' => $player->points_per_90,
-          'value' => $player->value * 10, //to calculate points per million spent
-          'current_cost' => $player->now_cost,
-          'start_cost' => $player->now_cost - $player->cost_change_start,
-          'cost_change' => $player->cost_change_start,
-          'goals_scored' => $player->goals_scored,
-          'goals_assisted' => $player->assists,
-          'goals_conceded' => $player->goals_conceded,
-          'clean_sheets' => $player->clean_sheets,
-          'own_goals' => $player->own_goals,
-          'penalties_saved' => $player->penalties_saved,
-          'penalties_missed' => $player->penalties_missed,
-          'yellow_cards' => $player->yellow_cards,
-          'red_cards' => $player->red_cards,
-          'saves' => $player->saves,
-          'bonus_points_season' => $player->bonus,
-          'form' => $player->form,
-          'minutes_season' => $player->minutes,
-          'transfers_in_week' => $player->transfers_in_event,
-          'transfers_out_week' => $player->transfers_out_event,
-          'percent_selected' => $player->selected_by_percent,
-          
-        ]);
+          DB::table('players')->where('player_id', $player->id)->update([
+
+            'player_id' => $player->id,
+            'first_name' => $player->first_name,
+            'last_name' => $player->second_name,
+            'team' => $player->team,
+            'position' => $player->element_type,
+            'total_points_season' => $player->total_points,
+            'total_points_week' => $player->event_points,
+            'points_per_game' => $player->points_per_game,
+            'points_per_90' => $player->points_per_90,
+            'value' => $player->value * 10, //to calculate points per million spent
+            'current_cost' => $player->now_cost,
+            'start_cost' => $player->now_cost - $player->cost_change_start,
+            'cost_change' => $player->cost_change_start,
+            'goals_scored' => $player->goals_scored,
+            'goals_assisted' => $player->assists,
+            'goals_conceded' => $player->goals_conceded,
+            'clean_sheets' => $player->clean_sheets,
+            'own_goals' => $player->own_goals,
+            'penalties_saved' => $player->penalties_saved,
+            'penalties_missed' => $player->penalties_missed,
+            'yellow_cards' => $player->yellow_cards,
+            'red_cards' => $player->red_cards,
+            'saves' => $player->saves,
+            'bonus_points_season' => $player->bonus,
+            'form' => $player->form,
+            'minutes_season' => $player->minutes,
+            'transfers_in_week' => $player->transfers_in_event,
+            'transfers_out_week' => $player->transfers_out_event,
+            'percent_selected' => $player->selected_by_percent,
             
-    
+          ]); 
 
-          //insert player data
-      
+        } else {
         
-      }//
+          DB::table('players')->insert([
 
-        return redirect('/main');
-       
+            'player_id' => $player->id,
+            'first_name' => $player->first_name,
+            'last_name' => $player->second_name,
+            'team' => $player->team,
+            'position' => $player->element_type,
+            'total_points_season' => $player->total_points,
+            'total_points_week' => $player->event_points,
+            'points_per_game' => $player->points_per_game,
+            'points_per_90' => $player->points_per_90,
+            'value' => $player->value * 10, //to calculate points per million spent
+            'current_cost' => $player->now_cost,
+            'start_cost' => $player->now_cost - $player->cost_change_start,
+            'cost_change' => $player->cost_change_start,
+            'goals_scored' => $player->goals_scored,
+            'goals_assisted' => $player->assists,
+            'goals_conceded' => $player->goals_conceded,
+            'clean_sheets' => $player->clean_sheets,
+            'own_goals' => $player->own_goals,
+            'penalties_saved' => $player->penalties_saved,
+            'penalties_missed' => $player->penalties_missed,
+            'yellow_cards' => $player->yellow_cards,
+            'red_cards' => $player->red_cards,
+            'saves' => $player->saves,
+            'bonus_points_season' => $player->bonus,
+            'form' => $player->form,
+            'minutes_season' => $player->minutes,
+            'transfers_in_week' => $player->transfers_in_event,
+            'transfers_out_week' => $player->transfers_out_event,
+            'percent_selected' => $player->selected_by_percent,
+            
+          ]);        
+      }
+    }
+        return redirect('/main');       
     }
 
     public function updatePlayerHistory() {
