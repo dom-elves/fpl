@@ -9,7 +9,7 @@
              :defenders="{{ json_encode($defenders) }}" 
              :midfielders="{{ json_encode($midfielders) }}" 
              :forwards="{{ json_encode($forwards) }}" 
-             :teams="{{ json_encode($teams) }}">
+             >
                 </make-a-team>
 
 

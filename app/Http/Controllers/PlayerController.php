@@ -187,8 +187,8 @@ class PlayerController extends BaseController
             'percent_selected' => $player->selected_by_percent,
             
           ]);        
+        }
       }
-    }
         return redirect('/main');       
     }
 

@@ -8,7 +8,7 @@
 
                 <select id="gk-1">
 
-                    <option v-for="goalkeeper in gks">{{ goalkeeper.first_name }} {{ goalkeeper.last_name }}</option>
+                    <option v-for="goalkeeper in gks">{{ goalkeeper.first_name }} {{ goalkeeper.last_name }} ({{goalkeeper.team}})</option>
 
                 </select>
 
@@ -20,7 +20,7 @@
 
                 <select id="gk-2">
 
-                    <option v-for="goalkeeper in gks">{{ goalkeeper.first_name}} {{ goalkeeper.last_name }}</option>
+                    <option v-for="goalkeeper in gks">{{ goalkeeper.first_name}} {{ goalkeeper.last_name }} ({{goalkeeper.team}})</option>
                     
                 </select>
 
@@ -31,7 +31,19 @@
         </div>
 
         <div class="flex flex-row" id="defender-row">
-            <mini-player></mini-player>
+            
+            <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column">
+
+                <select id="gk-1">
+
+                    <option v-for="defender in defs">{{ defender.first_name }} {{ defender.last_name }} ({{defender.team}})</option>
+
+                </select>
+
+                <mini-player :data="gk1"></mini-player>
+
+            </div>
+
             <mini-player></mini-player>
             <mini-player></mini-player>
             <mini-player></mini-player>
@@ -110,7 +122,7 @@ export default {
 
     mounted() {
 
-        let gk_1 = document.getElementById("gk-1");
+        console.log(this.goalkeepers);
 
     //move this into a watch
 

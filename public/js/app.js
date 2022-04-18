@@ -6048,6 +6048,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -6083,7 +6095,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: ['goalkeepers', 'defenders', 'midfielders', 'forwards', 'teams'],
   mounted: function mounted() {
-    var gk_1 = document.getElementById("gk-1"); //move this into a watch
+    console.log(this.goalkeepers); //move this into a watch
   },
   methods: {
     dropdowns: function dropdowns() {
@@ -73024,7 +73036,10 @@ var render = function () {
                   _vm._v(
                     _vm._s(goalkeeper.first_name) +
                       " " +
-                      _vm._s(goalkeeper.last_name)
+                      _vm._s(goalkeeper.last_name) +
+                      " (" +
+                      _vm._s(goalkeeper.team) +
+                      ")"
                   ),
                 ])
               }),
@@ -73051,7 +73066,10 @@ var render = function () {
                   _vm._v(
                     _vm._s(goalkeeper.first_name) +
                       " " +
-                      _vm._s(goalkeeper.last_name)
+                      _vm._s(goalkeeper.last_name) +
+                      " (" +
+                      _vm._s(goalkeeper.team) +
+                      ")"
                   ),
                 ])
               }),
@@ -73069,7 +73087,35 @@ var render = function () {
       "div",
       { staticClass: "flex flex-row", attrs: { id: "defender-row" } },
       [
-        _c("mini-player"),
+        _c(
+          "div",
+          {
+            staticClass:
+              "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column",
+          },
+          [
+            _c(
+              "select",
+              { attrs: { id: "gk-1" } },
+              _vm._l(_vm.defs, function (defender) {
+                return _c("option", [
+                  _vm._v(
+                    _vm._s(defender.first_name) +
+                      " " +
+                      _vm._s(defender.last_name) +
+                      " (" +
+                      _vm._s(defender.team) +
+                      ")"
+                  ),
+                ])
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c("mini-player", { attrs: { data: _vm.gk1 } }),
+          ],
+          1
+        ),
         _vm._v(" "),
         _c("mini-player"),
         _vm._v(" "),

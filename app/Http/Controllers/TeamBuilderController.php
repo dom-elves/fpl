@@ -22,7 +22,11 @@ class TeamBuilderController extends Controller
 
 
         foreach ($players as $player) {
-            
+
+            $player_team_short = DB::table('teams')->where('team_id', $player->team)->get()->first();
+           
+            $player->team = $player_team_short->team_short_name;
+           
             if ($player->position == 'GK') {
                 
                 $goalkeepers[] = $player;
@@ -43,14 +47,12 @@ class TeamBuilderController extends Controller
                 $forwards[] = $player;
             }
         }
-        
-        $teams = DB::table('teams')->get();
-        
+       
         return view('/make-a-team', ['goalkeepers' => $goalkeepers, 
                                      'defenders' => $defenders, 
                                      'midfielders' => $midfielders, 
                                      'forwards' => $forwards, 
-                                     'teams' => $teams
+                                     
                                     ]);
     }
 
