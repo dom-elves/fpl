@@ -6071,8 +6071,8 @@ __webpack_require__.r(__webpack_exports__);
       defs: this.defenders,
       mids: this.midfielders,
       fwds: this.forwards,
-      gk1: 'keeper 1',
-      gk2: 'keeper 2',
+      gk1: '',
+      gk2: '',
       def1: '',
       def2: '',
       def3: '',
@@ -6094,17 +6094,11 @@ __webpack_require__.r(__webpack_exports__);
     MiniPlayer: _MiniPlayer_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: ['goalkeepers', 'defenders', 'midfielders', 'forwards', 'teams'],
-  mounted: function mounted() {
-    console.log(this.goalkeepers); //move this into a watch
+  mounted: function mounted() {//move this into a watch
   },
   methods: {
-    dropdowns: function dropdowns() {
-      gk_1.addEventListener('onchange', test);
-    },
-    test: function test() {
-      var gk_1 = document.getElementById("gk-1");
-      var selected_gk = gk_1.options[gk_1.selectedIndex].value;
-      console.log(selected_gk);
+    sendData: function sendData() {
+      console.log(this.gk1);
     }
   }
 });
@@ -6143,16 +6137,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'MiniPlayer',
+  props: ['selected_player'],
   data: function data() {
     return {
       player: this.$attrs.data
     };
-  } // mounted() {
-  //     let player_data = this.$attrs.data
-  //     console.log(player_data);
-  //     return player_data;
-  // }
+  },
+  mounted: function mounted() {
+    console.log(this.selected_player);
+    var player_data = this.$attrs.data; // console.log(this.$attrs.data);
 
+    return player_data;
+  }
 });
 
 /***/ }),
@@ -73030,9 +73026,33 @@ var render = function () {
           [
             _c(
               "select",
-              { attrs: { id: "gk-1" } },
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.gk1,
+                    expression: "gk1",
+                  },
+                ],
+                on: {
+                  change: function ($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function (o) {
+                        return o.selected
+                      })
+                      .map(function (o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.gk1 = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  },
+                },
+              },
               _vm._l(_vm.gks, function (goalkeeper) {
-                return _c("option", [
+                return _c("option", { domProps: { value: goalkeeper } }, [
                   _vm._v(
                     _vm._s(goalkeeper.first_name) +
                       " " +
@@ -73046,7 +73066,7 @@ var render = function () {
               0
             ),
             _vm._v(" "),
-            _c("mini-player", { attrs: { data: _vm.gk1 } }),
+            _c("mini-player", { attrs: { selected_player: _vm.gk1 } }),
           ],
           1
         ),
@@ -73060,9 +73080,33 @@ var render = function () {
           [
             _c(
               "select",
-              { attrs: { id: "gk-2" } },
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.gk2,
+                    expression: "gk2",
+                  },
+                ],
+                on: {
+                  change: function ($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function (o) {
+                        return o.selected
+                      })
+                      .map(function (o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.gk2 = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  },
+                },
+              },
               _vm._l(_vm.gks, function (goalkeeper) {
-                return _c("option", [
+                return _c("option", { domProps: { value: goalkeeper } }, [
                   _vm._v(
                     _vm._s(goalkeeper.first_name) +
                       " " +
@@ -73076,7 +73120,7 @@ var render = function () {
               0
             ),
             _vm._v(" "),
-            _c("mini-player", { attrs: { data: _vm.gk2 } }),
+            _c("mini-player", { attrs: { selected_player: _vm.gk2 } }),
           ],
           1
         ),
@@ -73096,9 +73140,33 @@ var render = function () {
           [
             _c(
               "select",
-              { attrs: { id: "gk-1" } },
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.def1,
+                    expression: "def1",
+                  },
+                ],
+                on: {
+                  change: function ($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function (o) {
+                        return o.selected
+                      })
+                      .map(function (o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.def1 = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  },
+                },
+              },
               _vm._l(_vm.defs, function (defender) {
-                return _c("option", [
+                return _c("option", { domProps: { value: defender } }, [
                   _vm._v(
                     _vm._s(defender.first_name) +
                       " " +
@@ -73112,12 +73180,10 @@ var render = function () {
               0
             ),
             _vm._v(" "),
-            _c("mini-player", { attrs: { data: _vm.gk1 } }),
+            _c("mini-player", { attrs: { selected_player: _vm.def1 } }),
           ],
           1
         ),
-        _vm._v(" "),
-        _c("mini-player"),
         _vm._v(" "),
         _c("mini-player"),
         _vm._v(" "),
@@ -73185,7 +73251,7 @@ var render = function () {
   return _c("div", [
     _c("p", [_vm._v(" player information placeholder ")]),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.player))]),
+    _c("p", [_vm._v(_vm._s(this.selected_player))]),
   ])
 }
 var staticRenderFns = []
