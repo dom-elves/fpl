@@ -1,6 +1,6 @@
 <template>
 
-    <div>
+    <div :class="this.selected_player.team">
 
         <p>Cost: {{ this.makeDecimal(this.selected_player.current_cost) }}m</p>
 
@@ -73,7 +73,8 @@ export default {
                 let decimalCost = newCost.toFixed(2);
 
                 return decimalCost;
-        }
+        },
+        
     }
 }
 </script>

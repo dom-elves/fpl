@@ -6195,6 +6195,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -6222,19 +6225,28 @@ __webpack_require__.r(__webpack_exports__);
       fwd2: '',
       fwd3: '',
       fwd4: '',
-      fwd5: ''
+      fwd5: '',
+      squadCost: ''
     };
   },
   components: {
     MiniPlayer: _MiniPlayer_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: ['goalkeepers', 'defenders', 'midfielders', 'forwards', 'teams'],
-  mounted: function mounted() {
-    console.log(this.goalkeepers[0]);
+  mounted: function mounted() {// this.calcSquadCost();        
+    // console.log(this.goalkeepers[0]);
   },
   methods: {
     sendData: function sendData() {
       console.log(this.gk1);
+    },
+    calcSquadCost: function calcSquadCost() {
+      var keepersCost = this.gk1.current_cost + this.gk2.current_cost;
+      var defendersCost = this.def1.current_cost + this.def2.current_cost + this.def3.current_cost + this.def4.current_cost + this.def5.current_cost;
+      var midfieldersCost = this.mid1.current_cost + this.mid2.current_cost + this.mid3.current_cost + this.mid4.current_cost + this.mid5.current_cost;
+      var forwardsCost = this.fwd1.current_cost + this.fwd2.current_cost + this.fwd3.current_cost;
+      var squadCost = keepersCost + defendersCost + midfieldersCost + forwardsCost;
+      this.squadCost = squadCost / 10;
     }
   }
 });
@@ -73242,6 +73254,16 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "flex items-center flex flex-column" }, [
     _c(
+      "button",
+      { staticClass: "text-white", on: { click: _vm.calcSquadCost } },
+      [_vm._v("Calculate squad cost")]
+    ),
+    _vm._v(" "),
+    _c("p", { staticClass: "text-white" }, [
+      _vm._v(" " + _vm._s(_vm.squadCost) + " "),
+    ]),
+    _vm._v(" "),
+    _c(
       "div",
       { staticClass: "flex flex-row", attrs: { id: "goalkeeper-row" } },
       [
@@ -73263,6 +73285,8 @@ var render = function () {
                     expression: "gk1",
                   },
                 ],
+                staticClass:
+                  "bg-[#38003c] border-b-2 border-[#00ff85] text-[#00ff85]",
                 on: {
                   change: function ($event) {
                     var $$selectedVal = Array.prototype.filter
@@ -73317,6 +73341,8 @@ var render = function () {
                     expression: "gk2",
                   },
                 ],
+                staticClass:
+                  "bg-[#38003c] border-b-2 border-[#00ff85] text-[#00ff85]",
                 on: {
                   change: function ($event) {
                     var $$selectedVal = Array.prototype.filter
@@ -73374,6 +73400,8 @@ var render = function () {
                   expression: "def1",
                 },
               ],
+              staticClass:
+                "bg-[#38003c] border-b-2 border-[#00ff85] text-[#00ff85]",
               on: {
                 change: function ($event) {
                   var $$selectedVal = Array.prototype.filter
@@ -73428,6 +73456,8 @@ var render = function () {
                   expression: "def2",
                 },
               ],
+              staticClass:
+                "bg-[#38003c] border-b-2 border-[#00ff85] text-[#00ff85]",
               on: {
                 change: function ($event) {
                   var $$selectedVal = Array.prototype.filter
@@ -73482,6 +73512,8 @@ var render = function () {
                   expression: "def3",
                 },
               ],
+              staticClass:
+                "bg-[#38003c] border-b-2 border-[#00ff85] text-[#00ff85]",
               on: {
                 change: function ($event) {
                   var $$selectedVal = Array.prototype.filter
@@ -73536,6 +73568,8 @@ var render = function () {
                   expression: "def4",
                 },
               ],
+              staticClass:
+                "bg-[#38003c] border-b-2 border-[#00ff85] text-[#00ff85]",
               on: {
                 change: function ($event) {
                   var $$selectedVal = Array.prototype.filter
@@ -73590,6 +73624,8 @@ var render = function () {
                   expression: "def5",
                 },
               ],
+              staticClass:
+                "bg-[#38003c] border-b-2 border-[#00ff85] text-[#00ff85]",
               on: {
                 change: function ($event) {
                   var $$selectedVal = Array.prototype.filter
@@ -73649,6 +73685,8 @@ var render = function () {
                     expression: "mid1",
                   },
                 ],
+                staticClass:
+                  "bg-[#38003c] border-b-2 border-[#00ff85] text-[#00ff85]",
                 on: {
                   change: function ($event) {
                     var $$selectedVal = Array.prototype.filter
@@ -73703,6 +73741,8 @@ var render = function () {
                     expression: "mid2",
                   },
                 ],
+                staticClass:
+                  "bg-[#38003c] border-b-2 border-[#00ff85] text-[#00ff85]",
                 on: {
                   change: function ($event) {
                     var $$selectedVal = Array.prototype.filter
@@ -73757,6 +73797,8 @@ var render = function () {
                     expression: "mid3",
                   },
                 ],
+                staticClass:
+                  "bg-[#38003c] border-b-2 border-[#00ff85] text-[#00ff85]",
                 on: {
                   change: function ($event) {
                     var $$selectedVal = Array.prototype.filter
@@ -73811,6 +73853,8 @@ var render = function () {
                     expression: "mid4",
                   },
                 ],
+                staticClass:
+                  "bg-[#38003c] border-b-2 border-[#00ff85] text-[#00ff85]",
                 on: {
                   change: function ($event) {
                     var $$selectedVal = Array.prototype.filter
@@ -73865,6 +73909,8 @@ var render = function () {
                     expression: "mid5",
                   },
                 ],
+                staticClass:
+                  "bg-[#38003c] border-b-2 border-[#00ff85] text-[#00ff85]",
                 on: {
                   change: function ($event) {
                     var $$selectedVal = Array.prototype.filter
@@ -73922,6 +73968,8 @@ var render = function () {
                   expression: "fwd1",
                 },
               ],
+              staticClass:
+                "bg-[#38003c] border-b-2 border-[#00ff85] text-[#00ff85]",
               on: {
                 change: function ($event) {
                   var $$selectedVal = Array.prototype.filter
@@ -73976,6 +74024,8 @@ var render = function () {
                   expression: "fwd2",
                 },
               ],
+              staticClass:
+                "bg-[#38003c] border-b-2 border-[#00ff85] text-[#00ff85]",
               on: {
                 change: function ($event) {
                   var $$selectedVal = Array.prototype.filter
@@ -74030,6 +74080,8 @@ var render = function () {
                   expression: "fwd3",
                 },
               ],
+              staticClass:
+                "bg-[#38003c] border-b-2 border-[#00ff85] text-[#00ff85]",
               on: {
                 change: function ($event) {
                   var $$selectedVal = Array.prototype.filter
@@ -74091,7 +74143,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { class: this.selected_player.team }, [
     _c("p", [
       _vm._v(
         "Cost: " +

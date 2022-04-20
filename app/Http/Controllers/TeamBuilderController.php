@@ -20,7 +20,6 @@ class TeamBuilderController extends Controller
         
         $players = DB::table('players')->get();
 
-
         foreach ($players as $player) {
 
             $player_team_short = DB::table('teams')->where('team_id', $player->team)->get()->first();
