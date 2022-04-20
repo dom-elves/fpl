@@ -47,7 +47,7 @@
         props: ['gameweek', 'teams'],
 
         created() {
-            console.log(this.gameweek);
+            // console.log(this.gameweek);
         },
 
         mounted() {
@@ -70,7 +70,7 @@
 
                let mostSelected = this.gameweek.most_selected_player.category;
                let gameweek = this.gameweek.id;
-               console.log(this.gameweek);
+               
                let mspId = mostSelected.concat(gameweek);
                 
                return mspId;

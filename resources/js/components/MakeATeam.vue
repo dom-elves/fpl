@@ -127,7 +127,7 @@ export default {
         
 
 
-    //move this into a watch
+    console.log(this.goalkeepers[0]);
 
     },
 
@@ -142,3 +142,5 @@ export default {
     
 }
 </script>
+
+
