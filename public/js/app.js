@@ -6058,6 +6058,143 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -73218,9 +73355,281 @@ var render = function () {
       ]
     ),
     _vm._v(" "),
+    _c("div", { staticClass: "flex flex-row", attrs: { id: "defender-row" } }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column",
+        },
+        [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.def1,
+                  expression: "def1",
+                },
+              ],
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.def1 = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+              },
+            },
+            _vm._l(_vm.defs, function (defender) {
+              return _c("option", { domProps: { value: defender } }, [
+                _vm._v(
+                  _vm._s(defender.first_name) +
+                    " " +
+                    _vm._s(defender.last_name) +
+                    " (" +
+                    _vm._s(defender.team) +
+                    ")"
+                ),
+              ])
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c("mini-player", { attrs: { selected_player: _vm.def1 } }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column",
+        },
+        [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.def2,
+                  expression: "def2",
+                },
+              ],
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.def2 = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+              },
+            },
+            _vm._l(_vm.defs, function (defender) {
+              return _c("option", { domProps: { value: defender } }, [
+                _vm._v(
+                  _vm._s(defender.first_name) +
+                    " " +
+                    _vm._s(defender.last_name) +
+                    " (" +
+                    _vm._s(defender.team) +
+                    ")"
+                ),
+              ])
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c("mini-player", { attrs: { selected_player: _vm.def2 } }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column",
+        },
+        [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.def3,
+                  expression: "def3",
+                },
+              ],
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.def3 = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+              },
+            },
+            _vm._l(_vm.defs, function (defender) {
+              return _c("option", { domProps: { value: defender } }, [
+                _vm._v(
+                  _vm._s(defender.first_name) +
+                    " " +
+                    _vm._s(defender.last_name) +
+                    " (" +
+                    _vm._s(defender.team) +
+                    ")"
+                ),
+              ])
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c("mini-player", { attrs: { selected_player: _vm.def3 } }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column",
+        },
+        [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.def4,
+                  expression: "def4",
+                },
+              ],
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.def4 = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+              },
+            },
+            _vm._l(_vm.defs, function (defender) {
+              return _c("option", { domProps: { value: defender } }, [
+                _vm._v(
+                  _vm._s(defender.first_name) +
+                    " " +
+                    _vm._s(defender.last_name) +
+                    " (" +
+                    _vm._s(defender.team) +
+                    ")"
+                ),
+              ])
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c("mini-player", { attrs: { selected_player: _vm.def4 } }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column",
+        },
+        [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.def5,
+                  expression: "def5",
+                },
+              ],
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.def5 = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+              },
+            },
+            _vm._l(_vm.defs, function (defender) {
+              return _c("option", { domProps: { value: defender } }, [
+                _vm._v(
+                  _vm._s(defender.first_name) +
+                    " " +
+                    _vm._s(defender.last_name) +
+                    " (" +
+                    _vm._s(defender.team) +
+                    ")"
+                ),
+              ])
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c("mini-player", { attrs: { selected_player: _vm.def5 } }),
+        ],
+        1
+      ),
+    ]),
+    _vm._v(" "),
     _c(
       "div",
-      { staticClass: "flex flex-row", attrs: { id: "defender-row" } },
+      { staticClass: "flex flex-row", attrs: { id: "midfielder-row" } },
       [
         _c(
           "div",
@@ -73236,8 +73645,8 @@ var render = function () {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.def1,
-                    expression: "def1",
+                    value: _vm.mid1,
+                    expression: "mid1",
                   },
                 ],
                 on: {
@@ -73250,20 +73659,20 @@ var render = function () {
                         var val = "_value" in o ? o._value : o.value
                         return val
                       })
-                    _vm.def1 = $event.target.multiple
+                    _vm.mid1 = $event.target.multiple
                       ? $$selectedVal
                       : $$selectedVal[0]
                   },
                 },
               },
-              _vm._l(_vm.defs, function (defender) {
-                return _c("option", { domProps: { value: defender } }, [
+              _vm._l(_vm.mids, function (midfielder) {
+                return _c("option", { domProps: { value: midfielder } }, [
                   _vm._v(
-                    _vm._s(defender.first_name) +
+                    _vm._s(midfielder.first_name) +
                       " " +
-                      _vm._s(defender.last_name) +
+                      _vm._s(midfielder.last_name) +
                       " (" +
-                      _vm._s(defender.team) +
+                      _vm._s(midfielder.team) +
                       ")"
                   ),
                 ])
@@ -73271,49 +73680,392 @@ var render = function () {
               0
             ),
             _vm._v(" "),
-            _c("mini-player", { attrs: { selected_player: _vm.def1 } }),
+            _c("mini-player", { attrs: { selected_player: _vm.mid1 } }),
           ],
           1
         ),
         _vm._v(" "),
-        _c("mini-player"),
+        _c(
+          "div",
+          {
+            staticClass:
+              "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column",
+          },
+          [
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.mid2,
+                    expression: "mid2",
+                  },
+                ],
+                on: {
+                  change: function ($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function (o) {
+                        return o.selected
+                      })
+                      .map(function (o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.mid2 = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  },
+                },
+              },
+              _vm._l(_vm.mids, function (midfielder) {
+                return _c("option", { domProps: { value: midfielder } }, [
+                  _vm._v(
+                    _vm._s(midfielder.first_name) +
+                      " " +
+                      _vm._s(midfielder.last_name) +
+                      " (" +
+                      _vm._s(midfielder.team) +
+                      ")"
+                  ),
+                ])
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c("mini-player", { attrs: { selected_player: _vm.mid2 } }),
+          ],
+          1
+        ),
         _vm._v(" "),
-        _c("mini-player"),
+        _c(
+          "div",
+          {
+            staticClass:
+              "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column",
+          },
+          [
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.mid3,
+                    expression: "mid3",
+                  },
+                ],
+                on: {
+                  change: function ($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function (o) {
+                        return o.selected
+                      })
+                      .map(function (o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.mid3 = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  },
+                },
+              },
+              _vm._l(_vm.mids, function (midfielder) {
+                return _c("option", { domProps: { value: midfielder } }, [
+                  _vm._v(
+                    _vm._s(midfielder.first_name) +
+                      " " +
+                      _vm._s(midfielder.last_name) +
+                      " (" +
+                      _vm._s(midfielder.team) +
+                      ")"
+                  ),
+                ])
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c("mini-player", { attrs: { selected_player: _vm.mid3 } }),
+          ],
+          1
+        ),
         _vm._v(" "),
-        _c("mini-player"),
-      ],
-      1
+        _c(
+          "div",
+          {
+            staticClass:
+              "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column",
+          },
+          [
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.mid4,
+                    expression: "mid4",
+                  },
+                ],
+                on: {
+                  change: function ($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function (o) {
+                        return o.selected
+                      })
+                      .map(function (o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.mid4 = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  },
+                },
+              },
+              _vm._l(_vm.mids, function (midfielder) {
+                return _c("option", { domProps: { value: midfielder } }, [
+                  _vm._v(
+                    _vm._s(midfielder.first_name) +
+                      " " +
+                      _vm._s(midfielder.last_name) +
+                      " (" +
+                      _vm._s(midfielder.team) +
+                      ")"
+                  ),
+                ])
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c("mini-player", { attrs: { selected_player: _vm.mid4 } }),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column",
+          },
+          [
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.mid5,
+                    expression: "mid5",
+                  },
+                ],
+                on: {
+                  change: function ($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function (o) {
+                        return o.selected
+                      })
+                      .map(function (o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.mid5 = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  },
+                },
+              },
+              _vm._l(_vm.mids, function (midfielder) {
+                return _c("option", { domProps: { value: midfielder } }, [
+                  _vm._v(
+                    _vm._s(midfielder.first_name) +
+                      " " +
+                      _vm._s(midfielder.last_name) +
+                      " (" +
+                      _vm._s(midfielder.team) +
+                      ")"
+                  ),
+                ])
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c("mini-player", { attrs: { selected_player: _vm.mid5 } }),
+          ],
+          1
+        ),
+      ]
     ),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "flex flex-row", attrs: { id: "midfielder-row" } },
-      [
-        _c("mini-player"),
-        _vm._v(" "),
-        _c("mini-player"),
-        _vm._v(" "),
-        _c("mini-player"),
-        _vm._v(" "),
-        _c("mini-player"),
-        _vm._v(" "),
-        _c("mini-player"),
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "flex flex-row", attrs: { id: "forward-row" } },
-      [
-        _c("mini-player"),
-        _vm._v(" "),
-        _c("mini-player"),
-        _vm._v(" "),
-        _c("mini-player"),
-      ],
-      1
-    ),
+    _c("div", { staticClass: "flex flex-row", attrs: { id: "forward-row" } }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column",
+        },
+        [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.fwd1,
+                  expression: "fwd1",
+                },
+              ],
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.fwd1 = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+              },
+            },
+            _vm._l(_vm.fwds, function (forward) {
+              return _c("option", { domProps: { value: forward } }, [
+                _vm._v(
+                  _vm._s(forward.first_name) +
+                    " " +
+                    _vm._s(forward.last_name) +
+                    " (" +
+                    _vm._s(forward.team) +
+                    ")"
+                ),
+              ])
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c("mini-player", { attrs: { selected_player: _vm.fwd1 } }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column",
+        },
+        [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.fwd2,
+                  expression: "fwd2",
+                },
+              ],
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.fwd2 = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+              },
+            },
+            _vm._l(_vm.fwds, function (forward) {
+              return _c("option", { domProps: { value: forward } }, [
+                _vm._v(
+                  _vm._s(forward.first_name) +
+                    " " +
+                    _vm._s(forward.last_name) +
+                    " (" +
+                    _vm._s(forward.team) +
+                    ")"
+                ),
+              ])
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c("mini-player", { attrs: { selected_player: _vm.fwd2 } }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column",
+        },
+        [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.fwd3,
+                  expression: "fwd3",
+                },
+              ],
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.fwd3 = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+              },
+            },
+            _vm._l(_vm.fwds, function (forward) {
+              return _c("option", { domProps: { value: forward } }, [
+                _vm._v(
+                  _vm._s(forward.first_name) +
+                    " " +
+                    _vm._s(forward.last_name) +
+                    " (" +
+                    _vm._s(forward.team) +
+                    ")"
+                ),
+              ])
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c("mini-player", { attrs: { selected_player: _vm.fwd3 } }),
+        ],
+        1
+      ),
+    ]),
   ])
 }
 var staticRenderFns = []

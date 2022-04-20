@@ -44,24 +44,161 @@
 
             </div>
 
+            <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column">
+
+                <select v-model="def2">
+
+                    <option v-for="defender in defs" v-bind:value="defender">{{ defender.first_name }} {{ defender.last_name }} ({{defender.team}})</option>
+
+                </select>
+
+                <mini-player :selected_player="def2"></mini-player>
+
+            </div>
+
+            <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column">
+
+                <select v-model="def3">
+
+                    <option v-for="defender in defs" v-bind:value="defender">{{ defender.first_name }} {{ defender.last_name }} ({{defender.team}})</option>
+
+                </select>
+
+                <mini-player :selected_player="def3"></mini-player>
+
+            </div>
+
+            <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column">
+
+                <select v-model="def4">
+
+                    <option v-for="defender in defs" v-bind:value="defender">{{ defender.first_name }} {{ defender.last_name }} ({{defender.team}})</option>
+
+                </select>
+
+                <mini-player :selected_player="def4"></mini-player>
+
+            </div>
+
+            <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column">
+
+                <select v-model="def5">
+
+                    <option v-for="defender in defs" v-bind:value="defender">{{ defender.first_name }} {{ defender.last_name }} ({{defender.team}})</option>
+
+                </select>
+
+                <mini-player :selected_player="def5"></mini-player>
+
+            </div>
+
             
-            <mini-player></mini-player>
-            <mini-player></mini-player>
-            <mini-player></mini-player>
+            
         </div>
 
         <div class="flex flex-row" id="midfielder-row">
-            <mini-player></mini-player>
-            <mini-player></mini-player>
-            <mini-player></mini-player>
-            <mini-player></mini-player>
-            <mini-player></mini-player>
+            
+            <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column">
+
+                <select v-model="mid1">
+
+                    <option v-for="midfielder in mids" v-bind:value="midfielder">{{ midfielder.first_name }} {{ midfielder.last_name }} ({{midfielder.team}})</option>
+
+                </select>
+
+                <mini-player :selected_player="mid1"></mini-player>
+
+            </div>
+
+            <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column">
+
+                <select v-model="mid2">
+
+                   <option v-for="midfielder in mids" v-bind:value="midfielder">{{ midfielder.first_name }} {{ midfielder.last_name }} ({{midfielder.team}})</option>
+
+                </select>
+
+                <mini-player :selected_player="mid2"></mini-player>
+
+            </div>
+
+            <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column">
+
+                <select v-model="mid3">
+
+                    <option v-for="midfielder in mids" v-bind:value="midfielder">{{ midfielder.first_name }} {{ midfielder.last_name }} ({{midfielder.team}})</option>
+
+                </select>
+
+                <mini-player :selected_player="mid3"></mini-player>
+
+            </div>
+
+            <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column">
+
+                <select v-model="mid4">
+
+                    <option v-for="midfielder in mids" v-bind:value="midfielder">{{ midfielder.first_name }} {{ midfielder.last_name }} ({{midfielder.team}})</option>
+
+                </select>
+
+                <mini-player :selected_player="mid4"></mini-player>
+
+            </div>
+
+            <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column">
+
+                <select v-model="mid5">
+
+                    <option v-for="midfielder in mids" v-bind:value="midfielder">{{ midfielder.first_name }} {{ midfielder.last_name }} ({{midfielder.team}})</option>
+
+                </select>
+
+                <mini-player :selected_player="mid5"></mini-player>
+
+            </div>
+
         </div>
 
         <div class="flex flex-row" id="forward-row">
-            <mini-player></mini-player>
-            <mini-player></mini-player>
-            <mini-player></mini-player>
+
+            <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column">
+
+                <select v-model="fwd1">
+
+                    <option v-for="forward in fwds" v-bind:value="forward">{{ forward.first_name }} {{ forward.last_name }} ({{forward.team}})</option>
+
+                </select>
+
+                <mini-player :selected_player="fwd1"></mini-player>
+
+            </div>
+
+            <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column">
+
+                <select v-model="fwd2">
+
+                    <option v-for="forward in fwds" v-bind:value="forward">{{ forward.first_name }} {{ forward.last_name }} ({{forward.team}})</option>
+
+                </select>
+
+                <mini-player :selected_player="fwd2"></mini-player>
+
+            </div>
+
+            <div class="text-center border-2 border-[#00ff85] m-2 bg-purple-50 w-[150px] flex flex-column">
+
+                <select v-model="fwd3">
+
+                    <option v-for="forward in fwds" v-bind:value="forward">{{ forward.first_name }} {{ forward.last_name }} ({{forward.team}})</option>
+
+                </select>
+
+                <mini-player :selected_player="fwd3"></mini-player>
+
+            </div>
+            
+            
             
         </div>
         
