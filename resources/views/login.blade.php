@@ -18,10 +18,16 @@
             <p class="m-5">If you are a new user, please sign up below:</p>
 
             @if (session('success'))
-            <div class="alert alert-success">
-        {{ session('success') }}
-         </div>
-@endif
+                <div class="alert alert-success">
+                {{ session('success') }}
+                </div>
+            @endif
+
+            @if (session('failure'))
+                <div class="alert alert-danger">
+                {{ session('failure') }}
+                </div>
+            @endif
 
             <form action="/sign-up">
             {{ csrf_field() }}

@@ -30,6 +30,29 @@ class UserController extends Controller
         
         // dd($new_user, $new_email, $new_password);
 
+        $existing_user = DB::Table('users')->where('name', $new_user)->get()->first();
+
+        $existing_email = DB::Table('users')->where('email', $new_email)->get()->first();
+
+        if ($existing_email && $existing_user) {
+
+            $request->session()->flash("failure", "This account already exists");
+            return view('/login');
+        }
+
+        if ($existing_user) {
+            
+            $request->session()->flash("failure", "Username '" . $new_user . "' already exists");
+            return view('/login');
+        }
+
+        if ($existing_email) {
+            
+            $request->session()->flash("failure", "Email '" . $new_email . "' is already is use");
+            return view('/login');
+        }
+
+
         User::create([
 
             'name' => $new_user,
