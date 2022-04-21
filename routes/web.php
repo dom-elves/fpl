@@ -26,6 +26,8 @@ Route::get('/', function () {
 //login
 Route::get('/login', [UserController::class, 'login']);
 
+Route::get('/sign-up', [UserController::class, 'signUp']);
+
 //initial main view, returns $players and $teams
 Route::get('/main', [TeamsController::class, 'index']);
 
