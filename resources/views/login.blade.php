@@ -17,6 +17,12 @@
 
             <p class="m-5">If you are a new user, please sign up below:</p>
 
+            @if (session('success'))
+            <div class="alert alert-success">
+        {{ session('success') }}
+         </div>
+@endif
+
             <form action="/sign-up">
             {{ csrf_field() }}
                 <div class="flex flex-column items-start">

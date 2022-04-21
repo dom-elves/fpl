@@ -37,6 +37,8 @@ class UserController extends Controller
             'password' => $new_password,
         ]);
 
-        
+        $request->session()->flash('success', 'Account created successfully!');
+
+        return view('/login');
     }
 }
