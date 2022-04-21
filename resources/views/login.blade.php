@@ -55,19 +55,25 @@
 
             <p class="m-5">Or if you are an existing user, pleasee log in:</p>
 
-            <form>
+            @if (session('failure'))
+                <div class="alert alert-danger">
+                {{ session('failure') }}
+                </div>
+            @endif
+
+            <form action="/user-log-in">
             {{ csrf_field() }}
                 <div class="flex flex-column items-start">
                     <label>Username:</label>
-                    <input class="p-2 h-[30px]">
+                    <input class="p-2 h-[30px]" name="enter_user">
                 </div>
 
                 <div class="flex flex-column items-start">
                     <label>Password:</label>
-                    <input class="p-2 h-[30px]">
+                    <input class="p-2 h-[30px]" name="enter_password"> 
                 </div>
 
-                <button class="bg-green-200 w-full">Log In</button>
+                <button type="submit" class="bg-green-200 w-full">Log In</button>
             <form>
 
         </div>

@@ -28,6 +28,8 @@ Route::get('/login', [UserController::class, 'login']);
 
 Route::get('/sign-up', [UserController::class, 'signUp']);
 
+Route::get('/user-log-in', [UserController::class, 'userLogIn']);
+
 //initial main view, returns $players and $teams
 Route::get('/main', [TeamsController::class, 'index']);
 

@@ -27,8 +27,6 @@ class UserController extends Controller
         $new_user = $request->input('new_user');
         $new_email = $request->input('new_email');
         $new_password = $request->input('new_password');
-        
-        // dd($new_user, $new_email, $new_password);
 
         $existing_user = DB::Table('users')->where('name', $new_user)->get()->first();
 
@@ -63,5 +61,29 @@ class UserController extends Controller
         $request->session()->flash('success', 'Account created successfully!');
 
         return view('/login');
+    }
+
+    public function userLogIn(Request $request)
+    {
+
+        $entered_user = $request->input('enter_user');
+        $entered_password = $request->input('enter_password');
+
+        // dd($entered_user, $entered_password);
+        $existing_user = DB::Table('users')->where('name', $entered_user)->get()->first();
+
+        $existing_password = DB::Table('users')->where('email', $entered_password)->get()->first();
+
+        if ($existing_password && $existing_user) {
+
+            return redirect('/main');
+        } 
+
+        if (!$existing_user) {
+
+            $request->session()->flash("login-failure", "Email '" . $entered_user . "' does not exist");
+            return view('/login');
+        }
+
     }
 }
