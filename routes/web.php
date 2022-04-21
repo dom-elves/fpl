@@ -4,6 +4,7 @@ use App\Http\Controllers\GameweekController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\TeamBuilderController;
 use App\Http\Controllers\TeamsController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//login
+Route::get('/login', [UserController::class, 'login']);
 
 //initial main view, returns $players and $teams
 Route::get('/main', [TeamsController::class, 'index']);

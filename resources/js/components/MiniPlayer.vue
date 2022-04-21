@@ -10,17 +10,15 @@
 
         <p>Popularity: {{ this.selected_player.percent_selected}}%</p>
 
-        <p>Points Per 90: {{ this.selected_player.points_per_90}}</p>
-
         <p>Points Per Game: {{ this.selected_player.points_per_game}}</p>
 
         <p v-if="this.selected_player.position == 'GK'">Saves: {{ this.selected_player.saves}}</p>
 
         <p v-if="this.selected_player.position == 'GK' || 'DEF'">Clean sheets: {{ this.selected_player.clean_sheets}}</p>
 
-        <p v-if="this.selected_player.position !== 'GK'">Goals {{ this.selected_player.goals_scored}}</p>
+        <p v-if="this.selected_player.position !== 'GK'">Goals: {{ this.selected_player.goals_scored}}</p>
 
-        <p v-if="this.selected_player.position !== 'GK'">Assists {{ this.selected_player.goals_assisted}}</p>
+        <p v-if="this.selected_player.position !== 'GK'">Assists: {{ this.selected_player.goals_assisted}}</p>
 
     </div>
 

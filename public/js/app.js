@@ -6293,8 +6293,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'MiniPlayer',
   props: ['selected_player'],
@@ -74167,10 +74165,6 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c("p", [
-      _vm._v("Points Per 90: " + _vm._s(this.selected_player.points_per_90)),
-    ]),
-    _vm._v(" "),
-    _c("p", [
       _vm._v(
         "Points Per Game: " + _vm._s(this.selected_player.points_per_game)
       ),
@@ -74187,12 +74181,12 @@ var render = function () {
       : 0,
     _vm._v(" "),
     this.selected_player.position !== "GK"
-      ? _c("p", [_vm._v("Goals " + _vm._s(this.selected_player.goals_scored))])
+      ? _c("p", [_vm._v("Goals: " + _vm._s(this.selected_player.goals_scored))])
       : _vm._e(),
     _vm._v(" "),
     this.selected_player.position !== "GK"
       ? _c("p", [
-          _vm._v("Assists " + _vm._s(this.selected_player.goals_assisted)),
+          _vm._v("Assists: " + _vm._s(this.selected_player.goals_assisted)),
         ])
       : _vm._e(),
   ])
