@@ -9,11 +9,47 @@
     </head>
 
 
-    <body class="text-white bg-[#38003c] w-full h-full">
+    <body class="bg-[#38003c] w-full h-full flex flex-column items-center justify-center">
 
-        <div>
-            
+    <div class="bg-blue-50 h-[600px] w-[400px] p-3">
+
+        <div class="items-center flex flex-column">
+
+            <p class="m-5">Please login below</p>
+
+            <form>
+                <div class="flex flex-column items-start">
+                    <label>Username:</label>
+                    <input class="p-2 h-[30px]">
+                </div>
+
+                <div class="flex flex-column items-start">
+                    <label>Password:</label>
+                    <input class="p-2 h-[30px]">
+                </div>
+            <form>
+
         </div>
+
+        <div class="items-center flex flex-column">
+
+            <p class="m-5">Or if you a new user, please sign up</p>
+
+            <form>
+                <div class="flex flex-column items-start">
+                    <label>Username:</label>
+                    <input class="p-2 h-[30px]">
+                </div>
+
+                <div class="flex flex-column items-start">
+                    <label>Password:</label>
+                    <input class="p-2 h-[30px]">
+                </div>
+            <form>
+
+        </div>
+
+    </div>
 
     </body>
 

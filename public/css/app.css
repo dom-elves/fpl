@@ -11772,6 +11772,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .m-1 {
   margin: 0.25rem;
 }
+.m-20 {
+  margin: 5rem;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -11855,6 +11858,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-full {
   height: 100%;
 }
+.h-\[400px\] {
+  height: 400px;
+}
+.h-\[600px\] {
+  height: 600px;
+}
+.h-\[30px\] {
+  height: 30px;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -11900,6 +11912,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-\[140px\] {
   width: 140px;
 }
+.w-\[200px\] {
+  width: 200px;
+}
 .max-w-6xl {
   max-width: 72rem;
 }
@@ -11911,6 +11926,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .flex-wrap {
   flex-wrap: wrap;
+}
+.items-start {
+  align-items: flex-start;
 }
 .items-center {
   align-items: center;
@@ -11993,6 +12011,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(4 245 255 / var(--tw-bg-opacity));
 }
+.bg-blue-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 246 255 / var(--tw-bg-opacity));
+}
 .p-1 {
   padding: 0.25rem;
 }
@@ -12004,6 +12026,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .p-4 {
   padding: 1rem;
+}
+.p-3 {
+  padding: 0.75rem;
 }
 .py-4 {
   padding-top: 1rem;
