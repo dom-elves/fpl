@@ -23,7 +23,7 @@ class UserController extends Controller
 
     public function signUp(Request $request)
     {
-        
+        // dd($request);
         $new_user = $request->input('new_user');
         $new_email = $request->input('new_email');
         $new_password = $request->input('new_password');
@@ -50,6 +50,11 @@ class UserController extends Controller
             return view('/login');
         }
 
+        if ($new_user == null || $new_email == null || $new_password == null) {
+            $request->session([$new_user, $new_email, $new_password])->flash("failure", "Please fill out all fields");
+            return view('/login');
+        }
+
 
         User::create([
 
@@ -61,11 +66,12 @@ class UserController extends Controller
         $request->session()->flash('success', 'Account created successfully!');
 
         return view('/login');
+    
     }
 
     public function userLogIn(Request $request)
     {
-
+    
         $entered_user = $request->input('enter_user');
         $entered_password = $request->input('enter_password');
 

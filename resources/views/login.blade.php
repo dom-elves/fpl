@@ -9,7 +9,7 @@
     </head>
 
 
-    <body class="bg-[#38003c] w-full h-full flex flex-column items-center justify-center">
+    <body class="bg-[#38003c] w-full h-full flex flex-row items-center justify-center">
 
     <div class="bg-blue-50 h-[700px] w-[400px] p-3">
 
@@ -26,10 +26,11 @@
             @if (session('failure'))
                 <div class="alert alert-danger">
                 {{ session('failure') }}
+               
                 </div>
             @endif
 
-            <form action="/sign-up">
+            <form action="/sign-up" method="post">
             {{ csrf_field() }}
                 <div class="flex flex-column items-start">
                     <label>Username:</label>
@@ -46,8 +47,8 @@
                     <input class="p-2 h-[30px]" name="new_password">
                 </div>
 
-                <button type="submit" class="bg-green-200 w-full">Sign Up</button>
-            <form>
+                <button type="submit" class="bg-green-200 w-full" name="signup">Sign Up</button>
+            </form>
 
         </div>
 
@@ -73,12 +74,14 @@
                     <input class="p-2 h-[30px]" name="enter_password"> 
                 </div>
 
-                <button type="submit" class="bg-green-200 w-full">Log In</button>
-            <form>
+                <button type="submit" class="bg-green-200 w-full" name="login">Log In</button>
+            </form>
 
         </div>
 
     </div>
+
+    
 
     </body>
 

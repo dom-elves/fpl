@@ -26,7 +26,7 @@ Route::get('/', function () {
 //login
 Route::get('/login', [UserController::class, 'login']);
 
-Route::get('/sign-up', [UserController::class, 'signUp']);
+Route::post('/sign-up', [UserController::class, 'signUp']);
 
 Route::get('/user-log-in', [UserController::class, 'userLogIn']);
 
