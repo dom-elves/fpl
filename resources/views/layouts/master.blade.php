@@ -61,17 +61,12 @@
             </div>
         </form>
 
-        <a href="/player-history" class="m-1"><div class=" button-hover-state font-bold  text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm text-center">Update Player History (Weeky Points)</div></a>
         
-        <div id="header-buttons" class="flex flex-column">
+        <!-- <div id="header-buttons" class="flex flex-column">
 
             <div class="flex flex-row text-center">
 
                 <a href="/player-comparison" class="m-1"><div class="button-hover-state font-bold text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Player Comparison</div></a>
-
-                <a href="/update-players" class="m-1"><div class="button-hover-state font-bold text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Update Players</div></a>
-
-                <a href="/update-teams" class="m-1"><div class=" button-hover-state font-bold  text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Update Teams</div></a>
 
             </div>
 
@@ -85,7 +80,11 @@
 
             </div>
 
-        <div>
+        </div> -->
+
+        <select>
+            <option>aewrert</option>
+        </select>
 
     </header>
         <div id="app">
