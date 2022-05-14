@@ -38,7 +38,7 @@ class GameweekController extends Controller
     public function requestGameweeks() 
     {
       $response = Http::get('https://fantasy.premierleague.com/api/bootstrap-static/');
-
+      
       $decoded = json_decode($response->body());
       
       $gameweeks = $decoded->events;
@@ -47,9 +47,9 @@ class GameweekController extends Controller
       foreach ($gameweeks as $gameweek) {
     
         //skips over all COMPLETED gameweeks
-        if ($gameweek->finished == true) {
-          continue;
-        }
+        // if ($gameweek->finished == true) {
+        //   continue;
+        // } commented out as it was not actually doing what i wanted it to 
         
         //inside of here is CURRENT gameweek
         if ($gameweek->is_current == true ) {

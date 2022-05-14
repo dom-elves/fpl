@@ -11876,6 +11876,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-\[400px\] {
   width: 400px;
 }
+.w-\[250px\] {
+  width: 250px;
+}
 .w-\[270px\] {
   width: 270px;
 }
@@ -11899,9 +11902,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-\[300px\] {
   width: 300px;
-}
-.w-\[250px\] {
-  width: 250px;
 }
 .w-\[140px\] {
   width: 140px;
@@ -12045,6 +12045,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .text-\[30px\] {
   font-size: 30px;
+}
+.text-\[15px\] {
+  font-size: 15px;
 }
 .text-3xl {
   font-size: 1.875rem;
