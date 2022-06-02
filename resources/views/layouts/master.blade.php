@@ -61,29 +61,16 @@
             </div>
         </form>
 
-        
-        <!-- <div id="header-buttons" class="flex flex-column">
+        <select id="navigation" onchange="goSomewhere()">
 
-            <div class="flex flex-row text-center">
+            <option>Select where to go</option>
+            <option value="/main">Main</option>
+            <option value="/gameweeks">Gameweeks</option>
+            <option value="/player-index">Player Index</option>
+            <option value="/player-comparison">Player Comparison</option>
+            <option value="/top-trumps">Top Trumps</option>
+            <option value="/make-a-team">Make a team</option>
 
-                <a href="/player-comparison" class="m-1"><div class="button-hover-state font-bold text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Player Comparison</div></a>
-
-            </div>
-
-            <div class="flex flex-row text-center">
-
-                <a href="/gameweeks" class="m-1"><div class="button-hover-state font-bold  text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Gameweeks</div></a>
-                
-                <a href="/main" class="m-1"><div class="button-hover-state font-bold  text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Home</div></a>
-
-                <a href="/player-index" class="m-1"><div class=" button-hover-state font-bold  text-[#38003c] bg-[#04f5ff] border-[#38003c] border-2 w-[140px] p-1 rounded-sm">Player Index</div></a>
-
-            </div>
-
-        </div> -->
-
-        <select>
-            <option>aewrert</option>
         </select>
 
     </header>
@@ -93,6 +80,19 @@
 
         </div>
     </body>
+
+    <script>
+
+        function goSomewhere() {
+            const base = 'http://127.0.0.1:8000'
+            let nav = document.getElementById("navigation").value;
+            console.log(nav);
+            window.location.href = base + nav;
+
+        };
+        
+        
+    </script>
 
     <script src="{{ mix('/js/app.js') }}"></script>
     
